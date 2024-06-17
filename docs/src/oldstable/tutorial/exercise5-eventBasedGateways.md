@@ -14,13 +14,13 @@ In the final exercise we will look at message flow between three organizations a
 
 If an existing and started process instance is waiting for a message from another organization, the corresponding FHIR [Task](http://hl7.org/fhir/R4/task.html) may never arrive. Either because the other organization decides to never send the "message" or because some technical problem prohibits the  [Task](http://hl7.org/fhir/R4/task.html) resource from being posted to the DSF FHIR server. This would result in stale process instances that never finish.
 
-In order to solve this problem we can add an [Event Based Gateway](https://docs.camunda.org/manual/7.17/reference/bpmn20/gateways/event-based-gateway/) to the process waiting for a response and then either handle a  [Task](http://hl7.org/fhir/R4/task.html) resource with the response and finish the process in a success state or fire of an [Intermediate Timer Catch Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/timer-events/#timer-intermediate-catching-event) after a defined wait period and finish the process in an error state. The following BPMN collaboration diagram shows how the process at the first organization would look like if two different message or no message could be received:
+In order to solve this problem we can add an [Event Based Gateway](https://docs.camunda.org/manual/7.18/reference/bpmn20/gateways/event-based-gateway/) to the process waiting for a response and then either handle a  [Task](http://hl7.org/fhir/R4/task.html) resource with the response and finish the process in a success state or fire of an [Intermediate Timer Catch Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/timer-events/#timer-intermediate-catching-event) after a defined wait period and finish the process in an error state. The following BPMN collaboration diagram shows how the process at the first organization would look like if two different message or no message could be received:
 
 ![](/photos/guideline/tutorial/ex5.png)
 
 ##### Timer Events
 
-For [Timer Events](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/timer-events/) the duration until the timer fires is specified using the [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) format. Examples can be found in the [Camunda 7 documentation](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/timer-events/#time-duration).
+For [Timer Events](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/timer-events/) the duration until the timer fires is specified using the [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) format. Examples can be found in the [Camunda 7 documentation](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/timer-events/#time-duration).
 
 #### Matching Process Instances With Business Keys
 
@@ -36,7 +36,7 @@ The authorization extension needs to be configured at least once and has four su
 
 ##### message-name [1..1]
 
-String value specifying the message name of [Message Start Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-start-event), [Intermediate Message Catch Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-intermediate-catching-event) or [Message Receive Task](https://docs.camunda.org/manual/7.17/reference/bpmn20/tasks/receive-task/) this authorization rule should match. Can only be specified once per authorization rule extension.
+String value specifying the message name of [Message Start Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-start-event), [Intermediate Message Catch Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-intermediate-catching-event) or [Message Receive Task](https://docs.camunda.org/manual/7.18/reference/bpmn20/tasks/receive-task/) this authorization rule should match. Can only be specified once per authorization rule extension.
 
 ##### task-profile [1..1]
 
@@ -126,13 +126,13 @@ The following example specifies that process execution can only be requested by 
 ### Exercise Tasks
 --- 
 1. Modify the ``HelloCosMessage`` and use the value from the [Task.input](http://hl7.org/fhir/R4/task.html) parameter of the ``helloDic`` [Task](http://hl7.org/fhir/R4/task.html) to send it to the ``highmedorg_helloCos`` process via a [Task.input](http://hl7.org/fhir/R4/task.html) parameter in the ``helloCos`` Task. Override the ``getAdditionalInputParameters`` to configure a [Task.input](http://hl7.org/fhir/R4/task.html) parameter to be send.
-2. Modify the ``highmedorg_helloCos`` process to use a [Message End Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-end-event) to trigger the process in file ``hello-hrp.bpmn``. Figure out the values for the ``instantiatesUri``, ``profile`` and ``messageName`` input parameters of the [Message End Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-end-event) based on the [AcitvityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) in file ``hello-hrp.xml``.
+2. Modify the ``highmedorg_helloCos`` process to use a [Message End Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-end-event) to trigger the process in file ``hello-hrp.bpmn``. Figure out the values for the ``instantiatesUri``, ``profile`` and ``messageName`` input parameters of the [Message End Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-end-event) based on the [AcitvityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) in file ``hello-hrp.xml``.
 3. Modify the ``highmedorg_helloDic`` process:
-    - Change the [Message End Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-end-event) to an [Intermediate Message Throw Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-intermediate-throwing-event)
-    - Add an [Event Based Gateway](https://docs.camunda.org/manual/7.17/reference/bpmn20/gateways/event-based-gateway/) after the throw event
-    - Configure two cases for the [Event Based Gateway](https://docs.camunda.org/manual/7.17/reference/bpmn20/gateways/event-based-gateway/):
-        1. An [Intermediate Message Catch Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/message-events/#message-intermediate-catching-event) to catch the ``goodbyDic`` message from the ``highmedorg_helloHrp`` process.
-        2. An [Intermediate Timer Catch Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/timer-events/#timer-intermediate-catching-event) to end the process if no message is sent by the ``highmedorg_helloHrp`` process after two minutes. Make sure both cases finish with a process [End Event](https://docs.camunda.org/manual/7.17/reference/bpmn20/events/none-events/).
+    - Change the [Message End Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-end-event) to an [Intermediate Message Throw Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-intermediate-throwing-event)
+    - Add an [Event Based Gateway](https://docs.camunda.org/manual/7.18/reference/bpmn20/gateways/event-based-gateway/) after the throw event
+    - Configure two cases for the [Event Based Gateway](https://docs.camunda.org/manual/7.18/reference/bpmn20/gateways/event-based-gateway/):
+        1. An [Intermediate Message Catch Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/message-events/#message-intermediate-catching-event) to catch the ``goodbyDic`` message from the ``highmedorg_helloHrp`` process.
+        2. An [Intermediate Timer Catch Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/timer-events/#timer-intermediate-catching-event) to end the process if no message is sent by the ``highmedorg_helloHrp`` process after two minutes. Make sure both cases finish with a process [End Event](https://docs.camunda.org/manual/7.18/reference/bpmn20/events/none-events/).
 4. Modify the process in file ``hello-hrp.bpmn`` and set the process definition key and version. Figure out the appropriate values based on the [AcitvityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) in file ``hello-hrp.xml``.
 5. Add the process in file ``hello-hrp.bpmn`` to the ``TutorialProcessPluginDefinition`` and configure the FHIR resources needed for the three processes.
 6. Add the ``HelloCos``, ``HelloHrpMessage`` , ``HelloHrp`` and ``GoodbyeDicMessage`` classes as spring beans.
