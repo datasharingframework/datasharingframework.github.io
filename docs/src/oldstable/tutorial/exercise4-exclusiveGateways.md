@@ -11,11 +11,11 @@ Different execution paths in a process based on the state of process variables c
 ---
 #### Exclusive Gateways
 
-Different sequence flows during the execution of a process instance can be modeled using BPMN [Exclusive Gateways](https://docs.camunda.org/manual/7.4/reference/bpmn20/gateways/exclusive-gateway/). For each outgoing sequence flow of the gateway, a BPMN [Condition Expression](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#conditions) can be added to the process model, deciding whether a sequence flow should be followed. Thereby, all condition decisions must be in an XOR relationship to each other.
+Different sequence flows during the execution of a process instance can be modeled using BPMN [Exclusive Gateways](https://docs.camunda.org/manual/7.18/reference/bpmn20/gateways/exclusive-gateway/). For each outgoing sequence flow of the gateway, a BPMN [Condition Expression](https://docs.camunda.org/manual/7.18/user-guide/process-engine/expression-language/#conditions) can be added to the process model, deciding whether a sequence flow should be followed. Thereby, all condition decisions must be in an XOR relationship to each other.
 
 #### Condition Expressions
 
-A BPMN [Condition Expression](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#conditions) uses the ``${..}`` notation. Within the curly braces all execution variables of a process instance can be accessed, e.g. the ones that were stored in a previous Java implementation of a BPMN [ServiceTask](https://docs.camunda.org/manual/7.17/reference/bpmn20/tasks/service-task/). For example, the BPMN [Condition Expression](https://docs.camunda.org/manual/7.17/user-guide/process-engine/expression-language/#conditions) ``${cohortSize > 100}`` checks whether the value in the execution variable *cohortSize* is greater than 100.
+A BPMN [Condition Expression](https://docs.camunda.org/manual/7.18/user-guide/process-engine/expression-language/#conditions) uses the ``${..}`` notation. Within the curly braces all execution variables of a process instance can be accessed, e.g. the ones that were stored in a previous Java implementation of a BPMN [ServiceTask](https://docs.camunda.org/manual/7.18/reference/bpmn20/tasks/service-task/). For example, the BPMN [Condition Expression](https://docs.camunda.org/manual/7.18/user-guide/process-engine/expression-language/#conditions) ``${cohortSize > 100}`` checks whether the value in the execution variable *cohortSize* is greater than 100.
 
 #### Storing / Modifying Process Variables
 
@@ -26,7 +26,7 @@ Via the ``DelegateExecution execution`` parameter of the ``doExecute`` method of
 	boolean variable = (boolean) execution.getVariable("variable-name");
 }
 ```
-For more details on process variables see the [Camunda documentation](https://docs.camunda.org/manual/7.17/user-guide/process-engine/variables/).
+For more details on process variables see the [Camunda documentation](https://docs.camunda.org/manual/7.18/user-guide/process-engine/variables/).
 
 ### Exercise Tasks
 ---
