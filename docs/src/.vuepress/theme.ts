@@ -1197,7 +1197,8 @@ export default hopeTheme({
         icon: "guide",
         children: ["introduction", "generalinformation/", "code/", "build/", "releases/", "tutorial/"], 
       },
-    ]
+    ],
+    "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
   footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a>",
