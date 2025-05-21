@@ -3,7 +3,7 @@ import { hopeTheme } from "vuepress-theme-hope";
 export default hopeTheme({
   author: {
     name: "DSF-Team",
-    url: "/about/learnmore/team.html", 
+    url: "/community/team.html", 
   },
 
   iconAssets: "/assets/font/font.css",
@@ -24,78 +24,53 @@ export default hopeTheme({
         text: "Explore",
         icon: "info",
         prefix: "",
-        children: [
-          {
-            text: "Explore",
-            icon: "info",
-            children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/"],
-          },
-          {
-            text: "Security",
-            icon: "safe",
-            link: "/security/",
-          }
-        ]
+        children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/", "/security/"],
     },
     {
       text: "Operations",
       icon: "launch",
       prefix: "/operations/",
-      children: [
-          {
-            text: "Operations",
-            icon: "info",
-            children: [ "get-started", "process-plugin-deployment"],
-          }
-        ]
+      children: [ "get-started.md", "process-plugin-deployment.md", "old-versions.md"],
     },
     {
       text: "Process Development",
       icon: "process",
       prefix: "/process-development/",
       children: [
-          {
-            text: "Process Developments",
-            icon: "docs",
-            children: ["api-v1/concept", "api-v2/README.md", "how-to/start-project", "process-plugin/", "publishing/publish-on-dsfhub"],
-          }
-        ]
-    },
+        {
+          text: "API v1",
+          children: [
+            "api-v1/readme.md",
+            "api-v1/get-started.md"
+          ]
+        },
+        {
+          text: "API v2",
+          children: [
+            "api-v2/readme.md",
+            "api-v2/get-started.md"
+          ]
+        }
+      ]
+      
+    }/*,
      {
       text: "DSF Development",
       icon: "info",
       link: "/dsf-development/",
-    },
+    }*/,
     {
       text: "Community",
       icon: "creative",
       prefix: "/community/",  
       children: [
-        {
-          text: "About us",
-          icon: "creative",
-          prefix: "about/", 
-          children: ["contact", "team", "partners", "public", "faq", "projectlist"], 
-        },
-        { 
-          text: "Contribute",
-          icon: "creative",
-          prefix: "contribute/", 
-          children: ["contribute"],
-        },
-        { 
-          text: "Events",
-          icon: "creative",
-          prefix: "events/", 
-          children: ["tutorials/"],
-        }, "communications" , "dsf-ecosytem", "speakinghours"
+        "team",
+        "communication",
+        "ecosystem",
+        "contribute/",
+        "events/",
+        "consultation-hours"
       ],
-    },
-    {
-      text: "Versions",
-      icon: "note",
-      // children:["/v1/"],
-      children: [{ text: "v1.7.1 (stable)", link: "/stable/" }, { text: "v1.7.0", link: "/v1.7.0/" }, { text: "v1.6.0", link: "/v1.6.0/" }, { text: "v1.5.2", link: "/v1.5.2/" }, { text: "v1.5.1", link: "/v1.5.1/" }, { text: "v1.5.0", link: "/v1.5.0/" }, { text: "v1.4.0", link: "/v1.4.0/" }, { text: "v1.3.2", link: "/v1.3.2/" }, { text: "v1.3.1", link: "/v1.3.1/" }, { text: "v1.3.0", link: "/v1.3.0/" }, { text: "v1.2.0", link: "/v1.2.0/" }, { text: "v1.1.0", link: "/v1.1.0/" }, { text: "v1.0.0", link: "/v1.0.0/" }, { text: "v0.9.3 (archived)", link: "/oldstable/"}],
     },
     {
       text: "",
@@ -250,7 +225,7 @@ export default hopeTheme({
       ]
       },
     ],
-    "/v1.7.1/": [
+    "/operations/v1/v1.7.1/": [
       {
         text: "Home",
         icon: "home",
@@ -333,7 +308,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.7.0/": [
+    "/operations/v1/v1.7.0/": [
       {
         text: "Home",
         icon: "home",
@@ -419,7 +394,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.6.0/": [
+    "/operations/v1/v1.6.0/": [
       {
         text: "Home",
         icon: "home",
@@ -506,7 +481,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.5.2/": [
+    "/operations/v1/v1.5.2/": [
       {
         text: "Home",
         icon: "home",
@@ -593,7 +568,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.5.1/": [
+    "/operations/v1/v1.5.1/": [
       {
         text: "Home",
         icon: "home",
@@ -680,7 +655,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.5.0/": [
+    "/operations/v1/v1.5.0/": [
       {
         text: "Home",
         icon: "home",
@@ -767,7 +742,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.4.0/": [
+    "/operations/v1/v1.4.0/": [
       {
         text: "Home",
         icon: "home",
@@ -836,7 +811,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.3.2/": [
+    "/operations/v1/v1.3.2/": [
       {
         text: "Home",
         icon: "home",
@@ -905,7 +880,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.3.1/": [
+    "/operations/v1/v1.3.1/": [
       {
         text: "Home",
         icon: "home",
@@ -974,7 +949,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.3.0/": [
+    "/operations/v1/v1.3.0/": [
       {
         text: "Home",
         icon: "home",
@@ -1043,7 +1018,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.2.0/": [
+    "/operations/v1/v1.2.0/": [
       {
         text: "Home",
         icon: "home",
@@ -1107,7 +1082,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.1.0/": [
+    "/operations/v1/v1.1.0/": [
       {
         text: "Home",
         icon: "home",
@@ -1171,7 +1146,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/v1.0.0/": [
+    "/operations/v1/v1.0.0/": [
       {
         text: "Home",
         icon: "home",
@@ -1269,18 +1244,6 @@ export default hopeTheme({
       },
       
 
-    ],
-    "/oldstable/":  [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Version 0.9.x",
-        icon: "guide",
-        children: ["introduction", "generalinformation/", "code/", "build/", "releases/", "tutorial/"], 
-      },
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },

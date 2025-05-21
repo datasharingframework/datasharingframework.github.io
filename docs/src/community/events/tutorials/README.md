@@ -1,5 +1,5 @@
 ---
-title: Tutorials
+title: Events
 icon: edit
 ---
 - [MIE 2023](MIE2023.md)

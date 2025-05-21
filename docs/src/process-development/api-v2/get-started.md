@@ -1,5 +1,5 @@
 ---
-title: How to start new Project
+title: Get Started with API v2
 icon: edit
 ---
 
