@@ -38,14 +38,14 @@ export default hopeTheme({
         ]
     },
     {
-        text: "Get Started",
-        icon: "launch",
-        prefix: "/stable/",
-        children: [
+      text: "Operations",
+      icon: "launch",
+      prefix: "/operations/",
+      children: [
           {
-            text: "Guideline v1.7.1 (stable)",
+            text: "Operations",
             icon: "info",
-            children: ["index", "maintain/install", "maintain/upgrade-from-0", "maintain/allowList-mgm", "maintain/install-plugins", "develop/create", "contribute/"],
+            children: [ "get-started", "process-plugin-deployment"],
           }
         ]
     },
@@ -57,27 +57,38 @@ export default hopeTheme({
           {
             text: "Process Developments",
             icon: "docs",
-            children: ["dsf-api-1/description", "dsf-api-2/README.md", "how-to/start-project", "process-plugin", "publishing", "tooling"],
+            children: ["api-v1/concept", "api-v2/README.md", "how-to/start-project", "process-plugin/", "publishing/publish-on-dsfhub"],
           }
         ]
     },
+     {
+      text: "DSF Development",
+      icon: "info",
+      link: "/dsf-development/",
+    },
     {
-      text: "About",
+      text: "Community",
       icon: "creative",
-      prefix: "/about/",  
+      prefix: "/community/",  
       children: [
         {
-          text: "Learn More",
+          text: "About us",
           icon: "creative",
-          prefix: "learnmore/", 
-          children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
+          prefix: "about/", 
+          children: ["contact", "team", "partners", "public", "faq", "projectlist"], 
         },
         { 
-          text: "Community",
+          text: "Contribute",
           icon: "creative",
-          prefix: "community/", 
-          children: ["community", "contribute"],
+          prefix: "contribute/", 
+          children: ["contribute"],
         },
+        { 
+          text: "Events",
+          icon: "creative",
+          prefix: "events/", 
+          children: ["tutorials/"],
+        }, "communications" , "dsf-ecosytem", "speakinghours"
       ],
     },
     {
@@ -1219,6 +1230,45 @@ export default hopeTheme({
         link: "community/",
         children: ["community", "contribute", "code", "documentation"], 
       },  
+    ],
+    "/process-development": [
+      {
+        text: "api v1",
+        icon: "",
+        prefix: "api-v1/",
+        link: "api-v1/",
+        children: [ "concept", "tooling/", "tutorials/"], 
+      },
+      {
+        text: "api v2",
+        icon: "",
+        prefix: "api-v2/",
+        link: "api-v2/",
+        children: [ "description","implementation", "migration", "tooling/", "tutorials/",], 
+      },
+      {
+        text: "how-to",
+        icon: "creative",
+        prefix: "how-to/",
+        link: "how-to/",
+        children: ["start-project"], 
+      },
+      {
+        text: "process-plugin",
+        icon: "process",
+        prefix: "process-plugin/",
+        link: "process-plugin/",
+        children: ["best-practise", "create", "testing"], 
+      },
+      {
+        text: "publishing",
+        icon: "publish",
+        prefix: "publishing/",
+        link: "publishing/",
+        children: ["publish-on-dsfhub"], 
+      },
+      
+
     ],
     "/oldstable/":  [
       {
