@@ -10,7 +10,7 @@ DSF's community is growing and we welcome anyone who would like to join! :rocket
 
 ### Stay up to Date
 - [GitHub](https://github.com/datasharingframework/dsf)
-- Follow our [contributors](/about/learnmore/team.md) on GitHub
+- Follow our [contributors](./team.md) on GitHub
 - [Zulip Chat - MII](https://mii.zulipchat.com)
 
 ### Contribute Code

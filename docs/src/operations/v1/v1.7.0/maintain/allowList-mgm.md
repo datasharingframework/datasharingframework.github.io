@@ -2,7 +2,7 @@
 title: Allow List Management
 icon: share
 ---
-You can read all about the concept of Allow Lists [in our introduction](/intro/info/allowList.md).
+You can read all about the concept of Allow Lists [in our introduction](/explore/concepts/allow-list.md).
 
 ## Overview
 To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the GECKO Institute at Heilbronn University. You as an DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 

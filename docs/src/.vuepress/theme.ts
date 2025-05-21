@@ -1,3 +1,4 @@
+import { slimsearchPlugin } from "@vuepress/plugin-slimsearch";
 import { hopeTheme } from "vuepress-theme-hope";
 
 export default hopeTheme({
@@ -5,9 +6,6 @@ export default hopeTheme({
     name: "DSF-Team",
     url: "/community/team.html", 
   },
-
-  iconAssets: "/assets/font/font.css",
-  iconPrefix: "iconfont icon-",
 
 
   logo: "/photos/home/logo-small.svg",
@@ -1254,48 +1252,43 @@ export default hopeTheme({
 
 
   plugins: {
+
+    icon: {
+      prefix: "iconfont icon-",
+      assets: "/assets/font/font.css",
+    },
+
     blog: {
       filter: ({ frontmatter }) => frontmatter.type === "news",
     },
-    
-    markdownImage: {
-      figure: true,
-      lazyload: true,
-      mark: true,
-      size: true,
-    },
-    markdownMath: {
-    },
-	markdownTab: {
-      codeTabs: true,
-      tabs: false,
-    },
-    linksCheck: {
-      dev: true,
-      build: "error"
-    },
-    searchPro: {
+
+
+    slimsearch: {
       indexContent: true,
     },
     photoSwipe: false,
     components: {
-      // components you want
-      components: [
-       /* "AudioPlayer",
-        "Badge",
-        "BiliBili",
-        "CodePen",
-        "PDF",
-        "Replit",
-        "StackBlitz",
-        "VideoPlayer",
-        "YouTube",*/
-      ],
+      components: [],
     },
-    mdEnhance: {
+  },
+
+  markdown: {
+    imgLazyload: true,
+    imgMark: true,
+    figure: true,
+    imgSize: true,
+    math: {
+
+    },
+    tabs: false,
+    codeTabs: true,
+      linksCheck: {
+        dev: true,
+        build: "error"
+      },
       align: true,
       attrs: true,
-      chart: false,
+      chartjs: false,
       demo: false,
       echarts: false,
       flowchart: false,
@@ -1324,6 +1317,5 @@ export default hopeTheme({
       tasklist: false,
       vPre: false,
       vuePlayground: false
-    }
-  },
+  }
 });

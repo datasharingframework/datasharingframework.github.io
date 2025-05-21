@@ -5,6 +5,10 @@ icon: safe
 
 A number of trusted certificate authorities (CAs) are included in the DSF docker images [fhir_proxy](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy), [fhir](https://github.com/datasharingframework/dsf/pkgs/container/fhir), [bpe_proxy](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy) and [bpe](https://github.com/datasharingframework/dsf/pkgs/container/bpe) by default. Root and intermediate certificates as well as the configured usage of issuing CAs as either **server**, **client** oder **server and client** CA are listed at the end.
 
+:::info
+Please ensure that you are using an organization-validated certificate (OV). We check for the presence of certain elements in the FHIR proxy. These are not set for domain-validated (DV) certificates. DV-validated certificates cannot be used in the standard setup.
+:::
+
 ## Extending or Replacing Trusted Certificate Authorities
 X.509 certificates of default trusted CAs are stored as .pem files containing multiple certificates in the docker images and can be replaced by either using docker [bind mounts](https://docs.docker.com/engine/storage/bind-mounts) or configuring appropriate environment variables with different targets.
 

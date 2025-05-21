@@ -7,7 +7,7 @@ icon: share
 This is an outdated version of the Allow List Management documentation. Please use [the current version](/stable/maintain/allowList-mgm), even if you use an outdated DSF version.
 :::
 
-You can read all about the concept of Allow Lists [here](/intro/info/allowList.md).
+You can read all about the concept of Allow Lists [here](/explore/concepts/allow-list.md).
 
 ## Overview
 To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the Gecko Institute at Heilbronn University. You as an DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 
