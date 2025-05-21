@@ -28,7 +28,7 @@ export default hopeTheme({
           {
             text: "Explore",
             icon: "info",
-            children: ["/intro/info/introduction", "/intro/use-cases/", "/intro/research/", "/intro/tutorials/"],
+            children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/"],
           },
           {
             text: "Security",
@@ -110,9 +110,9 @@ export default hopeTheme({
       {
         text: "Concepts",
         icon: "info",
-        prefix: "intro/",
-        link: "intro/",
-        children: ["info/introduction.md", "info/basics", "info/architecture", "info/security", "info/allowList", "info/process-plugins"], 
+        prefix: "explore/",
+        link: "explore/",
+        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
       },
       {
         text: "Security",
@@ -122,27 +122,21 @@ export default hopeTheme({
       {
         text: "Use-Cases",
         icon: "any",
-        prefix: "intro/use-cases/",
-        link: "intro/use-cases/",
+        prefix: "explore/use-cases/",
+        link: "explore/use-cases/",
         children: ["feasibility", "num"], 
       },
       {
-        text: "Research",
+        text: "Publications",
         icon: "blog",
-        prefix: "intro/research/",
-        link: "/intro/research/",
+        prefix: "explore/publications/",
+        link: "/explore/publications/",
         children: ["publications", "awards"], 
       },
-      {
-        text: "Tutorials",
-        icon: "edit",
-        link: "/intro/tutorials/",
-      }
     ],
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
-    "/api-documentation": [],
     "/stable/": [
       {
         text: "Home",
