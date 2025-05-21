@@ -21,14 +21,14 @@ export default hopeTheme({
       link: "/",
     },  
     {
-        text: "Docs",
+        text: "Explore",
         icon: "info",
         prefix: "",
         children: [
           {
-            text: "Introduction",
+            text: "Explore",
             icon: "info",
-            children: ["/intro/info/introduction", "/intro/use-cases/", "/intro/publications", "/intro/tutorials/"],
+            children: ["/intro/info/introduction", "/intro/use-cases/", "/intro/research/", "/intro/tutorials/"],
           },
           {
             text: "Security",
@@ -50,6 +50,18 @@ export default hopeTheme({
         ]
     },
     {
+      text: "Process Development",
+      icon: "process",
+      prefix: "/process-development/",
+      children: [
+          {
+            text: "Process Developments",
+            icon: "docs",
+            children: ["dsf-api-1/description", "dsf-api-2/README.md", "how-to/start-project", "process-plugin", "publishing", "tooling"],
+          }
+        ]
+    },
+    {
       text: "About",
       icon: "creative",
       prefix: "/about/",  
@@ -58,7 +70,13 @@ export default hopeTheme({
           text: "Learn More",
           icon: "creative",
           prefix: "learnmore/", 
-          children: ["contact", "team", "partners", "public"],
+          children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
+        },
+        { 
+          text: "Community",
+          icon: "creative",
+          prefix: "community/", 
+          children: ["community", "contribute"],
         },
       ],
     },
@@ -84,7 +102,13 @@ export default hopeTheme({
         link: "/",
       },
       {
-        text: "Docs",
+        text: "News",
+        icon: "news",
+        link: "tag/blog/"
+      },
+
+      {
+        text: "Concepts",
         icon: "info",
         prefix: "intro/",
         link: "intro/",
@@ -103,9 +127,11 @@ export default hopeTheme({
         children: ["feasibility", "num"], 
       },
       {
-        text: "Publications",
+        text: "Research",
         icon: "blog",
-        link: "/intro/publications",
+        prefix: "intro/research/",
+        link: "/intro/research/",
+        children: ["publications", "awards"], 
       },
       {
         text: "Tutorials",
@@ -116,6 +142,7 @@ export default hopeTheme({
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
+    "/api-documentation": [],
     "/stable/": [
       {
         text: "Home",
@@ -1180,12 +1207,24 @@ export default hopeTheme({
         link: "/",
       },
       {
+        text: "News",
+        icon: "news",
+        link: "/news/"
+      },
+      {
         text: "About",
         icon: "creative",
         prefix: "learnmore/",
         link: "learnmore/",
-        children: ["contact", "team", "partners", "public"], 
+        children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
       },
+      {
+        text: "DSF-Community",
+        icon: "group",
+        prefix: "community/",
+        link: "community/",
+        children: ["community", "contribute", "code", "documentation"], 
+      },  
     ],
     "/oldstable/":  [
       {
@@ -1202,12 +1241,16 @@ export default hopeTheme({
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
-  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a>",
+  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a> • <a href='/security/'>Security</a>"  ,
   copyright: false,
   displayFooter: true,
 
 
   plugins: {
+    blog: {
+      filter: ({ frontmatter }) => frontmatter.type === "news",
+    },
+    
     markdownImage: {
       figure: true,
       lazyload: true,

@@ -2,6 +2,7 @@ import { viteBundler } from '@vuepress/bundler-vite';
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
 
+
 export default defineUserConfig({
   host: "127.0.0.1",
   base: "/",
@@ -25,7 +26,7 @@ export default defineUserConfig({
       description: "",
     },
   },*/
-  plugins: [],
+  plugins: [ ],
 
   // Enable it with pwa
   shouldPrefetch: false,

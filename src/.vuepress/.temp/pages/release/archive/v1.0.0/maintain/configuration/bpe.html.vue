@@ -1,0 +1,437 @@
+<template><div><h1 id="parameters-bpe-server" tabindex="-1"><a class="header-anchor" href="#parameters-bpe-server"><span>Parameters BPE Server</span></a></h1>
+<p>Please also check <a href="common">common parameters</a> for additional configuration options.</p>
+<h3 id="dev-dsf-bpe-db-liquibase-forceunlock" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-liquibase-forceunlock"><span>DEV_DSF_BPE_DB_LIQUIBASE_FORCEUNLOCK</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.liquibase.forceUnlock</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To force liquibase to unlock the migration lock set to <code v-pre>true</code></li>
+<li><strong>Recommendation:</strong> Only use this option temporarily to unlock a stuck DB migration step</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-liquibase-lockwaittime" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-liquibase-lockwaittime"><span>DEV_DSF_BPE_DB_LIQUIBASE_LOCKWAITTIME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.liquibase.lockWaitTime</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Liquibase change lock wait time in minutes, default 2 minutes</li>
+<li><strong>Default:</strong> <code v-pre>2</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-liquibase-password-or-dev-dsf-bpe-db-liquibase-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-liquibase-password-or-dev-dsf-bpe-db-liquibase-password-file"><span>DEV_DSF_BPE_DB_LIQUIBASE_PASSWORD or DEV_DSF_BPE_DB_LIQUIBASE_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.liquibase.password</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The password to access the database from the DSF BPE server to execute database migrations</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure by using <em>DEV_DSF_BPE_DB_LIQUIBASE_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/db_liquibase.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-liquibase-username" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-liquibase-username"><span>DEV_DSF_BPE_DB_LIQUIBASE_USERNAME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.liquibase.username</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The user name to access the database from the DSF BPE server to execute database migrations</li>
+<li><strong>Default:</strong> <code v-pre>liquibase_user</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-url" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-url"><span>DEV_DSF_BPE_DB_URL</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.url</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The address of the database used for the DSF BPE server</li>
+<li><strong>Recommendation:</strong> Change only if you don't use the provided docker-compose from the installation guide or made changes to the database settings/networking in the docker-compose</li>
+<li><strong>Example:</strong> <code v-pre>jdbc:postgresql://db/bpe</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-camunda-group" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-camunda-group"><span>DEV_DSF_BPE_DB_USER_CAMUNDA_GROUP</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.camunda.group</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The name of the user group to access the database from the DSF BPE server for camunda processes</li>
+<li><strong>Default:</strong> <code v-pre>camunda_users</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-camunda-password-or-dev-dsf-bpe-db-user-camunda-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-camunda-password-or-dev-dsf-bpe-db-user-camunda-password-file"><span>DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD or DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.camunda.password</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The password to access the database from the DSF BPE server for camunda processes</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure using <em>DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/db_user_camunda.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-camunda-username" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-camunda-username"><span>DEV_DSF_BPE_DB_USER_CAMUNDA_USERNAME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.camunda.username</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The user name to access the database from the DSF BPE server for camunda processes</li>
+<li><strong>Recommendation:</strong> Use a different user then in <em>DEV_DSF_BPE_DB_USER_USERNAME</em></li>
+<li><strong>Default:</strong> <code v-pre>camunda_server_user</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-group" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-group"><span>DEV_DSF_BPE_DB_USER_GROUP</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.group</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The name of the user group to access the database from the DSF BPE server</li>
+<li><strong>Default:</strong> <code v-pre>bpe_users</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-password-or-dev-dsf-bpe-db-user-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-password-or-dev-dsf-bpe-db-user-password-file"><span>DEV_DSF_BPE_DB_USER_PASSWORD or DEV_DSF_BPE_DB_USER_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.password</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The password to access the database from the DSF BPE server</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure using <em>DEV_DSF_BPE_DB_USER_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/db_user.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-db-user-username" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-db-user-username"><span>DEV_DSF_BPE_DB_USER_USERNAME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.db.user.username</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The user name to access the database from the DSF BPE server</li>
+<li><strong>Default:</strong> <code v-pre>bpe_server_user</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-debug-log-message-onactivityend" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-debug-log-message-onactivityend"><span>DEV_DSF_BPE_DEBUG_LOG_MESSAGE_ONACTIVITYEND</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.debug.log.message.onActivityEnd</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable debug log messages for every bpmn activity end, set to <code v-pre>true</code>.</li>
+<li><strong>Recommendation:</strong> This debug function should only be activated during process plugin development.</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-debug-log-message-onactivitystart" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-debug-log-message-onactivitystart"><span>DEV_DSF_BPE_DEBUG_LOG_MESSAGE_ONACTIVITYSTART</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.debug.log.message.onActivityStart</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable debug log messages for every bpmn activity start, set to <code v-pre>true</code>.</li>
+<li><strong>Recommendation:</strong> This debug function should only be activated during process plugin development.</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-debug-log-message-variables" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-debug-log-message-variables"><span>DEV_DSF_BPE_DEBUG_LOG_MESSAGE_VARIABLES</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.debug.log.message.variables</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable loging bpmn variables for every bpmn activity start or end, when logging of these events is enabled, set to <code v-pre>true</code>.</li>
+<li><strong>Recommendation:</strong> This debug function should only be activated during process plugin development. WARNNING: Confidential information may be leaked via the debug log!</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-certificate" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-certificate"><span>DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.certificate</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> PEM encoded file with local client certificate for https connections to local and remote DSF FHIR servers</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/app_client_certificate.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-certificate-private-key" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-certificate-private-key"><span>DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.certificate.private.key</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> Private key corresponding to the local client certificate as PEM encoded file. Use DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD* or <em>DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</em> if private key is encrypted</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/app_client_certificate_private_key.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-certificate-private-key-password-or-dev-dsf-bpe-fhir-client-certificate-private-key-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-certificate-private-key-password-or-dev-dsf-bpe-fhir-client-certificate-private-key-password-file"><span>DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD or DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.certificate.private.key.password</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Password to decrypt the local client certificate encrypted private key</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure using <em>DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/app_client_certificate_private_key.pem.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-local-timeout-connect" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-local-timeout-connect"><span>DEV_DSF_BPE_FHIR_CLIENT_LOCAL_TIMEOUT_CONNECT</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.local.timeout.connect</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The timeout in milliseconds until a connection is established with the local DSF FHIR server</li>
+<li><strong>Recommendation:</strong> Change default value only if timeout exceptions occur</li>
+<li><strong>Default:</strong> <code v-pre>2000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-local-timeout-read" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-local-timeout-read"><span>DEV_DSF_BPE_FHIR_CLIENT_LOCAL_TIMEOUT_READ</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.local.timeout.read</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The timeout in milliseconds until reading a resource from the local DSF FHIR server is aborted</li>
+<li><strong>Recommendation:</strong> Change default value only if timeout exceptions occur</li>
+<li><strong>Default:</strong> <code v-pre>60000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-local-verbose" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-local-verbose"><span>DEV_DSF_BPE_FHIR_CLIENT_LOCAL_VERBOSE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.local.verbose</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable verbose logging of requests to and replies from the local DSF FHIR server, set to <code v-pre>true</code></li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-remote-timeout-connect" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-remote-timeout-connect"><span>DEV_DSF_BPE_FHIR_CLIENT_REMOTE_TIMEOUT_CONNECT</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.remote.timeout.connect</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The timeout in milliseconds until a connection is established with a remote DSF FHIR server</li>
+<li><strong>Recommendation:</strong> Change default value only if timeout exceptions occur</li>
+<li><strong>Default:</strong> <code v-pre>5000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-remote-timeout-read" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-remote-timeout-read"><span>DEV_DSF_BPE_FHIR_CLIENT_REMOTE_TIMEOUT_READ</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.remote.timeout.read</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> The timeout in milliseconds until a reading a resource from a remote DSF FHIR server is aborted</li>
+<li><strong>Recommendation:</strong> Change default value only if timeout exceptions occur</li>
+<li><strong>Default:</strong> <code v-pre>60000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-remote-verbose" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-remote-verbose"><span>DEV_DSF_BPE_FHIR_CLIENT_REMOTE_VERBOSE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.remote.verbose</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable verbose logging of requests to and replies from remote DSF FHIR servers, set to <code v-pre>true</code></li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-client-trust-server-certificate-cas" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-client-trust-server-certificate-cas"><span>DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.client.trust.server.certificate.cas</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to local and remote DSF FHIR servers</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/app_server_trust_certificates.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-questionnaire-response-subscription-search-parameter" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-questionnaire-response-subscription-search-parameter"><span>DEV_DSF_BPE_FHIR_QUESTIONNAIRE_RESPONSE_SUBSCRIPTION_SEARCH_PARAMETER</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.questionnaire.response.subscription.search.parameter</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Subscription to receive notifications about questionnaire response resources from the DSF FHIR server</li>
+<li><strong>Default:</strong> <code v-pre>?criteria=QuestionnaireResponse%3Fstatus%3Dcompleted&amp;status=active&amp;type=websocket&amp;payload=application/fhir%2Bjson</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-server-base-url" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-server-base-url"><span>DEV_DSF_BPE_FHIR_SERVER_BASE_URL</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.server.base.url</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The base address of the local DSF FHIR server to read/store fhir resources</li>
+<li><strong>Example:</strong> <code v-pre>https://foo.bar/fhir</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-server-organization-identifier-value" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-server-organization-identifier-value"><span>DEV_DSF_BPE_FHIR_SERVER_ORGANIZATION_IDENTIFIER_VALUE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.server.organization.identifier.value</li>
+<li><strong>Required:</strong> Yes</li>
+<li><strong>Description:</strong> The local identifier value used in the Allow-List</li>
+<li><strong>Recommendation:</strong> By convention: The shortest possible FQDN that resolve the homepage of the organization</li>
+<li><strong>Example:</strong> <code v-pre>hospital.com</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-task-subscription-retry-max" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-task-subscription-retry-max"><span>DEV_DSF_BPE_FHIR_TASK_SUBSCRIPTION_RETRY_MAX</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.task.subscription.retry.max</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Number of retries until a websocket connection can be established with the DSF FHIR server, <code v-pre>-1</code> means infinite number of retries</li>
+<li><strong>Default:</strong> <code v-pre>-1</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-task-subscription-retry-sleep" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-task-subscription-retry-sleep"><span>DEV_DSF_BPE_FHIR_TASK_SUBSCRIPTION_RETRY_SLEEP</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.task.subscription.retry.sleep</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Milliseconds between two retries to establish a websocket connection with the DSF FHIR server</li>
+<li><strong>Default:</strong> <code v-pre>5000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-fhir-task-subscription-search-parameter" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-fhir-task-subscription-search-parameter"><span>DEV_DSF_BPE_FHIR_TASK_SUBSCRIPTION_SEARCH_PARAMETER</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.fhir.task.subscription.search.parameter</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Subscription to receive notifications about task resources from the DSF FHIR server</li>
+<li><strong>Default:</strong> <code v-pre>?criteria=Task%3Fstatus%3Drequested&amp;status=active&amp;type=websocket&amp;payload=application/fhir%2Bjson</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-client-certificate" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-client-certificate"><span>DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.client.certificate</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> PEM encoded file with client certificate used to authenticate against the SMTP server. Requires SMTP over TLS to be enabled via <em>DEV_DSF_BPE_MAIL_USESMTPS</em></li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smtp_server_client_certificate.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-client-certificate-private-key" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-client-certificate-private-key"><span>DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.client.certificate.private.key</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Private key corresponging to the SMTP server client certificate as PEM encoded file. Use DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD* or <em>DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</em> if private key is encrypted. Requires SMTP over TLS to be enabled via <em>DEV_DSF_BPE_MAIL_USESMTPS</em></li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smtp_server_client_certificate_private_key.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-client-certificate-private-key-password-or-dev-dsf-bpe-mail-client-certificate-private-key-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-client-certificate-private-key-password-or-dev-dsf-bpe-mail-client-certificate-private-key-password-file"><span>DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD or DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.client.certificate.private.key.password</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Password to decrypt the local client certificate encrypted private key</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure using <em>DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smtp_server_client_certificate_private_key.pem.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-fromaddress" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-fromaddress"><span>DEV_DSF_BPE_MAIL_FROMADDRESS</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.fromAddress</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Mail service sender address</li>
+<li><strong>Example:</strong> <code v-pre>sender@localhost</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-host" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-host"><span>DEV_DSF_BPE_MAIL_HOST</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.host</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> SMTP server hostname</li>
+<li><strong>Example:</strong> <code v-pre>smtp.server.de</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-mailonerrorlogeventbuffersize" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-mailonerrorlogeventbuffersize"><span>DEV_DSF_BPE_MAIL_MAILONERRORLOGEVENTBUFFERSIZE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.mailOnErrorLogEventBufferSize</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Number of previous INFO, WARN log messages to include in ERROR log event mails (&gt;=0). Requires send mail on ERROR log event option to be enabled to have an effect.</li>
+<li><strong>Default:</strong> <code v-pre>4</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-mailonerrorlogeventdebugloglocation" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-mailonerrorlogeventdebugloglocation"><span>DEV_DSF_BPE_MAIL_MAILONERRORLOGEVENTDEBUGLOGLOCATION</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.mailOnErrorLogEventDebugLogLocation</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Location of the BPE debug log as displayed in the footer of ERROR log event mails, does not modify the actual location of the debug log file. Requires send mail on ERROR log event option to be enabled to have an effect.</li>
+<li><strong>Default:</strong> <code v-pre>/opt/bpe/log/bpe.log</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-password-or-dev-dsf-bpe-mail-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-password-or-dev-dsf-bpe-mail-password-file"><span>DEV_DSF_BPE_MAIL_PASSWORD or DEV_DSF_BPE_MAIL_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.password</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> SMTP server authentication password</li>
+<li><strong>Recommendation:</strong> Configure if the SMTP server reqiures username/password authentication; use docker secret file to configure using <em>DEV_DSF_BPE_MAIL_PASSWORD_FILE</em>; enable SMTP over TLS via <em>DEV_DSF_BPE_MAIL_USESMTPS</em></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-port" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-port"><span>DEV_DSF_BPE_MAIL_PORT</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.port</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> SMTP server port</li>
+<li><strong>Example:</strong> <code v-pre>465</code></li>
+<li><strong>Default:</strong> <code v-pre>0</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-replytoaddresses" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-replytoaddresses"><span>DEV_DSF_BPE_MAIL_REPLYTOADDRESSES</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.replyToAddresses</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Mail service reply to addresses; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Example:</strong> <code v-pre>reply.to@localhost</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-sendmailonerrorlogevent" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-sendmailonerrorlogevent"><span>DEV_DSF_BPE_MAIL_SENDMAILONERRORLOGEVENT</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.sendMailOnErrorLogEvent</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable mails being send for every ERROR logged, set to <code v-pre>true</code>. Requires SMTP server to be configured.</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-sendtestmailonstartup" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-sendtestmailonstartup"><span>DEV_DSF_BPE_MAIL_SENDTESTMAILONSTARTUP</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.sendTestMailOnStartup</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable a test mail being send on startup of the BPE, set to <code v-pre>true</code>. Requires SMTP server to be configured.</li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-smime-p12keystore" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-smime-p12keystore"><span>DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.smime.p12Keystore</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> PKCS12 encoded file with S/MIME certificate, private key and certificate chain to enable send mails to be S/MIME signed</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smime_certificate.p12</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-smime-p12keystore-password-or-dev-dsf-bpe-mail-smime-p12keystore-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-smime-p12keystore-password-or-dev-dsf-bpe-mail-smime-p12keystore-password-file"><span>DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD or DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.smime.p12Keystore.password</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Password to decrypt the PKCS12 encoded S/MIMIE certificate file</li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure using <em>DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD_FILE</em></li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smime_certificate.p12.password</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-toaddresses" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-toaddresses"><span>DEV_DSF_BPE_MAIL_TOADDRESSES</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.toAddresses</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Mail service recipient addresses, configure at least one; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Example:</strong> <code v-pre>recipient@localhost</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-toaddressescc" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-toaddressescc"><span>DEV_DSF_BPE_MAIL_TOADDRESSESCC</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.toAddressesCc</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Mail service CC recipient addresses; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Example:</strong> <code v-pre>cc.recipient@localhost</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-trust-server-certificate-cas" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-trust-server-certificate-cas"><span>DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.trust.server.certificate.cas</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> PEM encoded file with one or more trusted root certificates to validate the server certificate of the SMTP server. Requires SMTP over TLS to be enabled via <em>DEV_DSF_BPE_MAIL_USESMTPS</em></li>
+<li><strong>Recommendation:</strong> Use docker secret file to configure</li>
+<li><strong>Example:</strong> <code v-pre>/run/secrets/smtp_server_trust_certificates.pem</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-username" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-username"><span>DEV_DSF_BPE_MAIL_USERNAME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.username</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> SMTP server authentication username</li>
+<li><strong>Recommendation:</strong> Configure if the SMTP server reqiures username/password authentication; enable SMTP over TLS via <em>DEV_DSF_BPE_MAIL_USESMTPS</em></li>
+</ul>
+<h3 id="dev-dsf-bpe-mail-usesmtps" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-mail-usesmtps"><span>DEV_DSF_BPE_MAIL_USESMTPS</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.mail.useSmtps</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> To enable SMTP over TLS (smtps), set to <code v-pre>true</code></li>
+<li><strong>Default:</strong> <code v-pre>false</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-process-excluded" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-process-excluded"><span>DEV_DSF_BPE_PROCESS_EXCLUDED</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.process.excluded</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> List of process names that should be excluded from deployment during startup of the DSF BPE server; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Recommendation:</strong> Only deploy processes that can be started depending on your organization's roles in the Allow-List</li>
+</ul>
+<h3 id="dev-dsf-bpe-process-fhir-server-retry-max" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-process-fhir-server-retry-max"><span>DEV_DSF_BPE_PROCESS_FHIR_SERVER_RETRY_MAX</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.process.fhir.server.retry.max</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Number of retries until a connection can be established with the local DSF FHIR server during process deployment, <code v-pre>-1</code> means infinite number of retries</li>
+<li><strong>Default:</strong> <code v-pre>-1</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-process-fhir-server-retry-sleep" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-process-fhir-server-retry-sleep"><span>DEV_DSF_BPE_PROCESS_FHIR_SERVER_RETRY_SLEEP</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.process.fhir.server.retry.sleep</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Milliseconds between two retries to establish a connection with the local DSF FHIR server during process deployment</li>
+<li><strong>Default:</strong> <code v-pre>5000</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-process-plugin-directroy" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-process-plugin-directroy"><span>DEV_DSF_BPE_PROCESS_PLUGIN_DIRECTROY</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.process.plugin.directroy</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Directory containing the DSF BPE process plugins for deployment on startup of the DSF BPE server</li>
+<li><strong>Recommendation:</strong> Change only if you don't use the provided directory structure from the installation guide or made changes to tit</li>
+<li><strong>Default:</strong> <code v-pre>process</code></li>
+</ul>
+<h3 id="dev-dsf-bpe-process-retired" tabindex="-1"><a class="header-anchor" href="#dev-dsf-bpe-process-retired"><span>DEV_DSF_BPE_PROCESS_RETIRED</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.bpe.process.retired</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> List of already deployed process names that should be retired during startup of the DSF BPE server; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Recommendation:</strong> Retire processes that where deployed previously but are not anymore available</li>
+</ul>
+<h3 id="dev-dsf-proxy-noproxy" tabindex="-1"><a class="header-anchor" href="#dev-dsf-proxy-noproxy"><span>DEV_DSF_PROXY_NOPROXY</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.proxy.noProxy</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Forward proxy no-proxy list, entries will match exactly or agianst (one level) sub-domains, if no port is specified - all ports are matched; comma or space separated list, YAML block scalars supported</li>
+<li><strong>Example:</strong> <code v-pre>foo.bar, test.com:8080</code></li>
+</ul>
+<h3 id="dev-dsf-proxy-password-or-dev-dsf-proxy-password-file" tabindex="-1"><a class="header-anchor" href="#dev-dsf-proxy-password-or-dev-dsf-proxy-password-file"><span>DEV_DSF_PROXY_PASSWORD or DEV_DSF_PROXY_PASSWORD_FILE</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.proxy.password</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Forward Proxy password</li>
+<li><strong>Recommendation:</strong> Configure password if proxy requires authentication, use docker secret file to configure using <em>DEV_DSF_PROXY_PASSWORD_FILE</em></li>
+</ul>
+<h3 id="dev-dsf-proxy-url" tabindex="-1"><a class="header-anchor" href="#dev-dsf-proxy-url"><span>DEV_DSF_PROXY_URL</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.proxy.url</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Forward (http/https) proxy url, use <em>DEV_DSF_BPE_PROXY_NOPROXY</em> to list domains that do not require a forward proxy</li>
+<li><strong>Example:</strong> <code v-pre>http://proxy.foo:8080</code></li>
+</ul>
+<h3 id="dev-dsf-proxy-username" tabindex="-1"><a class="header-anchor" href="#dev-dsf-proxy-username"><span>DEV_DSF_PROXY_USERNAME</span></a></h3>
+<ul>
+<li><strong>Property:</strong> dev.dsf.proxy.username</li>
+<li><strong>Required:</strong> No</li>
+<li><strong>Description:</strong> Forward proxy username</li>
+<li><strong>Recommendation:</strong> Configure username if proxy requires authentication</li>
+</ul>
+</div></template>
+
+
