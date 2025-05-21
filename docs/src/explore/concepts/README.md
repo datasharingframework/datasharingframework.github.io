@@ -2,7 +2,6 @@
 title: DSF for your project
 icon: creative
 ---
-<meta http-equiv="refresh" content="0;url=/explore/concepts/for-you">
 
 ::: tip Summary
 
