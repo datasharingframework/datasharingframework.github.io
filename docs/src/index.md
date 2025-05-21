@@ -21,7 +21,7 @@ features:
   - title: About Us
     icon: creative
     details: Contact, partners, the team behind the DSF and more... Join our community!
-    link: /about/
+    link: /about/learnmore/
   
   - title: GitHub
     icon: github
@@ -37,17 +37,23 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
 
-## Rolf Hansen Memorial Award 2023 goes to [Hauke Hund](/about/learnmore/team/)
-We are very pleased to have won the Rolf Hansen Memorial Award at [EFMI MIE 2023](https://www.mie2023.org/) in Gothenburg. The Rolf Hansen Memorial Award is presented annually by the European Federation for Medical Informatics (EFMI) for an outstanding paper as well as for an excellent presentation. It is named after Rolf Hansen (1931-1993), a well-known Norwegian medical informatician and former president of EFMI. Hauke Hund presented his Paper: *No Transfer Without Validation: A Data Sharing Framework Use Case* in May at the EFMI MIE. [doi:10.3233/SHTI230066 ](https://ebooks.iospress.nl/doi/10.3233/SHTI230066) 
+## News
+<div class="image-container">
+  <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
+</div>
 
-<!--
-## Upcoming Events
-::: info TODO title 
-::: left
-TODO text
-:::
--->
+**FHIR DevDays 2025**
+Our DSF team will be at FHIR DevDays 2025 from June 3rd to 6th in Amsterdam! DevDays is the world’s leading FHIR event in the field of digital health. Join us at the event for engaging community talks by Maximilian Kurscheidt and Hauke Hund. We’ll be discussing the International Patient Summary Challenge 2025, as well as how we can foster research through Real-World Data Sharing and Process Orchestration using FHIR and BPMN. We look forward to seeing you there!
 
+If you'd like to connect with us during the event, feel free to arrange a meeting beforehand by emailing us at 📧<a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a>
+[Read more](/news/fhir-devdays-2025/)
+
+---
+**DSF Spring School 2025** 
+From April 2nd to 4th, members of the DSF community gathered at Heilbronn University for the annual DSF Spring School 2025. The three-day event provided an in-depth look at the Data Sharing Framework (DSF) and its latest developments, featuring expert talks, hands-on sessions, and collaborative projects during a community-driven hackathon. With vibrant discussions and plenty of memorable moments, the event concluded on a high note.
+[Read more](/news/spring-school-2025/)
+
+--- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
 <div class="image-container">

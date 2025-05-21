@@ -21,14 +21,14 @@ export default hopeTheme({
       link: "/",
     },  
     {
-        text: "Docs",
+        text: "Explore",
         icon: "info",
         prefix: "",
         children: [
           {
-            text: "Introduction",
+            text: "Explore",
             icon: "info",
-            children: ["/intro/info/introduction", "/intro/use-cases/", "/intro/publications", "/intro/tutorials/"],
+            children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/"],
           },
           {
             text: "Security",
@@ -48,9 +48,21 @@ export default hopeTheme({
         prefix: "/stable/",
         children: [
           {
-            text: "Guideline v1.5.1 (stable)",
+            text: "Guideline v1.7.1 (stable)",
             icon: "info",
             children: ["index", "maintain/install", "maintain/upgrade-from-0", "maintain/allowList-mgm", "maintain/install-plugins", "develop/create", "contribute/"],
+          }
+        ]
+    },
+    {
+      text: "Process Development",
+      icon: "process",
+      prefix: "/process-development/",
+      children: [
+          {
+            text: "Process Developments",
+            icon: "docs",
+            children: ["dsf-api-1/description", "dsf-api-2/README.md", "how-to/start-project", "process-plugin", "publishing", "tooling"],
           }
         ]
     },
@@ -63,7 +75,13 @@ export default hopeTheme({
           text: "Learn More",
           icon: "creative",
           prefix: "learnmore/", 
-          children: ["contact", "team", "partners", "public"],
+          children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
+        },
+        { 
+          text: "Community",
+          icon: "creative",
+          prefix: "community/", 
+          children: ["community", "contribute"],
         },
       ],
     },
@@ -71,7 +89,7 @@ export default hopeTheme({
       text: "Versions",
       icon: "note",
       // children:["/v1/"],
-      children: [{ text: "v1.5.1 (stable)", link: "/stable/" }, { text: "v1.5.0", link: "/v1.5.0/" }, { text: "v1.4.0", link: "/v1.4.0/" }, { text: "v1.3.2", link: "/v1.3.2/" }, { text: "v1.3.1", link: "/v1.3.1/" }, { text: "v1.3.0", link: "/v1.3.0/" }, { text: "v1.2.0", link: "/v1.2.0/" }, { text: "v1.1.0", link: "/v1.1.0/" }, { text: "v1.0.0", link: "/v1.0.0/" }, { text: "v0.9.3 (oldstable)", link: "/oldstable/"}],
+      children: [{ text: "v1.7.1 (stable)", link: "/stable/" }, { text: "v1.7.0", link: "/v1.7.0/" }, { text: "v1.6.0", link: "/v1.6.0/" }, { text: "v1.5.2", link: "/v1.5.2/" }, { text: "v1.5.1", link: "/v1.5.1/" }, { text: "v1.5.0", link: "/v1.5.0/" }, { text: "v1.4.0", link: "/v1.4.0/" }, { text: "v1.3.2", link: "/v1.3.2/" }, { text: "v1.3.1", link: "/v1.3.1/" }, { text: "v1.3.0", link: "/v1.3.0/" }, { text: "v1.2.0", link: "/v1.2.0/" }, { text: "v1.1.0", link: "/v1.1.0/" }, { text: "v1.0.0", link: "/v1.0.0/" }, { text: "v0.9.3 (archived)", link: "/oldstable/"}],
     },
     {
       text: "",
@@ -89,36 +107,41 @@ export default hopeTheme({
         link: "/",
       },
       {
-        text: "Docs",
+        text: "News",
+        icon: "news",
+        link: "tag/blog/"
+      },
+
+      {
+        text: "Concepts",
         icon: "info",
-        prefix: "intro/",
-        link: "intro/",
-        children: ["info/introduction.md", "info/basics", "info/architecture", "info/security", "info/allowList", "info/process-plugins", ""], 
+        prefix: "explore/",
+        link: "explore/",
+        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
       },
       {
         text: "Security",
         icon: "safe",
-        link: "/security",
+        link: "/security/",
       },
       {
         text: "Use-Cases",
         icon: "any",
-        prefix: "intro/use-cases/",
-        link: "intro/use-cases/",
+        prefix: "explore/use-cases/",
+        link: "explore/use-cases/",
         children: ["feasibility", "num"], 
       },
       {
         text: "Publications",
         icon: "blog",
-        link: "/intro/publications",
+        prefix: "explore/publications/",
+        link: "/explore/publications/",
+        children: ["publications", "awards"], 
       },
-      {
-        text: "Tutorials",
-        icon: "edit",
-        link: "/intro/tutorials/",
-      }
     ],
     "/hackathon": [],
+    "/spring-school": [],
+    "/news": [],
     "/stable/": [
       {
         text: "Home",
@@ -131,7 +154,7 @@ export default hopeTheme({
         icon: "tool",
         prefix: "maintain/",
         link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -221,13 +244,360 @@ export default hopeTheme({
       ]
       },
     ],
-    "/v1.5.1/": [
+    "/v1.7.1/": [
       {
         text: "Home",
         icon: "home",
         link: "/",
       },
       "",
+      {
+        text: "Maintain a DSF instance",
+        icon: "tool",
+        prefix: "maintain/",
+        link: "maintain/",
+        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+          text: "FHIR Reverse Proxy",
+          icon: "module",
+          prefix: "fhir-reverse-proxy/",
+          link: "fhir-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "FHIR Server",
+          icon: "module",
+          prefix: "fhir/",
+          link: "fhir/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        }, {
+          text: "BPE Reverse Proxy",
+          icon: "module",
+          prefix: "bpe-reverse-proxy/",
+          link: "bpe-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "BPE Server",
+          icon: "module",
+          prefix: "bpe/",
+          link: "bpe/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        },
+        {
+          text: "Install Plugins",
+          icon: "plugin",
+          link: "install-plugins"
+      }],
+      },
+      {
+        text: "Develop process plugins",
+        icon: "plugin",
+        prefix: "develop/",
+        link: "develop/",
+        children: ["create", "upgrade-from-0" ],
+      },
+    ],
+    "/v1.7.0/": [
+      {
+        text: "Home",
+        icon: "home",
+        link: "/",
+      },
+      {
+        text: "Current version",
+        icon: "update",
+        link: "/stable/",
+      },      {
+        text: "Maintain a DSF instance",
+        icon: "tool",
+        prefix: "maintain/",
+        link: "maintain/",
+        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+          text: "FHIR Reverse Proxy",
+          icon: "module",
+          prefix: "fhir-reverse-proxy/",
+          link: "fhir-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "FHIR Server",
+          icon: "module",
+          prefix: "fhir/",
+          link: "fhir/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        }, {
+          text: "BPE Reverse Proxy",
+          icon: "module",
+          prefix: "bpe-reverse-proxy/",
+          link: "bpe-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "BPE Server",
+          icon: "module",
+          prefix: "bpe/",
+          link: "bpe/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        },
+        {
+          text: "Install Plugins",
+          icon: "plugin",
+          link: "install-plugins"
+      }],
+      },
+      {
+        text: "Develop process plugins",
+        icon: "plugin",
+        prefix: "develop/",
+        link: "develop/",
+        children: ["create", "upgrade-from-0" ],
+      },
+    ],
+    "/v1.6.0/": [
+      {
+        text: "Home",
+        icon: "home",
+        link: "/",
+      },
+      {
+        text: "Current version",
+        icon: "update",
+        link: "/stable/",
+      },
+      {
+        text: "Maintain a DSF instance",
+        icon: "tool",
+        prefix: "maintain/",
+        link: "maintain/",
+        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+          text: "FHIR Reverse Proxy",
+          icon: "module",
+          prefix: "fhir-reverse-proxy/",
+          link: "fhir-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "FHIR Server",
+          icon: "module",
+          prefix: "fhir/",
+          link: "fhir/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        }, {
+          text: "BPE Reverse Proxy",
+          icon: "module",
+          prefix: "bpe-reverse-proxy/",
+          link: "bpe-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "BPE Server",
+          icon: "module",
+          prefix: "bpe/",
+          link: "bpe/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        },
+        {
+          text: "Install Plugins",
+          icon: "plugin",
+          link: "install-plugins"
+      }],
+      },
+      {
+        text: "Develop process plugins",
+        icon: "plugin",
+        prefix: "develop/",
+        link: "develop/",
+        children: ["create", "upgrade-from-0" ],
+      },
+    ],
+    "/v1.5.2/": [
+      {
+        text: "Home",
+        icon: "home",
+        link: "/",
+      },
+      {
+        text: "Current version",
+        icon: "update",
+        link: "/stable/",
+      },
+      {
+        text: "Maintain a DSF instance",
+        icon: "tool",
+        prefix: "maintain/",
+        link: "maintain/",
+        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+          text: "FHIR Reverse Proxy",
+          icon: "module",
+          prefix: "fhir-reverse-proxy/",
+          link: "fhir-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "FHIR Server",
+          icon: "module",
+          prefix: "fhir/",
+          link: "fhir/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        }, {
+          text: "BPE Reverse Proxy",
+          icon: "module",
+          prefix: "bpe-reverse-proxy/",
+          link: "bpe-reverse-proxy/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}]
+        }, {
+          text: "BPE Server",
+          icon: "module",
+          prefix: "bpe/",
+          link: "bpe/",
+          children: [{
+  			icon: "config", 
+  			text: "Configuration",
+  			link: "configuration"
+  		}, {
+  			icon: "config",
+  			text: "Access Control",
+  			link: "access-control"
+  		}, {
+  			icon: "config",
+  			text: "OpenID Connect",
+  			link: "oidc"
+  			}]
+        },
+        {
+          text: "Install Plugins",
+          icon: "plugin",
+          link: "install-plugins"
+      }],
+      },
+      {
+        text: "Develop process plugins",
+        icon: "plugin",
+        prefix: "develop/",
+        link: "develop/",
+        children: ["create", "upgrade-from-0" ],
+      },
+    ],
+    "/v1.5.1/": [
+      {
+        text: "Home",
+        icon: "home",
+        link: "/",
+      },
+      {
+        text: "Current version",
+        icon: "update",
+        link: "/stable/",
+      },
       {
         text: "Maintain a DSF instance",
         icon: "tool",
@@ -836,12 +1206,24 @@ export default hopeTheme({
         link: "/",
       },
       {
+        text: "News",
+        icon: "news",
+        link: "/news/"
+      },
+      {
         text: "About",
         icon: "creative",
         prefix: "learnmore/",
         link: "learnmore/",
-        children: ["contact", "team", "partners", "public"], 
+        children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
       },
+      {
+        text: "DSF-Community",
+        icon: "group",
+        prefix: "community/",
+        link: "community/",
+        children: ["community", "contribute", "code", "documentation"], 
+      },  
     ],
     "/oldstable/":  [
       {
@@ -855,49 +1237,31 @@ export default hopeTheme({
         children: ["introduction", "generalinformation/", "code/", "build/", "releases/", "tutorial/"], 
       },
     ],
-    "/develop/": [
-      {
-        text: "Developer Documentation",
-        icon: "creative",
-        link: "/develop/",
-        children: [{
-            text: "BPMN",
-            icon: "creative",
-            prefix: "bpmn/",
-            link: "bpmn/",
-            children: ["conditions.md", "gateways.md", "messaging.md", "sequence-flow.md", "service-tasks.md", "timer-intermediate-catching-events.md"], 
-          },
-          {
-            text: "FHIR",
-            icon: "creative",
-            prefix: "fhir/",
-            link: "fhir/",
-            children: ["activitydefinition.md", "codesystem.md", "task.md", "valueset.md"], 
-          },
-          {
-            text: "DSF",
-            icon: "creative",
-            prefix: "dsf/",
-            link: "dsf/",
-            children: ["bpmn-process-execution.md", "bpmn-process-variables.md", "draft-task-resources.md", "environment-variables.md", "message-correlation.md", "message-delegates.md", "organization-identifiers.md", "process-plugin-api.md", "process-plugin-definition.md", "read-access-tag.md", "requester-and-recipient.md", "service-delegates.md", "spring-framework-integration.md", "versions-placeholders-urls.md"], 
-        },
-        {
-          text: "Guides",
-          icon: "creative",
-          prefix: "guides/",
-          link: "guides/",
-          children: ["accessing-bpmn-process-variables.md", "accessing-task-resources-during-execution.md", "adding-task-input-parameters-to-task-profiles.md", "configuring-read-access-tags.md", "creating-activity-definitions.md", "creating-codesystems-for-dsf-processes.md", "creating-task-resources-based-on-a-definition.md", "creating-valuesets-for-dsf-processes.md", "managing-mutiple-incoming-messages-and-missing-messages.md", "setting-targets-for-message-events.md", "starting-a-process-via-task-resources.md"]
-        }]
-      }
-    ],
+    "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
-  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a>",
+  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a> • <a href='/security/'>Security</a>"  ,
   copyright: false,
   displayFooter: true,
 
 
   plugins: {
+    blog: {
+      filter: ({ frontmatter }) => frontmatter.type === "news",
+    },
+    
+    markdownImage: {
+      figure: true,
+      lazyload: true,
+      mark: true,
+      size: true,
+    },
+    markdownMath: {
+    },
+	markdownTab: {
+      codeTabs: true,
+      tabs: false,
+    },
     linksCheck: {
       dev: true,
       build: "error"
@@ -924,19 +1288,12 @@ export default hopeTheme({
       align: true,
       attrs: true,
       chart: false,
-      codetabs: true,
       demo: false,
       echarts: false,
-      figure: true,
       flowchart: false,
       gfm: true,
-      imgLazyload: true,
-      imgSize: true,
-      imgMark: true,
       include: true,
-      katex: false,
       mark: true,
-      mathjax: false,
       mermaid: false,
       playground: {
         presets: [],
@@ -956,7 +1313,6 @@ export default hopeTheme({
       ],
       sub: true,
       sup: true,
-      tabs: false,
       tasklist: false,
       vPre: false,
       vuePlayground: false
