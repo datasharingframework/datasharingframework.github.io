@@ -32,7 +32,7 @@ export default hopeTheme({
     },
     {
       text: "Process Development",
-      icon: "process",
+      icon: "plugin",
       prefix: "/process-development/",
       children: [
         {
@@ -88,7 +88,7 @@ export default hopeTheme({
       {
         text: "News",
         icon: "news",
-        link: "tag/blog/"
+        link: "tag/news/"
       },
 
       {
@@ -121,13 +121,12 @@ export default hopeTheme({
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
-    "/stable/": [
+    "/operations/v1/latest/": [
       {
         text: "Home",
         icon: "home",
         link: "/",
       },
-      "",
       {
         text: "Maintain a DSF instance",
         icon: "tool",
@@ -196,31 +195,6 @@ export default hopeTheme({
           link: "install-plugins"
       }
       ],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-      {
-        text: "Contribute",
-        icon: "info",
-        link: "contribute/",
-        prefix: "contribute/",
-        children: [
-        {
-          text: "Code",
-          link: "code",
-          icon: "code"
-        },
-        {
-          text: "Documentation",
-          link: "documentation",
-          icon: "info"
-        }
-      ]
       },
     ],
     "/operations/v1/v1.7.1/": [
@@ -1178,7 +1152,7 @@ export default hopeTheme({
         children: ["create", "upgrade-from-0" ],
       },
     ],
-    "/about/":  [
+    "/community/":  [
       {
         text: "Home",
         icon: "home",
@@ -1187,22 +1161,24 @@ export default hopeTheme({
       {
         text: "News",
         icon: "news",
-        link: "/news/"
+        link: "/tag/news/"
       },
       {
-        text: "About",
-        icon: "creative",
-        prefix: "learnmore/",
-        link: "learnmore/",
-        children: ["contact", "team", "partners", "public", "faq", "projectlist", "speakinghours"], 
-      },
-      {
-        text: "DSF-Community",
-        icon: "group",
-        prefix: "community/",
-        link: "community/",
-        children: ["community", "contribute", "code", "documentation"], 
-      },  
+      text: "Community",
+      icon: "creative",
+      prefix: "/community/",  
+      children: [
+        "team",
+        "communication",
+        "ecosystem",
+        "contribute/",
+        "contribute/code",
+        "contribute/documentation",
+        "events/",
+        "consultation-hours"
+      ],
+    },
+       
     ],
     "/process-development": [
       {
@@ -1210,38 +1186,15 @@ export default hopeTheme({
         icon: "",
         prefix: "api-v1/",
         link: "api-v1/",
-        children: [ "concept", "tooling/", "tutorials/"], 
+        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
       },
       {
         text: "api v2",
         icon: "",
         prefix: "api-v2/",
         link: "api-v2/",
-        children: [ "description","implementation", "migration", "tooling/", "tutorials/",], 
-      },
-      {
-        text: "how-to",
-        icon: "creative",
-        prefix: "how-to/",
-        link: "how-to/",
-        children: ["start-project"], 
-      },
-      {
-        text: "process-plugin",
-        icon: "process",
-        prefix: "process-plugin/",
-        link: "process-plugin/",
-        children: ["best-practise", "create", "testing"], 
-      },
-      {
-        text: "publishing",
-        icon: "publish",
-        prefix: "publishing/",
-        link: "publishing/",
-        children: ["publish-on-dsfhub"], 
-      },
-      
-
+        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
+      },    
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },

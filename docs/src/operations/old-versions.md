@@ -1,5 +1,6 @@
 ---
 title: Old Versions
+icon: note
 ---
 
 ## DSF v1

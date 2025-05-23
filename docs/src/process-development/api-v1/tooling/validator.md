@@ -8,4 +8,3 @@ icon: share
 
 This site is work in progress, please come back later.
 
-## CLI and Maven Plugin

@@ -9,4 +9,3 @@ icon: edit
 
 This site is work in progress, please come back later.
 
-## Process Plugin Development Cycle

@@ -1,6 +1,6 @@
 ---
 title: Best Practices
-icon: share
+icon: info
 ---
 
 ## Best Practices

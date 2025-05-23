@@ -1,5 +1,6 @@
 ---
 title: DSF Ecosystem
+icon: proxy
 ---
 
 We believe that the Data Sharing Framework (DSF) can only develop its full potential when embedded in a well-connected network of tools, organizations, and individuals.

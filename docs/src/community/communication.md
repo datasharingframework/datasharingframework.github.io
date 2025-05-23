@@ -1,5 +1,6 @@
 ---
 title: Communication
+icon: call
 ---
 
 ## Contact the team

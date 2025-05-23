@@ -1,9 +1,9 @@
 ---
-title: Maven Central and Ressources
-icon: share
+title: Concepts
+icon: info
 ---
 
-## Maven Central and Ressources
+## API 2 Description
 
 ::: warning Work in progress
 
