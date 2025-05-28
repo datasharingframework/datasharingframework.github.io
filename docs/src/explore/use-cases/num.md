@@ -2,6 +2,11 @@
 title: Network University Medicine
 icon: map
 ---
+::: warning Work in progress
+
+The use cases are being reworked and are currently a work in progress. Please check back later.
+:::
+
 The [Network University Medicine](https://www.netzwerk-universitaetsmedizin.de/) was established in April 2020 as part of the COVID-19 pandemic crisis management. The aim of the NUM is to better coordinate COVID-19 research at all 36 university hospitals in Germany.'
 ::: center
 ![NUM =370x220](/photos/learnmore/projects/num.png )

@@ -27,7 +27,7 @@ icon: blog
 ### Recorded Talks
 #### GMDS Conference 2022
 - [Hands On! - Introduction to the Data Sharing Framework from a User Perspective ](https://www.youtube.com/playlist?list=PLsHs7HOt6jDMe3PNevpo-uGsDTWVSMsYZ)
-- Tutorial: [Implementing BPMN Processes as DSF Process-Plugins](/oldstable/tutorial/)
+
 #### GMDS Conference 2020
 - [Executing Distributed Healthcare and Research Processes – the HiGHmed Data Sharing Framework](https://www.youtube.com/watch?v=OzjyqmZZPSA)
 - [Feasibility Queries in Distributed Architectures – Concept and Implementation in HiGHmed](https://www.youtube.com/watch?v=6Pom8KqYhTs)

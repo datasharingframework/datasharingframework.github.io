@@ -23,8 +23,9 @@ export default hopeTheme({
     {
         text: "Explore",
         icon: "info",
-        prefix: "",
-        children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/", "/security/"],
+        link: "/explore/",
+        prefix: "/explore/",
+        children: ["concepts/introduction", "use-cases/", "publications", "/security/"],
     },
     {
       text: "Operations",
@@ -67,8 +68,8 @@ export default hopeTheme({
         "communication",
         "ecosystem",
         "contribute/",
+        "consultation-hours",
         "events/",
-        "consultation-hours"
       ],
     },
     {
@@ -91,7 +92,6 @@ export default hopeTheme({
         icon: "news",
         link: "tag/news/"
       },
-
       {
         text: "Concepts",
         icon: "info",
@@ -100,7 +100,7 @@ export default hopeTheme({
         children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
       },
       {
-        text: "Security",
+        text: "Security Disclosure Policy",
         icon: "safe",
         link: "/security/",
       },
@@ -109,15 +109,18 @@ export default hopeTheme({
         icon: "any",
         prefix: "explore/use-cases/",
         link: "explore/use-cases/",
-        children: ["feasibility", "num"], 
-      },
+      }, 
       {
         text: "Publications",
         icon: "blog",
-        prefix: "explore/publications/",
-        link: "/explore/publications/",
-        children: ["publications", "awards"], 
+        link: "explore/publications",
       },
+      {
+        text: "Awards",
+        icon: "creative",
+        link: "explore/awards",
+      },
+     
     ],
     "/hackathon": [],
     "/spring-school": [],
@@ -160,6 +163,13 @@ export default hopeTheme({
         link: "v2/",
         children: [ "fhir-ig", "javadoc", "maven"], 
       }, 
+    ],
+    "/community":[
+      {
+        text: "Community",
+        icon: "",
+        children: ["team", "communication", "ecosystem", "contribute/", "consultation-hours", "events/",]
+      }
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },

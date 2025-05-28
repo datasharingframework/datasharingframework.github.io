@@ -1,10 +1,6 @@
 export function generate_v1_latest_sidebar() {
     return [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
+      
       {
         text: "Maintain a DSF instance",
         icon: "tool",
@@ -79,11 +75,7 @@ export function generate_v1_latest_sidebar() {
 
 export function generate_v1_gt_eq_1_7_0_sidebar() {
     return [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
+      
       {
         text: "Maintain a DSF instance",
         icon: "tool",
@@ -157,11 +149,7 @@ export function generate_v1_gt_eq_1_7_0_sidebar() {
 
 export function generate_v1_gt_eq_1_5_0_sidebar() {
     return [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
+      
       {
         text: "Maintain a DSF instance",
         icon: "tool",
@@ -243,11 +231,7 @@ export function generate_v1_gt_eq_1_5_0_sidebar() {
 
 export function generate_v1_gt_eq_1_0_0_sidebar() {
     return [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
+      
       {
         text: "Maintain a DSF instance",
         icon: "tool",

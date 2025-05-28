@@ -12,17 +12,17 @@ features:
   - title: Introduction
     icon: info
     details: Introduction to the DSF and informations about Use-Cases/Projects. 
-    link: /intro/
+    link: /explore/concepts/introduction
 
   - title: Get Started 
     icon: launch
     details:  Get technical insights and install the DSF | Develop Process Plugins.
-    link: /stable/
+    link: /operations/v1/latest/
 
   - title: About Us
     icon: creative
     details: Contact, partners, the team behind the DSF and more... Join our community!
-    link: /about/learnmore/
+    link: /community/
   
   - title: GitHub
     icon: github
@@ -38,7 +38,7 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
 
-## News
+## [News](tag/news/)
 <div class="image-container">
   <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
 </div>
@@ -47,12 +47,12 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 Our DSF team will be at FHIR DevDays 2025 from June 3rd to 6th in Amsterdam! DevDays is the world’s leading FHIR event in the field of digital health. Join us at the event for engaging community talks by Maximilian Kurscheidt and Hauke Hund. We’ll be discussing the International Patient Summary Challenge 2025, as well as how we can foster research through Real-World Data Sharing and Process Orchestration using FHIR and BPMN. We look forward to seeing you there!
 
 If you'd like to connect with us during the event, feel free to arrange a meeting beforehand by emailing us at 📧<a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a>
-[Read more](/news/fhir-devdays-2025/)
+[Read more](/posts/2025-05-07-fhir-devdays-2025.html)
 
 ---
 **DSF Spring School 2025** 
 From April 2nd to 4th, members of the DSF community gathered at Heilbronn University for the annual DSF Spring School 2025. The three-day event provided an in-depth look at the Data Sharing Framework (DSF) and its latest developments, featuring expert talks, hands-on sessions, and collaborative projects during a community-driven hackathon. With vibrant discussions and plenty of memorable moments, the event concluded on a high note.
-[Read more](/news/spring-school-2025/)
+[Read more](/posts/2025-04-23-spring-school-2025)
 
 --- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.

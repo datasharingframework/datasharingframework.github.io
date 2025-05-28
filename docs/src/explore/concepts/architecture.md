@@ -13,7 +13,7 @@ The following architecture diagram also shows three organisations, each of which
 
 ![DSF Architecture](/photos/info/architecture/architecture-dark.svg#dark)
 
-## DSF FHIR Server :mailbox:
+## DSF FHIR Server 
 As mentioned above, the externally accessible DSF FHIR server acts as a mailbox for communication. This means that an organisation creates a task resource in its DSF and drops the task resource (letters) into the mailbox of another organisation, requesting that something happen. Task resources have been explained in more detail in the section [Basics and Standards](basics). 
 It is important to understand that the DSF FHIR server is not used for persisting medical data. 
 
@@ -34,9 +34,9 @@ The DSF BPE uses websocket (WSS) and webservice (HTTPS) connections to communica
 ## Flexible Deployment
 The deployment of the architecture is flexible. The organisations can be deployed as a *star* schema (left) or as a *mesh* schema (right). In the Star schema (left), all Data Integration Centres (DIC) are connected to a central node (CRR - Central Research Repository), which transfers the information to all nodes (DIC). For security reasons, a data transfer hub (DTH) is connected upstream, which provides additional security so that the medical data is never transferred together with the authenticating data. 
 
-In the mesh scheme (right), the nodes (DIC) are all directly connected to each other and the information is transferred from node to node. Here in the FDPG (Forschungsdatenportal - Research Data Portal), the data can then be accessed for research purposes. More about this [here](/intro/use-cases/feasibility).
+In the mesh scheme (right), the nodes (DIC) are all directly connected to each other and the information is transferred from node to node. Here in the FDPG (Forschungsdatenportal - Research Data Portal), the data can then be accessed for research purposes. More about this [here](/explore/use-cases/feasibility).
 
 ![Star schema  =400x300](/photos/info/architecture/star.png) ![Mesh schema =350x300](/photos/info/architecture/mesh.png)
 
 ## Network Setup & Additional Reverse Proxy in external DMZ
-You can find more information about the network setup [here](networkSetup)
+You can find more information about the network setup [here](/explore/concepts/network-setup)
