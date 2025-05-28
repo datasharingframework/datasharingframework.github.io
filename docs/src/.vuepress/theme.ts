@@ -52,13 +52,12 @@ export default hopeTheme({
           ]
         }
       ]
-      
-    }/*,
+    },
      {
       text: "DSF Development",
       icon: "info",
       link: "/dsf-development/",
-    }*/,
+    },
     {
       text: "Community",
       icon: "creative",
@@ -152,6 +151,15 @@ export default hopeTheme({
         link: "api-v2/",
         children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
       },    
+    ],
+    "/dsf-development": [
+      {
+        text: "DSF 2",
+        icon: "",
+        prefix: "v2/",
+        link: "v2/",
+        children: [ "fhir-ig", "javadoc", "maven"], 
+      }, 
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },

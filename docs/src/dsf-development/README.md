@@ -2,4 +2,4 @@
 title: DSF Development
 ---
 
-No content yet. Please visit this page later.
+<meta http-equiv="refresh" content="0;url=./v2/">
