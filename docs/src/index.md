@@ -4,6 +4,7 @@ icon: home
 title: Data Sharing Framework
 heroImage: /photos/home/logo.svg
 heroText: Data Sharing Framework
+layout: ParentLayout
 tagline: A performant, secure, and innovative framework that enables biomedical researchers to extract value from routine data. 
 # A performant, secure and innovative framework that enables healthcare data exchange across organizational boundaries. 
 

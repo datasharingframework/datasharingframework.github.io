@@ -5,7 +5,7 @@ import Layout from './layouts/PageLayout.vue'
 
 export default defineClientConfig({
   layouts: {
-    //ParentLayout,
+    ParentLayout,
     Layout
   },
 })
