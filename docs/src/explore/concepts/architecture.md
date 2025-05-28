@@ -25,7 +25,7 @@ It is important to understand that the DSF FHIR server is not used for persistin
 The BPE located in the secure internal network executes the processes (BPMN/Java). The BPE is deployed in the internal network and has access to the local systems, such as the organisation's own FHIR server, on which medical data is stored. These FHIR servers are not to be confused with the DSF FHIR server, on which no medical data is persisted.
 Different processes can be executed simultaneously. For this, only a new process plugin file has to be added and configured. More about this in the [Process Plugins](process-plugins).
 
-![](/photos/info/architecture/bpe-light.svg#light)
+![BPE](/photos/info/architecture/bpe-light.svg#light)
 
 ![BPE](/photos/info/architecture/bpe-dark.svg#dark)
 
@@ -36,7 +36,7 @@ The deployment of the architecture is flexible. The organisations can be deploye
 
 In the mesh scheme (right), the nodes (DIC) are all directly connected to each other and the information is transferred from node to node. Here in the FDPG (Forschungsdatenportal - Research Data Portal), the data can then be accessed for research purposes. More about this [here](/intro/use-cases/feasibility).
 
-![Star schema](/photos/info/architecture/star.png =400x300) ![Mesh schema](/photos/info/architecture/mesh.png =350x300)
+![Star schema  =400x300](/photos/info/architecture/star.png) ![Mesh schema =350x300](/photos/info/architecture/mesh.png)
 
 ## Network Setup & Additional Reverse Proxy in external DMZ
 You can find more information about the network setup [here](networkSetup)

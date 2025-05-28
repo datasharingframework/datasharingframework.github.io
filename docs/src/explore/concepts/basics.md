@@ -12,7 +12,7 @@ Interoperability is the ability of different systems to work together as seamles
 -	The final level, the *organizational level*, includes policy, social, legal and organizational aspects that enable secure, seamless and timely communication and use of data both within and between organizations. And importantly, these components enable shared consent, trust and integrated end-user processes and workflows.
 
 
-![Levels of interoperability](/photos/info/basics/interoperability.png =600x)
+![Levels of interoperability =600x](/photos/info/basics/interoperability.png )
 
 ## HL7 FHIR :fire:
 [HL7 FHIR](https://www.hl7.org/fhir/) is a standard for data exchange that can be used as an information model for communication within and between systems. The standard is based on resources, references and profiles. With this concept, FHIR offers interoperability out of the box. The resources describe data formats. 150 specified resources cover the entire health system. An example of a resource would be a patient, which consists of data such as name or gender. These resources can refer to other resources by means of references. This connects the information units into a network. For seamless exchange of information, FHIR supports RESTful architectures and web standards such as XML or JSON, which makes it easier for developers to use FHIR.
@@ -34,4 +34,4 @@ In the following picture you can see parts of BPMN. These *Message Events* enabl
 
 The *ActivityDefinition* is needed to publish what can be done in an instance. That means the *ActivityDefinition* contains the process description with the authorisation who is allowed to send a message. 
 
-![BPMN *MessageEvents*](/photos/info/basics/bpmn2.png =250x400)
+![BPMN *MessageEvents* =250x400](/photos/info/basics/bpmn2.png )
