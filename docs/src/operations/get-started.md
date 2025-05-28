@@ -1,1 +1,6 @@
-weiterleitung auf v1
+---
+title: Get Started
+icon: launch
+---
+
+<meta http-equiv="refresh" content="0;url=./v1/latest/">

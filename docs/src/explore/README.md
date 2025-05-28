@@ -5,10 +5,10 @@ icon: info
 ## Overview 
 
 - Documentation
-    - [Introduction](info/introduction.md)
-    - [Basics & Standards](info/basics.md)
-    - [Architecture](info/architecture.md)
-    - [Security](info/security.md)
-    - [Allow Lists](info/allowList.md)
-    - [Process Plugins](info/process-plugins.md)
+    - [Introduction](concepts/introduction.md)
+    - [Basics & Standards](concepts/basics.md)
+    - [Architecture](concepts/architecture.md)
+    - [Security](concepts/security.md)
+    - [Allow Lists](concepts/allow-list.md)
+    - [Process Plugins](concepts/process-plugins.md)
 

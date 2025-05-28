@@ -6,7 +6,7 @@ icon: update
 Upgrading the DSF from 1.7.0 to 1.7.1 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.7.0 first
-When upgrading from DSF version < 1.7.0 it is important to migrate to [DSF 1.7.0 first](/v1.7.0/maintain/upgrade-from-1).
+When upgrading from DSF version < 1.7.0 it is important to migrate to [DSF 1.7.0 first](../../v1.7.0/maintain/upgrade-from-1).
 :::
 
 

@@ -1,6 +1,6 @@
 ---
 title: Migration Guide
-icon: share
+icon: update
 ---
 
 ## Migration Guide API 1 to API 2
@@ -9,5 +9,3 @@ icon: share
 
 This site is work in progress, please come back later.
 
-
-## Process Plugin Development Cycle

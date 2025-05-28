@@ -1,6 +1,6 @@
 ---
-title: API 1
-icon: code
+title: Concepts
+icon: info
 ---
 
 ## API 1 Description

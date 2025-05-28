@@ -1,9 +1,9 @@
 ---
-title: Best Practices
-icon: share
+title: Create a new Process Plugin
+icon: plugin
 ---
 
-## Best Practices
+## Create a new Process Plugin
 
 ::: warning Work in progress
 

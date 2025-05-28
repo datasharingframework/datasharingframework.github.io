@@ -1,6 +1,6 @@
 ---
 title: Create a new Process Plugin
-icon: share
+icon: plugin
 ---
 
 ## Create a new Process Plugin

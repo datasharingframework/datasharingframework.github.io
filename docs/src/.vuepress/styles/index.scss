@@ -8,11 +8,20 @@ h1, h2, h3, h4, h5 {
   display: none;
 }
 
-
-
 .image-container {
     height: 150px; width:361px;
     max-width: calc(100% - 20px);
     padding: 10px;
     float: right;
 }
+
+.vp-tag {
+  background-color: #63C7A6 !important;            
+}
+
+.page-tag-item {
+  background: #326F95 !important;
+  color: white !important;
+  border-radius: 5%;
+}
+
