@@ -43,7 +43,7 @@ DSF is already deployed and operational in *Data Integration Centers*  at German
 
 
 
-If you're looking to leverage the DSF for your research or you're interested in exploring how it can enhance your data sharing needs, we're here to support you. Visit the **[Learn how to implement your use case](./learn.md)** page to start your journey towards integrating the DSF into your research project.
+If you're looking to leverage the DSF for your research or you're interested in exploring how it can enhance your data sharing needs, we're here to support you. Visit the **[Learn how to implement your use case](/for-you/learn.md)** page to start your journey towards integrating the DSF into your research project.
 
 Should you have any questions or need personalized assistance, don't hesitate to reach out to the DSF core team directly at **dsf-gecko@hs-heilbronn.de**.
 

@@ -14,6 +14,7 @@ export default defineUserConfig({
     vuePluginOptions: {},
   }),
 
+
   /*locales: {
     "/": {
       lang: "en-US",

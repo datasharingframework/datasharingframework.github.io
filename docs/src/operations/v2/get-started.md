@@ -1,1 +1,1 @@
-verlinkung auf stabel/latest
+add a redirect to latest when released

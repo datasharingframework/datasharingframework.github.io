@@ -9,6 +9,6 @@ icon: info
     - [Basics & Standards](concepts/basics.md)
     - [Architecture](concepts/architecture.md)
     - [Security](concepts/security.md)
-    - [Allow Lists](concepts/allowList.md)
+    - [Allow Lists](concepts/allow-list.md)
     - [Process Plugins](concepts/process-plugins.md)
 
