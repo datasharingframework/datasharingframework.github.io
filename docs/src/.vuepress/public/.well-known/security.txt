@@ -1,5 +1,0 @@
-Contact: mailto:dsf-security@hs-heilbronn.de
-Expires: 2040-12-31T22:59:00.000Z
-Preferred-Languages: de,en
-Canonical: https://dsf.dev/.well-known/security.txt
-Policy: https://dsf.dev/security

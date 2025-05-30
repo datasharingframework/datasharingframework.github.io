@@ -1,4 +1,0 @@
----
-title: Libraries
-icon: folder
----

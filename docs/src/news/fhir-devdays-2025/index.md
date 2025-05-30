@@ -1,3 +1,5 @@
+<meta http-equiv="refresh" content="0;url=/posts/2025-05-07-fhir-devdays-2025.html">
+
 # FHIR DevDays 2025
 The DSF Team will be attending **FHIR DevDays 2025** from **June 3rd to 6th** in **Amsterdam**! The DevDays is the world’s leading event focused on HL7® FHIR® (Fast Healthcare Interoperability Resources). It’s dedicated to helping participants build expertise and accelerate the global implementation of FHIR standards. We’re excited to be speaking at the event and sharing insights from our work!
 
