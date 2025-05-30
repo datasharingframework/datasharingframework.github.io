@@ -1,10 +1,9 @@
 ---
-title: Maven Central and Ressources
-icon: share
+title: Tooling
+icon: operate
 ---
 
-## Maven Central and Ressources
-
+## Process plugin tutorials
 ::: warning Work in progress
 
 This site is work in progress, please come back later.

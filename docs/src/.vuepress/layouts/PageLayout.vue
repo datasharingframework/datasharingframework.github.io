@@ -46,7 +46,7 @@ function navigateToNewVersion() {
   <ParentLayout>
     <template #sidebarTop>
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
-        <label class="vp-sidebar-header" for="version-select">Version: </label>
+        <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
         <option value="v2/latest">next (v2.0.0-M2)</option>
         <option value="v1/latest">latest (v1.7.1)</option>

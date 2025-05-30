@@ -3,9 +3,8 @@ title: Community
 icon: creative
 ---
 
-
-- [Consultation Hours](./consultation-hours.md)
 - [Team](./team.md)
 - [Communication](./communication.md)
-- [Contribute](./contribute/README.md)
 - [DSF Ecosystem](./ecosystem.md)
+- [Contribute](./contribute/README.md)
+- [Consultation Hours](./consultation-hours.md)

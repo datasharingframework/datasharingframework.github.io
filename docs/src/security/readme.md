@@ -1,5 +1,5 @@
 ---
-title: Security
+title: Security Disclosure Policy
 icon: safe
 ---
 

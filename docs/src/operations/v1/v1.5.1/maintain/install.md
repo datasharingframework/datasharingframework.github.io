@@ -228,5 +228,5 @@ INFO Grizzly(1) -  INFO Grizzly(1) - ClientEndpoint.onOpen(37) | Websocket open,
 Please visit the on boarding website of your network for more information.
 
 ::: tip Ideas for improvement?
-Have you found an error or is something unclear to you? Then please feel free to write to us at <a href="mailto:dsf-gecko@hs-heilbronn.de">gth-gecko@hs-heilbronn.de</a>. Thank you very much!
+Have you found an error or is something unclear to you? Then please feel free to write to us at <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a>. Thank you very much!
 :::
