@@ -48,20 +48,21 @@ function navigateToNewVersion() {
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
         <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
-        <option value="v2/latest">next (v2.0.0-M2)</option>
-        <option value="v1/latest">latest (v1.7.1)</option>
-        <option value="v1/v1.7.0">v1.7.0</option>
-        <option value="v1/v1.6.0">v1.6.0</option>
-        <option value="v1/v1.5.2">v1.5.2</option>
-        <option value="v1/v1.5.1">v1.5.1</option>
-        <option value="v1/v1.5.0">v1.5.0</option>
-        <option value="v1/v1.4.0">v1.4.0</option>
-        <option value="v1/v1.3.2">v1.3.2</option>
-        <option value="v1/v1.3.1">v1.3.1</option>
-        <option value="v1/v1.3.0">v1.3.0</option>
-        <option value="v1/v1.2.0">v1.2.0</option>
-        <option value="v1/v1.1.0">v1.1.0</option>
-        <option value="v1/v1.0.0">v1.0.0</option>
+        <option value="v2/latest">next (2.0.0-M3)</option>
+        <option value="v1/latest">latest (1.8.0)</option>
+        <option value="v1/v1.7.1">1.7.1</option>
+        <option value="v1/v1.7.0">1.7.0</option>
+        <option value="v1/v1.6.0">1.6.0</option>
+        <option value="v1/v1.5.2">1.5.2</option>
+        <option value="v1/v1.5.1">1.5.1</option>
+        <option value="v1/v1.5.0">1.5.0</option>
+        <option value="v1/v1.4.0">1.4.0</option>
+        <option value="v1/v1.3.2">1.3.2</option>
+        <option value="v1/v1.3.1">1.3.1</option>
+        <option value="v1/v1.3.0">1.3.0</option>
+        <option value="v1/v1.2.0">1.2.0</option>
+        <option value="v1/v1.1.0">1.1.0</option>
+        <option value="v1/v1.0.0">1.0.0</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>
