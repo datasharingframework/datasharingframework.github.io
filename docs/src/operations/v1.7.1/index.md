@@ -7,9 +7,9 @@ Data Sharing Framework 1.x is the current major release of the Data Sharing Fram
 
 # System Administrators
 
-- [Install DSF 1.7.1](maintain/install)
-- [Upgrade from DSF 1.7.0](maintain/upgrade-from-1)
-- [Upgrade from DSF 0.9.x.](maintain/upgrade-from-0)
+- [Install DSF 1.7.1](install)
+- [Upgrade from DSF 1.7.0](upgrade-from-1)
+- [Upgrade from DSF 0.9.x.](upgrade-from-0)
 
 
 ## New features

@@ -37,22 +37,7 @@ export default hopeTheme({
       text: "Process Development",
       icon: "plugin",
       prefix: "/process-development/",
-      children: [
-        {
-          text: "API v1",
-          children: [
-            "api-v1/readme.md",
-            "api-v1/get-started.md"
-          ]
-        },
-        {
-          text: "API v2",
-          children: [
-            "api-v2/readme.md",
-            "api-v2/get-started.md"
-          ]
-        }
-      ]
+      children: [ "api-v1/", "api-v2/" ]
     },
      {
       text: "DSF Development",
