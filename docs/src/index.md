@@ -17,7 +17,7 @@ features:
   - title: Get Started 
     icon: launch
     details:  Get technical insights and install the DSF | Develop Process Plugins.
-    link: /operations/v1/latest/
+    link: /operations/latest/
 
   - title: About Us
     icon: creative
