@@ -3,6 +3,7 @@ title: JavaDoc
 icon: code
 ---
 
+<a href="/assets/javadoc/api-v2/index.html" target="_blank">Open Fullscreen</a>
 <iframe class="content-viewer" src="/assets/javadoc/api-v2/index.html"/>
 
 <style>
