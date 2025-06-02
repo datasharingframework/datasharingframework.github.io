@@ -1,18 +1,18 @@
+import { slimsearchPlugin } from "@vuepress/plugin-slimsearch";
 import { hopeTheme } from "vuepress-theme-hope";
+import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar } from "./sidebar/operations-v1";
 
 export default hopeTheme({
   author: {
     name: "DSF-Team",
-    url: "/about/learnmore/team.html", 
+    url: "/community/team.html", 
   },
-
-  iconAssets: "/assets/font/font.css",
-  iconPrefix: "iconfont icon-",
 
 
   logo: "/photos/home/logo-small.svg",
   darkmode: "toggle",
   contributors: false,
+
   
   navbar: [
     {
@@ -21,52 +21,56 @@ export default hopeTheme({
       link: "/",
     },  
     {
-        text: "Docs",
+        text: "Explore",
         icon: "info",
-        prefix: "",
-        children: [
-          {
-            text: "Introduction",
-            icon: "info",
-            children: ["/intro/info/introduction", "/intro/use-cases/", "/intro/publications", "/intro/tutorials/"],
-          },
-          {
-            text: "Security",
-            icon: "safe",
-            link: "/security/",
-          }
-        ]
+        link: "/explore/",
+        prefix: "/explore/",
+        children: ["concepts/introduction", "use-cases/", "publications", "/security/"],
     },
     {
-        text: "Get Started",
-        icon: "launch",
-        prefix: "/stable/",
-        children: [
-          {
-            text: "Guideline v1.7.1 (stable)",
-            icon: "info",
-            children: ["index", "maintain/install", "maintain/upgrade-from-0", "maintain/allowList-mgm", "maintain/install-plugins", "develop/create", "contribute/"],
-          }
-        ]
+      text: "Operations",
+      icon: "launch",
+      prefix: "/operations/",
+      children: [ "get-started.md", "process-plugin-deployment.md", "old-versions.md"],
     },
     {
-      text: "About",
-      icon: "creative",
-      prefix: "/about/",  
+      text: "Process Development",
+      icon: "plugin",
+      prefix: "/process-development/",
       children: [
         {
-          text: "Learn More",
-          icon: "creative",
-          prefix: "learnmore/", 
-          children: ["contact", "team", "partners", "public"],
+          text: "API v1",
+          children: [
+            "api-v1/readme.md",
+            "api-v1/get-started.md"
+          ]
         },
-      ],
+        {
+          text: "API v2",
+          children: [
+            "api-v2/readme.md",
+            "api-v2/get-started.md"
+          ]
+        }
+      ]
+    },
+     {
+      text: "DSF Development",
+      icon: "info",
+      link: "/dsf-development/",
     },
     {
-      text: "Versions",
-      icon: "note",
-      // children:["/v1/"],
-      children: [{ text: "v1.7.1 (stable)", link: "/stable/" }, { text: "v1.7.0", link: "/v1.7.0/" }, { text: "v1.6.0", link: "/v1.6.0/" }, { text: "v1.5.2", link: "/v1.5.2/" }, { text: "v1.5.1", link: "/v1.5.1/" }, { text: "v1.5.0", link: "/v1.5.0/" }, { text: "v1.4.0", link: "/v1.4.0/" }, { text: "v1.3.2", link: "/v1.3.2/" }, { text: "v1.3.1", link: "/v1.3.1/" }, { text: "v1.3.0", link: "/v1.3.0/" }, { text: "v1.2.0", link: "/v1.2.0/" }, { text: "v1.1.0", link: "/v1.1.0/" }, { text: "v1.0.0", link: "/v1.0.0/" }, { text: "v0.9.3 (archived)", link: "/oldstable/"}],
+      text: "Community",
+      icon: "creative",
+      prefix: "/community/",  
+      children: [
+        "team",
+        "communication",
+        "ecosystem",
+        "contribute/",
+        "consultation-hours",
+        "events/",
+      ],
     },
     {
       text: "",
@@ -84,1168 +88,138 @@ export default hopeTheme({
         link: "/",
       },
       {
-        text: "Docs",
-        icon: "info",
-        prefix: "intro/",
-        link: "intro/",
-        children: ["info/introduction.md", "info/basics", "info/architecture", "info/security", "info/allowList", "info/process-plugins"], 
+        text: "News",
+        icon: "news",
+        link: "tag/news/"
       },
       {
-        text: "Security",
+        text: "Concepts",
+        icon: "info",
+        prefix: "explore/",
+        link: "explore/",
+        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
+      },
+      {
+        text: "Security Disclosure Policy",
         icon: "safe",
         link: "/security/",
       },
       {
         text: "Use-Cases",
         icon: "any",
-        prefix: "intro/use-cases/",
-        link: "intro/use-cases/",
-        children: ["feasibility", "num"], 
-      },
+        prefix: "explore/use-cases/",
+        link: "explore/use-cases/",
+      }, 
       {
         text: "Publications",
         icon: "blog",
-        link: "/intro/publications",
+        link: "explore/publications",
       },
       {
-        text: "Tutorials",
-        icon: "edit",
-        link: "/intro/tutorials/",
-      }
+        text: "Awards",
+        icon: "creative",
+        link: "explore/awards",
+      },
+     
     ],
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
-    "/stable/": [
+    "/operations/v2/latest/": [],
+    "/operations/v1/latest/":generate_v1_latest_sidebar(),
+    "/operations/v2/v2.0.0-M3/": [],
+    "/operations/v1/v1.8.0/": generate_v1_latest_sidebar(),
+    "/operations/v1/v1.7.1/": generate_v1_latest_sidebar(),
+    "/operations/v1/v1.7.0/": generate_v1_gt_eq_1_7_0_sidebar(),
+    "/operations/v1/v1.6.0/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1/v1.5.2/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1/v1.5.1/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1/v1.5.0/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1/v1.4.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.3.2/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.3.1/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.3.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.2.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.1.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1/v1.0.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/process-development": [
       {
-        text: "Home",
-        icon: "home",
-        link: "/",
+        text: "API v1",
+        icon: "",
+        prefix: "api-v1/",
+        link: "api-v1/",
+        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
       },
-      "",
       {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
+        text: "API v2",
+        icon: "",
+        prefix: "api-v2/",
+        link: "api-v2/",
+        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
+      },    
+    ],
+    "/dsf-development": [
+      {
+        text: "DSF 2",
+        icon: "",
+        prefix: "v2/",
+        link: "v2/",
+        children: [ "fhir-ig", "maven"], 
+      }, 
+    ],
+    "/community":[
+      {
+        text: "Community",
+        icon: "",
+        children: ["team", "communication", "ecosystem", "contribute/", "consultation-hours", "events/",]
       }
-      ],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-      {
-        text: "Contribute",
-        icon: "info",
-        link: "contribute/",
-        prefix: "contribute/",
-        children: [
-        {
-          text: "Code",
-          link: "code",
-          icon: "code"
-        },
-        {
-          text: "Documentation",
-          link: "documentation",
-          icon: "info"
-        }
-      ]
-      },
-    ],
-    "/v1.7.1/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      "",
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.7.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.6.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.5.2/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.5.1/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.5.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Reverse Proxy",
-          icon: "module",
-          prefix: "bpe-reverse-proxy/",
-          link: "bpe-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.4.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.3.2/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.3.1/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.3.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        },
-        {
-          text: "Install Plugins",
-          icon: "plugin",
-          link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.2.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.1.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
-          text: "FHIR Reverse Proxy",
-          icon: "module",
-          prefix: "fhir-reverse-proxy/",
-          link: "fhir-reverse-proxy/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }, {
-          text: "FHIR Server",
-          icon: "module",
-          prefix: "fhir/",
-          link: "fhir/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}, {
-  			icon: "config",
-  			text: "Access Control",
-  			link: "access-control"
-  		}, {
-  			icon: "config",
-  			text: "OpenID Connect",
-  			link: "oidc"
-  			}]
-        }, {
-          text: "BPE Server",
-          icon: "module",
-          prefix: "bpe/",
-          link: "bpe/",
-          children: [{
-  			icon: "config", 
-  			text: "Configuration",
-  			link: "configuration"
-  		}]
-        }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/v1.0.0/": [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Current version",
-        icon: "update",
-        link: "/stable/",
-      },
-      {
-        text: "Maintain a DSF instance",
-        icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-0", "allowList-mgm", {
-          text: "Configuration parameters",
-          icon: "config",
-          prefix: "configuration/",
-          link: "configuration/",
-          children: ["common", "fhir", "bpe", "reverseproxy"]
-    
-        }
-       ],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ],
-    "/about/":  [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "About",
-        icon: "creative",
-        prefix: "learnmore/",
-        link: "learnmore/",
-        children: ["contact", "team", "partners", "public"], 
-      },
-    ],
-    "/oldstable/":  [
-      {
-        text: "Home",
-        icon: "home",
-        link: "/",
-      },
-      {
-        text: "Version 0.9.x",
-        icon: "guide",
-        children: ["introduction", "generalinformation/", "code/", "build/", "releases/", "tutorial/"], 
-      },
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
-  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a>",
+  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a> • <a href='/security/'>Security</a>"  ,
   copyright: false,
   displayFooter: true,
 
 
   plugins: {
-    markdownImage: {
-      figure: true,
-      lazyload: true,
-      mark: true,
-      size: true,
+
+    icon: {
+      prefix: "iconfont icon-",
+      assets: "/assets/font/font.css",
     },
-    markdownMath: {
+
+    blog: {
+      filter: ({ frontmatter }) => frontmatter.type === "news",
     },
-	markdownTab: {
-      codeTabs: true,
-      tabs: false,
-    },
-    linksCheck: {
-      dev: true,
-      build: "error"
-    },
-    searchPro: {
+
+
+    slimsearch: {
       indexContent: true,
     },
     photoSwipe: false,
     components: {
-      // components you want
-      components: [
-       /* "AudioPlayer",
-        "Badge",
-        "BiliBili",
-        "CodePen",
-        "PDF",
-        "Replit",
-        "StackBlitz",
-        "VideoPlayer",
-        "YouTube",*/
-      ],
+      components: [],
     },
-    mdEnhance: {
+  },
+
+  markdown: {
+    imgLazyload: true,
+    imgMark: true,
+    figure: true,
+    imgSize: true,
+    math: {
+
+    },
+    tabs: false,
+    codeTabs: true,
+      linksCheck: {
+        dev: true,
+        build: "error"
+      },
       align: true,
       attrs: true,
-      chart: false,
+      chartjs: false,
       demo: false,
       echarts: false,
       flowchart: false,
@@ -1274,6 +248,5 @@ export default hopeTheme({
       tasklist: false,
       vPre: false,
       vuePlayground: false
-    }
-  },
+  }
 });

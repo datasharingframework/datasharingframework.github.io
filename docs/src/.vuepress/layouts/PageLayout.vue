@@ -1,0 +1,76 @@
+<script setup lang="ts">
+// import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
+import { Layout as ParentLayout, PageContent } from 'vuepress-theme-hope/client'
+import { useRoute, useRouter } from "vue-router";
+import { ref } from 'vue'
+
+const version = ref("");
+
+
+function setVersionBasedOnCurrentPath() : void {
+    if (route.path.startsWith('/operations/')) {
+        const input = route.path.substring('/operations/'.length);
+        const firstSlash = input.indexOf("/");
+        const secondSlash = input.indexOf("/", firstSlash + 1);
+        const result = secondSlash !== -1 ? input.slice(0, secondSlash) : input;
+
+        version.value = result;
+
+
+    } else {
+        version.value = "";
+    }
+}
+
+const route = useRoute();
+
+
+const router = useRouter();
+router.afterEach((_to, _from) => {
+    setVersionBasedOnCurrentPath();
+});
+
+setVersionBasedOnCurrentPath();
+
+function navigateToNewVersion() {
+    const input = route.path.substring('/operations/'.length);
+    const firstSlash = input.indexOf("/");
+    const secondSlash = input.indexOf("/", firstSlash + 1);
+    const result = secondSlash !== -1 ? input.slice(secondSlash + 1) : "";
+    router.push('/operations/' + version.value + "/" + result);
+}
+
+</script>
+
+<template>
+  <ParentLayout>
+    <template #sidebarTop>
+      <div class="version-selector" v-if="route.path.startsWith('/operations/')">
+        <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
+        <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
+        <option value="v2/latest">next (2.0.0-M3)</option>
+        <option value="v1/latest">latest (1.8.0)</option>
+        <option value="v1/v1.7.1">1.7.1</option>
+        <option value="v1/v1.7.0">1.7.0</option>
+        <option value="v1/v1.6.0">1.6.0</option>
+        <option value="v1/v1.5.2">1.5.2</option>
+        <option value="v1/v1.5.1">1.5.1</option>
+        <option value="v1/v1.5.0">1.5.0</option>
+        <option value="v1/v1.4.0">1.4.0</option>
+        <option value="v1/v1.3.2">1.3.2</option>
+        <option value="v1/v1.3.1">1.3.1</option>
+        <option value="v1/v1.3.0">1.3.0</option>
+        <option value="v1/v1.2.0">1.2.0</option>
+        <option value="v1/v1.1.0">1.1.0</option>
+        <option value="v1/v1.0.0">1.0.0</option>
+      </select></div>
+    </template>
+    <PageContent id="main-content" class="vp-page"/>
+  </ParentLayout>
+</template>
+
+<style lang="css">
+.version-selector {
+    margin-top: 20px;
+}
+</style>

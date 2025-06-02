@@ -1,0 +1,1 @@
+add a redirect to latest when released
