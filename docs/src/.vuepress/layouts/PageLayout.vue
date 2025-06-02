@@ -2,7 +2,7 @@
 // import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 import { Layout as ParentLayout, PageContent } from 'vuepress-theme-hope/client'
 import { useRoute, useRouter } from "vue-router";
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const version = ref("");
 
@@ -11,8 +11,10 @@ function setVersionBasedOnCurrentPath() : void {
     if (route.path.startsWith('/operations/')) {
         const input = route.path.substring('/operations/'.length);
         const firstSlash = input.indexOf("/");
-        const result = firstSlash !== -1 ? input.slice(0, firstSlash) : input;
-
+        var result = firstSlash !== -1 ? input.slice(0, firstSlash) : input;
+        if (result === "latest") {
+          result = document.querySelector("#version-select > option[latest='true']").value;
+        }
         version.value = result;
 
 
@@ -29,13 +31,20 @@ router.afterEach((_to, _from) => {
     setVersionBasedOnCurrentPath();
 });
 
-setVersionBasedOnCurrentPath();
+onMounted(() => {
+  setVersionBasedOnCurrentPath();
+})
 
 function navigateToNewVersion() {
     const input = route.path.substring('/operations/'.length);
     const firstSlash = input.indexOf("/");
     const result = firstSlash !== -1 ? input.slice(firstSlash + 1) : "";
-    router.push('/operations/' + version.value + "/" + result);
+    if (version.value === document.querySelector("#version-select > option[latest='true']").value) {
+      router.push('/operations/' + "latest" + "/" + result);
+    } else {
+      router.push('/operations/' + version.value + "/" + result);
+
+    }
 }
 
 </script>
@@ -46,8 +55,7 @@ function navigateToNewVersion() {
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
         <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
-        <option value="next">next (2.0.0-M3)</option>
-        <option value="latest">latest (1.8.0)</option>
+        <option value="v1.8.0" latest="true">latest (1.8.0)</option>
         <option value="v1.7.1">1.7.1</option>
         <option value="v1.7.0">1.7.0</option>
         <option value="v1.6.0">1.6.0</option>
@@ -61,6 +69,7 @@ function navigateToNewVersion() {
         <option value="v1.2.0">1.2.0</option>
         <option value="v1.1.0">1.1.0</option>
         <option value="v1.0.0">1.0.0</option>
+        <option value="v2.0.0-M3">2.0.0-M3</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>
