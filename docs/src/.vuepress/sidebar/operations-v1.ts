@@ -2,11 +2,11 @@ export function generate_v1_latest_sidebar() {
     return [
       
       {
-        text: "Maintain a DSF instance",
+        text: "Get Started",
         icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+        link: "./",
+      },
+      "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -67,9 +67,7 @@ export function generate_v1_latest_sidebar() {
           text: "Install Plugins",
           icon: "plugin",
           link: "install-plugins"
-      }],
-      },
-    ];
+      }]
 }
 
 
@@ -77,11 +75,12 @@ export function generate_v1_gt_eq_1_7_0_sidebar() {
     return [
       
       {
-        text: "Maintain a DSF instance",
+        text: "Get Started",
         icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+        link: "./"
+        
+      },
+      "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -142,20 +141,17 @@ export function generate_v1_gt_eq_1_7_0_sidebar() {
           text: "Install Plugins",
           icon: "plugin",
           link: "install-plugins"
-      }],
-      }
-    ];
+      }]
 }
 
 export function generate_v1_gt_eq_1_5_0_sidebar() {
     return [
       
       {
-        text: "Maintain a DSF instance",
+        text: "Get Started",
         icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+        link: "./",
+      }, "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -216,16 +212,8 @@ export function generate_v1_gt_eq_1_5_0_sidebar() {
           text: "Install Plugins",
           icon: "plugin",
           link: "install-plugins"
-      }],
       },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
-      },
-    ];
+      ]
 }
 
 
@@ -233,11 +221,10 @@ export function generate_v1_gt_eq_1_0_0_sidebar() {
     return [
       
       {
-        text: "Maintain a DSF instance",
+        text: "Get Started",
         icon: "tool",
-        prefix: "maintain/",
-        link: "maintain/",
-        children: ["install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+        link: "./",
+      }, "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -280,14 +267,6 @@ export function generate_v1_gt_eq_1_0_0_sidebar() {
           text: "Install Plugins",
           icon: "plugin",
           link: "install-plugins"
-      }],
-      },
-      {
-        text: "Develop process plugins",
-        icon: "plugin",
-        prefix: "develop/",
-        link: "develop/",
-        children: ["create", "upgrade-from-0" ],
       },
     ];
 }

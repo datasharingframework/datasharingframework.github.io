@@ -1,5 +1,5 @@
 ---
-title: API 1 (stable) Overview
+title: API v1
 icon: code
 ---
 

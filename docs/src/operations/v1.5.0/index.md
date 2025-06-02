@@ -10,14 +10,10 @@ This is a major DSF release not compatible with 0.9.x and older version develope
 
 # System Administrators
 
-- [Install DSF 1.5.0](maintain/install)
-- [Upgrade from DSF 1.4.0](maintain/upgrade-from-1)
-- [Upgrade from DSF 0.9.x.](maintain/upgrade-from-0)
+- [Install DSF 1.5.0](install)
+- [Upgrade from DSF 1.4.0](upgrade-from-1)
+- [Upgrade from DSF 0.9.x.](upgrade-from-0)
 
-
-# Developers
-- [Create a new process plugin](develop/create)
-- [Upgrade from DSF 0.9.x.](develop/upgrade-from-0)
 
 ## New features
 - Improved versioning to support up- and downwards-compatibility
