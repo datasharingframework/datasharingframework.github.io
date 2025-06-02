@@ -1,5 +1,5 @@
 ---
-title: API 2 (alpha) Overview
+title: API 2 (next) Overview
 icon: code
 ---
 ## Overview 

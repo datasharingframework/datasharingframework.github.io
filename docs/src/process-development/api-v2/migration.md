@@ -3,7 +3,7 @@ title: Migration Guide
 icon: update
 ---
 
-## Migration Guide API 1 to API 2
+## Migration from API 1 to API 2
 
 ::: warning Work in progress
 

@@ -3,7 +3,11 @@ title: Tutorials
 icon: slides
 ---
 
-## Process plugin tutorials
+## Process plugin tutorial
+
+Click [here](https://github.com/datasharingframework/dsf-process-tutorial) to open the current tutorial on GitHub.
+
+## Other Resources
 
 Visit the [how the DSF can help you](../../../explore/concepts/README.md) page to get started.
 

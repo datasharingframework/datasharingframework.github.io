@@ -3,7 +3,8 @@ title: JavaDoc
 icon: code
 ---
 
-<iframe class="content-viewer" src="/assets/javadoc/api-v1/index.html"/>
+<a href="/assets/javadoc/api-v1/index.html" target="_blank">Open Fullscreen</a>
+<iframe id="content-viewer" class="content-viewer" src="/assets/javadoc/api-v1/index.html"/>
 
 <style>
 .content-viewer {
