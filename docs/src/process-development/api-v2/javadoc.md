@@ -1,5 +1,5 @@
 ---
-title: API JavaDoc
+title: JavaDoc
 icon: code
 ---
 

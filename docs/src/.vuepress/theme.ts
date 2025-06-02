@@ -155,7 +155,7 @@ export default hopeTheme({
         icon: "",
         prefix: "api-v2/",
         link: "api-v2/",
-        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
+        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
       },    
     ],
     "/dsf-development": [
@@ -164,7 +164,7 @@ export default hopeTheme({
         icon: "",
         prefix: "v2/",
         link: "v2/",
-        children: [ "fhir-ig", "javadoc", "maven"], 
+        children: [ "fhir-ig", "maven"], 
       }, 
     ],
     "/community":[
