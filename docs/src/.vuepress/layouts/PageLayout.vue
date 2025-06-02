@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 import { Layout as ParentLayout, PageContent } from 'vuepress-theme-hope/client'
 import { useRoute, useRouter } from "vue-router";
 import { ref, onMounted } from 'vue'
 
 const version = ref("");
+const latestVersion = "v1.8.0";
 
 
 function setVersionBasedOnCurrentPath() : void {
@@ -13,7 +13,7 @@ function setVersionBasedOnCurrentPath() : void {
         const firstSlash = input.indexOf("/");
         var result = firstSlash !== -1 ? input.slice(0, firstSlash) : input;
         if (result === "latest") {
-          result = document.querySelector("#version-select > option[latest='true']").value;
+          result = latestVersion;
         }
         version.value = result;
 
@@ -39,7 +39,7 @@ function navigateToNewVersion() {
     const input = route.path.substring('/operations/'.length);
     const firstSlash = input.indexOf("/");
     const result = firstSlash !== -1 ? input.slice(firstSlash + 1) : "";
-    if (version.value === document.querySelector("#version-select > option[latest='true']").value) {
+    if (version.value === latestVersion) {
       router.push('/operations/' + "latest" + "/" + result);
     } else {
       router.push('/operations/' + version.value + "/" + result);
@@ -55,7 +55,7 @@ function navigateToNewVersion() {
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
         <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
-        <option value="v1.8.0" latest="true">latest (1.8.0)</option>
+        <option value="v1.8.0">latest (1.8.0)</option>
         <option value="v1.7.1">1.7.1</option>
         <option value="v1.7.0">1.7.0</option>
         <option value="v1.6.0">1.6.0</option>
