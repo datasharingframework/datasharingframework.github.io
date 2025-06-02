@@ -148,7 +148,7 @@ export default hopeTheme({
         icon: "",
         prefix: "api-v1/",
         link: "api-v1/",
-        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
+        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
       },
       {
         text: "API v2",
