@@ -238,7 +238,7 @@ Here is what they mean:
 - `remote` versions of the above rules work the same but the requester's certificate is instead required to match a thumbprint marked as a remote organization.
 - `practitioner` suffixes all work the same. They include the same rules as their prefixes but now additionally require the requester to match a certain `practitioner-role`. A list of them
   can be found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml). This allows
-  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/stable/maintain/fhir/access-control.html).
+  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/operations/latest/fhir/access-control.html).
 
 As you can see, there are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. You can also find examples of all Codings from above [here](../dsf/requester-and-recipient.md).
 
@@ -407,7 +407,7 @@ Finally, we will add the `practitionerRole` slice:
 </extension>
 ```
 
-Notice that there is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. In the example we used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. You can freely add other CodeSystems if you find these codes do not apply for your use case. The code you set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
+Notice that there is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. In the example we used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. You can freely add other CodeSystems if you find these codes do not apply for your use case. The code you set here can be used in the [DSF role config](https://dsf.dev/operations/latest/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
 
 Working our way back up to the Coding we selected, we will now add the extension we just created as the `Coding.extension:organization-practitioner` element:
 ```xml

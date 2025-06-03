@@ -4,7 +4,7 @@ icon: share
 ---
 
 :::danger
-This is an outdated version of the Allow List Management documentation. Please use [the current version](/stable/maintain/allowList-mgm), even if you use an outdated DSF version.
+This is an outdated version of the Allow List Management documentation. Please use [the current version](/operations/latest/allowList-mgm.md), even if you use an outdated DSF version.
 :::
 
 You can read all about the concept of Allow Lists [in our introduction](/explore/concepts/allow-list.md).
