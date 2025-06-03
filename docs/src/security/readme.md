@@ -7,7 +7,7 @@ We take security of the DSF, its process plugins, services and tools we operate 
 
 We describe the security mechanisms used by the DSF to implement secure communication on the pages [Architecture](/explore/concepts/architecture), [Security](/explore/concepts/security) and [Allow List](/explore/concepts/allow-list).
 
-To ensure a high level of security, you should always install the latest DSF version and use the latest versions of the process plugins. Use the [instructions to install](/operations/v1/latest/maintain/install) the latest version of the DSF or [to upgrade](/operations/v1/latest/maintain/upgrade-from-1) on the latest version. The instructions described there implement the security configuration recommended by us.
+To ensure a high level of security, you should always install the latest DSF version and use the latest versions of the process plugins. Use the [instructions to install](/operations/latest/install) the latest version of the DSF or [to upgrade](/operations/latest/upgrade-from-1) on the latest version. The instructions described there implement the security configuration recommended by us.
 
 It is also important that you ensure a secure operating environment in which you verify firewall configurations, keep the operating systems on which the DSF is running up to date and harden it according to the latest state of the art.
 

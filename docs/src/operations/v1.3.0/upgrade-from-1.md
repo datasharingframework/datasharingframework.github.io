@@ -11,7 +11,7 @@ If you want to migrate from DSF 0.9.x, please follow [these instructions](upgrad
 :::
 
 ::: warning Update to DSF 1.2.0 first
-When upgrading from 1.0.0 or 1.1.0 it is important to migrate to [DSF 1.2.0 first](/v1.2.0/maintain/upgrade-from-1).
+When upgrading from 1.0.0 or 1.1.0 it is important to migrate to [DSF 1.2.0 first](../v1.2.0/upgrade-from-1).
 :::
 
 
