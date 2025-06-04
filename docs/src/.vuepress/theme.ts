@@ -110,6 +110,7 @@ export default hopeTheme({
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
+    "/operations/old-versions": [],
     "/operations/latest/": generate_v1_latest_sidebar(),
     "/operations/next/": [],
     "/operations/v2.0.0-M3/": [],
@@ -159,6 +160,18 @@ export default hopeTheme({
         children: ["team", "communication", "ecosystem", "contribute/", "consultation-hours", "events/",]
       }
     ],
+   "/posts": [
+  {
+    text: "Home",
+    icon: "home",
+    link: "/",
+  },
+  {
+    text: "News",
+    icon: "news",
+    link: "/tag/news/", 
+  },
+  ], 
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
@@ -193,6 +206,7 @@ export default hopeTheme({
     imgMark: true,
     figure: true,
     imgSize: true,
+    component: true,
     math: {
 
     },
