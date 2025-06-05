@@ -1,0 +1,62 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/CodeSystem/bpmn-message> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "bpmn-message"] ; # 
+  fhir:meta [
+     fhir:tag ( [
+       fhir:system [ fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem bpmn-message</b></p><a name=\"bpmn-message\"> </a><a name=\"hcbpmn-message\"> </a><a name=\"bpmn-message-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">message-name<a name=\"bpmn-message-message-name\"> </a></td><td>Message Name</td><td>BPMN 2.0 message event name</td></tr><tr><td style=\"white-space:nowrap\">business-key<a name=\"bpmn-message-business-key\"> </a></td><td>Business Key</td><td>Camunda business key used to identify process instances</td></tr><tr><td style=\"white-space:nowrap\">correlation-key<a name=\"bpmn-message-correlation-key\"> </a></td><td>Correlation Key</td><td>DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets</td></tr><tr><td style=\"white-space:nowrap\">error<a name=\"bpmn-message-error\"> </a></td><td>Error</td><td>Explaining why this task failed</td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:url [ fhir:v "http://dsf.dev/fhir/CodeSystem/bpmn-message"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "1.0.0"] ; # 
+  fhir:name [ fhir:v "DsfBpmnMessage"] ; # 
+  fhir:title [ fhir:v "DSF BPMN message values"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2023-06-28"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CodeSystem with standard BPMN message values for Task resources"] ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:hierarchyMeaning [ fhir:v "grouped-by"] ; # 
+  fhir:versionNeeded [ fhir:v false] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "4"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "message-name" ] ;
+     fhir:display [ fhir:v "Message Name" ] ;
+     fhir:definition [ fhir:v "BPMN 2.0 message event name" ]
+  ] [
+     fhir:code [ fhir:v "business-key" ] ;
+     fhir:display [ fhir:v "Business Key" ] ;
+     fhir:definition [ fhir:v "Camunda business key used to identify process instances" ]
+  ] [
+     fhir:code [ fhir:v "correlation-key" ] ;
+     fhir:display [ fhir:v "Correlation Key" ] ;
+     fhir:definition [ fhir:v "DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets" ]
+  ] [
+     fhir:code [ fhir:v "error" ] ;
+     fhir:display [ fhir:v "Error" ] ;
+     fhir:definition [ fhir:v "Explaining why this task failed" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

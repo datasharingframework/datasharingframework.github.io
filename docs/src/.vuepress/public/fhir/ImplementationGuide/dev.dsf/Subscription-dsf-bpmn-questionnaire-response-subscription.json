@@ -1,0 +1,21 @@
+{
+  "resourceType" : "Subscription",
+  "id" : "dsf-bpmn-questionnaire-response-subscription",
+  "meta" : {
+    "tag" : [{
+      "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+      "code" : "LOCAL"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Subscription dsf-bpmn-questionnaire-response-subscription</b></p><a name=\"dsf-bpmn-questionnaire-response-subscription\"> </a><a name=\"hcdsf-bpmn-questionnaire-response-subscription\"> </a><a name=\"dsf-bpmn-questionnaire-response-subscription-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: Local (Details: DSF Read Access Tag code LOCAL = 'Local')</p></div><p><b>status</b>: Active</p><p><b>reason</b>: Businness Process Engine</p><p><b>criteria</b>: QuestionnaireResponse?status=completed</p><h3>Channels</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Type</b></td><td><b>Payload</b></td></tr><tr><td style=\"display: none\">*</td><td>Websocket</td><td>application/fhir+json</td></tr></table></div>"
+  },
+  "status" : "active",
+  "reason" : "Businness Process Engine",
+  "criteria" : "QuestionnaireResponse?status=completed",
+  "channel" : {
+    "type" : "websocket",
+    "payload" : "application/fhir+json"
+  }
+}
