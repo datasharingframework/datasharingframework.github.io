@@ -18,7 +18,7 @@
   fhir:name [ fhir:v "dsfig"] ; # 
   fhir:title [ fhir:v "Data Sharing Framework (DSF) Implementation Guide"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-06-04T11:37:25+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-06-05T13:46:38+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "DSF Community"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "DSF Community" ] ;

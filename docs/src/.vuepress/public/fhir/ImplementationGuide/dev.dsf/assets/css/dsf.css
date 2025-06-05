@@ -15,7 +15,7 @@
   --btn-gradient-end-color: #206699; /* 10. Menu item gradient end  color */
   --btn-gradient-start-color-alpha: #ff3377aa; /* 11. Menu item gradient start color (with alpha) */
   --btn-gradient-end-color-alpha: #ff206699; /* 12. Menu item gradient end color (with alpha) */
-  --link-color: #63C7A6; /* 13. Hyperlink text color */
+  --link-color: #3F8999; /* 13. Hyperlink text color */
   --link-hover-color: #000000; /* 14. Hyperlink text hover color */
 
   --publish-box-bg-color: #326F95; /* 15. Publish box background color */
@@ -35,6 +35,10 @@
 
 #publish-box {
   color: #ffffff;
+}
+
+.markdown-toc {
+  color: white;
 }
 
 .markdown-toc a {

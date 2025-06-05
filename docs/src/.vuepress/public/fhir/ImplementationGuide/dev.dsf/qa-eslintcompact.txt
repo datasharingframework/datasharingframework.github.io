@@ -171,4 +171,4 @@ Generic: line 0, col 0, Warning - The HTML fragment 'globals-table.xhtml' is not
 /builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-value-set-1.0.0.xml: line 0, col 0, Warning - The Implementation Guide contains no examples for this profile (BUSINESSRULE)
 
 err = 84, warn = 82, info = 2
-IG Publisher Version: 2.0.4
+IG Publisher Version: 2.0.5

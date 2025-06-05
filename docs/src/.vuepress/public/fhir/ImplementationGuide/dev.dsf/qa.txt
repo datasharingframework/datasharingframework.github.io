@@ -2,8 +2,8 @@ dsfig : Validation Results
 =========================================
 
 err = 84, warn = 82, info = 2
-IG Publisher Version: 2.0.4
-Generated Wed Jun 04 11:39:42 UTC 2025. FHIR version 4.0.1 for dev.dsf#2.0.0 (canonical = http://dsf.dev/fhir)
+IG Publisher Version: 2.0.5
+Generated Thu Jun 05 13:48:59 UTC 2025. FHIR version 4.0.1 for dev.dsf#2.0.0 (canonical = http://dsf.dev/fhir)
  Build Errors : 3 / 19 / 0
  /builds/dsf/ig/fsh-generated/resources/ImplementationGuide-dev.dsf : 0 / 1 / 1
  /builds/dsf/ig/input/dsf-resources/CapabilityStatement/dsf : 67 / 20 / 2
