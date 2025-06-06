@@ -1,0 +1,6 @@
+URL,Version,Status,OIDs,Name,Title,Description,Used
+http://dsf.dev/fhir/CodeSystem/bpmn-message,1.0.0,active,,DsfBpmnMessage,DSF BPMN message values,"CodeSystem with standard BPMN message values for Task resources","ValueSet/bpmn-message"
+http://dsf.dev/fhir/CodeSystem/organization-role,1.0.0,active,,DSF_Organization_Role,DSF Organization Role,"CodeSystem with DSF organization roles used in OrganizationAffiliation resources","ValueSet/organization-role"
+http://dsf.dev/fhir/CodeSystem/practitioner-role,1.0.0,active,,DSF_Practitioner_Role,DSF Practitioner Role,"CodeSystem with DSF practitioner roles","ValueSet/practitioner-role"
+http://dsf.dev/fhir/CodeSystem/process-authorization,1.0.0,active,,DSF_Process_Authorization,DSF Process Authorization,"CodeSystem with proces authorization codes","ValueSet/process-authorization-requester,ValueSet/process-authorization-recipient"
+http://dsf.dev/fhir/CodeSystem/read-access-tag,1.0.0,active,,DSF_Read_Access_Tag,DSF Read Access Tag,"CodeSystem with read access tags","ValueSet/read-access-tag"
