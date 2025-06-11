@@ -1,0 +1,503 @@
+{
+  "resourceType" : "Bundle",
+  "id" : "6d1fbd7b-7d4c-4721-865c-86edd08f76fd",
+  "meta" : {
+    "lastUpdated" : "2025-06-05T13:47:22.839+00:00"
+  },
+  "type" : "collection",
+  "entry" : [{
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-bpmn-message.html\">codesystem DSF BPMN message values v1.0.0 (CodeSystem)</a></p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/bpmn-message-message-name\"> </a>\u00a0\u00a0<a href=\"CodeSystem-bpmn-message.html#bpmn-message-message-name\">message-name</a></td><td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td><td>Message Name</td><td><div><p>BPMN 2.0 message event name</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/bpmn-message-business-key\"> </a>\u00a0\u00a0<a href=\"CodeSystem-bpmn-message.html#bpmn-message-business-key\">business-key</a></td><td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td><td>Business Key</td><td><div><p>Camunda business key used to identify process instances</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/bpmn-message-correlation-key\"> </a>\u00a0\u00a0<a href=\"CodeSystem-bpmn-message.html#bpmn-message-correlation-key\">correlation-key</a></td><td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td><td>Correlation Key</td><td><div><p>DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/bpmn-message-error\"> </a>\u00a0\u00a0<a href=\"CodeSystem-bpmn-message.html#bpmn-message-error\">error</a></td><td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td><td>Error</td><td><div><p>Explaining why this task failed</p>\n</div></td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
+      "version" : "1.0.0",
+      "name" : "DsfBpmnMessage",
+      "title" : "DSF BPMN message values",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:4964706b-3ef7-43fc-aa5a-0542103f36cf",
+        "timestamp" : "2025-06-05T13:48:24+00:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/bpmn-message|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
+          "code" : "message-name",
+          "display" : "Message Name"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
+          "code" : "business-key",
+          "display" : "Business Key"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
+          "code" : "correlation-key",
+          "display" : "Correlation Key"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
+          "code" : "error",
+          "display" : "Error"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/organization-role",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-organization-role.html\">codesystem DSF Organization Role v1.0.0 (CodeSystem)</a></p><p>This value set contains 9 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-UAC\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-UAC\">UAC</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Use-and-Access Committee</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-COS\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-COS\">COS</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Coordinating Site</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-CRR\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-CRR\">CRR</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Central Research Repository</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-DIC\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-DIC\">DIC</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Data Integration Center</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-DMS\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-DMS\">DMS</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Data Management Site</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-DTS\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-DTS\">DTS</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Data Transfer Site</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-HRP\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-HRP\">HRP</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Health Research Platform</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-TTP\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-TTP\">TTP</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Trusted Third Party</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/organization-role-AMS\"> </a>\u00a0\u00a0<a href=\"CodeSystem-organization-role.html#organization-role-AMS\">AMS</a></td><td>http://dsf.dev/fhir/CodeSystem/organization-role</td><td>Allowlist Management Site</td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/organization-role",
+      "version" : "1.0.0",
+      "name" : "DSF_Organization_Role",
+      "title" : "DSF Organization Role",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:4dc13d15-65a9-4552-ba8f-b5f5edc67e40",
+        "timestamp" : "2025-06-05T13:48:25+00:00",
+        "total" : 9,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/organization-role|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "UAC",
+          "display" : "Use-and-Access Committee"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "COS",
+          "display" : "Coordinating Site"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "CRR",
+          "display" : "Central Research Repository"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "DIC",
+          "display" : "Data Integration Center"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "DMS",
+          "display" : "Data Management Site"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "DTS",
+          "display" : "Data Transfer Site"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "HRP",
+          "display" : "Health Research Platform"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "TTP",
+          "display" : "Trusted Third Party"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+          "code" : "AMS",
+          "display" : "Allowlist Management Site"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/practitioner-role",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-practitioner-role.html\">codesystem DSF Practitioner Role v1.0.0 (CodeSystem)</a></p><p>This value set contains 10 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-UAC_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-UAC_USER\">UAC_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Use-and-Access Committee Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-COS_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-COS_USER\">COS_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Coordinating Site Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-CRR_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-CRR_USER\">CRR_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Central Research Repository Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DIC_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-DIC_USER\">DIC_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Data Integration Center Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DMS_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-DMS_USER\">DMS_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Data Management Site Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DTS_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-DTS_USER\">DTS_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Data Transfer Site Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-HRP_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-HRP_USER\">HRP_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Health Research Platform Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-TTP_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-TTP_USER\">TTP_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Trusted Third Party Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-AMS_USER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-AMS_USER\">AMS_USER</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>Allowlist Management Site Member</td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DSF_ADMIN\"> </a>\u00a0\u00a0<a href=\"CodeSystem-practitioner-role.html#practitioner-role-DSF_ADMIN\">DSF_ADMIN</a></td><td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td><td>DSF Administrator</td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/practitioner-role",
+      "version" : "1.0.0",
+      "name" : "DSF_Practitioner_Role",
+      "title" : "DSF Practitioner Role",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:6e001b23-659e-42ac-bae1-83d6cc3b8471",
+        "timestamp" : "2025-06-05T13:48:25+00:00",
+        "total" : 10,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/practitioner-role|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "UAC_USER",
+          "display" : "Use-and-Access Committee Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "COS_USER",
+          "display" : "Coordinating Site Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "CRR_USER",
+          "display" : "Central Research Repository Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "DIC_USER",
+          "display" : "Data Integration Center Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "DMS_USER",
+          "display" : "Data Management Site Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "DTS_USER",
+          "display" : "Data Transfer Site Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "HRP_USER",
+          "display" : "Health Research Platform Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "TTP_USER",
+          "display" : "Trusted Third Party Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "AMS_USER",
+          "display" : "Allowlist Management Site Member"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+          "code" : "DSF_ADMIN",
+          "display" : "DSF Administrator"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/process-authorization-recipient",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-process-authorization.html\">codesystem DSF Process Authorization v1.0.0 (CodeSystem)</a></p><p>This value set contains 3 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION\">LOCAL_ORGANIZATION</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ORGANIZATION</td><td><div><p>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE\">LOCAL_ROLE</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ROLE</td><td><div><p>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL\">LOCAL_ALL</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ALL</td><td><div><p>Process authorization for all local organizations</p>\n</div></td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-recipient",
+      "version" : "1.0.0",
+      "name" : "DSF_Process_Authorization_Recipient",
+      "title" : "DSF Process Authorization Recipient",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:0fdceea4-439b-48ec-aece-004bf677e767",
+        "timestamp" : "2025-06-05T13:48:25+00:00",
+        "total" : 3,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/process-authorization|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ORGANIZATION",
+          "display" : "LOCAL_ORGANIZATION"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ROLE",
+          "display" : "LOCAL_ROLE"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ALL",
+          "display" : "LOCAL_ALL"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/process-authorization-requester",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-process-authorization.html\">codesystem DSF Process Authorization v1.0.0 (CodeSystem)</a></p><p>This value set contains 9 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION\">LOCAL_ORGANIZATION</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ORGANIZATION</td><td><div><p>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION_PRACTITIONER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION_PRACTITIONER\">LOCAL_ORGANIZATION_PRACTITIONER</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ORGANIZATION_PRACTITIONER</td><td><div><p>Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ORGANIZATION\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-REMOTE_ORGANIZATION\">REMOTE_ORGANIZATION</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>REMOTE_ORGANIZATION</td><td><div><p>Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE\">LOCAL_ROLE</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ROLE</td><td><div><p>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE_PRACTITIONER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE_PRACTITIONER\">LOCAL_ROLE_PRACTITIONER</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ROLE_PRACTITIONER</td><td><div><p>Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ROLE\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-REMOTE_ROLE\">REMOTE_ROLE</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>REMOTE_ROLE</td><td><div><p>Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL\">LOCAL_ALL</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ALL</td><td><div><p>Process authorization for all local organizations</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL_PRACTITIONER\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL_PRACTITIONER\">LOCAL_ALL_PRACTITIONER</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>LOCAL_ALL_PRACTITIONER</td><td><div><p>Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ALL\"> </a>\u00a0\u00a0<a href=\"CodeSystem-process-authorization.html#process-authorization-REMOTE_ALL\">REMOTE_ALL</a></td><td>http://dsf.dev/fhir/CodeSystem/process-authorization</td><td>REMOTE_ALL</td><td><div><p>Process authorization for all remote organizations</p>\n</div></td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-requester",
+      "version" : "1.0.0",
+      "name" : "DSF_Process_Authorization_Requester",
+      "title" : "DSF Process Authorization Requester",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:ea98b5a6-6f49-4a50-ae16-d30ffb8e39a7",
+        "timestamp" : "2025-06-05T13:48:25+00:00",
+        "total" : 9,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/process-authorization|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ORGANIZATION",
+          "display" : "LOCAL_ORGANIZATION"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ORGANIZATION_PRACTITIONER",
+          "display" : "LOCAL_ORGANIZATION_PRACTITIONER"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "REMOTE_ORGANIZATION",
+          "display" : "REMOTE_ORGANIZATION"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ROLE",
+          "display" : "LOCAL_ROLE"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ROLE_PRACTITIONER",
+          "display" : "LOCAL_ROLE_PRACTITIONER"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "REMOTE_ROLE",
+          "display" : "REMOTE_ROLE"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ALL",
+          "display" : "LOCAL_ALL"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "LOCAL_ALL_PRACTITIONER",
+          "display" : "LOCAL_ALL_PRACTITIONER"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+          "code" : "REMOTE_ALL",
+          "display" : "REMOTE_ALL"
+        }]
+      }
+    }
+  },
+  {
+    "fullUrl" : "http://dsf.dev/fhir/ValueSet/read-access-tag",
+    "resource" : {
+      "resourceType" : "ValueSet",
+      "meta" : {
+        "tag" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL"
+        }]
+      },
+      "text" : {
+        "status" : "generated",
+        "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"/><p style=\"border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px\">Expansion performed internally based on <a href=\"CodeSystem-read-access-tag.html\">codesystem DSF Read Access Tag v1.0.0 (CodeSystem)</a></p><p>This value set contains 4 concepts</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>System</b></td><td><b>Display (en-US)</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/read-access-tag-LOCAL\"> </a>\u00a0\u00a0<a href=\"CodeSystem-read-access-tag.html#read-access-tag-LOCAL\">LOCAL</a></td><td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td><td>Local</td><td><div><p>Read access for local users</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ORGANIZATION\"> </a>\u00a0\u00a0<a href=\"CodeSystem-read-access-tag.html#read-access-tag-ORGANIZATION\">ORGANIZATION</a></td><td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td><td>Organization</td><td><div><p>Read access for organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ROLE\"> </a>\u00a0\u00a0<a href=\"CodeSystem-read-access-tag.html#read-access-tag-ROLE\">ROLE</a></td><td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td><td>Role</td><td><div><p>Read access for member organizations with role in consortium (parent organization) specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-consortium-role</p>\n</div></td></tr><tr><td style=\"white-space:nowrap\"><a name=\"x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ALL\"> </a>\u00a0\u00a0<a href=\"CodeSystem-read-access-tag.html#read-access-tag-ALL\">ALL</a></td><td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td><td>All</td><td><div><p>Read access for remote and local users</p>\n</div></td></tr></table></div>"
+      },
+      "url" : "http://dsf.dev/fhir/ValueSet/read-access-tag",
+      "version" : "1.0.0",
+      "name" : "DSF_Read_Access_Tag",
+      "title" : "DSF Read Access Tag",
+      "status" : "active",
+      "experimental" : false,
+      "date" : "2023-06-28",
+      "immutable" : true,
+      "expansion" : {
+        "identifier" : "urn:uuid:c5aaacf0-f376-4bd0-9876-55f55f31bf29",
+        "timestamp" : "2025-06-05T13:48:25+00:00",
+        "total" : 4,
+        "offset" : 0,
+        "parameter" : [{
+          "name" : "displayLanguage",
+          "valueCode" : "en-US"
+        },
+        {
+          "name" : "count",
+          "valueInteger" : 1000
+        },
+        {
+          "name" : "offset",
+          "valueInteger" : 0
+        },
+        {
+          "name" : "excludeNested",
+          "valueBoolean" : false
+        },
+        {
+          "name" : "used-codesystem",
+          "valueUri" : "http://dsf.dev/fhir/CodeSystem/read-access-tag|1.0.0"
+        }],
+        "contains" : [{
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "LOCAL",
+          "display" : "Local"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ORGANIZATION",
+          "display" : "Organization"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ROLE",
+          "display" : "Role"
+        },
+        {
+          "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+          "code" : "ALL",
+          "display" : "All"
+        }]
+      }
+    }
+  }]
+}

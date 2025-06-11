@@ -1,0 +1,40 @@
+{
+  "resourceType" : "NamingSystem",
+  "id" : "dsf-endpoint",
+  "meta" : {
+    "tag" : [{
+      "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+      "code" : "ALL"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: NamingSystem dsf-endpoint</b></p><a name=\"dsf-endpoint\"> </a><a name=\"hcdsf-endpoint\"> </a><a name=\"dsf-endpoint-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class=\"grid\"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-endpoint</td></tr><tr><td>Name</td><td>DSF Endpoint Identifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address</p>\n</div></td></tr><tr><td>Publisher</td><td>DSF Community</td></tr></table><h3>Identifiers</h3><table class=\"grid\"><tr><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td>Other</td><td>http://dsf.dev/sid/endpoint-identifier</td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url",
+    "valueUri" : "http://dsf.dev/fhir/NamingSystem/dsf-endpoint"
+  }],
+  "name" : "DSF Endpoint Identifier",
+  "status" : "active",
+  "kind" : "identifier",
+  "date" : "2023-06-28",
+  "publisher" : "DSF Community",
+  "contact" : [{
+    "name" : "DSF Community",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://dsf.dev"
+    }]
+  }],
+  "description" : "Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address",
+  "usage" : "Used withing the DSF to identify endpoints",
+  "uniqueId" : [{
+    "modifierExtension" : [{
+      "url" : "http://dsf.dev/fhir/StructureDefinition/extension-check-logical-reference",
+      "valueBoolean" : true
+    }],
+    "type" : "other",
+    "value" : "http://dsf.dev/sid/endpoint-identifier"
+  }]
+}

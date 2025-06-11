@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Artifacts Summary - Data Sharing Framework (DSF) Implementation Guide v2.0.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <!-- Placeholder for child template CSS declarations -->
+<link href="assets/css/dsf.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script src="assets/js/prism.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8.0"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <!-- Placeholder for child template header declarations -->
+
+        <div id="project-nav">
+          <a id="project-logo" no-external="true" href="https://dsf.dev"><img height="55" alt="Visit the DSF website" src="assets/images/logo.svg"/> </a>
+        </div>
+
+        <div id="ig-status">
+          <p><span style="font-size:12pt;font-weight:bold">Data Sharing Framework (DSF) Implementation Guide</span>
+            <br/>
+            <span style="display:inline-block;">2.0.0 - ci-build
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <!-- menu.xml  -->
+
+<ul xmlns="http://www.w3.org/1999/xhtml" class="nav navbar-nav">
+  <li>
+    <a href="index.html">Home</a>
+  </li>
+  <li>
+    <a href="auth.html">Authentication and Authorization</a>
+  </li>
+  <li>
+    <a href="task.html">Tasks</a>
+  </li>
+  <li>
+    <a href="questionnaire.html">Questionnaires</a>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifacts
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="artifacts.html#structures-abstract-profiles">Profiles</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-value-sets">ValueSets</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-code-systems">CodeSystems</a>
+      </li>
+      <li>
+        <a href="artifacts.html#terminology-naming-systems">NamingSystems</a>
+      </li>
+      <li>
+        <a href="artifacts.html#other">Subscriptions</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+            </div>  <!-- /.nav-collapse -->
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>Artifacts Summary</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Data Sharing Framework (DSF) Implementation Guide - Local Development build (v2.0.0) built by the FHIR (HL7® FHIR® Standard) Build Tools. See the <a href='http://dsf.dev/fhir/history.html'>Directory of published versions</a></p><!--EndReleaseHeader-->
+  <h2>Artifacts Summary</h2>
+  
+  
+  
+  <!--DO NOT EDIT THIS FILE - It is generated by https://github.com/HL7/ig-template-base/blob/master/scripts/createArtifactSummary.xslt and any changes made will be overwritten--><div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml"
+     class="markdown-toc">
+   <p>Contents:</p>
+   <ul>
+      <li>
+         <a href="#1">Behavior: Capability Statements</a>
+      </li>
+      <li>
+         <a href="#2">Structures: Abstract Profiles</a>
+      </li>
+      <li>
+         <a href="#3">Structures: Resource Profiles</a>
+      </li>
+      <li>
+         <a href="#4">Structures: Data Type Profiles</a>
+      </li>
+      <li>
+         <a href="#5">Structures: Extension Definitions</a>
+      </li>
+      <li>
+         <a href="#6">Terminology: Value Sets</a>
+      </li>
+      <li>
+         <a href="#7">Terminology: Code Systems</a>
+      </li>
+      <li>
+         <a href="#8">Terminology: Naming Systems</a>
+      </li>
+      <li>
+         <a href="#9">Other</a>
+      </li>
+   </ul>
+</div>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://hl7.org/fhir"
+     xmlns:html="http://www.w3.org/1999/xhtml">
+   <p>This page provides a list of the FHIR artifacts defined as part of this implementation guide.</p>
+   <a name="1"> </a>
+   <h3>Behavior: Capability Statements </h3>
+    <p>The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CapabilityStatement-dsf.html" title="CapabilityStatement/dsf">CapabilityStatement/dsf</a>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="2"> </a>
+   <h3>Structures: Abstract Profiles </h3>
+    <p>These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles <em>based</em> on these abstract profiles, but do not declare conformance to the abstract profiles themselves.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-task-base.html"
+                  title="StructureDefinition/task-base">DSF Base Task</a>
+            </td>
+            <td>
+<p>The abstract Task resource the Tasks for individual DSF processes should be based on.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-questionnaire.html"
+                  title="StructureDefinition/questionnaire">DSF Questionnaire</a>
+            </td>
+            <td>
+<p>A Questionnaire in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-questionnaire-response.html"
+                  title="StructureDefinition/questionnaire-response">DSF QuestionnaireResponse</a>
+            </td>
+            <td>
+<p>An QuestionnaireResponse in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Structures: Resource Profiles </h3>
+    <p>These define constraints on FHIR resources for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-code-system.html"
+                  title="StructureDefinition/code-system">CodeSystem</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-activity-definition.html"
+                  title="StructureDefinition/activity-definition">DSF ActivityDefinition</a>
+            </td>
+            <td>
+<p>A DSF Process with it's messages and corresponding Authorization Rules.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-endpoint.html"
+                  title="StructureDefinition/endpoint">DSF Endpoint</a>
+            </td>
+            <td>
+<p>An Endpoint in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-organization.html"
+                  title="StructureDefinition/organization">DSF Organization</a>
+            </td>
+            <td>
+<p>An Organization in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-organization-affiliation.html"
+                  title="StructureDefinition/organization-affiliation">DSF OrganizationAffiliation</a>
+            </td>
+            <td>
+<p>An OrganizationAffiliation to describe a parent / participating organization relationship in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-organization-parent.html"
+                  title="StructureDefinition/organization-parent">DSF Parent Organization</a>
+            </td>
+            <td>
+<p>A Parent Organization as Meta Organization (e.g., Consortia) in the DSF context with restrictions to enforce DSF specific details.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-value-set.html"
+                  title="StructureDefinition/value-set">ValueSet</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="4"> </a>
+   <h3>Structures: Data Type Profiles </h3>
+    <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-organization-reference.html"
+                  title="StructureDefinition/organization-reference">OrganizationReference</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-all.html"
+                  title="StructureDefinition/coding-process-authorization-local-all">ProcessAuthorizationLocalAll</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-all-practitioner.html"
+                  title="StructureDefinition/coding-process-authorization-local-all-practitioner">ProcessAuthorizationLocalAllPractitioner</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-organization.html"
+                  title="StructureDefinition/coding-process-authorization-local-organization">ProcessAuthorizationLocalOrganization</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-organization-practitioner.html"
+                  title="StructureDefinition/coding-process-authorization-local-organization-practitioner">ProcessAuthorizationLocalOrganizationPractitioner</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-parent-organization-role.html"
+                  title="StructureDefinition/coding-process-authorization-local-parent-organization-role">ProcessAuthorizationLocalParentOrganizationRole</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-local-parent-organization-role-practitioner.html"
+                  title="StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner">ProcessAuthorizationLocalParentOrganizationRolePractitioner</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-remote-all.html"
+                  title="StructureDefinition/coding-process-authorization-remote-all">ProcessAuthorizationRemoteAll</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-remote-organization.html"
+                  title="StructureDefinition/coding-process-authorization-remote-organization">ProcessAuthorizationRemoteOrganization</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-coding-process-authorization-remote-parent-organization-role.html"
+                  title="StructureDefinition/coding-process-authorization-remote-parent-organization-role">ProcessAuthorizationRemoteParentOrganizationRole</a>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="5"> </a>
+   <h3>Structures: Extension Definitions </h3>
+    <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-certificate-thumbprint.html"
+                  title="StructureDefinition/extension-certificate-thumbprint">Certificate Thumbprint</a>
+            </td>
+            <td>
+<p>A certificate thumbprint of the client certificate of the organization / of the organization's endpoint.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-check-logical-reference.html"
+                  title="StructureDefinition/extension-check-logical-reference">CheckLogicalReference</a>
+            </td>
+            <td>
+<p>This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization.html"
+                  title="StructureDefinition/extension-process-authorization">ProcessAuthorization</a>
+            </td>
+            <td>
+<p>Defines authorization details for a process described by an ActivityDefinition. Specifies which entities are authorized to request and receive process-related tasks, including message name and task profile.       This extension enables fine-grained authorization control for processes defined in an ActivityDefinition. It includes:   - <code class="language-plaintext highlighter-rouge">message-name</code>: The name of the message associated with the process.   - <code class="language-plaintext highlighter-rouge">task-profile</code>: The canonical URL of the required Task profile.   - <code class="language-plaintext highlighter-rouge">requester</code> and <code class="language-plaintext highlighter-rouge">recipient</code>. See the respective ValueSets <code class="language-plaintext highlighter-rouge">http://dsf.dev/fhir/ValueSet/process-authorization-requester|1.0.0</code> and <code class="language-plaintext highlighter-rouge">http://dsf.dev/fhir/ValueSet/process-authorization-recipient|1.0.0</code> for allowed codes.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization-organization.html"
+                  title="StructureDefinition/extension-process-authorization-organization">ProcessAuthorizationOrganization</a>
+            </td>
+            <td>
+<p>This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization-organization-practitioner.html"
+                  title="StructureDefinition/extension-process-authorization-organization-practitioner">ProcessAuthorizationOrganizationPractitioner</a>
+            </td>
+            <td>
+<p>Specifies an organization and practitioner role for process authorization. This extension is used within a Coding to indicate both a specific organization (by its identifier) and a practitioner role (by a coding). The organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the practitioner role is specified as a Coding. This enables precise authorization of organization-practitioner-role combinations for requester or recipient roles in process authorization extensions.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization-parent-organization-role.html"
+                  title="StructureDefinition/extension-process-authorization-parent-organization-role">ProcessAuthorizationParentOrganizationRole</a>
+            </td>
+            <td>
+<p>This extension specifies the parent organization and the required role in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier) and a role (by a coding). The parent organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the role is specified as a Coding. This enables precise authorization of parent organization-role combinations for requester or recipient roles in process authorization extensions.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization-parent-organization-role-practitioner.html"
+                  title="StructureDefinition/extension-process-authorization-parent-organization-role-practitioner">ProcessAuthorizationParentOrganizationRolePractitioner</a>
+            </td>
+            <td>
+<p>This extension specifies the parent organization, the required role of the organization and the role of the practitioner in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier), a role (by a coding), and a practitioner role. The parent organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the roles are specified as a Coding. This enables precise authorization of parent organization-role combinations with a practitioner for requester roles in process authorization extensions.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-process-authorization-practitioner.html"
+                  title="StructureDefinition/extension-process-authorization-practitioner">ProcessAuthorizationPractitioner</a>
+            </td>
+            <td>
+<p>This extension specifies a practitioner role for process authorization. It is used within a Coding to indicate a practitioner role (by a coding). The practitioner role is specified as a Coding. This enables precise authorization for requester or roles in process authorization extensions.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-read-access-organization.html"
+                  title="StructureDefinition/extension-read-access-organization">ReadAccessOrganization</a>
+            </td>
+            <td>
+<p>This extension specifies an organization by identifier for resouce read access.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-read-access-parent-organization-role.html"
+                  title="StructureDefinition/extension-read-access-parent-organization-role">ReadAccessParentOrganizationRole</a>
+            </td>
+            <td>
+<p>This extension specifies a list of organizations by membership in a parent organization by identifier and their role by coding for resouce read access.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="6"> </a>
+   <h3>Terminology: Value Sets </h3>
+    <p>These define sets of codes used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-bpmn-message.html" title="ValueSet/bpmn-message">DSF BPMN message values</a>
+            </td>
+            <td>
+<p>ValueSet with standard BPMN message values for Task resources</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-organization-role.html"
+                  title="ValueSet/organization-role">DSF Organization Role</a>
+            </td>
+            <td>
+<p>ValueSet with DSF organization roles used in OrganizationAffiliation resources</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-practitioner-role.html"
+                  title="ValueSet/practitioner-role">DSF Practitioner Role</a>
+            </td>
+            <td>
+<p>ValueSet with DSF practitioner roles used in OrganizationAffiliation resources</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-process-authorization-recipient.html"
+                  title="ValueSet/process-authorization-recipient">DSF Process Authorization Recipient</a>
+            </td>
+            <td>
+<p>ValueSet with proces authorization codes for recipients</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-process-authorization-requester.html"
+                  title="ValueSet/process-authorization-requester">DSF Process Authorization Requester</a>
+            </td>
+            <td>
+<p>ValueSet with proces authorization codes for requesters</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-read-access-tag.html" title="ValueSet/read-access-tag">DSF Read Access Tag</a>
+            </td>
+            <td>
+<p>ValueSet with read access tags</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="7"> </a>
+   <h3>Terminology: Code Systems </h3>
+    <p>These define new code systems used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-bpmn-message.html" title="CodeSystem/bpmn-message">DSF BPMN message values</a>
+            </td>
+            <td>
+<p>CodeSystem with standard BPMN message values for Task resources</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-organization-role.html"
+                  title="CodeSystem/organization-role">DSF Organization Role</a>
+            </td>
+            <td>
+<p>CodeSystem with DSF organization roles used in OrganizationAffiliation resources</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-practitioner-role.html"
+                  title="CodeSystem/practitioner-role">DSF Practitioner Role</a>
+            </td>
+            <td>
+<p>CodeSystem with DSF practitioner roles</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-process-authorization.html"
+                  title="CodeSystem/process-authorization">DSF Process Authorization</a>
+            </td>
+            <td>
+<p>CodeSystem with proces authorization codes</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-read-access-tag.html"
+                  title="CodeSystem/read-access-tag">DSF Read Access Tag</a>
+            </td>
+            <td>
+<p>CodeSystem with read access tags</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="8"> </a>
+   <h3>Terminology: Naming Systems </h3>
+    <p>These define identifier and/or code system identities used by systems conforming to this implementation guide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-dsf-endpoint.html" title="NamingSystem/dsf-endpoint">DSF Endpoint Identifier</a>
+            </td>
+            <td>
+<p>Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-dsf-organization.html"
+                  title="NamingSystem/dsf-organization">DSF Organization Identifier</a>
+            </td>
+            <td>
+<p>Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-dsf-practitioner.html"
+                  title="NamingSystem/dsf-practitioner">DSF Practitioner Identifier</a>
+            </td>
+            <td>
+<p>E-mail address identifying a practitioner</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="NamingSystem-dsf-task.html" title="NamingSystem/dsf-task">DSF Task Identifier</a>
+            </td>
+            <td>
+<p>Name identifying a draft Task resource</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="9"> </a>
+   <h3>Other </h3>
+    <p>These are resources that are used within this implementation guide that do not fit into one of the other categories.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Subscription-dsf-bpmn-questionnaire-response-subscription.html"
+                  title="Subscription/dsf-bpmn-questionnaire-response-subscription">Subscription/dsf-bpmn-questionnaire-response-subscription</a>
+            </td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Subscription-dsf-bpmn-task-subscription.html"
+                  title="Subscription/dsf-bpmn-task-subscription">Subscription/dsf-bpmn-task-subscription</a>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 5, 2025 13:47+0000">2025-06-05</span>
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="qa.html">QA Report</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

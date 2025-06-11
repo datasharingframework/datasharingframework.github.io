@@ -1,0 +1,325 @@
+[
+  {
+    "id" : "dsf",
+    "type" : "CapabilityStatement",
+    "url" : "http://dsf.dev/fhir/CapabilityStatement/dsf"
+  },
+  {
+    "id" : "bpmn-message",
+    "type" : "CodeSystem",
+    "url" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
+    "version" : "1.0.0",
+    "name" : "DsfBpmnMessage"
+  },
+  {
+    "id" : "organization-role",
+    "type" : "CodeSystem",
+    "url" : "http://dsf.dev/fhir/CodeSystem/organization-role",
+    "version" : "1.0.0",
+    "name" : "DSF_Organization_Role"
+  },
+  {
+    "id" : "practitioner-role",
+    "type" : "CodeSystem",
+    "url" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+    "version" : "1.0.0",
+    "name" : "DSF_Practitioner_Role"
+  },
+  {
+    "id" : "process-authorization",
+    "type" : "CodeSystem",
+    "url" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
+    "version" : "1.0.0",
+    "name" : "DSF_Process_Authorization"
+  },
+  {
+    "id" : "read-access-tag",
+    "type" : "CodeSystem",
+    "url" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+    "version" : "1.0.0",
+    "name" : "DSF_Read_Access_Tag"
+  },
+  {
+    "id" : "dev.dsf",
+    "type" : "ImplementationGuide",
+    "url" : "http://dsf.dev/fhir/ImplementationGuide/dev.dsf",
+    "version" : "2.0.0",
+    "name" : "dsfig"
+  },
+  {
+    "id" : "dsf-endpoint",
+    "type" : "NamingSystem",
+    "url" : "http://dsf.dev/fhir/NamingSystem/dsf-endpoint",
+    "name" : "DSF Endpoint Identifier"
+  },
+  {
+    "id" : "dsf-organization",
+    "type" : "NamingSystem",
+    "url" : "http://dsf.dev/fhir/NamingSystem/dsf-organization",
+    "name" : "DSF Organization Identifier"
+  },
+  {
+    "id" : "dsf-practitioner",
+    "type" : "NamingSystem",
+    "url" : "http://dsf.dev/fhir/NamingSystem/dsf-practitioner",
+    "name" : "DSF Practitioner Identifier"
+  },
+  {
+    "id" : "dsf-task",
+    "type" : "NamingSystem",
+    "url" : "http://dsf.dev/fhir/NamingSystem/dsf-task",
+    "name" : "DSF Task Identifier"
+  },
+  {
+    "id" : "activity-definition",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/activity-definition",
+    "version" : "1.0.0",
+    "name" : "DSF ActivityDefinition"
+  },
+  {
+    "id" : "code-system",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/code-system",
+    "version" : "1.0.0",
+    "name" : "CodeSystem"
+  },
+  {
+    "id" : "coding-process-authorization-local-all",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalAll"
+  },
+  {
+    "id" : "coding-process-authorization-local-all-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalAllPractitioner"
+  },
+  {
+    "id" : "coding-process-authorization-local-organization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalOrganization"
+  },
+  {
+    "id" : "coding-process-authorization-local-organization-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalOrganizationPractitioner"
+  },
+  {
+    "id" : "coding-process-authorization-local-parent-organization-role",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalParentOrganizationRole"
+  },
+  {
+    "id" : "coding-process-authorization-local-parent-organization-role-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationLocalParentOrganizationRolePractitioner"
+  },
+  {
+    "id" : "coding-process-authorization-remote-all",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationRemoteAll"
+  },
+  {
+    "id" : "coding-process-authorization-remote-organization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationRemoteOrganization"
+  },
+  {
+    "id" : "coding-process-authorization-remote-parent-organization-role",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationRemoteParentOrganizationRole"
+  },
+  {
+    "id" : "endpoint",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/endpoint",
+    "version" : "2.0.0",
+    "name" : "DSF Endpoint"
+  },
+  {
+    "id" : "extension-certificate-thumbprint",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-certificate-thumbprint",
+    "version" : "2.0.0",
+    "name" : "Certificate Thumbprint"
+  },
+  {
+    "id" : "extension-check-logical-reference",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-check-logical-reference",
+    "version" : "1.0.0",
+    "name" : "CheckLogicalReference"
+  },
+  {
+    "id" : "extension-process-authorization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorization"
+  },
+  {
+    "id" : "extension-process-authorization-organization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationOrganization"
+  },
+  {
+    "id" : "extension-process-authorization-organization-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationOrganizationPractitioner"
+  },
+  {
+    "id" : "extension-process-authorization-parent-organization-role",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationParentOrganizationRole"
+  },
+  {
+    "id" : "extension-process-authorization-parent-organization-role-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationParentOrganizationRolePractitioner"
+  },
+  {
+    "id" : "extension-process-authorization-practitioner",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner",
+    "version" : "1.0.0",
+    "name" : "ProcessAuthorizationPractitioner"
+  },
+  {
+    "id" : "extension-read-access-organization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization",
+    "version" : "1.0.0",
+    "name" : "ReadAccessOrganization"
+  },
+  {
+    "id" : "extension-read-access-parent-organization-role",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/extension-read-access-parent-organization-role",
+    "version" : "1.0.0",
+    "name" : "ReadAccessParentOrganizationRole"
+  },
+  {
+    "id" : "organization",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/organization",
+    "version" : "2.0.0",
+    "name" : "DSF Organization"
+  },
+  {
+    "id" : "organization-affiliation",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/organization-affiliation",
+    "version" : "2.0.0",
+    "name" : "DSF OrganizationAffiliation"
+  },
+  {
+    "id" : "organization-parent",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/organization-parent",
+    "version" : "2.0.0",
+    "name" : "DSF Parent Organization"
+  },
+  {
+    "id" : "organization-reference",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/organization-reference",
+    "version" : "1.0.0",
+    "name" : "OrganizationReference"
+  },
+  {
+    "id" : "questionnaire",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/questionnaire",
+    "version" : "1.5.0",
+    "name" : "DSF Questionnaire"
+  },
+  {
+    "id" : "questionnaire-response",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/questionnaire-response",
+    "version" : "1.0.0",
+    "name" : "DSF QuestionnaireResponse"
+  },
+  {
+    "id" : "task-base",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/task-base",
+    "version" : "2.0.0",
+    "name" : "DSF Base Task"
+  },
+  {
+    "id" : "value-set",
+    "type" : "StructureDefinition",
+    "url" : "http://dsf.dev/fhir/StructureDefinition/value-set",
+    "version" : "1.0.0",
+    "name" : "ValueSet"
+  },
+  {
+    "id" : "bpmn-message",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
+    "version" : "1.0.0",
+    "name" : "DsfBpmnMessage"
+  },
+  {
+    "id" : "organization-role",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/organization-role",
+    "version" : "1.0.0",
+    "name" : "DSF_Organization_Role"
+  },
+  {
+    "id" : "practitioner-role",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/practitioner-role",
+    "version" : "1.0.0",
+    "name" : "DSF_Practitioner_Role"
+  },
+  {
+    "id" : "process-authorization-recipient",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-recipient",
+    "version" : "1.0.0",
+    "name" : "DSF_Process_Authorization_Recipient"
+  },
+  {
+    "id" : "process-authorization-requester",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-requester",
+    "version" : "1.0.0",
+    "name" : "DSF_Process_Authorization_Requester"
+  },
+  {
+    "id" : "read-access-tag",
+    "type" : "ValueSet",
+    "url" : "http://dsf.dev/fhir/ValueSet/read-access-tag",
+    "version" : "1.0.0",
+    "name" : "DSF_Read_Access_Tag"
+  }
+]

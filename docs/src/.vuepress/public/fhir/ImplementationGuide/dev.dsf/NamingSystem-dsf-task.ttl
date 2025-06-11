@@ -1,0 +1,49 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/NamingSystem/dsf-task> a fhir:NamingSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "dsf-task"] ; # 
+  fhir:meta [
+     fhir:tag ( [
+       fhir:system [ fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: NamingSystem dsf-task</b></p><a name=\"dsf-task\"> </a><a name=\"hcdsf-task\"> </a><a name=\"dsf-task-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class=\"grid\"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-task</td></tr><tr><td>Name</td><td>DSF Task Identifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Name identifying a draft Task resource</p>\n</div></td></tr><tr><td>Publisher</td><td>DSF Community</td></tr></table><h3>Identifiers</h3><table class=\"grid\"><tr><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td>Other</td><td>http://dsf.dev/sid/task-identifier</td></tr></table></div>"^^rdf:XMLLiteral
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:uri ;
+       fhir:v "http://dsf.dev/fhir/NamingSystem/dsf-task"^^xsd:anyURI
+     ]
+  ] ) ; # 
+  fhir:name [ fhir:v "DSF Task Identifier"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:kind [ fhir:v "identifier"] ; # 
+  fhir:date [ fhir:v "2023-06-28"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Name identifying a draft Task resource"] ; # 
+  fhir:usage [ fhir:v "Used withing the DSF to identify draft Task resources, created as examples using process plugins. Values must be defined in the form {process-url}/{process-version}/{task-example-name} e.g. http://test.org/bpe/Process/someProcessName/1.0/someExampleName"] ; # 
+  fhir:uniqueId ( [
+     fhir:type [ fhir:v "other" ] ;
+     fhir:value [ fhir:v "http://dsf.dev/sid/task-identifier" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
