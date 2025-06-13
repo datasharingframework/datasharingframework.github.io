@@ -1,0 +1,15 @@
+---
+title: CodeSystem
+icon: creative
+---
+
+## CodeSystem
+
+[CodeSystems](https://www.hl7.org/fhir/R4/codesystem.html) usually represent a set of concepts which can be assigned to a code (think LOINC). Using a Code in a resource requires them to be included in a [ValueSet](valueset.md).
+
+Plugin development for the DSF requires the use of [CodeSystems](https://www.hl7.org/fhir/R4/codesystem.html) in two major ways:
+1. Using existing [DSF CodeSystems](https://github.com/datasharingframework/dsf/tree/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem) in other FHIR resources like the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml).
+2. Creating custom CodeSystem to add additional [Input Parameters](task.md#task-input-parameters) to [Task](task.md) profiles.
+
+## Related Topics
+[ActivityDefinition](activitydefinition.md), [Task](task.md), [ValueSet](valueset.md)
