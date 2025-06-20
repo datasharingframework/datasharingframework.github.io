@@ -29,12 +29,21 @@ redirectToParentDirectoryIfInOperations();
 
 });*/
 
+
+function goBack() {
+  router.go(-1);
+}
+
+function goHome() {
+  router.push('/'); 
+}
+
 </script>
 
 <template>
   <ParentLayout>
     <template #default>
-      <div class="not-found-hint"><p class="error-code">404</p><h1 class="error-title">Page not found</h1><p class="error-hint">That’s a Four-Oh-Four.</p></div><div class="actions"><button type="button" class="action-button">Go back</button><button type="button" class="action-button">Take me home</button></div>
+      <div class="not-found-hint"><p class="error-code">404</p><h1 class="error-title">Page not found</h1><p class="error-hint">That’s a Four-Oh-Four.</p></div><div class="actions"><button type="button" class="action-button"  @click="goBack">Go back</button><button type="button" class="action-button" @click="goHome">Take me home</button></div>
     </template>
   </ParentLayout>
 </template>

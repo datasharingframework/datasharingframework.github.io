@@ -6,7 +6,7 @@ export function generate_v1_latest_sidebar() {
         icon: "tool",
         link: "./",
       },
-      "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+      "release-notes", "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -80,7 +80,7 @@ export function generate_v1_gt_eq_1_7_0_sidebar() {
         link: "./"
         
       },
-      "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
+      "release-notes", "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", "root-certificates", "passwords-secrets", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -151,7 +151,7 @@ export function generate_v1_gt_eq_1_5_0_sidebar() {
         text: "Get Started",
         icon: "tool",
         link: "./",
-      }, "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+      }, "release-notes", "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
@@ -214,6 +214,7 @@ export function generate_v1_gt_eq_1_5_0_sidebar() {
           link: "install-plugins"
       },
       ]
+       
 }
 
 
@@ -224,7 +225,7 @@ export function generate_v1_gt_eq_1_0_0_sidebar() {
         text: "Get Started",
         icon: "tool",
         link: "./",
-      }, "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
+      }, "release-notes", "install", "upgrade-from-1", "upgrade-from-0", "allowList-mgm", {
           text: "FHIR Reverse Proxy",
           icon: "module",
           prefix: "fhir-reverse-proxy/",
