@@ -37,6 +37,7 @@ This site is work in progress, please come back later.
 - [Requester and Recipient](dsf/requester-and-recipient.md)
 - [Service Delegates](dsf/service-delegates.md)
 - [Spring Framework Integration](dsf/spring-framework-integration.md)
+- [Target and Targets](dsf/target-and-targets.md)
 - [Versions, Placeholders and URLs](dsf/versions-placeholders-urls.md)
 
 ## Guides
