@@ -3,4 +3,4 @@ title: Get Started
 icon: launch
 ---
 
-<meta http-equiv="refresh" content="0;url=./v1/latest/">
+<meta http-equiv="refresh" content="0;url=./latest/">

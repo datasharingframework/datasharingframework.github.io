@@ -12,6 +12,6 @@ The Allow List consists of Organization-, Endpoint- and OrganisationAffiliation-
 ![Architecture](/photos/info/allowList/allowList-architecture.png)
 
 ## Allow List Managment
-[Here](/operations/v1/latest/maintain/allowList-mgm.md) you can read all the information if you want to create or update an Allow List.
+[Here](/operations/latest/allowList-mgm.md) you can read all the information if you want to create or update an Allow List.
 
-#### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de"> E-Mail (dsf-gecko@hs-heilbronn.de)</a> and we will take care of your request as soon as possible.
+If you have the need for allowlist management feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de"> E-Mail (dsf-gecko@hs-heilbronn.de)</a> and we will take care of your request as soon as possible.

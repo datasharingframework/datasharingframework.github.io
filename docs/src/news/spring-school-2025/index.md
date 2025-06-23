@@ -1,6 +1,7 @@
 ---
 title: Spring School 2025
 ---
+<meta http-equiv="refresh" content="0;url=/posts/2025-04-23-spring-school-2025">
 
 # Recap of the DSF Spring School 2025
 Over three days, 20 committed members of the DSF community gathered at Heilbronn University for the DSF Spring School 2025. 

@@ -1,5 +1,5 @@
 ---
-title: empty Process Plugin
+title: Empty Process Plugin
 icon: share
 ---
 
@@ -8,3 +8,4 @@ icon: share
 ::: warning Work in progress
 
 This site is work in progress, please come back later.
+:::

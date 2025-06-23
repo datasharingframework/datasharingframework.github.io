@@ -8,6 +8,8 @@
 
 ### Move into docs folder
 cd docs
+### Install dependencies
+npm i
 ### Build 
 npm run docs:build
 ### Run

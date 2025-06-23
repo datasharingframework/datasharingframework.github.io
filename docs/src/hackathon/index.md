@@ -80,7 +80,7 @@ Versionen der unten aufgeführten Tools können sich noch bis zum Hackathon änd
 :::
 
 ### DSF
-[Installation](https://dsf.dev/stable/maintain/install.html) oder [Update](https://dsf.dev/stable/maintain/upgrade-from-1.html)
+[Installation](https://dsf.dev/operations/latest/install.html) oder [Update](https://dsf.dev/operations/latest/upgrade-from-1.html)
 
 ### Prozessplugins
 - DSF Ping Pong 1.0.1.0 [Release Notes](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0)

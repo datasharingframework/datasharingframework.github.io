@@ -4,15 +4,16 @@ icon: plugin
 ---
 
 ## Overview
-It is important to understand that the DSF is *only* the silent helper in the background: a middleware. The DSF is use case agnostic. This means that process plugins make it possible to execute almost any use case you can imagine with the DSF. Process plugins provide individual functionality. For example, it is possible to use the Ping Pong process to test bilateral communication or the [Feasibility process](../use-cases/feasibility) to perform feasibility queries for research.
-However, it is possible to deploy several process plugins together, even the same process plugin in different versions. A process plugin is basically an archive of BPMN 2.0 models, FHIR R4 resources and Java code. This process plugin is deployed as a Jar file on the BPE.
+It is important to understand that the DSF is *only* the silent helper in the background: a middleware. The DSF is use case agnostic. This means that process plugins make it possible to execute almost any use case you can imagine with the DSF. Process plugins provide individual functionality. 
+
+However, it is possible to deploy several process plugins parallel on the same DSF instance, even the same process plugin in different versions. A process plugin is basically an archive of BPMN 2.0 models, FHIR R4 resources and Java code. This process plugin is deployed as a Jar file on the BPE.
 
 ## BPMN: Example
-BPMN models can be created with [Camunda Modeler](https://camunda.com/de). The following model is a BPMN model consisting of two lanes: These are the square boxes, i.e. Organization A and B. This process is intended only as an example to illustrate the formalities. We will look at realistic processes in the next [chapter](../use-cases/).
+BPMN models can be created with [Camunda Modeler](https://camunda.com/de). The following model is a BPMN model consisting of two lanes: These are the square boxes, i.e. Organization A and B. This process is intended only as an example to illustrate the formalities.
 
 ![BPMN: Example](/photos/info/plugins/bpmn-example.png)
 
-## Ping Pong Process
+## Ping Pong Process as an example Process Plugin
 The [ping process plugin](https://github.com/datasharingframework/dsf-process-ping-pong) can be used for (periodic) connection testing between organizations that are part of your DSF allow list. The following figure shows a representation of the process.
 
 ![Ping-Pong Process](/photos/info/use-cases/ping-pong.png)

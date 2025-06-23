@@ -1,19 +1,20 @@
 <script setup lang="ts">
-// import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue'
 import { Layout as ParentLayout, PageContent } from 'vuepress-theme-hope/client'
 import { useRoute, useRouter } from "vue-router";
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const version = ref("");
+const latestVersion = "v1.8.0";
 
 
 function setVersionBasedOnCurrentPath() : void {
     if (route.path.startsWith('/operations/')) {
         const input = route.path.substring('/operations/'.length);
         const firstSlash = input.indexOf("/");
-        const secondSlash = input.indexOf("/", firstSlash + 1);
-        const result = secondSlash !== -1 ? input.slice(0, secondSlash) : input;
-
+        var result = firstSlash !== -1 ? input.slice(0, firstSlash) : input;
+        if (result === "latest") {
+          result = latestVersion;
+        }
         version.value = result;
 
 
@@ -30,14 +31,20 @@ router.afterEach((_to, _from) => {
     setVersionBasedOnCurrentPath();
 });
 
-setVersionBasedOnCurrentPath();
+onMounted(() => {
+  setVersionBasedOnCurrentPath();
+})
 
 function navigateToNewVersion() {
     const input = route.path.substring('/operations/'.length);
     const firstSlash = input.indexOf("/");
-    const secondSlash = input.indexOf("/", firstSlash + 1);
-    const result = secondSlash !== -1 ? input.slice(secondSlash + 1) : "";
-    router.push('/operations/' + version.value + "/" + result);
+    const result = firstSlash !== -1 ? input.slice(firstSlash + 1) : "";
+    if (version.value === latestVersion) {
+      router.push('/operations/' + "latest" + "/" + result);
+    } else {
+      router.push('/operations/' + version.value + "/" + result);
+
+    }
 }
 
 </script>
@@ -46,22 +53,23 @@ function navigateToNewVersion() {
   <ParentLayout>
     <template #sidebarTop>
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
-        <label class="vp-sidebar-header" for="version-select">Version: </label>
+        <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
-        <option value="v2/latest">next (v2.0.0-M2)</option>
-        <option value="v1/latest">latest (v1.7.1)</option>
-        <option value="v1/v1.7.0">v1.7.0</option>
-        <option value="v1/v1.6.0">v1.6.0</option>
-        <option value="v1/v1.5.2">v1.5.2</option>
-        <option value="v1/v1.5.1">v1.5.1</option>
-        <option value="v1/v1.5.0">v1.5.0</option>
-        <option value="v1/v1.4.0">v1.4.0</option>
-        <option value="v1/v1.3.2">v1.3.2</option>
-        <option value="v1/v1.3.1">v1.3.1</option>
-        <option value="v1/v1.3.0">v1.3.0</option>
-        <option value="v1/v1.2.0">v1.2.0</option>
-        <option value="v1/v1.1.0">v1.1.0</option>
-        <option value="v1/v1.0.0">v1.0.0</option>
+        <option value="v1.8.0">latest (1.8.0)</option>
+        <option value="v1.7.1">1.7.1</option>
+        <option value="v1.7.0">1.7.0</option>
+        <option value="v1.6.0">1.6.0</option>
+        <option value="v1.5.2">1.5.2</option>
+        <option value="v1.5.1">1.5.1</option>
+        <option value="v1.5.0">1.5.0</option>
+        <option value="v1.4.0">1.4.0</option>
+        <option value="v1.3.2">1.3.2</option>
+        <option value="v1.3.1">1.3.1</option>
+        <option value="v1.3.0">1.3.0</option>
+        <option value="v1.2.0">1.2.0</option>
+        <option value="v1.1.0">1.1.0</option>
+        <option value="v1.0.0">1.0.0</option>
+        <option value="v2.0.0-M3">2.0.0-M3</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>

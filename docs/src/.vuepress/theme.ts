@@ -23,8 +23,9 @@ export default hopeTheme({
     {
         text: "Explore",
         icon: "info",
-        prefix: "",
-        children: ["/explore/concepts/introduction", "/explore/use-cases/", "/explore/publications/", "/security/"],
+        link: "/explore/",
+        prefix: "/explore/",
+        children: ["concepts/introduction", "use-cases/", "publications", "/security/"],
     },
     {
       text: "Operations",
@@ -36,22 +37,7 @@ export default hopeTheme({
       text: "Process Development",
       icon: "plugin",
       prefix: "/process-development/",
-      children: [
-        {
-          text: "API v1",
-          children: [
-            "api-v1/readme.md",
-            "api-v1/get-started.md"
-          ]
-        },
-        {
-          text: "API v2",
-          children: [
-            "api-v2/readme.md",
-            "api-v2/get-started.md"
-          ]
-        }
-      ]
+      children: [ "api-v1/", "api-v2/" ]
     },
      {
       text: "DSF Development",
@@ -67,8 +53,8 @@ export default hopeTheme({
         "communication",
         "ecosystem",
         "contribute/",
+        "consultation-hours",
         "events/",
-        "consultation-hours"
       ],
     },
     {
@@ -91,7 +77,6 @@ export default hopeTheme({
         icon: "news",
         link: "tag/news/"
       },
-
       {
         text: "Concepts",
         icon: "info",
@@ -100,7 +85,7 @@ export default hopeTheme({
         children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
       },
       {
-        text: "Security",
+        text: "Security Disclosure Policy",
         icon: "safe",
         link: "/security/",
       },
@@ -109,47 +94,53 @@ export default hopeTheme({
         icon: "any",
         prefix: "explore/use-cases/",
         link: "explore/use-cases/",
-        children: ["feasibility", "num"], 
-      },
+      }, 
       {
         text: "Publications",
         icon: "blog",
-        prefix: "explore/publications/",
-        link: "/explore/publications/",
-        children: ["publications", "awards"], 
+        link: "explore/publications",
       },
+      {
+        text: "Awards",
+        icon: "creative",
+        link: "explore/awards",
+      },
+     
     ],
     "/hackathon": [],
     "/spring-school": [],
     "/news": [],
-    "/operations/v1/latest/":generate_v1_latest_sidebar(),
-    "/operations/v1/v1.7.1/": generate_v1_latest_sidebar(),
-    "/operations/v1/v1.7.0/": generate_v1_gt_eq_1_7_0_sidebar(),
-    "/operations/v1/v1.6.0/": generate_v1_gt_eq_1_5_0_sidebar(),
-    "/operations/v1/v1.5.2/": generate_v1_gt_eq_1_5_0_sidebar(),
-    "/operations/v1/v1.5.1/": generate_v1_gt_eq_1_5_0_sidebar(),
-    "/operations/v1/v1.5.0/": generate_v1_gt_eq_1_5_0_sidebar(),
-    "/operations/v1/v1.4.0/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.3.2/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.3.1/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.3.0/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.2.0/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.1.0/": generate_v1_gt_eq_1_0_0_sidebar(),
-    "/operations/v1/v1.0.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/latest/": generate_v1_latest_sidebar(),
+    "/operations/next/": [],
+    "/operations/v2.0.0-M3/": [],
+    "/operations/v1.8.0/": generate_v1_latest_sidebar(),
+    "/operations/v1.7.1/": generate_v1_latest_sidebar(),
+    "/operations/v1.7.0/": generate_v1_gt_eq_1_7_0_sidebar(),
+    "/operations/v1.6.0/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1.5.2/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1.5.1/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1.5.0/": generate_v1_gt_eq_1_5_0_sidebar(),
+    "/operations/v1.4.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.3.2/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.3.1/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.3.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.2.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.1.0/": generate_v1_gt_eq_1_0_0_sidebar(),
+    "/operations/v1.0.0/": generate_v1_gt_eq_1_0_0_sidebar(),
     "/process-development": [
       {
         text: "API v1",
         icon: "",
         prefix: "api-v1/",
         link: "api-v1/",
-        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
+        children: [ "get-started","concept","create",  "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
       },
       {
         text: "API v2",
         icon: "",
         prefix: "api-v2/",
         link: "api-v2/",
-        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/",], 
+        children: [ "get-started","concept","implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub", "tooling/", "tutorials/", "javadoc"], 
       },    
     ],
     "/dsf-development": [
@@ -158,8 +149,15 @@ export default hopeTheme({
         icon: "",
         prefix: "v2/",
         link: "v2/",
-        children: [ "fhir-ig", "javadoc", "maven"], 
+        children: [ "fhir-ig", "maven"], 
       }, 
+    ],
+    "/community":[
+      {
+        text: "Community",
+        icon: "",
+        children: ["team", "communication", "ecosystem", "contribute/", "consultation-hours", "events/",]
+      }
     ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },
