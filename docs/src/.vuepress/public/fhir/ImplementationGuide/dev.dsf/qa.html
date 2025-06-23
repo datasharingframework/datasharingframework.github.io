@@ -1,0 +1,1707 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- broken links = 0, errors = 84, warn = 82, info = 2-->
+<head>
+  <title>dsfig : Validation Results</title>
+  <link href="fhir.css" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <style>
+    span.flip  { background-color: #4CAF50; color: white; border: solid 1px #a6d8a8; padding: 2px }
+    span.toggle  { background-color: #e6f2ff; color: black; border: solid 1px #0056b3; padding: 2px; font-size: 10px }
+    button { padding: 0px 8px; font-size: 12px; cursor: pointer; border-radius: 2px; border: 1px solid #ccc; background-color: #f0f0f0 }
+    button:hover { background-color: #e0e0e0; }
+    .code-value { display: inline; }
+    .code-hidden { display: none; }
+    span.toggle  { font-size: 10px }
+  </style>
+  <script>
+    function flip(id) {
+      var span = document.getElementById('s'+id);
+      var div = document.getElementById(id);
+      if (document.getElementById('s'+id).innerHTML == 'Show Reasoning') {
+        div.style.display = 'block';
+        span.innerHTML = 'Hide Reasoning';
+      } else {
+        div.style.display = 'none';
+        span.innerHTML = 'Show Reasoning';
+      }
+    }
+    function toggle(id) {
+      var span = document.getElementById('s'+id);
+      var div = document.getElementById(id);
+      if (document.getElementById('s'+id).innerHTML == 'Show Validation Information') {
+        div.style.display = 'block';
+        span.innerHTML = 'Hide Validation Information';
+      } else {
+        div.style.display = 'none';
+        span.innerHTML = 'Show Validation Information';
+      }
+    }
+    function toggleCodes() {
+      const codes = document.getElementsByClassName('code-value');
+      for (let code of codes) {
+        code.classList.toggle('code-hidden');
+      }
+    }
+  </script>
+</head>
+<body style="margin: 20px; background-color: #ffffff">
+ <h1>Validation Results for dsfig</h1>
+ <p>Generated Thu Jun 05 13:48:59 UTC 2025, FHIR version 4.0.1 for dev.dsf#2.0.0 (canonical = <a href="http://dsf.dev/fhir">http://dsf.dev/fhir</a> (<a href="http://dsf.dev/fhir/history.html">history</a>)). See <a href="qa.min.html">Errors Only</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+<table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
+ <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.0.5</span></td></tr>
+ <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = dev.dsf, Canonical = http://dsf.dev/fhir</td></tr>
+ <tr><td>Realm Check for n/a:</td><td><span style="color: maroon; font-weight: bold"></span><ul><li>n/a</li></ul></td></tr>
+ <tr><td>Language Info:</td><td>This IG has no language information</td></tr>
+ <tr><td>Publication Request:</td><td><ul><li><span title="Not Found">This IG has never been published</span> <img src="information.png" height="16px" width="16px"/></li>
+<li>This IG has never been published, so the version should start with '0.' or include a patch version e.g. '-ballot' <img src="icon-warning.png" height="16px" width="16px"/></li>
+<li>No publication request found <img src="information.png" height="16px" width="16px"/></li>
+</ul>
+</td></tr>
+ <tr><td>Supressed Messages:</td><td>No Suppressed Issues
+</td></tr>
+ <tr><td>Dependency Checks:</td><td><div><table border="0" fhir="generated-heirarchy" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;" id="dep" data-fhir="generated-heirarchy"><tr fhir="generated-heirarchy" style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top" data-fhir="generated-heirarchy"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The NPM Package Id">Package</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The version of the package">Version</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="The version of FHIR that the package is based on">FHIR</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Canonical URL">Canonical</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Web Reference Base">Web Base</span></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><span title="Comments about this entry">Comment</span></th></tr><tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white" id="a" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/builds/dsf/ig/outputdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: white; background-color: inherit" title="NPM Package" class="hierarchy"/> dev.dsf</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">2.0.0</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://dsf.dev/fhir</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7" id="aa" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/builds/dsf/ig/outputdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img onClick="tableRowAction(this)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAACwSURBVDhP7ZLBDsIwCIaLZz34xG3f2cQYo5UfYalJoY07ePFL4GcbpZSVWmvJgwifG+njkLDACgfVIehAQ5ffdMDvxSS2Dmqty62UUmS1rIWD8UuWd9xxVt1AnoaSGx6Buap+0G80K3BTtbtwhLPZQL0CSIA9OwUXON7dZkBeASTAThb3bffMjnCHGy00ZgUeqi5f3YOcsw01vsqYMrMljwgLrBDOwP53xL+D3R2k9ALHsmr3Yu73+gAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: #F7F7F7; background-color: inherit" title="NPM Package" class="hierarchy"/> hl7.terminology.r4</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">6.4.0 <span style="padding-left: 3px; padding-right: 3px; color: white; background-color: green" title="Latest Milestone Release">M</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://terminology.hl7.org</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://terminology.hl7.org/6.4.0</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white" id="aaa" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/builds/dsf/ig/outputdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAAMUlEQVR4Xu3NoQ0AIBRDwb9r958B0KAgAcw1OfNMK0ntGGtze+n3PwAAcG4JAAAAt3RWK0BWYk6o4QAAAABJRU5ErkJggg==)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzMPbYccAgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAMElEQVQ4y+3OQREAIBDDwAv+PQcFFN5MIyCzqHMKUGVCpMFLK97heq+gggoq+EiwAVjvMhFGmlEUAAAAAElFTkSuQmCC" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzME+lXFigAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+3OsRUAIAjEUOL+O8cJABttJM11/x1qZAGqRBEVcNIqdWj1efDqQbb3HwwwwEfABmQUHSPM9dtDAAAAAElFTkSuQmCC" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: white; background-color: inherit" title="NPM Package" class="hierarchy"/> hl7.fhir.uv.extensions.r4</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">5.2.0 <span style="padding-left: 3px; padding-right: 3px; color: white; background-color: green" title="Latest Milestone Release">M</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://hl7.org/fhir/extensions</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://hl7.org/fhir/extensions/5.2.0</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"></td></tr>
+<tr fhir="generated-heirarchy" style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7" id="ab" data-fhir="generated-heirarchy"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(/builds/dsf/ig/outputdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALElEQVR4Xu3IsQ0AIAwEsez6+89AqKGGJj7JzVWS+mm3zgcAAMxwDQAAgFcaYAVAgNGLTjgAAAAASUVORK5CYII=)" class="hierarchy"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg==" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzME+lXFigAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+3OsRUAIAjEUOL+O8cJABttJM11/x1qZAGqRBEVcNIqdWj1efDqQbb3HwwwwEfABmQUHSPM9dtDAAAAAElFTkSuQmCC" alt="." style="background-color: inherit" class="hierarchy"/><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYZCik0qECmbAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAABtUlEQVQoz2P8//8/Ayb4///v8xfM4iIMzKxoMkwMOMC3DVv/vXmEKY5Dw///Pw8c+Xn2CLEa/r55+/P07t/nrxKl4f/PX6+8g1mlP/44c4eAhn8fP33bsOV1dBoT51V2+z/MohIfeyYy/P2LXcPfFy8/NLb9efTs//utgjUfft35xRUY8Hnm/N/Xb2LT8P//h5ZOnvjoj+11giXcTH//MTLp/v/x9c/z279uXsOi4e/LRwzsbz6vmMyTLM6m9fnXE3Y2l+yv+yez2nL9eX0Wi4afF5eyW4r/+3qYP1Xjz/N3P17ZsRsKMrJd4rL9wcTxDIsGZqEvLEKv2VT/Mgl+/XGbXSB72s/zxXyBYmwqLCxSLFg0sKkHsAg+YJX7xfBTmt204s/NXE4dQTZtT2beH6yqFv9ebkDXwMhnxixrySb68f9fcWYRTSbGA6ya2QwMsixCvxk/djByiWIJVkbBBGaNOoafO5nYWVlkPRjYtP5/388s+JdJkI+R1xquDMl9zOqMQioM7BIMjJ8Z2IUYWOQZeT0Y/u5mEF+G7AdGLMn7712GnycY/v1g+HOZga+WgUkYWRIAe6ip9OnE1GoAAAAASUVORK5CYII=" alt="." style="background-color: #F7F7F7; background-color: inherit" title="NPM Package" class="hierarchy"/> hl7.fhir.uv.extensions.r4</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">5.2.0 <span style="padding-left: 3px; padding-right: 3px; color: white; background-color: green" title="Latest Milestone Release">M</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R4">R4</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://hl7.org/fhir/extensions</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">http://hl7.org/fhir/extensions/5.2.0</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">see above</td></tr>
+</table><para>Templates: dev.dsf.fhir.template#0.0.1 -&gt; fhir.base.template#current. Tools: 0.5.0</para></div></td></tr>
+ <tr><td>Related IGs:</td><td>n/a</td></tr>
+ <tr><td>Dependent IGs:</td><td><a href="qa-dep.html">no references</a></td></tr>
+ <tr><td>Global Profiles:</td><td>(none declared)</td></tr>
+ <tr><td>Terminology Server(s):</td><td><a href="http://tx.fhir.org/r4">http://tx.fhir.org/r4</a>, <a href="https://tx.fhir.org/r4">https://tx.fhir.org/r4</a> (<a href="qa-txservers.html">details</a>)</td></tr>
+ <tr><td>HTA Analysis:</td><td><i>Non-HL7 Igs are exempt from terminology dependency analysis</i></td></tr>
+ <tr><td>R5 Dependencies:</td><td><ul><li><a href="http://build.fhir.org/namingsystem.html">http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url</a></li></ul></td></tr>
+ <tr><td>Draft Dependencies:</td><td><ul>
+  <li>
+hl7.fhir.r4.core#4.0.1:     <a href="http://hl7.org/fhir/R4/codesystem-guide-parameter-code.html">GuideParameterCode</a>
+ (20 uses),     <a href="http://hl7.org/fhir/R4/activitydefinition.html">ActivityDefinition</a>
+ (4 uses),     <code>_id</code>
+ (26 uses),     <code>_lastUpdated</code>
+ (26 uses),     <code>_profile</code>
+ (26 uses),     <code>date</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <code>url</code>
+ (1 uses),     <code>version</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>date</code>
+ (4 uses),     <code>identifier</code>
+ (3 uses),     <code>name</code>
+ (4 uses),     <a href="http://hl7.org/fhir/R4/documentreference.html">DocumentReference</a>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/endpoint.html">Endpoint</a>
+ (3 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>organization</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/group.html">Group</a>
+ (2 uses),     <code>identifier</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/healthcareservice.html">HealthcareService</a>
+ (3 uses),     <code>active</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/library.html">Library</a>
+ (2 uses),     <code>date</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <code>url</code>
+ (1 uses),     <code>version</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/location.html">Location</a>
+ (4 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/measure.html">Measure</a>
+ (1 uses),     <code>date</code>
+ (1 uses),     <code>depends-on</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <code>url</code>
+ (1 uses),     <code>version</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/measurereport.html">MeasureReport</a>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/namingsystem.html">NamingSystem</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/organization.html">Organization</a>
+ (26 uses),     <code>active</code>
+ (1 uses),     <code>endpoint</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>type</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/organizationaffiliation.html">OrganizationAffiliation</a>
+ (2 uses),     <code>active</code>
+ (1 uses),     <code>endpoint</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>participating-organization</code>
+ (1 uses),     <code>primary-organization</code>
+ (1 uses),     <code>role</code>
+ (1 uses),     <code>active</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/practitionerrole.html">PractitionerRole</a>
+ (4 uses),     <code>active</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>organization</code>
+ (1 uses),     <code>practitioner</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/practitioner.html">Practitioner</a>
+ (4 uses),     <code>active</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/provenance.html">Provenance</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/questionnaire.html">Questionnaire</a>
+ (58 uses),     <code>date</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>name</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <code>url</code>
+ (1 uses),     <code>version</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/questionnaireresponse.html">QuestionnaireResponse</a>
+ (14 uses),     <code>identifier</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/researchstudy.html">ResearchStudy</a>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>principalinvestigator</code>
+ (1 uses),     <code>Generate Snapshot</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/subscription.html">Subscription</a>
+ (1 uses),     <code>criteria</code>
+ (1 uses),     <code>payload</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <code>type</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/task.html">Task</a>
+ (4 uses),     <code>authored-on</code>
+ (1 uses),     <code>identifier</code>
+ (1 uses),     <code>modified</code>
+ (1 uses),     <code>requester</code>
+ (1 uses),     <code>status</code>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-languages.html">CommonLanguages</a>
+ (12 uses),     <a href="http://hl7.org/fhir/R4/valueset-subject-type.html">SubjectType</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-definition-topic.html">DefinitionTopic</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-request-resource-types.html">RequestResourceType</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-procedure-code.html">ProcedureCodes(SNOMEDCT)</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-request-intent.html">RequestIntent</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-request-priority.html">RequestPriority</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-action-participant-type.html">ActionParticipantType</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-action-participant-role.html">ActionParticipantRole</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/medication.html">Medication</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/substance.html">Substance</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-body-site.html">SNOMEDCTBodyStructures</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/specimendefinition.html">SpecimenDefinition</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/observationdefinition.html">ObservationDefinition</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/structuremap.html">StructureMap</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-endpoint-status.html">EndpointStatus</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-endpoint-connection-type.html">EndpointConnectionType</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-endpoint-payload-type.html">EndpointPayloadType</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-organization-type.html">OrganizationType</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-contactentity-type.html">ContactEntityType</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/valueset-organization-role.html">OrganizationAffiliationRole</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-questionnaire-questions.html">QuestionnaireQuestionCodes</a>
+ (5 uses),     <a href="http://hl7.org/fhir/R4/valueset-item-type.html">QuestionnaireItemType</a>
+ (4 uses),     <a href="http://hl7.org/fhir/R4/valueset-questionnaire-enable-operator.html">QuestionnaireItemOperator</a>
+ (4 uses),     <a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers.html">QuestionnaireAnswerCodes</a>
+ (16 uses),     <a href="http://hl7.org/fhir/R4/valueset-questionnaire-enable-behavior.html">EnableWhenBehavior</a>
+ (4 uses),     <a href="http://hl7.org/fhir/R4/careplan.html">CarePlan</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/servicerequest.html">ServiceRequest</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/procedure.html">Procedure</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-questionnaire-answers-status.html">QuestionnaireResponseStatus</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/encounter.html">Encounter</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/device.html">Device</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R4/relatedperson.html">RelatedPerson</a>
+ (3 uses),     <a href="http://hl7.org/fhir/R4/valueset-task-status.html">TaskStatus</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-task-intent.html">TaskIntent</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/valueset-performer-role.html">ProcedurePerformerRoleCodes</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/careteam.html">CareTeam</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/coverage.html">Coverage</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R4/claimresponse.html">ClaimResponse</a>
+ (1 uses)
+  </li>
+</ul>
+</td></tr>
+ <tr><td>Modifier Extensions:</td><td><ul><li><a href="StructureDefinition-extension-check-logical-reference.html">CheckLogicalReference</a></li></ul></td></tr>
+ <tr><td>Previous Version Comparison:</td><td> Unable to compare with previous version: Unable to find version history at http://dsf.dev/fhir (Problem #1 with package-list.json at http://dsf.dev/fhir: Not Found)</td></tr>
+ <tr><td>IPA Comparison:</td><td> n/a</td></tr>
+ <tr><td>IPS Comparison:</td><td> n/a</td></tr>
+ <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
+ <tr><td>Summary:</td><td> errors = 84, warn = 82, info = 2, broken links = 0, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+</table>
+ <table class="grid">
+   <tr>
+     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Warnings</b></td><td><b>Hints</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>3</b></td><td><b>19</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_fsh-generated_resources_ImplementationGuide-dev.dsf"><b>/builds/dsf/ig/fsh-generated/resources/ImplementationGuide-dev.dsf</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CapabilityStatement_dsf"><b>/builds/dsf/ig/input/dsf-resources/CapabilityStatement/dsf</b></a></td><td><b>67</b></td><td><b>20</b></td><td><b>1</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-bpmn-message-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/CodeSystem/dsf-bpmn-message-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/CodeSystem/dsf-organization-role-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-practitioner-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/CodeSystem/dsf-practitioner-role-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-process-authorization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/CodeSystem/dsf-process-authorization-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-read-access-tag-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/CodeSystem/dsf-read-access-tag-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-endpoint"><b>/builds/dsf/ig/input/dsf-resources/NamingSystem/dsf-endpoint</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-organization"><b>/builds/dsf/ig/input/dsf-resources/NamingSystem/dsf-organization</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-practitioner"><b>/builds/dsf/ig/input/dsf-resources/NamingSystem/dsf-practitioner</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-task"><b>/builds/dsf/ig/input/dsf-resources/NamingSystem/dsf-task</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-activity-definition-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-activity-definition-1.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>1</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-code-system-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-code-system-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-all-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-all-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-practitioner-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-organization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-organization-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-parent-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-parent-organization-role-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-practitioner-1.0.0</b></a></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-all-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-all-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-organization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-organization-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-parent-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-parent-organization-role-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-endpoint-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-endpoint-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-certificate-thumbprint-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-certificate-thumbprint-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-check-logical-reference-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-check-logical-reference-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-organization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-organization-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-parent-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-parent-organization-role-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-practitioner-1.0.0</b></a></td><td><b>2</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-practitioner-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-practitioner-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-read-access-organization-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-read-access-organization-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-read-access-parent-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-extension-read-access-parent-organization-role-1.0.0</b></a></td><td><b>1</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-organization-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-affiliation-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-organization-affiliation-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-parent-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-organization-parent-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-reference-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-organization-reference-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-questionnaire-1.5.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-questionnaire-1.5.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-questionnaire-response-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-questionnaire-response-1.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-task-base-2.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-task-base-2.0.0</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-value-set-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/StructureDefinition/dsf-value-set-1.0.0</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_Subscription_dsf-bpmn-questionnaire-response-subscription"><b>/builds/dsf/ig/input/dsf-resources/Subscription/dsf-bpmn-questionnaire-response-subscription</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_Subscription_dsf-bpmn-task-subscription"><b>/builds/dsf/ig/input/dsf-resources/Subscription/dsf-bpmn-task-subscription</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-bpmn-message-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-bpmn-message-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-organization-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-organization-role-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-practitioner-role-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-practitioner-role-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-process-authorization-recipient-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-process-authorization-recipient-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-process-authorization-requester-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-process-authorization-requester-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-read-access-tag-1.0.0"><b>/builds/dsf/ig/input/dsf-resources/ValueSet/dsf-read-access-tag-1.0.0</b></a></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="internal"> </a>
+<h2><a href="">n/a</a> <span id="sv" class="toggle" onclick="toggle('v')">Show Validation Information</span> <span class="vcount" onclick="toggle('v')"></span></h2>
+ <div style="border: 1px grey solid; display: none" id="v"></div>
+ <table class="grid">
+   <tr style="background-color: #ffcccc">
+     <td><b></b></td><td><b>error</b></td><td><b>Unable to find ImplementationGuide.definition.resource.name for the resource CapabilityStatement/dsf.  Name is mandatory if it cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource CapabilityStatement/dsf.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/code-system.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/value-set.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/organization-reference.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-all.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-all-practitioner.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-organization.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-organization-practitioner.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-parent-organization-role.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-remote-all.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-remote-organization.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/coding-process-authorization-remote-parent-organization-role.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b></b></td><td><b>error</b></td><td><b>Unable to find ImplementationGuide.definition.resource.name for the resource Subscription/dsf-bpmn-questionnaire-response-subscription.  Name is mandatory if it cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource Subscription/dsf-bpmn-questionnaire-response-subscription.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b></b></td><td><b>error</b></td><td><b>Unable to find ImplementationGuide.definition.resource.name for the resource Subscription/dsf-bpmn-task-subscription.  Name is mandatory if it cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b></b></td><td><b>warning</b></td><td><b>Unable to find ImplementationGuide.definition.resource.description for the resource Subscription/dsf-bpmn-task-subscription.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>1</b></td><td><b>warning</b></td><td><b>The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>2</b></td><td><b>warning</b></td><td><b>An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>3</b></td><td><b>warning</b></td><td><b>An HTML fragment from the set [dependency-table.xhtml, dependency-table-short.xhtml, dependency-table-nontech.xhtml] is not included anywhere in the produced implementation guide</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>4</b></td><td><b>warning</b></td><td><b>The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_fsh-generated_resources_ImplementationGuide-dev.dsf"> </a>
+<h2><a href="index.html">fsh-generated/resources/ImplementationGuide-dev.dsf.json</a> <span id="svi1" class="toggle" onclick="toggle('vi1')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi1')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi1"><ul style="font-size: 7px"><li>ImplementationGuide/dev.dsf: ImplementationGuide: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/implementationguide.html">ImplementationGuide</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>ImplementationGuide (l1/c30192)</b></td><td><b>warning</b></td><td><b>Constraint failed: ig-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ImplementationGuide#ig-0</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CapabilityStatement_dsf"> </a>
+<h2><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a> <span id="svi2" class="toggle" onclick="toggle('vi2')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi2')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi2"><ul style="font-size: 7px"><li>CapabilityStatement: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/capabilitystatement.html">CapabilityStatement</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.implementation (l1&#8203;/c138981)</b></td><td><b>error</b></td><td><b>CapabilityStatement.implementation.description: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Validation_VAL_Profile_Minimum</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.implementation&#8203;.url (l1&#8203;/c138980)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'https://YOUR-FHIR-SERVER-URL/fhir'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td>
+   </tr>
+   <tr style="background-color: #ffffe6">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.extension[0] (l1&#8203;/c139211)</b></td><td><b>information</b></td><td><b>The extension http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket|5.2.0 is deprecated</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPENDS_ON_DEPRECATED</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.extension[0] (l1&#8203;/c139211)</b></td><td><b>error</b></td><td><b>The Extension 'http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket' definition allows for the types [uri] but found type url</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Extension_EXT_Type</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.extension[0]&#8203;.value&#8203;.ofType(url) (l1&#8203;/c139210)</b></td><td><b>warning</b></td><td><b>No definition could be found for URL value 'wss://YOUR-FHIR-SERVER-URL/fhir/ws'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Type_Specific_Checks_DT_URL_Resolve</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[1]&#8203;.searchParam[11]&#8203;.definition (l1&#8203;/c145191)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/Binary-contentType'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[3]&#8203;.searchParam[14]&#8203;.definition (l1&#8203;/c150503)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-status'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[3]&#8203;.searchParam[15]&#8203;.definition (l1&#8203;/c150655)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-url'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[3]&#8203;.searchParam[16]&#8203;.definition (l1&#8203;/c150815)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-version'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[5]&#8203;.searchParam[13]&#8203;.definition (l1&#8203;/c156190)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/Endpoint-address'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[8]&#8203;.supportedProfile[0] (l1&#8203;/c162505)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-library'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[10]&#8203;.supportedProfile[0] (l1&#8203;/c168273)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-measure'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[11]&#8203;.supportedProfile[0] (l1&#8203;/c171953)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-measure-report'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[12]&#8203;.searchParam[13]&#8203;.definition (l1&#8203;/c176878)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/NamingSystem-status'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[20]&#8203;.searchParam[11]&#8203;.definition (l1&#8203;/c201406)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/QuestionnaireRespone-authored'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[21]&#8203;.searchParam[12]&#8203;.definition (l1&#8203;/c204647)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/SearchParameter/ResearchStudy-enrollment'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[22]&#8203;.searchParam[14]&#8203;.definition (l1&#8203;/c207953)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-status'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[22]&#8203;.searchParam[15]&#8203;.definition (l1&#8203;/c208123)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-url'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[22]&#8203;.searchParam[16]&#8203;.definition (l1&#8203;/c208301)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-version'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[0] (l1&#8203;/c211713)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-cleanup-pong'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[1] (l1&#8203;/c211780)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-download-allow-list'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[2] (l1&#8203;/c211832)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-ping'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[3] (l1&#8203;/c211884)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-pong'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[4] (l1&#8203;/c211942)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-start-ping'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[5] (l1&#8203;/c212010)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-start-ping-autostart'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[6] (l1&#8203;/c212077)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-stop-ping-autostart'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[7] (l1&#8203;/c212168)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-execute'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[8] (l1&#8203;/c212259)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-request'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[9] (l1&#8203;/c212360)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-single-dic-result'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[10] (l1&#8203;/c212443)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-execute'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[11] (l1&#8203;/c212532)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-request-start'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[12] (l1&#8203;/c212624)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-response-failure'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.supportedProfile[13] (l1&#8203;/c212717)</b></td><td><b>warning</b></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-response-finished'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[25]&#8203;.searchParam[14]&#8203;.definition (l1&#8203;/c218915)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-status'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[25]&#8203;.searchParam[15]&#8203;.definition (l1&#8203;/c219063)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-url'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[25]&#8203;.searchParam[16]&#8203;.definition (l1&#8203;/c219219)</b></td><td><b>error</b></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-version'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[0]&#8203;.searchParam[3] (l1&#8203;/c140762)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[0]&#8203;.searchParam[7] (l1&#8203;/c141320)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[1]&#8203;.searchParam[3] (l1&#8203;/c144039)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[1]&#8203;.searchParam[7] (l1&#8203;/c144597)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[2]&#8203;.searchParam[3] (l1&#8203;/c146402)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[2]&#8203;.searchParam[7] (l1&#8203;/c146960)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[3]&#8203;.searchParam[3] (l1&#8203;/c148839)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[3]&#8203;.searchParam[7] (l1&#8203;/c149397)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[4]&#8203;.searchParam[3] (l1&#8203;/c152045)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[4]&#8203;.searchParam[7] (l1&#8203;/c152603)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[5]&#8203;.searchParam[3] (l1&#8203;/c154608)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[5]&#8203;.searchParam[8] (l1&#8203;/c155365)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[6]&#8203;.searchParam[3] (l1&#8203;/c158145)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[6]&#8203;.searchParam[7] (l1&#8203;/c158703)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[7]&#8203;.searchParam[3] (l1&#8203;/c160718)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[7]&#8203;.searchParam[7] (l1&#8203;/c161276)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[8]&#8203;.searchParam[3] (l1&#8203;/c163562)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[8]&#8203;.searchParam[7] (l1&#8203;/c164120)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[9]&#8203;.searchParam[3] (l1&#8203;/c166705)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[9]&#8203;.searchParam[7] (l1&#8203;/c167263)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[10]&#8203;.searchParam[3] (l1&#8203;/c169377)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[10]&#8203;.searchParam[8] (l1&#8203;/c170126)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[11]&#8203;.searchParam[3] (l1&#8203;/c173010)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[11]&#8203;.searchParam[7] (l1&#8203;/c173568)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[12]&#8203;.searchParam[3] (l1&#8203;/c175403)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[12]&#8203;.searchParam[7] (l1&#8203;/c175961)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[13]&#8203;.searchParam[3] (l1&#8203;/c178471)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[13]&#8203;.searchParam[8] (l1&#8203;/c179224)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[14]&#8203;.searchParam[3] (l1&#8203;/c182435)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[14]&#8203;.searchParam[8] (l1&#8203;/c183323)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[15]&#8203;.searchParam[3] (l1&#8203;/c186315)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[15]&#8203;.searchParam[7] (l1&#8203;/c186873)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[16]&#8203;.searchParam[3] (l1&#8203;/c188957)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[16]&#8203;.searchParam[8] (l1&#8203;/c189766)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[17]&#8203;.searchParam[3] (l1&#8203;/c192249)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[17]&#8203;.searchParam[7] (l1&#8203;/c192807)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[18]&#8203;.searchParam[3] (l1&#8203;/c194793)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[18]&#8203;.searchParam[7] (l1&#8203;/c195351)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[19]&#8203;.searchParam[3] (l1&#8203;/c196988)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[19]&#8203;.searchParam[7] (l1&#8203;/c197546)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[20]&#8203;.searchParam[3] (l1&#8203;/c200229)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[20]&#8203;.searchParam[7] (l1&#8203;/c200787)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[21]&#8203;.searchParam[3] (l1&#8203;/c203157)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[21]&#8203;.searchParam[8] (l1&#8203;/c204014)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[22]&#8203;.searchParam[3] (l1&#8203;/c206253)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[22]&#8203;.searchParam[7] (l1&#8203;/c206811)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[23]&#8203;.searchParam[3] (l1&#8203;/c209783)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[23]&#8203;.searchParam[7] (l1&#8203;/c210341)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.searchParam[3] (l1&#8203;/c213911)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[24]&#8203;.searchParam[8] (l1&#8203;/c214747)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[25]&#8203;.searchParam[3] (l1&#8203;/c217259)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>CapabilityStatement&#8203;.rest[0]&#8203;.resource[25]&#8203;.searchParam[7] (l1&#8203;/c217817)</b></td><td><b>error</b></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">CapabalityStatement_CS_SP_WrongType</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-bpmn-message-1.0.0"> </a>
+<h2><a href="CodeSystem-bpmn-message.html">input/dsf-resources/CodeSystem/dsf-bpmn-message-1.0.0.xml</a> <span id="svi3" class="toggle" onclick="toggle('vi3')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi3')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi3"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-organization-role-1.0.0"> </a>
+<h2><a href="CodeSystem-organization-role.html">input/dsf-resources/CodeSystem/dsf-organization-role-1.0.0.xml</a> <span id="svi4" class="toggle" onclick="toggle('vi4')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi4')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi4"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-practitioner-role-1.0.0"> </a>
+<h2><a href="CodeSystem-practitioner-role.html">input/dsf-resources/CodeSystem/dsf-practitioner-role-1.0.0.xml</a> <span id="svi5" class="toggle" onclick="toggle('vi5')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi5')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi5"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-process-authorization-1.0.0"> </a>
+<h2><a href="CodeSystem-process-authorization.html">input/dsf-resources/CodeSystem/dsf-process-authorization-1.0.0.xml</a> <span id="svi6" class="toggle" onclick="toggle('vi6')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi6')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi6"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_CodeSystem_dsf-read-access-tag-1.0.0"> </a>
+<h2><a href="CodeSystem-read-access-tag.html">input/dsf-resources/CodeSystem/dsf-read-access-tag-1.0.0.xml</a> <span id="svi7" class="toggle" onclick="toggle('vi7')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi7')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi7"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-endpoint"> </a>
+<h2><a href="NamingSystem-dsf-endpoint.html">input/dsf-resources/NamingSystem/dsf-endpoint.xml</a> <span id="svi8" class="toggle" onclick="toggle('vi8')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi8')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi8"><ul style="font-size: 7px"><li>NamingSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/namingsystem.html">NamingSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>NamingSystem (l1/c2025)</b></td><td><b>warning</b></td><td><b>Constraint failed: nsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/NamingSystem#nsd-0</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-organization"> </a>
+<h2><a href="NamingSystem-dsf-organization.html">input/dsf-resources/NamingSystem/dsf-organization.xml</a> <span id="svi9" class="toggle" onclick="toggle('vi9')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi9')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi9"><ul style="font-size: 7px"><li>NamingSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/namingsystem.html">NamingSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>NamingSystem (l1/c2085)</b></td><td><b>warning</b></td><td><b>Constraint failed: nsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/NamingSystem#nsd-0</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-practitioner"> </a>
+<h2><a href="NamingSystem-dsf-practitioner.html">input/dsf-resources/NamingSystem/dsf-practitioner.xml</a> <span id="svi10" class="toggle" onclick="toggle('vi10')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi10')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi10"><ul style="font-size: 7px"><li>NamingSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/namingsystem.html">NamingSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>NamingSystem (l1/c1843)</b></td><td><b>warning</b></td><td><b>Constraint failed: nsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/NamingSystem#nsd-0</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_NamingSystem_dsf-task"> </a>
+<h2><a href="NamingSystem-dsf-task.html">input/dsf-resources/NamingSystem/dsf-task.xml</a> <span id="svi11" class="toggle" onclick="toggle('vi11')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi11')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi11"><ul style="font-size: 7px"><li>NamingSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/namingsystem.html">NamingSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>NamingSystem (l1/c1956)</b></td><td><b>warning</b></td><td><b>Constraint failed: nsd-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/NamingSystem#nsd-0</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-activity-definition-1.0.0"> </a>
+<h2><a href="StructureDefinition-activity-definition.html">input/dsf-resources/StructureDefinition/dsf-activity-definition-1.0.0.xml</a> <span id="svi12" class="toggle" onclick="toggle('vi12')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi12')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi12"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffffe6">
+     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[4]&#8203;.binding&#8203;.extension[0] (l1&#8203;/c25370)</b></td><td><b>information</b></td><td><b>The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPENDS_ON_DEPRECATED</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c95827)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/activity-definition')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-code-system-1.0.0"> </a>
+<h2><a href="StructureDefinition-code-system.html">input/dsf-resources/StructureDefinition/dsf-code-system-1.0.0.xml</a> <span id="svi13" class="toggle" onclick="toggle('vi13')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi13')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi13"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/code-system')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-all-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-all.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-1.0.0.xml</a> <span id="svi14" class="toggle" onclick="toggle('vi14')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi14')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi14"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-all')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-all-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-all-practitioner.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-practitioner-1.0.0.xml</a> <span id="svi15" class="toggle" onclick="toggle('vi15')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi15')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi15"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-all-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-organization-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-organization.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-1.0.0.xml</a> <span id="svi16" class="toggle" onclick="toggle('vi16')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi16')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi16"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-organization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-organization-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-organization-practitioner.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-1.0.0.xml</a> <span id="svi17" class="toggle" onclick="toggle('vi17')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi17')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi17"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-organization-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-parent-organization-role-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-parent-organization-role.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-1.0.0.xml</a> <span id="svi18" class="toggle" onclick="toggle('vi18')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi18')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi18"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-parent-organization-role')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-local-parent-organization-role-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-local-parent-organization-role-practitioner.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-practitioner-1.0.0.xml</a> <span id="svi19" class="toggle" onclick="toggle('vi19')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi19')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi19"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.id (l1/c118)</b></td><td><b>error</b></td><td><b>Invalid Resource id: Too long (72 chars)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Resource_RES_ID_Malformed_Length</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-local-parent-organization-role-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-all-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-remote-all.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-all-1.0.0.xml</a> <span id="svi20" class="toggle" onclick="toggle('vi20')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi20')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi20"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-remote-all')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-organization-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-remote-organization.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-organization-1.0.0.xml</a> <span id="svi21" class="toggle" onclick="toggle('vi21')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi21')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi21"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-remote-organization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-coding-process-authorization-remote-parent-organization-role-1.0.0"> </a>
+<h2><a href="StructureDefinition-coding-process-authorization-remote-parent-organization-role.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-parent-organization-role-1.0.0.xml</a> <span id="svi22" class="toggle" onclick="toggle('vi22')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi22')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi22"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Coding.extension has a minimum of 0 but the slices add up to a minimum of 1</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/coding-process-authorization-remote-parent-organization-role')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-endpoint-2.0.0"> </a>
+<h2><a href="StructureDefinition-endpoint.html">input/dsf-resources/StructureDefinition/dsf-endpoint-2.0.0.xml</a> <span id="svi23" class="toggle" onclick="toggle('vi23')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi23')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi23"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c121181)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/endpoint')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-certificate-thumbprint-2.0.0"> </a>
+<h2><a href="StructureDefinition-extension-certificate-thumbprint.html">input/dsf-resources/StructureDefinition/dsf-extension-certificate-thumbprint-2.0.0.xml</a> <span id="svi24" class="toggle" onclick="toggle('vi24')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi24')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi24"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c17036)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-certificate-thumbprint')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-check-logical-reference-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-check-logical-reference.html">input/dsf-resources/StructureDefinition/dsf-extension-check-logical-reference-1.0.0.xml</a> <span id="svi25" class="toggle" onclick="toggle('vi25')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi25')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi25"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml</a> <span id="svi26" class="toggle" onclick="toggle('vi26')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi26')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi26"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Extension.extension has a minimum of 0 but the slices add up to a minimum of 4</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-organization-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization-organization.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-1.0.0.xml</a> <span id="svi27" class="toggle" onclick="toggle('vi27')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi27')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi27"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization-organization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-organization-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization-organization-practitioner.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-1.0.0.xml</a> <span id="svi28" class="toggle" onclick="toggle('vi28')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi28')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi28"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Extension.extension has a minimum of 0 but the slices add up to a minimum of 2</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization-organization-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-parent-organization-role-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization-parent-organization-role.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-1.0.0.xml</a> <span id="svi29" class="toggle" onclick="toggle('vi29')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi29')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi29"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Extension.extension has a minimum of 0 but the slices add up to a minimum of 2</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization-parent-organization-role')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-parent-organization-role-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization-parent-organization-role-practitioner.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-practitioner-1.0.0.xml</a> <span id="svi30" class="toggle" onclick="toggle('vi30')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi30')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi30"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Extension.extension has a minimum of 0 but the slices add up to a minimum of 3</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.id (l1/c115)</b></td><td><b>error</b></td><td><b>Invalid Resource id: Too long (69 chars)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Resource_RES_ID_Malformed_Length</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization-parent-organization-role-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-process-authorization-practitioner-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-process-authorization-practitioner.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-practitioner-1.0.0.xml</a> <span id="svi31" class="toggle" onclick="toggle('vi31')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi31')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi31"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-process-authorization-practitioner')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-read-access-organization-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-read-access-organization.html">input/dsf-resources/StructureDefinition/dsf-extension-read-access-organization-1.0.0.xml</a> <span id="svi32" class="toggle" onclick="toggle('vi32')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi32')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi32"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-read-access-organization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-extension-read-access-parent-organization-role-1.0.0"> </a>
+<h2><a href="StructureDefinition-extension-read-access-parent-organization-role.html">input/dsf-resources/StructureDefinition/dsf-extension-read-access-parent-organization-role-1.0.0.xml</a> <span id="svi33" class="toggle" onclick="toggle('vi33')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi33')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi33"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffcccc">
+     <td><b>StructureDefinition.snapshot.element[2]</b></td><td><b>error</b></td><td><b>The slice definition for Extension.extension has a minimum of 0 but the slices add up to a minimum of 2</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/extension-read-access-parent-organization-role')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this extension</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-2.0.0"> </a>
+<h2><a href="StructureDefinition-organization.html">input/dsf-resources/StructureDefinition/dsf-organization-2.0.0.xml</a> <span id="svi34" class="toggle" onclick="toggle('vi34')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi34')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi34"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c83157)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/organization')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-affiliation-2.0.0"> </a>
+<h2><a href="StructureDefinition-organization-affiliation.html">input/dsf-resources/StructureDefinition/dsf-organization-affiliation-2.0.0.xml</a> <span id="svi35" class="toggle" onclick="toggle('vi35')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi35')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi35"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c99434)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/organization-affiliation')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-parent-2.0.0"> </a>
+<h2><a href="StructureDefinition-organization-parent.html">input/dsf-resources/StructureDefinition/dsf-organization-parent-2.0.0.xml</a> <span id="svi36" class="toggle" onclick="toggle('vi36')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi36')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi36"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c65011)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/organization-parent')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-organization-reference-1.0.0"> </a>
+<h2><a href="StructureDefinition-organization-reference.html">input/dsf-resources/StructureDefinition/dsf-organization-reference-1.0.0.xml</a> <span id="svi37" class="toggle" onclick="toggle('vi37')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi37')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi37"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/organization-reference')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this data type profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-questionnaire-1.5.0"> </a>
+<h2><a href="StructureDefinition-questionnaire.html">input/dsf-resources/StructureDefinition/dsf-questionnaire-1.5.0.xml</a> <span id="svi38" class="toggle" onclick="toggle('vi38')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi38')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi38"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c337161)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition</b></td><td><b>warning</b></td><td><b>Questionnaire is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">SD_DERIVATION_NO_CONCRETE</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-questionnaire-response-1.0.0"> </a>
+<h2><a href="StructureDefinition-questionnaire-response.html">input/dsf-resources/StructureDefinition/dsf-questionnaire-response-1.0.0.xml</a> <span id="svi39" class="toggle" onclick="toggle('vi39')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi39')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi39"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c183069)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition</b></td><td><b>warning</b></td><td><b>QuestionnaireResponse is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">SD_DERIVATION_NO_CONCRETE</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-task-base-2.0.0"> </a>
+<h2><a href="StructureDefinition-task-base.html">input/dsf-resources/StructureDefinition/dsf-task-base-2.0.0.xml</a> <span id="svi40" class="toggle" onclick="toggle('vi40')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi40')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi40"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition (l1/c290501)</b></td><td><b>warning</b></td><td><b>Constraint failed: sdf-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/StructureDefinition#sdf-0</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition</b></td><td><b>warning</b></td><td><b>Task is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">SD_DERIVATION_NO_CONCRETE</span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_StructureDefinition_dsf-value-set-1.0.0"> </a>
+<h2><a href="StructureDefinition-value-set.html">input/dsf-resources/StructureDefinition/dsf-value-set-1.0.0.xml</a> <span id="svi41" class="toggle" onclick="toggle('vi41')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi41')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi41"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/structuredefinition.html">StructureDefinition</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'http:&#8203;/&#8203;/dsf&#8203;.dev&#8203;/fhir&#8203;/StructureDefinition&#8203;/value-set')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_Subscription_dsf-bpmn-questionnaire-response-subscription"> </a>
+<h2><a href="Subscription-dsf-bpmn-questionnaire-response-subscription.html">input/dsf-resources/Subscription/dsf-bpmn-questionnaire-response-subscription.xml</a> <span id="svi42" class="toggle" onclick="toggle('vi42')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi42')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi42"><ul style="font-size: 7px"><li>Subscription: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/subscription.html">Subscription</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_Subscription_dsf-bpmn-task-subscription"> </a>
+<h2><a href="Subscription-dsf-bpmn-task-subscription.html">input/dsf-resources/Subscription/dsf-bpmn-task-subscription.xml</a> <span id="svi43" class="toggle" onclick="toggle('vi43')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi43')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi43"><ul style="font-size: 7px"><li>Subscription: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/subscription.html">Subscription</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-bpmn-message-1.0.0"> </a>
+<h2><a href="ValueSet-bpmn-message.html">input/dsf-resources/ValueSet/dsf-bpmn-message-1.0.0.xml</a> <span id="svi44" class="toggle" onclick="toggle('vi44')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi44')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi44"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-organization-role-1.0.0"> </a>
+<h2><a href="ValueSet-organization-role.html">input/dsf-resources/ValueSet/dsf-organization-role-1.0.0.xml</a> <span id="svi45" class="toggle" onclick="toggle('vi45')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi45')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi45"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-practitioner-role-1.0.0"> </a>
+<h2><a href="ValueSet-practitioner-role.html">input/dsf-resources/ValueSet/dsf-practitioner-role-1.0.0.xml</a> <span id="svi46" class="toggle" onclick="toggle('vi46')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi46')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi46"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-process-authorization-recipient-1.0.0"> </a>
+<h2><a href="ValueSet-process-authorization-recipient.html">input/dsf-resources/ValueSet/dsf-process-authorization-recipient-1.0.0.xml</a> <span id="svi47" class="toggle" onclick="toggle('vi47')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi47')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi47"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-process-authorization-requester-1.0.0"> </a>
+<h2><a href="ValueSet-process-authorization-requester.html">input/dsf-resources/ValueSet/dsf-process-authorization-requester-1.0.0.xml</a> <span id="svi48" class="toggle" onclick="toggle('vi48')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi48')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi48"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<hr/>
+<a name="_builds_dsf_ig_input_dsf-resources_ValueSet_dsf-read-access-tag-1.0.0"> </a>
+<h2><a href="ValueSet-read-access-tag.html">input/dsf-resources/ValueSet/dsf-read-access-tag-1.0.0.xml</a> <span id="svi49" class="toggle" onclick="toggle('vi49')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi49')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi49"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R4/valueset.html">ValueSet</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td>&check;</td>
+   </tr>
+</table>
+<a name="suppressed"> </a>
+<p><b>Suppressed Messages (Warnings, hints, broken links)</b></p>
+<p>No suppressed messsages</p><a name="sorted"> </a>
+<p><b>Errors sorted by type</b></p>
+<hr/>
+<a name="CapabalityStatement_CS_SP_WrongType"> </a>
+<h2>CapabalityStatement_CS_SP_WrongType</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-id|4.0.1' type is token, but type here is string</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>Type mismatch - SearchParameter 'http://hl7.org/fhir/SearchParameter/Resource-profile|4.0.1' type is uri, but type here is token</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="Extension_EXT_Type"> </a>
+<h2>Extension_EXT_Type</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>The Extension 'http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket' definition allows for the types [uri] but found type url</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="MSG_DEPENDS_ON_DEPRECATED"> </a>
+<h2>MSG_DEPENDS_ON_DEPRECATED</h2>
+ <table class="grid">
+   <tr style="background-color: #fffff2">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>The extension http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket|5.2.0 is deprecated</b></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="StructureDefinition-activity-definition.html">input/dsf-resources/StructureDefinition/dsf-activity-definition-1.0.0.xml</a></td><td><b>The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="Resource_RES_ID_Malformed_Length"> </a>
+<h2>Resource_RES_ID_Malformed_Length</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="StructureDefinition-coding-process-authorization-local-parent-organization-role-practitioner.html">input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-practitioner-1.0.0.xml</a></td><td><b>Invalid Resource id: Too long (72 chars)</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="StructureDefinition-extension-process-authorization-parent-organization-role-practitioner.html">input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-practitioner-1.0.0.xml</a></td><td><b>Invalid Resource id: Too long (69 chars)</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="SD_DERIVATION_NO_CONCRETE"> </a>
+<h2>SD_DERIVATION_NO_CONCRETE</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="StructureDefinition-questionnaire.html">input/dsf-resources/StructureDefinition/dsf-questionnaire-1.5.0.xml</a></td><td><b>Questionnaire is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="StructureDefinition-questionnaire-response.html">input/dsf-resources/StructureDefinition/dsf-questionnaire-response-1.0.0.xml</a></td><td><b>QuestionnaireResponse is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="StructureDefinition-task-base.html">input/dsf-resources/StructureDefinition/dsf-task-base-2.0.0.xml</a></td><td><b>Task is labeled as an abstract type, but no concrete descendants were found (check definitions - this is usually an error unless concrete definitions are in some other package)</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE"> </a>
+<h2>TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/Binary-contentType'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-status'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-url'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/CodeSystem-version'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/Endpoint-address'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-library'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-measure'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-measure-report'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/NamingSystem-status'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/QuestionnaireRespone-authored'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/SearchParameter/ResearchStudy-enrollment'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-status'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-url'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/StructureDefinition-version'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-cleanup-pong'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-download-allow-list'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-ping'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-pong'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-start-ping'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-start-ping-autostart'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://dsf.dev/fhir/StructureDefinition/task-stop-ping-autostart'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-execute'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-request'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/feasibility-task-single-dic-result'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-execute'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-request-start'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-response-failure'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://medizininformatik-initiative.de/fhir/StructureDefinition/task-omi-response-finished'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-status'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-url'</b></td>
+   </tr>
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>A definition could not be found for Canonical URL 'http://hl7.org/fhir/SearchParameter/ValueSet-version'</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="Type_Specific_Checks_DT_URL_Resolve"> </a>
+<h2>Type_Specific_Checks_DT_URL_Resolve</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>No definition could be found for URL value 'https://YOUR-FHIR-SERVER-URL/fhir'</b></td>
+   </tr>
+   <tr style="background-color: #fff4ee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>No definition could be found for URL value 'wss://YOUR-FHIR-SERVER-URL/fhir/ws'</b></td>
+   </tr>
+</table>
+<hr/>
+<a name="Validation_VAL_Profile_Minimum"> </a>
+<h2>Validation_VAL_Profile_Minimum</h2>
+ <table class="grid">
+   <tr style="background-color: #ffeeee">
+     <td><a href="CapabilityStatement-dsf.html">input/dsf-resources/CapabilityStatement/dsf.xml</a></td><td><b>CapabilityStatement.implementation.description: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/CapabilityStatement|4.0.1)</b></td>
+   </tr>
+</table>
+</body>
+</html>
