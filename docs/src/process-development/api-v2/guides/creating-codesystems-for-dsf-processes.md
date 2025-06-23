@@ -39,7 +39,7 @@ Sometimes it is necessary to create custom [CodeSystem](../fhir/codesystem.md) r
 ```
 Dummy values should be replaced with appropriate values. Elements managed by the DSF BPE server should not be changed. More codes can be added by defining more `concept` elements.
 
-The DSF BPE server will read the [CodeSystem](../fhir/codesystem.md) from `tutorial-process/src/main/resources/fhir/CodeSystem`.
+When building a plugin, the [CodeSystem](../fhir/codesystem.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
 
 ## Related Topics
 [Adding Task Input Parameters to Task Profiles](adding-task-input-parameters-to-task-profiles.md), [CodeSystem](../fhir/codesystem.md), [Creating ValueSets for DSF processes](creating-valuesets-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)

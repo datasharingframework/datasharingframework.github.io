@@ -21,7 +21,7 @@ Maven Dependency:
 ```
 
 ### Process Plugin Api
-[Service Delegates](service-delegates.md) or [Message Delegates](message-delegates.md) expose a `ProcessPluginApi` instance when overriding their `execute` and `getAdditionalInputParameters` methods. This API instance the following utility classes:
+[Service Delegates](service-delegates.md) or [Message Delegates](message-delegates.md) expose a `ProcessPluginApi` instance when overriding their `execute` and `getAdditionalInputParameters` methods. This API instance provides the following utility classes:
 - `FhirClientProvider`**:** Provides access to a generic, configurable FHIR web client. Used for connections to FHIR servers that are not the DSF FHIR server.
 - `DsfClientProvider`**:** Provides access to preconfigured FHIR web client to access DSF FHIR server including utility methods.
 - `TaskHelper`**:** Provides utility methods to interact with Task resource. Namely, Input and Output Parameters.

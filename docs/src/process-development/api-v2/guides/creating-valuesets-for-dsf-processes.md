@@ -58,7 +58,7 @@ Dummy values should be replaced with appropriate, context-specific values. Eleme
     </compose>
 </ValueSet>
 ```
-The DSF BPE server will read the [ValueSet](../fhir/valueset.md) from `tutorial-process/src/main/resources/fhir/ValueSet` inside the process plugin.
+When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
 
 ## Related Topics
 [CodeSystem](../fhir/codesystem.md), [Creating CodeSystems for DSF processes](creating-codesystems-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)

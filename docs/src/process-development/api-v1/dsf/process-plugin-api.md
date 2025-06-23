@@ -3,9 +3,9 @@ title: Process Plugin API
 icon: creative
 ---
 
-### Process Plugin API v1 Maven Module
+## Process Plugin API Maven Module
 
-The [DSF Process Plugin API module](https://mvnrepository.com/artifact/dev.dsf/dsf-bpe-process-api-v1) consists of a set of utility classes designed to provide easy access to solutions for process plugin use cases. This includes for example the `Variables` class, which provides access to the [BPMN process variables](bpmn-process-variables.md).
+The [DSF Process Plugin API module](https://central.sonatype.com/artifact/dev.dsf/dsf-bpe-process-api-v2) consists of a set of utility classes designed to provide easy access to common solutions for process plugin use cases which would otherwise require lots of boilerplate code. An example is the `Variables` class, which provides access to the [BPMN process variables](bpmn-process-variables.md).
 
 Maven Dependency:
 
@@ -20,9 +20,9 @@ Maven Dependency:
 </dependencies>
 ```
 
-#### Process Plugin Api
-When creating [Service Delegates](service-delegates.md) or [Message Delegates](message-delegates.md) you wil notice that you need to provide a constructor which expects a `ProcessPluginApi` object and forward it to the superclasses' constructor.
-This API instance provides a variety of utility classes:
+### Process Plugin Api
+[Service Delegates](service-delegates.md) or [Message Delegates](message-delegates.md) require a constructor which expects a `ProcessPluginApi` object which is forwarded to the superclasses' constructor. The API instance can then be used when overriding their `execute` and/or `getAdditionalInputParameters` methods.
+It provides the following utility classes:
 - `ProxyConfig`**:** forward proxy configuration
 - `EndpointProvider`**:** access to Endpoint resources
 - `FhirContext`**:** HAPI FHIR Context for parsing/serializing
