@@ -13,7 +13,7 @@ icon: creative
 
 ### Event-based Gateways
 
-The [Event-based Gateway](https://docs.camunda.org/manual/7.21/reference/bpmn20/gateways/event-based-gateway/) models a decision in the workflow. But instead of [conditions](./conditions.md), the [Event-based Gateway](https://docs.camunda.org/manual/7.21/reference/bpmn20/gateways/event-based-gateway/) uses the triggering of an event to dicide which [Sequence Flow](sequence-flow.md) to pursue.
+The [Event-based Gateway](https://docs.camunda.org/manual/7.21/reference/bpmn20/gateways/event-based-gateway/) models a decision in the workflow. But instead of [conditions](./conditions.md), the [Event-based Gateway](https://docs.camunda.org/manual/7.21/reference/bpmn20/gateways/event-based-gateway/) uses the triggering of an event to decide which [Sequence Flow](sequence-flow.md) to pursue.
 
 ### Parallel Gateways
 
