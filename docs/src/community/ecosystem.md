@@ -20,8 +20,8 @@ Your expertise and ongoing efforts are an essential part of this broader ecosyst
   - [NUM Dashboard](https://numdashboard.ukbonn.de/welcome)
   - [NUM RDP](https://www.netzwerk-universitaetsmedizin.de/en/projects/num-rdp)
 - [German Cancer Research Center (DKFZ)](https://www.dkfz.de/en/)
-  - [Digital Oncology](https://www.dkfz.de/en/research/cross-topics/digital-oncology)
-  - [National Center for Tumor Diseases (NCT)](https://www.dkfz.de/en/research/translational-centers/nct)
+  - [NCT Digital Oncology Program](https://www.nct-heidelberg.de/das-nct/newsroom/aktuelles/details/keno-maerz-neuer-leiter-des-nct-digital-oncology-program.html)
+  - [National Center for Tumor Diseases (NCT)](https://nct.dkfz.de/)
 - [Bavarian Center for Cancer Research (BZKF)](https://bzkf.de/)
 - Various working groups and contributors
 
