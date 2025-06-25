@@ -38,7 +38,7 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
 
-## [News](tag/news/)
+## [News](/news/)
 <div class="image-container">
   <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
 </div>

@@ -75,7 +75,7 @@ export default hopeTheme({
       {
         text: "News",
         icon: "news",
-        link: "tag/news/"
+        link: "news/"
       },
       {
         text: "Concepts",
@@ -103,7 +103,7 @@ export default hopeTheme({
       {
         text: "Awards",
         icon: "creative",
-        link: "explore/awards",
+        link: "tag/awards/",
       },
      
     ],

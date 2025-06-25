@@ -3,7 +3,7 @@ title: Publishing on DSF Hub
 icon: share
 ---
 
-::: tip Marketplace for process plugins
+::: info Marketplace for process plugins
 To view already published Process Plugins, visit the [DSF Hub](https://hub.dsf.dev).
 :::
 
