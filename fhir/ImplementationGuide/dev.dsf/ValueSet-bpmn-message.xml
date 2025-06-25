@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bpmn-message"/>
+  <meta>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="ALL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet bpmn-message</b></p><a name="bpmn-message"> </a><a name="hcbpmn-message"> </a><a name="bpmn-message-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href="CodeSystem-bpmn-message.html"><code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code></a></li></ul></div>
+  </text>
+  <url value="http://dsf.dev/fhir/ValueSet/bpmn-message"/>
+  <version value="1.0.0"/>
+  <name value="DsfBpmnMessage"/>
+  <title value="DSF BPMN message values"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-06-28"/>
+  <publisher value="DSF Community"/>
+  <contact>
+    <name value="DSF Community"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://dsf.dev"/>
+    </telecom>
+  </contact>
+  <description value="ValueSet with standard BPMN message values for Task resources"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://dsf.dev/fhir/CodeSystem/bpmn-message"/>
+      <version value="1.0.0"/>
+    </include>
+  </compose>
+</ValueSet>

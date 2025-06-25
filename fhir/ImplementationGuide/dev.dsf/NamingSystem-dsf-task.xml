@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
+  <id value="dsf-task"/>
+  <meta>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="ALL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: NamingSystem dsf-task</b></p><a name="dsf-task"> </a><a name="hcdsf-task"> </a><a name="dsf-task-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class="grid"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-task</td></tr><tr><td>Name</td><td>DSF Task Identifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Name identifying a draft Task resource</p>
+</div></td></tr><tr><td>Publisher</td><td>DSF Community</td></tr></table><h3>Identifiers</h3><table class="grid"><tr><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td>Other</td><td>http://dsf.dev/sid/task-identifier</td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
+    <valueUri value="http://dsf.dev/fhir/NamingSystem/dsf-task"/>
+  </extension>
+  <name value="DSF Task Identifier"/>
+  <status value="active"/>
+  <kind value="identifier"/>
+  <date value="2023-06-28"/>
+  <publisher value="DSF Community"/>
+  <contact>
+    <name value="DSF Community"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://dsf.dev"/>
+    </telecom>
+  </contact>
+  <description value="Name identifying a draft Task resource"/>
+  <usage value="Used withing the DSF to identify draft Task resources, created as examples using process plugins. Values must be defined in the form {process-url}/{process-version}/{task-example-name} e.g. http://test.org/bpe/Process/someProcessName/1.0/someExampleName"/>
+  <uniqueId>
+    <type value="other"/>
+    <value value="http://dsf.dev/sid/task-identifier"/>
+  </uniqueId>
+</NamingSystem>
