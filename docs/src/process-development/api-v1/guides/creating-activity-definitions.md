@@ -3,9 +3,9 @@ title: Creating ActivityDefinitions
 icon: creative
 ---
 
-### Creating ActivityDefinitions
+## Creating ActivityDefinitions
 
-This guide will teach you how to create an ActivityDefinition based on the [dsf-activity-definition](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-activity-definition-1.0.0.xml) profile for your process plugin.
+This guide will explain how to create an ActivityDefinition based on the [dsf-activity-definition](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-activity-definition-1.0.0.xml) profile for a process plugin.
 It is divided into steps for each of the main components of ActivityDefinitions:
 1. Read Access Tag
 2. Extension: process authorization
@@ -14,17 +14,17 @@ It is divided into steps for each of the main components of ActivityDefinitions:
 
 *Regular elements* are all elements not part of the first 3 main components.
 
-*We will assume you know how to translate [ElementDefinitions](https://www.hl7.org/fhir/R4/elementdefinition.html) to actual elements in a FHIR resource. If you do not, you might want to check out the guide on [creating Task resources](../guides/creating-task-resources-based-on-a-definition.md) first.*
+*This guide assumes the reader knows how to translate [ElementDefinitions](https://www.hl7.org/fhir/R4/elementdefinition.html) to actual elements in a FHIR resource. If not, the guide on [creating Task resources](../guides/creating-task-resources-based-on-a-definition.md) includes explanations for this.*
 
-#### 1. Read Access Tag
-Let us start out with an empty [ActivityDefinition](../fhir/activitydefinition.md):
+### 1. Read Access Tag
+Start out with an empty [ActivityDefinition](../fhir/activitydefinition.md):
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     
 </ActivityDefinition>
 ```
 
-The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/read-access-tag.md). It describes who is allowed to read this resource through the DSF FHIR server's REST API. You can learn more complex configurations of the [Read Access Tag](../dsf/read-access-tag.md) in [this guide](../dsf/read-access-tag.md). In this case, we will allow read access to everyone:
+The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/read-access-tag.md). It describes who is allowed to read this resource through the DSF FHIR server's REST API. More complex configurations of the [Read Access Tag](../dsf/read-access-tag.md) are explained in [this guide](../dsf/read-access-tag.md). For this example, everyone will be allowed to read the resource:
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -37,8 +37,8 @@ The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/r
 </ActivityDefinition>
 ```
 
-#### 2. Extension: Process Authorization
-This part of your ActivityDefinition will tell the DSF who is allowed to request and receive messages ([Task](../fhir/task.md) resources) for your BPMN process. If your plugin contains more than one BPMN process, you will have to create one [ActivityDefinition](../fhir/activitydefinition.md) for each BPMN process. It is important to note that you need to include authorization rules for **ALL** messages received in your BPMN process. This includes the message starting your BPMN process initially. You can find the extension [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml). Let us continue by adding the [extension element](http://hl7.org/fhir/R4/extensibility.html#extension) with the correct URL. You can get the value for the URL from the `Extension.url` element:
+### 2. Extension: Process Authorization
+This part of the ActivityDefinition will tell the DSF who is allowed to request and receive messages ([Task](../fhir/task.md) resources) for BPMN process. If the plugin contains more than one BPMN process, there will have to be one [ActivityDefinition](../fhir/activitydefinition.md) for each BPMN process. It is important to note that authorization rules need to be included for **ALL** messages received in the BPMN process. This includes the messages starting the BPMN process initially. The extension containing all possible rules is found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml). Next up is adding the [extension element](http://hl7.org/fhir/R4/extensibility.html#extension) with the correct URL. The value for the URL is found in the `Extension.url` element:
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
    ...
@@ -47,7 +47,7 @@ This part of your ActivityDefinition will tell the DSF who is allowed to request
     </extension>
 </ActivityDefinition>
 ```
-*Elements not relevant to the current component are hidden with ... to increase readability.*
+*Elements not relevant to the current component are hidden with `...` to increase readability.*
 
 The [differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot) statement starts by defining the [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) for the `Extension.extension` element:
 
@@ -74,9 +74,9 @@ The [differential](https://www.hl7.org/fhir/R4/profiling.html#snapshot) statemen
 </StructureDefinition>
 ```
 
-The above states that whenever this extension is used in a profile, the profile needs to include this extension at least once (`<min value="1" />`). The [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) on `Extension.extension` tells us that elements of this [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) are identified by the value of their URL (`<discriminator>`), which is always the case for extensions, and that other extensions can be added to the [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) (`<rules value="open" />`). Since there is a [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) on `Extension.extension`, we are dealing with a nested extension.
+The above states that whenever this extension is used in a profile, the profile needs to include this extension at least once (`<min value="1" />`). The [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) on `Extension.extension` defines that elements of this [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) are identified by the value of their URL (`<discriminator>`), which is always the case for extensions, and that other extensions can be added to the [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) (`<rules value="open" />`). Since there is a [slicing](https://www.hl7.org/fhir/R4/profiling.html#snapshot) on `Extension.extension`, this is a nested extension.
 
-After these initial element definitions come the elements relevant for your process plugin. The first one is the `message-name` slice:
+After these initial element definitions come the elements relevant for the process plugin. The first one is the `message-name` slice:
 ```xml
 <StructureDefinition xmlns="http://hl7.org/fhir">
   ...
@@ -104,17 +104,17 @@ After these initial element definitions come the elements relevant for your proc
 </StructureDefinition>
 ```
 
-This section tells us that we need to include exactly one extension element from the `message-name` slice in our [ActivityDefinition](../fhir/activitydefinition.md). The extension element will have a URL value of `message-name`. If you remember the `discriminator` configuration, this URL value identifies the element to belong to the `message-name` slice on `Extension.extension`. Lastly, the extension element includes a `valueString` element. In case you are wondering how `value[x]` turned into `valueString`, FHIR does not allow using `value[x]` as actual element. The value in `value[x]` is always strictly bound to some kind of type. FHIR uses the `value[x].type.code` value to determine this type and replaces `[x]` with an uppercase version of `element.type.code`.   This results in the following extension element we will add to our [ActivityDefinition](../fhir/activitydefinition.md):
+This section defines that there has to be exactly one extension element from the `message-name` slice in the [ActivityDefinition](../fhir/activitydefinition.md). The extension element will have a URL value of `message-name`. This URL value identifies the element to belong to the `message-name` slice on `Extension.extension`, in accordance with the `discriminator`. Lastly, the extension element includes a `valueString` element. FHIR does not allow using `value[x]` as actual element. The value in `value[x]` is always strictly bound to some kind of type. FHIR uses the `value[x].type.code` value to determine this type and replaces `[x]` with an uppercase version of `element.type.code`. This results in the following extension element:
 ```xml
 <extension url="message-name">
     <valueString value="myMessage"/>
 </extension>
 ```
 
-For your use case, you have to replace `myMessage` with the name of the [BPMN message event](../bpmn/messaging.md) that is expecting this message.
+`myMessage` will have to be replaced with the name of the [BPMN message event](../bpmn/messaging.md) in a BPMN process that is expecting this message.
 
 <details>
-<summary>This is how your ActivityDefinition should look like so far</summary>
+<summary>This is how the ActivityDefinition should look like so far</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -161,7 +161,7 @@ The next slice is called `task-profile`:
 </StructureDefinition>
 ```
 
-This section has almost the same structure as `message-name`. The only difference is the value for `value[x].type.code`. This means that instead of `valueString`, we will have to use a `valueCanonical` element for `task-profile.value[x]`. Canonical values referring to [Task](../fhir/task.md) profiles in ActivityDefinitions have to conform to the rules outlined by the documentation on [URLs](../dsf/versions-placeholders-urls.md#urls). From the definition above, we will create the following extension element and add it to our [ActivityDefinition](../fhir/activitydefinition.md):
+This section has almost the same structure as `message-name`. The only difference is the value for `value[x].type.code`. This means that instead of `valueString`, it requires using a `valueCanonical` element for `task-profile.value[x]`. Canonical values referring to [Task](../fhir/task.md) profiles in ActivityDefinitions have to conform to the rules outlined by the documentation on [URLs](../dsf/versions-placeholders-urls.md#urls). From the definition above, the following extension element is created and added to the [ActivityDefinition](../fhir/activitydefinition.md):
 ```xml
 <extension url="task-profile">
     <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
@@ -169,7 +169,7 @@ This section has almost the same structure as `message-name`. The only differenc
 ```
 
 <details>
-<summary>This is how your ActivityDefinition should look like so far</summary>
+<summary>This is how the ActivityDefinition should look like so far</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -230,7 +230,7 @@ The next slice is `requester`:
     </differential>
 </StructureDefinition>
 ```
-Instead of a `string` or `canonical` type for `value[x]` we now have a `Coding` type. See the [FHIR documentation on Codings](https://www.hl7.org/fhir/R4/datatypes.html#Coding) for more in-depth information. `Codings` are elements which contain, among other things, a `code` and the `system` the code belongs to. In the same way we transformed `value[x]` into `valueString` or `valueCanonical` before, we will also have to turn `value[x]` into `valueCoding`. To use `Codings` in `valueCoding` elements, they are usually bound to the element through a [ValueSet](../fhir/valueset.md). This is the responsibility of the `binding` element. You can also see that `value[x].type.profile` lists a number of profiles. Instead of defining the elements in the same file, they were defined in different files for better readability. Depending on your use case, you have to pick one of the profiles.
+Instead of a `string` or `canonical` type for `value[x]` there now is a `Coding` type. See the [FHIR documentation on Codings](https://www.hl7.org/fhir/R4/datatypes.html#Coding) for more in-depth information. `Codings` are elements which contain, among other things, a `code` and the `system` the code belongs to. In the same way `value[x]` transformed into `valueString` or `valueCanonical` before, `value[x]` will be transformed into `valueCoding`. To use `Codings` in `valueCoding` elements, they are usually bound to the element through a [ValueSet](../fhir/valueset.md). This is the responsibility of the `binding` element. There is also a list of `value[x].type.profile` elements referencing other [StructureDefinitions](https://www.hl7.org/fhir/R4/structuredefinition.html). Instead of defining the elements in the same file, they were defined in different files for better readability. The use case decides which one to pick.
 Here is what they mean:
 - `local-all`: All local requests will be allowed. Local requests are identified by matching the requester's certificate to a thumbprint which was internally marked by the DSF FHIR server as belonging to a local organization.
 - `local-organization`: All local requests made from an organization with a specific `organization-identifier` will be allowed.
@@ -238,11 +238,11 @@ Here is what they mean:
 - `remote` versions of the above rules work the same but the requester's certificate is instead required to match a thumbprint marked as a remote organization.
 - `practitioner` suffixes all work the same. They include the same rules as their prefixes but now additionally require the requester to match a certain `practitioner-role`. A list of them
   can be found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml). This allows
-  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/operations/latest/fhir/access-control.html).
+  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/stable/maintain/fhir/access-control.html).
 
-As you can see, there are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. You can also find examples of all Codings from above [here](../dsf/requester-and-recipient.md).
+There are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. Examples of all Codings from above can be found [here](../dsf/requester-and-recipient.md).
 
-It is also good to keep in mind that you are allowed to add any number of `requester` elements into your [ActivityDefinition](../fhir/activitydefinition.md). Let us start out by adding a `requester` element like we did for previous elements:
+It is also good to keep in mind that any number of `requester` elements may be added to an [ActivityDefinition](../fhir/activitydefinition.md). Start out by adding a `requester` element like previous extensions:
 
 ```xml
 <extension url="requester">
@@ -252,7 +252,7 @@ It is also good to keep in mind that you are allowed to add any number of `reque
 </extension>
 ```
 
-We now have to look at the elements that are defined in one of the profiles to fill in the remaining elements since they are not defined by the `requester` extension. For demonstration purposes, we will choose the [dsf-coding-process-authorization-local-organization-practitioner](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-1.0.0.xml) profile. Since all elements listed in the [Coding definition](https://www.hl7.org/fhir/R4/datatypes.html#codesystem) are optional, we only have to look at the `differential` element from the profile we just selected:
+The remaining element definitions are found in one of the profiles. This example will use the [dsf-coding-process-authorization-local-organization-practitioner](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-1.0.0.xml) profile. Since all elements listed in the [Coding definition](https://www.hl7.org/fhir/R4/datatypes.html#codesystem) are optional, only the `differential` elements from the profile are relevant:
 <a id="coding-differential"></a>
 ```xml
 <differential>
@@ -288,7 +288,7 @@ We now have to look at the elements that are defined in one of the profiles to f
     </element>
 </differential>
 ```
-It defines an extension called `organization-practitioner` which is identified through its url attribute. Again, the extension is only referenced, its location is in a different file. You can find it [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-1.0.0.xml). Let us look at its `differential` element in the extension file to see how we need to populate the extension:
+It defines an extension called `organization-practitioner` which is identified through its url attribute. Again, the extension is only referenced, its location is in a [different file](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-1.0.0.xml). Below is its `differential` element in order to see how the extension needs to be populated:
 ```xml
 <differential>
     <element id="Extension">
@@ -368,16 +368,16 @@ It defines an extension called `organization-practitioner` which is identified t
 </differential>
 ```
 
-This extension does not reference any other files. This means we reached the "deepest" level. So now we can start working our way back up again from here, by translating this definition into actual extension elements, then inserting it into the Coding we selected, translating the rest of the element definitions from the Coding resource and adding everything to our [ActivityDefinition](../fhir/activitydefinition.md).
+This extension does not reference any other files. This means this is the "deepest" level. The process can now proceed by translating this definition into actual extension elements, inserting it into the selected Coding, translating the remaining element definitions from the Coding resource, and incorporating all components into the [ActivityDefinition](../fhir/activitydefinition.md).
 
-We will start with the `Extension.url` element, since the `Extension` element is the parent element for all slices on the `Extension.extension` elements:
+Start with the `Extension.url` element, since the `Extension` element is the parent element for all slices on the `Extension.extension` elements:
 ```xml
 <extension url="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner">
 
 </extension>
 ```
 
-Next, we will add the `organization` slice:
+Next, add the `organization` slice:
 ```xml
 <extension url="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner">
     <extension url="organization">
@@ -388,7 +388,7 @@ Next, we will add the `organization` slice:
     </extension>
 </extension>
 ```
-Finally, we will add the `practitionerRole` slice:
+Finally, add the `practitionerRole` slice:
 
 ```xml
 <extension url="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner">
@@ -407,9 +407,9 @@ Finally, we will add the `practitionerRole` slice:
 </extension>
 ```
 
-Notice that there is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. In the example we used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. You can freely add other CodeSystems if you find these codes do not apply for your use case. The code you set here can be used in the [DSF role config](https://dsf.dev/operations/latest/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
+There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
 
-Working our way back up to the Coding we selected, we will now add the extension we just created as the `Coding.extension:organization-practitioner` element:
+Now add the extension as the `Coding.extension:organization-practitioner` element:
 ```xml
 <extension url="requester">
     <valueCoding>
@@ -430,7 +430,7 @@ Working our way back up to the Coding we selected, we will now add the extension
     </valueCoding>
 </extension>
 ```
-Now might be a good time to look at the [differential](#coding-differential) from the Coding again. Our next elements to be added are `Coding.system` and `Coding.code`:
+Look at the [differential](#coding-differential) from the Coding again. The next elements to be added are `Coding.system` and `Coding.code`:
 ```xml
 <extension url="requester">
     <valueCoding>
@@ -453,10 +453,10 @@ Now might be a good time to look at the [differential](#coding-differential) fro
     </valueCoding>
 </extension>
 ```
-Now we are finished with the `requester` extension and can add it to our [ActivityDefinition](../fhir/activitydefinition.md) under the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml).
+The `requester` extension is now finished and can be added it to the [ActivityDefinition](../fhir/activitydefinition.md) under the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml).
 
 <details>
-<summary>This is how your ActivityDefinition should look like so far</summary>
+<summary>This is how the ActivityDefinition should look like so far</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -498,7 +498,7 @@ Now we are finished with the `requester` extension and can add it to our [Activi
 ```
 </details>
 
-Now we are back to looking at the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) again. The last slice for this extension is `recipient`:
+Back to looking at the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) again. The last slice for this extension is `recipient`:
 ```xml
 <StructureDefinition xmlns="http://hl7.org/fhir">
   ...
@@ -532,10 +532,10 @@ Now we are back to looking at the [dsf-extension-process-authorization](https://
 </StructureDefinition>
 ```
 
-The `recipient` will decide which DSF instance is allowed to process that message. That is the reason why you will not find any Codings for `remote` or `practitioner` here. For `requester`, we already decided that we will only allow users with a certain role from our own (local) organization to send this message. So now we will only allow the DSF instance run by that same local organization to process the message. The right Coding for this job is the [coding-process-authorization-local-organization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-1.0.0.xml). The configuration of a local requester and local receiver is often used for the message that starts up the first BPMN process of the plugin. The process of adding the `recipient` slice is the exact same as it is for `requester`. You can follow the steps for the `requester` slice again but just use a different Coding.
+The `recipient` will decide which DSF instance is allowed to process that message. That is the reason why there are no Codings for `remote` or `practitioner` here. For `requester`, it was decided to only allow users with a certain role from a local organization to send this message. The message should now also only be processable by that same local organization. The right Coding for this job is the [coding-process-authorization-local-organization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-1.0.0.xml). The configuration of a local requester and local receiver is often used for the message that starts up the first BPMN process of the plugin. The process of adding the `recipient` slice is the exact same as it is for `requester`. It's possible to follow the same steps for the `requester` slice again but using a different Coding.
 
 <details>
-<summary>Using the Coding we just decided on, this is how your ActivityDefinition should look like</summary>
+<summary>This is how the ActivityDefinition should look like</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -589,7 +589,7 @@ The `recipient` will decide which DSF instance is allowed to process that messag
 ```
 </details>
 
-The last element defined in the [process authorization extension](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) is `Extension.url`. But since we added this element at the very beginning of the working through the extension, we are finished with it here.
+The last element defined in the [process authorization extension](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) is `Extension.url`. This was already added at the very beginning of the working through the extension, so there is nothing more to add.
 
 #### 3. BPE Managed Elements
 
@@ -597,11 +597,11 @@ Some elements of [ActivityDefinitions](../fhir/activitydefinition.md) are manage
 
 The following elements are managed by the DSF BPE:
 - `ActivityDefinition.version` should use the [placeholder](../dsf/versions-placeholders-urls.md#placeholders) `#{version}`
-- `ActivityDefinition.date` is not required, but should you decide to include it, use the [placeholder](../dsf/versions-placeholders-urls.md#placeholders) `#{date}`
+- `ActivityDefinition.date` is not required, but if it is included, it should use the [placeholder](../dsf/versions-placeholders-urls.md#placeholders) `#{date}`
 - `ActivityDefinition.status` must have a value of `unknown`
 
 <details>
-<summary>Your ActivityDefinition should now look like this</summary>
+<summary>The ActivityDefinition should now look like this</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -661,10 +661,10 @@ The following elements are managed by the DSF BPE:
 ```
 </details>
 
-#### 4. Regular Elements
+### 4. Regular Elements
 
-The only required elements in this set are `ActivityDefinition.url` and `ActivityDefinition.kind`. Check out the documentation on [URLs](../dsf/versions-placeholders-urls.md#urls) on how to choose the correct value for `ActivityDefinition.url`. `ActivityDefinition.kind` must have the value `Task`.
-All other elements can technically be omitted. Still, we recommend you include the following elements:
+The only required elements in this set are `ActivityDefinition.url` and `ActivityDefinition.kind`. `ActivityDefinition.url` expects a certain format. This is explained in detail in the [documentation on URLs](../dsf/versions-placeholders-urls.md#urls). `ActivityDefinition.kind` must have the value `Task`.
+All other elements can technically be omitted. Still, the following elements are recommended to be populated:
 - `AcitivityDefinition.name`
 - `AcitivityDefinition.title`
 - `AcitivityDefinition.subtitle`
@@ -674,7 +674,7 @@ All other elements can technically be omitted. Still, we recommend you include t
 - `AcitivityDefinition.description`
 
 <details>
-<summary>Your finished ActivityDefinition should now look something like this</summary>
+<summary>The finished ActivityDefinition should now look something like this</summary>
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -748,3 +748,6 @@ All other elements can technically be omitted. Still, we recommend you include t
 </ActivityDefinition>
 ```
 </details>
+
+## Related Topics
+[ActivityDefinition](../fhir/activitydefinition.md), [Creating CodeSystems for DSF Processes](creating-codesystems-for-dsf-processes.md), [Creating ValueSets for DSF Processes](creating-valuesets-for-dsf-processes.md), [Task](../fhir/task.md)
