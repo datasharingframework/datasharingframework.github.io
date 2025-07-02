@@ -13,7 +13,7 @@ The funded project team includes:
 - Alexander Kiel • [GitHub](https://github.com/alexanderkiel)
 - Jan Böhringer • [GitHub](https://github.com/jaboehri)
 - Mathias Rühle • [GitHub](https://github.com/EmteZogaf)
-- Mohamad Khalil Malla
+- Mohamad Khalil Malla • [GitHub](https://github.com/khalilMa24)
 - Paul Maibach • [GitHub](https://github.com/javarum)
 - Sylvester Baidoo-A.
 - Tom Holler • [GitHub](https://github.com/H99-code)
