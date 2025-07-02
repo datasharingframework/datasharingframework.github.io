@@ -16,7 +16,7 @@ BPMN models can be created with [Camunda Modeler](https://camunda.com/de). The f
 ## Ping Pong Process as an example Process Plugin
 The [ping process plugin](https://github.com/datasharingframework/dsf-process-ping-pong) can be used for (periodic) connection testing between organizations that are part of your DSF allow list. The following figure shows a representation of the process.
 
-![Ping-Pong Process](/photos/info/use-cases/ping-pong.png)
+![Ping-Pong Process v.2](/photos/info/use-cases/ping-pong2.png)
 
 
 The ping pong process is composed of 3 different subprocesses:

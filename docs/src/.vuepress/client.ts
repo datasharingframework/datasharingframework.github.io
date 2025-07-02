@@ -8,6 +8,6 @@ export default defineClientConfig({
   layouts: {
     ParentLayout,
     Layout,
-    NotFound: NotFoundLayout
+    NotFound: NotFoundLayout,
   },
 })

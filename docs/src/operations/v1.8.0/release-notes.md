@@ -3,7 +3,7 @@ title: Release Notes (v1.8.0)
 icon: note
 ---
 
-## Release Notes for v1.8.0
+## [Release Notes for v1.8.0](https://github.com/datasharingframework/dsf/releases/tag/v1.8.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -19,8 +19,8 @@ General remarks:
 - The integrated camunda engine of the DSF BPE server was upgraded to version 7.23, requiring a small change to the database schema of the DSF BPE and thus making this the 1.8.0 and not a 1.7.2 release.
 
 Bug Fixes:
-- Task resources with status `draft` were not correctly rendered if an optional input parameter was not defined in the Task resource (#306).
-- Boolean input parameters of Task resource with status `draft`, were not included in the created Task resource with status `requested` if the `false` option was selected (#323).
+- Task resources with status `draft` were not correctly rendered if an optional input parameter was not defined in the Task resource ([#306](https://github.com/datasharingframework/dsf/issues/306)).
+- Boolean input parameters of Task resource with status `draft`, were not included in the created Task resource with status `requested` if the `false` option was selected ([#323](https://github.com/datasharingframework/dsf/issues/323)).
 
 Docker containers for this release can be access via the GitHub Docker registry - ghcr.io:
 * **bpe**: [ghcr.io/datasharingframework/bpe:1.8.0](https://github.com/orgs/datasharingframework/packages/container/bpe/428297252?tag=1.8.0)
@@ -29,12 +29,12 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.8.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/428292563?tag=1.8.0)
 
 Issues closed:
-- FHIR UI: Task Boolean Input Parameter With Value False Not Included in Created Task #323
-- Upgrade Dependencies #320
-- Start New Development Cycle #312
-- Migrate OSSRH Namespace to Central Portal #308
-- Fix Cardinality Handling on Draft Tasks (Templates) with Missing Optional Inputs #306
-- Adapt Github Actions to build on pull request #163
+- FHIR UI: Task Boolean Input Parameter With Value False Not Included in Created Task [#323](https://github.com/datasharingframework/dsf/issues/323)
+- Upgrade Dependencies [#320](https://github.com/datasharingframework/dsf/issues/320)
+- Start New Development Cycle [#312](https://github.com/datasharingframework/dsf/issues/312)
+- Migrate OSSRH Namespace to Central Portal [#308](https://github.com/datasharingframework/dsf/issues/308)
+- Fix Cardinality Handling on Draft Tasks (Templates) with Missing Optional Inputs [#306](https://github.com/datasharingframework/dsf/issues/306)
+- Adapt Github Actions to build on pull request [#163](https://github.com/datasharingframework/dsf/issues/163)
 
-This release contains contributions from @hhund, @schwzr and @wetret.
+This release contains contributions from [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

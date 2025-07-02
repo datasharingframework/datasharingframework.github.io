@@ -3,7 +3,7 @@ title: Release Notes (v1.5.1)
 icon: note
 ---
 
-## Release Notes for v1.5.1
+## [Release Notes for v1.5.1](https://github.com/datasharingframework/dsf/releases/tag/v1.5.1)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -35,10 +35,10 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.5.1](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/205057772?tag=1.5.1)
 
 Issues closed:
-- Upgrade Dependencies #193
-- Start New Development Cycle #191
-- fhir-proxy | 3 apache vulnerabilities fixed in apache 2.4.59 #190
-- FHIR Server GUI: Fix recipient in Task view #189
+- Upgrade Dependencies [#193](https://github.com/datasharingframework/dsf/issues/193)
+- Start New Development Cycle [#191](https://github.com/datasharingframework/dsf/issues/191)
+- fhir-proxy | 3 apache vulnerabilities fixed in apache 2.4.59 [#190](https://github.com/datasharingframework/dsf/issues/190)
+- FHIR Server GUI: Fix recipient in Task view [#189](https://github.com/datasharingframework/dsf/issues/189)
 
-This release contains contributions from @EmteZogaf, @hhund, @schwzr and @wetret.
+This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

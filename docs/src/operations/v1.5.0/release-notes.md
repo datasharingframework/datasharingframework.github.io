@@ -3,7 +3,7 @@ title: Release Notes (v1.5.0)
 icon: note
 ---
 
-## Release Notes for v1.5.0
+## [Release Notes for v1.5.0](https://github.com/datasharingframework/dsf/releases/tag/v1.5.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -46,16 +46,16 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.5.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/181866902?tag=1.5.0)
 
 Issues closed:
-- Add Config Options to Enable Debug Logging of DB Queries, Webservice Request Headers and the Current User  #183
-- Upgrade Dependencies #178
-- Template Engine for HTML UIs #175
-- Cleanup and Prevent Orphaned read_access Entries for Permanently Deleted Resources #170
-- Readability of Client Certificate PrivateKey Not Checked Correctly in BPE #169
-- :below Modifier Not Configured for Search Parameter ActivityDefinition.url #165
-- Enable GitHub CodeQL #164
-- Allow Optional Elements in Questionnaire #160
-- Start New Development Cycle #158
-- Add community guidelines #152
+- Add Config Options to Enable Debug Logging of DB Queries, Webservice Request Headers and the Current User  [#183](https://github.com/datasharingframework/dsf/issues/183)
+- Upgrade Dependencies [#178](https://github.com/datasharingframework/dsf/issues/178)
+- Template Engine for HTML UIs [#175](https://github.com/datasharingframework/dsf/issues/175)
+- Cleanup and Prevent Orphaned read_access Entries for Permanently Deleted Resources [#170](https://github.com/datasharingframework/dsf/issues/170)
+- Readability of Client Certificate PrivateKey Not Checked Correctly in BPE [#169](https://github.com/datasharingframework/dsf/issues/169)
+- :below Modifier Not Configured for Search Parameter ActivityDefinition.url [#165](https://github.com/datasharingframework/dsf/issues/165)
+- Enable GitHub CodeQL [#164](https://github.com/datasharingframework/dsf/issues/164)
+- Allow Optional Elements in Questionnaire [#160](https://github.com/datasharingframework/dsf/issues/160)
+- Start New Development Cycle [#158](https://github.com/datasharingframework/dsf/issues/158)
+- Add community guidelines [#152](https://github.com/datasharingframework/dsf/issues/152)
 
-This release contains contributions from @EmteZogaf, @hhund, @jbellmann, @schwzr and @wetret.
+This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jbellmann](https://github.com/jbellmann), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

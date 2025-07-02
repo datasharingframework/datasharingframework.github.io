@@ -1,5 +1,6 @@
 #!/bin/bash
 # To run: chmod +x fetch-versioned-release-notes.sh && ./fetch-versioned-release-notes.sh
+# Dokumentation https://wiki.gecko.hs-heilbronn.de/doc/dokumentation-release-notes-script-45Ex3hoxjB
 
 # GitHub repository details
 REPO_OWNER="datasharingframework"
@@ -8,7 +9,7 @@ REPO_NAME="dsf"
 # Output base directory (this will hold the versioned folders)
 OUTPUT_BASE_DIR="../../operations"
 
-# Define the range of versions (no extra dot after v)
+# Define the range of versions 
 VERSIONS=("v1.0.0" "v1.1.0" "v1.2.0" "v1.3.0" "v1.3.1" "v1.3.2" "v1.4.0" "v1.5.0" "v1.5.1" "v1.5.2" "v1.6.0" "v1.7.0" "v1.7.1" "v1.8.0")
 
 # Fetch all release details
@@ -29,14 +30,15 @@ for VERSION in "${VERSIONS[@]}"; do
 
     OUTPUT_FILE="$VERSION_DIR/release-notes.md"
 
-    # Write frontmatter at the top of the Markdown file
+
+# Write frontmatter at the top of the Markdown file
 cat <<EOF > "$OUTPUT_FILE"
 ---
 title: Release Notes ($VERSION)
 icon: note
 ---
 
-## Release Notes for $VERSION
+## [Release Notes for $VERSION](https://github.com/$REPO_OWNER/$REPO_NAME/releases/tag/$VERSION)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -49,8 +51,16 @@ EOF
       RELEASE_BODY=$(echo "$RELEASE_JSON" | jq -r '.body')
       RELEASE_NAME=$(echo "$RELEASE_JSON" | jq -r '.name')
 
+      # Convert #issue_number to GitHub issue link
+      RELEASE_BODY=$(echo "$RELEASE_BODY" | sed -E 's/#([0-9]+)/[#\1](https:\/\/github.com\/datasharingframework\/dsf\/issues\/\1)/g')
+
+      # Convert @username to GitHub user link
+      RELEASE_BODY=$(echo "$RELEASE_BODY" | sed -E 's/@([a-zA-Z0-9_-]+)/[@\1](https:\/\/github.com\/\1)/g')
+
+
       echo "### $RELEASE_NAME" >> "$OUTPUT_FILE"
       echo "$RELEASE_BODY" >> "$OUTPUT_FILE"
+
       echo "" >> "$OUTPUT_FILE"
     done
 

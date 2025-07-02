@@ -3,7 +3,7 @@ title: Release Notes (v1.0.0)
 icon: note
 ---
 
-## Release Notes for v1.0.0
+## [Release Notes for v1.0.0](https://github.com/datasharingframework/dsf/releases/tag/v1.0.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -49,30 +49,30 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.0.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/105293483?tag=1.0.0)
 
 Issues closed:
-- Rework Draft Task Authorization and Extend ActivityDefinition Task Authorization Rules #51
-- Create a Task HTML view #50
-- Add OAuth Bearer Token Authentication #47
-- Simplify the DB Migration Scripts #45
-- Better align organization roles with currently existing roles #43
-- Add Default External bundle.xml to Docker Image #40
-- Cleanup TaskHelper and Add JavaDoc #38
-- Add Common Forward Proxy Server Config #36
-- Switch to self hosted github runner #34
-- Separate documentation-generator and -annotations #30
-- Mandatory business-key input parameter #27
-- Improve Process Plugin API #26
-- Add Support for Query Parameter _summary #23
-- Remove dependencies between processes #22
-- Remove process deployments using folders #21
-- Align Jetty Config Properties With Existing dev.dsf... Properties #18
-- Remove FHIR Metadata resources, profiles and authorization rules only needed for HiGHmed processes #13
-- Remove deprecated organization-type CodeSystem and ValueSet #12
-- Hide/rename plugin folder from default deployments #11
-- Remove process specific modules #9
-- Add OpenID Connect Authentication for Local Users #7
-- Remove VM-based Test-Setup #6
-- Migrate to Java 17 #2
-- Migrate to dsf.dev Namespace #1
+- Rework Draft Task Authorization and Extend ActivityDefinition Task Authorization Rules [#51](https://github.com/datasharingframework/dsf/issues/51)
+- Create a Task HTML view [#50](https://github.com/datasharingframework/dsf/issues/50)
+- Add OAuth Bearer Token Authentication [#47](https://github.com/datasharingframework/dsf/issues/47)
+- Simplify the DB Migration Scripts [#45](https://github.com/datasharingframework/dsf/issues/45)
+- Better align organization roles with currently existing roles [#43](https://github.com/datasharingframework/dsf/issues/43)
+- Add Default External bundle.xml to Docker Image [#40](https://github.com/datasharingframework/dsf/issues/40)
+- Cleanup TaskHelper and Add JavaDoc [#38](https://github.com/datasharingframework/dsf/issues/38)
+- Add Common Forward Proxy Server Config [#36](https://github.com/datasharingframework/dsf/issues/36)
+- Switch to self hosted github runner [#34](https://github.com/datasharingframework/dsf/issues/34)
+- Separate documentation-generator and -annotations [#30](https://github.com/datasharingframework/dsf/issues/30)
+- Mandatory business-key input parameter [#27](https://github.com/datasharingframework/dsf/issues/27)
+- Improve Process Plugin API [#26](https://github.com/datasharingframework/dsf/issues/26)
+- Add Support for Query Parameter _summary [#23](https://github.com/datasharingframework/dsf/issues/23)
+- Remove dependencies between processes [#22](https://github.com/datasharingframework/dsf/issues/22)
+- Remove process deployments using folders [#21](https://github.com/datasharingframework/dsf/issues/21)
+- Align Jetty Config Properties With Existing dev.dsf... Properties [#18](https://github.com/datasharingframework/dsf/issues/18)
+- Remove FHIR Metadata resources, profiles and authorization rules only needed for HiGHmed processes [#13](https://github.com/datasharingframework/dsf/issues/13)
+- Remove deprecated organization-type CodeSystem and ValueSet [#12](https://github.com/datasharingframework/dsf/issues/12)
+- Hide/rename plugin folder from default deployments [#11](https://github.com/datasharingframework/dsf/issues/11)
+- Remove process specific modules [#9](https://github.com/datasharingframework/dsf/issues/9)
+- Add OpenID Connect Authentication for Local Users [#7](https://github.com/datasharingframework/dsf/issues/7)
+- Remove VM-based Test-Setup [#6](https://github.com/datasharingframework/dsf/issues/6)
+- Migrate to Java 17 [#2](https://github.com/datasharingframework/dsf/issues/2)
+- Migrate to dsf.dev Namespace [#1](https://github.com/datasharingframework/dsf/issues/1)
 
-This release contains contributions from @schwzr, @wetret and @hhund.
+This release contains contributions from [@schwzr](https://github.com/schwzr), [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
 

@@ -3,7 +3,7 @@ title: Release Notes (v1.5.2)
 icon: note
 ---
 
-## Release Notes for v1.5.2
+## [Release Notes for v1.5.2](https://github.com/datasharingframework/dsf/releases/tag/v1.5.2)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -37,10 +37,10 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.5.2](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/241262265?tag=1.5.2)
 
 Issues closed:
-- Upgrade Dependencies #215
-- fhir-proxy | 9 apache vulnerabilities fixed in apache 2.4.61 #214
-- Fix "onSubmit" action on Task forms #213
-- Start New Development Cycle #198
+- Upgrade Dependencies [#215](https://github.com/datasharingframework/dsf/issues/215)
+- fhir-proxy | 9 apache vulnerabilities fixed in apache 2.4.61 [#214](https://github.com/datasharingframework/dsf/issues/214)
+- Fix "onSubmit" action on Task forms [#213](https://github.com/datasharingframework/dsf/issues/213)
+- Start New Development Cycle [#198](https://github.com/datasharingframework/dsf/issues/198)
 
-This release contains contributions from @hhund and @wetret.
+This release contains contributions from [@hhund](https://github.com/hhund) and [@wetret](https://github.com/wetret).
 

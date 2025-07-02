@@ -3,7 +3,7 @@ title: Release Notes (v1.7.0)
 icon: note
 ---
 
-## Release Notes for v1.7.0
+## [Release Notes for v1.7.0](https://github.com/datasharingframework/dsf/releases/tag/v1.7.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -33,13 +33,13 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.7.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/341494817?tag=1.7.0)
 
 Issues closed:
-- Extend Secrets Reader for Environment Variables Ending in _SECRET_FILE #261
-- Add Default Root CAs to Docker Images #259
-- Update CodeSystem urn:ietf:bcp:13 #256
-- Upgrade Dependencies maintenance #253
-- Update Default Organization Bookmark List #248
-- Duplicate ActivityDefinition Resources Prevent Processes From Being Executed #247
-- Start New Development Cycle #245 
+- Extend Secrets Reader for Environment Variables Ending in _SECRET_FILE [#261](https://github.com/datasharingframework/dsf/issues/261)
+- Add Default Root CAs to Docker Images [#259](https://github.com/datasharingframework/dsf/issues/259)
+- Update CodeSystem urn:ietf:bcp:13 [#256](https://github.com/datasharingframework/dsf/issues/256)
+- Upgrade Dependencies maintenance [#253](https://github.com/datasharingframework/dsf/issues/253)
+- Update Default Organization Bookmark List [#248](https://github.com/datasharingframework/dsf/issues/248)
+- Duplicate ActivityDefinition Resources Prevent Processes From Being Executed [#247](https://github.com/datasharingframework/dsf/issues/247)
+- Start New Development Cycle [#245](https://github.com/datasharingframework/dsf/issues/245) 
 
-This release contains contributions from @hhund, @schwzr and @wetret.
+This release contains contributions from [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

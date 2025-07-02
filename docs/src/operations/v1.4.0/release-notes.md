@@ -3,7 +3,7 @@ title: Release Notes (v1.4.0)
 icon: note
 ---
 
-## Release Notes for v1.4.0
+## [Release Notes for v1.4.0](https://github.com/datasharingframework/dsf/releases/tag/v1.4.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -44,16 +44,16 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.4.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/159285465?tag=1.4.0)
 
 Issues closed:
-- Upgrade Dependencies #155
-- Add HTML Views for ActivityDefinitions #151
-- Remove mod_proxy_wstunnel From Apache Reverse Proxy #145 
-- Configure Maven Site Goal #142 
-- Increase maximum string length #138 
-- Exception when logging audit information for resource without entity #137 
-- Enable Parallel Maven Builds #135
-- Start New Development Cycle #133 
-- Prevent HTTP 500 Statuscode on non existent history element  #132  
-- Treat RC releases similar to SNAPSHOT releases #131
+- Upgrade Dependencies [#155](https://github.com/datasharingframework/dsf/issues/155)
+- Add HTML Views for ActivityDefinitions [#151](https://github.com/datasharingframework/dsf/issues/151)
+- Remove mod_proxy_wstunnel From Apache Reverse Proxy [#145](https://github.com/datasharingframework/dsf/issues/145) 
+- Configure Maven Site Goal [#142](https://github.com/datasharingframework/dsf/issues/142) 
+- Increase maximum string length [#138](https://github.com/datasharingframework/dsf/issues/138) 
+- Exception when logging audit information for resource without entity [#137](https://github.com/datasharingframework/dsf/issues/137) 
+- Enable Parallel Maven Builds [#135](https://github.com/datasharingframework/dsf/issues/135)
+- Start New Development Cycle [#133](https://github.com/datasharingframework/dsf/issues/133) 
+- Prevent HTTP 500 Statuscode on non existent history element  [#132](https://github.com/datasharingframework/dsf/issues/132)  
+- Treat RC releases similar to SNAPSHOT releases [#131](https://github.com/datasharingframework/dsf/issues/131)
 
-This release contains contributions from @EmteZogaf, @hhund, @schwzr and @wetret.
+This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

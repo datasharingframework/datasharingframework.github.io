@@ -3,7 +3,7 @@ title: Release Notes (v1.1.0)
 icon: note
 ---
 
-## Release Notes for v1.1.0
+## [Release Notes for v1.1.0](https://github.com/datasharingframework/dsf/releases/tag/v1.1.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -39,16 +39,16 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.1.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/121014165?tag=1.1.0)
 
 Issues closed:
-- Upgrade Dependencies #79
-- FHIR Server UI Dark Mode #75
-- NamingSystem not deployable from Process Plugin #72
-- Allow SSLVerifyClient Option in RevProxy to Be Configured Via Environment Variable #70
-- Include Software Version in User-Agent for outgoing requests (BPE) #68
-- Allow-List: Add Support for Specific Endpoints for Different Roles in a Parent Organization #65
-- Add Support for Repeated Search Parameters to Define AND Queries #63
-- OrganizationProvider Never Finds Organization by Identifier #61
-- Start New Development Cycle #58
-- Improve Task HTML view #56
+- Upgrade Dependencies [#79](https://github.com/datasharingframework/dsf/issues/79)
+- FHIR Server UI Dark Mode [#75](https://github.com/datasharingframework/dsf/issues/75)
+- NamingSystem not deployable from Process Plugin [#72](https://github.com/datasharingframework/dsf/issues/72)
+- Allow SSLVerifyClient Option in RevProxy to Be Configured Via Environment Variable [#70](https://github.com/datasharingframework/dsf/issues/70)
+- Include Software Version in User-Agent for outgoing requests (BPE) [#68](https://github.com/datasharingframework/dsf/issues/68)
+- Allow-List: Add Support for Specific Endpoints for Different Roles in a Parent Organization [#65](https://github.com/datasharingframework/dsf/issues/65)
+- Add Support for Repeated Search Parameters to Define AND Queries [#63](https://github.com/datasharingframework/dsf/issues/63)
+- OrganizationProvider Never Finds Organization by Identifier [#61](https://github.com/datasharingframework/dsf/issues/61)
+- Start New Development Cycle [#58](https://github.com/datasharingframework/dsf/issues/58)
+- Improve Task HTML view [#56](https://github.com/datasharingframework/dsf/issues/56)
 
-This release contains contributions from @wetret and @hhund.
+This release contains contributions from [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
 

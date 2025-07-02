@@ -39,6 +39,13 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## [News](/news/)
+
+
+**Follow-up FHIR DevDays 2025**
+After much anticipation, the DSF team participated at the FHIR DevDays 2025. The Event was held from June 3rd until June 6th in Amsterdam. As the world’s largest event dedicated to HL7 FHIR, DevDays brings together health IT professionals from across the globe to deepen their understanding of the standard, to exchange knowledge, and to explore innovative real-world applications in healthcare!
+[Read more](/posts/2025-07-04-follow-up-fhir-devdays)
+
+---
 <div class="image-container">
   <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
 </div>

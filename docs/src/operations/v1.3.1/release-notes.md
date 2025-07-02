@@ -3,7 +3,7 @@ title: Release Notes (v1.3.1)
 icon: note
 ---
 
-## Release Notes for v1.3.1
+## [Release Notes for v1.3.1](https://github.com/datasharingframework/dsf/releases/tag/v1.3.1)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -41,13 +41,13 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.3.1](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/142950963?tag=1.3.1)
 
 Issues closed:
-- Upgrade Dependencies #127
-- Improve Some Logging for OIDC Logins #125 
-- Redirect URI for OIDC Login is Http #124 
-- Start New Development Cycle #120
-- Remove Not Needed commons-logging Dependencies and Enforce Non Use #119 
-- WebUI: Bug on OrganizationAffiliation page #118 
-- Unsafe 3DES Cipher Suite in FHIR Proxy #117
+- Upgrade Dependencies [#127](https://github.com/datasharingframework/dsf/issues/127)
+- Improve Some Logging for OIDC Logins [#125](https://github.com/datasharingframework/dsf/issues/125) 
+- Redirect URI for OIDC Login is Http [#124](https://github.com/datasharingframework/dsf/issues/124) 
+- Start New Development Cycle [#120](https://github.com/datasharingframework/dsf/issues/120)
+- Remove Not Needed commons-logging Dependencies and Enforce Non Use [#119](https://github.com/datasharingframework/dsf/issues/119) 
+- WebUI: Bug on OrganizationAffiliation page [#118](https://github.com/datasharingframework/dsf/issues/118) 
+- Unsafe 3DES Cipher Suite in FHIR Proxy [#117](https://github.com/datasharingframework/dsf/issues/117)
 
-This release contains contributions from @wetret, @schwzr and @hhund.
+This release contains contributions from [@wetret](https://github.com/wetret), [@schwzr](https://github.com/schwzr) and [@hhund](https://github.com/hhund).
 

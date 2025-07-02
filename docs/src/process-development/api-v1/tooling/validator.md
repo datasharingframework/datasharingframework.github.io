@@ -1,4 +1,9 @@
-# DSF Validator v 1.3.0
+---
+title: Process Plugin Validator
+icon: operate
+---
+# DSF Process Plugin Validator v 1.3.0
+
 ## 1  Introduction
 
 The **DSF Validator** is a quality‑assurance tool for Digital Sample Framework (DSF) process plugins. Version **1.3.0** extends the 1.2.0 release by adding 

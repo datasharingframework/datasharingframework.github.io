@@ -3,7 +3,7 @@ title: Release Notes (v1.3.2)
 icon: note
 ---
 
-## Release Notes for v1.3.2
+## [Release Notes for v1.3.2](https://github.com/datasharingframework/dsf/releases/tag/v1.3.2)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -32,7 +32,7 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.3.2](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/154349744?tag=1.3.2)
 
 Issues closed:
-- Use UUID generator instead of database id generator #139
+- Use UUID generator instead of database id generator [#139](https://github.com/datasharingframework/dsf/issues/139)
 
-This release contains contributions from @EmteZogaf, @wetret, @schwzr and @hhund.
+This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@wetret](https://github.com/wetret), [@schwzr](https://github.com/schwzr) and [@hhund](https://github.com/hhund).
 

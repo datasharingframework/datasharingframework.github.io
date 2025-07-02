@@ -22,5 +22,3 @@ This is a major DSF release not compatible with 0.9.x and older version develope
 - Removed mostly unused features to simplify instance configuration
 - Unified proxy setup
 - Many more [features](https://github.com/datasharingframework/dsf/releases/tag/v1.0.0)
-
-

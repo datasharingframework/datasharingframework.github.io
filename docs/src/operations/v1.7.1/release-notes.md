@@ -3,7 +3,7 @@ title: Release Notes (v1.7.1)
 icon: note
 ---
 
-## Release Notes for v1.7.1
+## [Release Notes for v1.7.1](https://github.com/datasharingframework/dsf/releases/tag/v1.7.1)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -28,11 +28,11 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.7.1](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/380812518?tag=1.7.1)
 
 Issues closed:
-- Upgrade Dependencies #287
-- BPE Websocket Not Connected When In-Progress Update Fails for Old Tasks #279
-- Subscription criteria Search Parameter Should Be Used With :exact Modifier #272
-- Start New Development Cycle #266
-- Modify Documentation Generator to Support SECRET_FILE Environment Variables #265
+- Upgrade Dependencies [#287](https://github.com/datasharingframework/dsf/issues/287)
+- BPE Websocket Not Connected When In-Progress Update Fails for Old Tasks [#279](https://github.com/datasharingframework/dsf/issues/279)
+- Subscription criteria Search Parameter Should Be Used With :exact Modifier [#272](https://github.com/datasharingframework/dsf/issues/272)
+- Start New Development Cycle [#266](https://github.com/datasharingframework/dsf/issues/266)
+- Modify Documentation Generator to Support SECRET_FILE Environment Variables [#265](https://github.com/datasharingframework/dsf/issues/265)
 
-This release contains contributions from @hhund, @jaboehri, @schwzr and @wetret.
+This release contains contributions from [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 

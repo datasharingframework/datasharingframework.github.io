@@ -3,7 +3,7 @@ title: Release Notes (v1.2.0)
 icon: note
 ---
 
-## Release Notes for v1.2.0
+## [Release Notes for v1.2.0](https://github.com/datasharingframework/dsf/releases/tag/v1.2.0)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
@@ -40,15 +40,15 @@ Docker containers for this release can be access via the GitHub Docker registry 
 * **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:1.2.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/127298803?tag=1.2.0)
 
 Issues closed:
-- Increase Camunda DefaultJobExecutor Queue Size and Expose Config Options #101
-- Make FHIR Server Role Config Optional, Improve Role Config Validation #96
-- Replace Java StatusClient With curl #93
-- Modify the BPE to Enable Parallel Execution of Non Async Processes #91
-- BPE Task Websocket Connection Fails During Long Running Processes #90
-- Remove Not Needed Organization Identifier Config Parameter From BPE #89
-- DEV_DSF_PROXY_NOPROXY Not Working With Literal Block Scalar #87
-- Start New Development Cycle #86
-- Make FHIR proxy server context path customizable #85
+- Increase Camunda DefaultJobExecutor Queue Size and Expose Config Options [#101](https://github.com/datasharingframework/dsf/issues/101)
+- Make FHIR Server Role Config Optional, Improve Role Config Validation [#96](https://github.com/datasharingframework/dsf/issues/96)
+- Replace Java StatusClient With curl [#93](https://github.com/datasharingframework/dsf/issues/93)
+- Modify the BPE to Enable Parallel Execution of Non Async Processes [#91](https://github.com/datasharingframework/dsf/issues/91)
+- BPE Task Websocket Connection Fails During Long Running Processes [#90](https://github.com/datasharingframework/dsf/issues/90)
+- Remove Not Needed Organization Identifier Config Parameter From BPE [#89](https://github.com/datasharingframework/dsf/issues/89)
+- DEV_DSF_PROXY_NOPROXY Not Working With Literal Block Scalar [#87](https://github.com/datasharingframework/dsf/issues/87)
+- Start New Development Cycle [#86](https://github.com/datasharingframework/dsf/issues/86)
+- Make FHIR proxy server context path customizable [#85](https://github.com/datasharingframework/dsf/issues/85)
 
-This release contains contributions from @wetret and @hhund.
+This release contains contributions from [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
 
