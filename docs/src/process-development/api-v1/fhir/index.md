@@ -9,5 +9,6 @@ The DSF uses a variety of [FHIR resources](https://dsf.dev/intro/info/basics.htm
 ## Details
 - [ActivityDefinition](activitydefinition.md)
 - [CodeSystem](codesystem.md)
+- [Questionnaire and QuestionnaireResponse](questionnaire-and-questionnaireresponse.md)
 - [Task](task.md)
 - [ValueSet](valueset.md)

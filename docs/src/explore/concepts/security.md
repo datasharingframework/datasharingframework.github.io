@@ -15,5 +15,5 @@ Authentication of organizations within the DSF is handled by the use of X.509 cl
 
 A webserver certificate is needed to run the FHIR endpoint and a 802.1X client certificate is used to authenticate against other organizations endpoints and as a server certificate for the business process engine.
 
-More information about client and server certificates can be found [here](/operations/v1/latest/install#client-server-certificates).
+More information about client and server certificates can be found [here](/operations/latest/install#client-server-certificates).
 

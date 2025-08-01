@@ -1,0 +1,2 @@
+<meta http-equiv="refresh" content="0; url=../operations/troubleshooting/connection-refused" />
+<p>If you are not redirected, <a href="../operations/troubleshooting/connection-refused">click here</a>.</p>

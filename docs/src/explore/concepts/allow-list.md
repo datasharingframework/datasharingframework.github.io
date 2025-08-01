@@ -9,8 +9,6 @@ First, we need a list of organizations that we trust. Secondly, we need a way to
 
 The Allow List consists of Organization-, Endpoint- and OrganisationAffiliation- resources. With these resources the allow list defines communication partners and and parent organizations like research consortia and groups as well as the roles of each organization. Each DSF FHIR server stores their own allow list. To make sure that processes can be executed, parties must allow access via their allow list.
 
-![Architecture](/photos/info/allowList/allowList-architecture.png)
-
 ## Allow List Managment
 [Here](/operations/latest/allowList-mgm.md) you can read all the information if you want to create or update an Allow List.
 

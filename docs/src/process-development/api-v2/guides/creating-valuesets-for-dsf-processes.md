@@ -3,10 +3,10 @@ title: Creating ValueSets for DSF Processes
 icon: creative
 ---
 
-### Creating ValueSets for DSF Processes
+## Creating ValueSets for DSF Processes
 
-You might find yourself in the situation where you need to create a [ValueSet](../fhir/valueset.md). For example, when adding [Input Parameters](../fhir/task.md#task-input-parameters) to DSF [Task](../fhir/task.md) resources, you will also have to reference a [ValueSet](../fhir/valueset.md) resource in your binding for `Task.input.type` to be able to set the type of your [Input Parameter](../fhir/task.md#task-input-parameters). [ValueSets](../fhir/valueset.md) for the DSF differ from regular [ValueSets](../fhir/valueset.md) in that some element's values are managed by the DSF BPE server. You can use the following template for your
-[ValueSet](../fhir/valueset.md):
+In some cases, it may be necessary to create a [ValueSet](../fhir/valueset.md). For example, when adding [Input Parameters](../fhir/task.md#task-input-parameters) to DSF [Task](../fhir/task.md) resources, a [ValueSet](../fhir/valueset.md) resource must also be referenced in the binding for `Task.input.type` to define the type of the [Input Parameter](../fhir/task.md#task-input-parameters). [ValueSets](../fhir/valueset.md) for the DSF differ from regular [ValueSets](../fhir/valueset.md) in that certain element values are managed by the DSF BPE server. The following template can be used for a [ValueSet](../fhir/valueset.md):
+
 ```xml
 <ValueSet xmlns="http://hl7.org/fhir">
     <meta>
@@ -36,7 +36,7 @@ You might find yourself in the situation where you need to create a [ValueSet](.
     </compose>
 </ValueSet> 
 ```
-Replace dummy values with appropriate values of your own. Do not change elements managed by the DSF BPE server. The `compose` element defines the codes included in this [ValueSet](../fhir/valueset.md). It holds at least one `include` element. Each `include` element refers to a [CodeSystem](../fhir/codesystem.md) and contains a list of `concept` elements which in turn contain the actual `code` element. Using one code from `my-code-system` and one code from `my-other-code-system` would result in the following `compose` element:
+Dummy values should be replaced with appropriate, context-specific values. Elements managed by the DSF BPE server must not be modified. The `compose` element defines the codes included in this [ValueSet](../fhir/valueset.md) and contains at least one `include` element. Each `include` element references a [CodeSystem](../fhir/codesystem.md) and includes a list of `concept` elements, each containing an individual `code` element. The use of one code from `my-code-system` and one code from `my-other-code-system` results in the following `compose` element:
 ```xml
 <ValueSet xmlns="http://hl7.org/fhir">
     ...
@@ -58,6 +58,7 @@ Replace dummy values with appropriate values of your own. Do not change elements
     </compose>
 </ValueSet>
 ```
-The DSF BPE server will read your [ValueSet](../fhir/valueset.md) from `tutorial-process/src/main/resources/fhir/ValueSet`.
+When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
 
-You might also want to check out [this guide](../guides/creating-codesystems-for-dsf-processes.md) on how to create [CodeSystems](../fhir/codesystem.md).
+## Related Topics
+[CodeSystem](../fhir/codesystem.md), [Creating CodeSystems for DSF processes](creating-codesystems-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)
