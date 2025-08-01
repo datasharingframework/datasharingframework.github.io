@@ -5,14 +5,10 @@ icon: slides
 
 ## Process plugin tutorial
 
-Click [here](https://github.com/datasharingframework/dsf-process-tutorial) to open the current tutorial on GitHub.
+- Visit the [how the DSF can help you](../../../explore/concepts/README.md) page to get started.
+- Begin with the [DSF Process Plugin Tutorial](https://github.com/datasharingframework/dsf-process-tutorial)  to access the most recent tutorial on GitHub.
 
-## Other Resources
-
-Visit the [how the DSF can help you](../../../explore/concepts/README.md) page to get started.
-
-
-::: tip Work in progress
+::: tip Tutorials
 We are currently in the process of updating the written documentation on how to create a DSF process plugin. 
 
 In the meantime, we recommend exploring these example DSF processes:

@@ -3,12 +3,6 @@ title: Concepts
 icon: info
 ---
 
-
-::: warning Work in progress - Outdated Content
-
-This site is work in progress, please come back later.
-:::
-
 ## BPMN
 - [Conditions](bpmn/conditions.md)
 - [Gateways](bpmn/gateways.md)
