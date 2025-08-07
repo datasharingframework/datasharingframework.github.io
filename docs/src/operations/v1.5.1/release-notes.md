@@ -42,8 +42,3 @@ Issues closed:
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 
-**Assets:** 
-- [ZIP](https://github.com/datasharingframework/dsf/archive/refs/tags/v1.5.1.zip)
-- [TAR.GZ](https://github.com/datasharingframework/dsf/archive/refs/tags/v1.5.1.tar.gz)
-
-

@@ -60,18 +60,6 @@ EOF
 
       echo "### $RELEASE_NAME" >> "$OUTPUT_FILE"
       echo "$RELEASE_BODY" >> "$OUTPUT_FILE"
-
-      # Add source code asset links
-      ZIP_LINK="https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/tags/$VERSION.zip"
-      TAR_GZ_LINK="https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/tags/$VERSION.tar.gz"
-
-      echo "" >> "$OUTPUT_FILE"
-      echo "**Assets:** " >> "$OUTPUT_FILE"
-      echo "- [ZIP]($ZIP_LINK)" >> "$OUTPUT_FILE"
-      echo "- [TAR.GZ]($TAR_GZ_LINK)" >> "$OUTPUT_FILE"
-      echo "" >> "$OUTPUT_FILE"
-
-
       echo "" >> "$OUTPUT_FILE"
     done
 
