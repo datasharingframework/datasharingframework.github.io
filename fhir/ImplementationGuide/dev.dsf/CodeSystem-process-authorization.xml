@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="process-authorization"/>
+  <meta>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="ALL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CodeSystem process-authorization</b></p><a name="process-authorization"> </a><a name="hcprocess-authorization"> </a><a name="process-authorization-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code> defines the following codes in a Grouped By hierarchy:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">LOCAL_ORGANIZATION<a name="process-authorization-LOCAL_ORGANIZATION"> </a></td><td>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</td></tr><tr><td style="white-space:nowrap">LOCAL_ORGANIZATION_PRACTITIONER<a name="process-authorization-LOCAL_ORGANIZATION_PRACTITIONER"> </a></td><td>Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner</td></tr><tr><td style="white-space:nowrap">REMOTE_ORGANIZATION<a name="process-authorization-REMOTE_ORGANIZATION"> </a></td><td>Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</td></tr><tr><td style="white-space:nowrap">LOCAL_ROLE<a name="process-authorization-LOCAL_ROLE"> </a></td><td>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</td></tr><tr><td style="white-space:nowrap">LOCAL_ROLE_PRACTITIONER<a name="process-authorization-LOCAL_ROLE_PRACTITIONER"> </a></td><td>Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner</td></tr><tr><td style="white-space:nowrap">REMOTE_ROLE<a name="process-authorization-REMOTE_ROLE"> </a></td><td>Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</td></tr><tr><td style="white-space:nowrap">LOCAL_ALL<a name="process-authorization-LOCAL_ALL"> </a></td><td>Process authorization for all local organizations</td></tr><tr><td style="white-space:nowrap">LOCAL_ALL_PRACTITIONER<a name="process-authorization-LOCAL_ALL_PRACTITIONER"> </a></td><td>Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner</td></tr><tr><td style="white-space:nowrap">REMOTE_ALL<a name="process-authorization-REMOTE_ALL"> </a></td><td>Process authorization for all remote organizations</td></tr></table></div>
+  </text>
+  <url value="http://dsf.dev/fhir/CodeSystem/process-authorization"/>
+  <version value="1.0.0"/>
+  <name value="DSF_Process_Authorization"/>
+  <title value="DSF Process Authorization"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-06-28"/>
+  <publisher value="DSF Community"/>
+  <contact>
+    <name value="DSF Community"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://dsf.dev"/>
+    </telecom>
+  </contact>
+  <description value="CodeSystem with proces authorization codes"/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="grouped-by"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <count value="9"/>
+  <concept>
+    <code value="LOCAL_ORGANIZATION"/>
+    <display value="LOCAL_ORGANIZATION"/>
+    <definition value="Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization"/>
+  </concept>
+  <concept>
+    <code value="LOCAL_ORGANIZATION_PRACTITIONER"/>
+    <display value="LOCAL_ORGANIZATION_PRACTITIONER"/>
+    <definition value="Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner"/>
+  </concept>
+  <concept>
+    <code value="REMOTE_ORGANIZATION"/>
+    <display value="REMOTE_ORGANIZATION"/>
+    <definition value="Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization"/>
+  </concept>
+  <concept>
+    <code value="LOCAL_ROLE"/>
+    <display value="LOCAL_ROLE"/>
+    <definition value="Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role"/>
+  </concept>
+  <concept>
+    <code value="LOCAL_ROLE_PRACTITIONER"/>
+    <display value="LOCAL_ROLE_PRACTITIONER"/>
+    <definition value="Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner"/>
+  </concept>
+  <concept>
+    <code value="REMOTE_ROLE"/>
+    <display value="REMOTE_ROLE"/>
+    <definition value="Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role"/>
+  </concept>
+  <concept>
+    <code value="LOCAL_ALL"/>
+    <display value="LOCAL_ALL"/>
+    <definition value="Process authorization for all local organizations"/>
+  </concept>
+  <concept>
+    <code value="LOCAL_ALL_PRACTITIONER"/>
+    <display value="LOCAL_ALL_PRACTITIONER"/>
+    <definition value="Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner"/>
+  </concept>
+  <concept>
+    <code value="REMOTE_ALL"/>
+    <display value="REMOTE_ALL"/>
+    <definition value="Process authorization for all remote organizations"/>
+  </concept>
+</CodeSystem>
