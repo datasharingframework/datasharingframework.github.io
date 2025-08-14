@@ -38,7 +38,18 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
 
-## [News](tag/news/)
+## [News](/news/)
+
+**DSF 2.0 Announcement**
+We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. In this article is a  summary of what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
+[Read more](/posts/2025-07-28-dsfv2-announcement)
+
+---
+**Follow-up FHIR DevDays 2025**
+After much anticipation, the DSF team participated at the FHIR DevDays 2025. The Event was held from June 3rd until June 6th in Amsterdam. As the world’s largest event dedicated to HL7 FHIR, DevDays brings together health IT professionals from across the globe to deepen their understanding of the standard, to exchange knowledge, and to explore innovative real-world applications in healthcare!
+[Read more](/posts/2025-07-04-follow-up-fhir-devdays)
+
+---
 <div class="image-container">
   <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
 </div>
@@ -49,10 +60,6 @@ Our DSF team will be at FHIR DevDays 2025 from June 3rd to 6th in Amsterdam! Dev
 If you'd like to connect with us during the event, feel free to arrange a meeting beforehand by emailing us at 📧<a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a>
 [Read more](/posts/2025-05-07-fhir-devdays-2025.html)
 
----
-**DSF Spring School 2025** 
-From April 2nd to 4th, members of the DSF community gathered at Heilbronn University for the annual DSF Spring School 2025. The three-day event provided an in-depth look at the Data Sharing Framework (DSF) and its latest developments, featuring expert talks, hands-on sessions, and collaborative projects during a community-driven hackathon. With vibrant discussions and plenty of memorable moments, the event concluded on a high note.
-[Read more](/posts/2025-04-23-spring-school-2025)
 
 --- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
