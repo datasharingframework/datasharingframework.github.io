@@ -60,7 +60,6 @@ EOF
 
       echo "### $RELEASE_NAME" >> "$OUTPUT_FILE"
       echo "$RELEASE_BODY" >> "$OUTPUT_FILE"
-
       echo "" >> "$OUTPUT_FILE"
     done
 

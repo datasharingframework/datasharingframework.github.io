@@ -22,7 +22,7 @@ After much anticipation, the DSF team participated at the FHIR DevDays 2025. The
 
 On the last day of the conference, Hauke Hund presented lesson learned from the DSF in his talk “Fostering Research: Real-World Data Sharing and Process Orchestration with FHIR and BPMN”. In this session, Hauke shared valuable lessons learned from the implementation, rollout, and maintenance of different DSF networks. The talk illustrated how combining **FHIR** with Business Process Model and Notation (**BPMN** 2.0) enables secure, automated, scalable sharing of real-world research data across institutional boundaries.
 
-**Slides from this talk can be viewed here: [Fostering Research with FHIR and BPMN](/assets/presentations/250606_haukehund_datasharingframework.pdf)**
+**Slides from this talk can be viewed here: [Fostering Research with FHIR and BPMN](/assets/presentations/250606_HaukeHund_DataSharingFramework_fsh.pdf)**
 
 
 ### Birds of a Feather Session: FHIR and Terminology Validation
@@ -49,4 +49,4 @@ Maximilian Kurscheidt shared our insights and lessons learned from this initiati
 FHIR DevDays 2025 was an excellent opportunity to showcase our work, gain valuable insights, and engage with the global FHIR community. We extend our sincere thanks to the organizers and to everyone who participated in our talks and discussions. We truly appreciated the chance to connect with fellow experts and look forward to continuing the dialogue on interoperability, research, and innovation in digital health innovation.
 
 <img src="/photos/news/fhir-community.jpeg" alt="FHIR" style="width: 100%; height: auto;" />
-*Group picture of german participants on FHIR DEVDays. Great to meet such a thriving active community!*
+Group picture of german participants on FHIR DEVDays. Great to meet such a thriving active community! Photo by Simone Heckmann.
