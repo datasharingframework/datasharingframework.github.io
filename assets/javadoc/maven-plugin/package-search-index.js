@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"dev.dsf.dsf_maven_plugin"},{"l":"dev.dsf.maven.bundle"},{"l":"dev.dsf.maven.ca"},{"l":"dev.dsf.maven.config"},{"l":"dev.dsf.maven.dev"},{"l":"dev.dsf.maven.exception"}];updateSearchResults();

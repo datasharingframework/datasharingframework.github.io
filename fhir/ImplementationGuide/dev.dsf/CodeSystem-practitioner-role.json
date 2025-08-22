@@ -1,0 +1,75 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "practitioner-role",
+  "meta" : {
+    "tag" : [{
+      "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+      "code" : "ALL"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem practitioner-role</b></p><a name=\"practitioner-role\"> </a><a name=\"hcpractitioner-role\"> </a><a name=\"practitioner-role-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC_USER<a name=\"practitioner-role-UAC_USER\"> </a></td><td>Use-and-Access Committee Member</td></tr><tr><td style=\"white-space:nowrap\">COS_USER<a name=\"practitioner-role-COS_USER\"> </a></td><td>Coordinating Site Member</td></tr><tr><td style=\"white-space:nowrap\">CRR_USER<a name=\"practitioner-role-CRR_USER\"> </a></td><td>Central Research Repository Member</td></tr><tr><td style=\"white-space:nowrap\">DIC_USER<a name=\"practitioner-role-DIC_USER\"> </a></td><td>Data Integration Center Member</td></tr><tr><td style=\"white-space:nowrap\">DMS_USER<a name=\"practitioner-role-DMS_USER\"> </a></td><td>Data Management Site Member</td></tr><tr><td style=\"white-space:nowrap\">DTS_USER<a name=\"practitioner-role-DTS_USER\"> </a></td><td>Data Transfer Site Member</td></tr><tr><td style=\"white-space:nowrap\">HRP_USER<a name=\"practitioner-role-HRP_USER\"> </a></td><td>Health Research Platform Member</td></tr><tr><td style=\"white-space:nowrap\">TTP_USER<a name=\"practitioner-role-TTP_USER\"> </a></td><td>Trusted Third Party Member</td></tr><tr><td style=\"white-space:nowrap\">AMS_USER<a name=\"practitioner-role-AMS_USER\"> </a></td><td>Allowlist Management Site Member</td></tr><tr><td style=\"white-space:nowrap\">DSF_ADMIN<a name=\"practitioner-role-DSF_ADMIN\"> </a></td><td>DSF Administrator</td></tr></table></div>"
+  },
+  "url" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+  "version" : "1.0.0",
+  "name" : "DSF_Practitioner_Role",
+  "title" : "DSF Practitioner Role",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-28",
+  "publisher" : "DSF Community",
+  "contact" : [{
+    "name" : "DSF Community",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://dsf.dev"
+    }]
+  }],
+  "description" : "CodeSystem with DSF practitioner roles",
+  "caseSensitive" : true,
+  "hierarchyMeaning" : "grouped-by",
+  "versionNeeded" : false,
+  "content" : "complete",
+  "count" : 10,
+  "concept" : [{
+    "code" : "UAC_USER",
+    "display" : "Use-and-Access Committee Member"
+  },
+  {
+    "code" : "COS_USER",
+    "display" : "Coordinating Site Member"
+  },
+  {
+    "code" : "CRR_USER",
+    "display" : "Central Research Repository Member"
+  },
+  {
+    "code" : "DIC_USER",
+    "display" : "Data Integration Center Member"
+  },
+  {
+    "code" : "DMS_USER",
+    "display" : "Data Management Site Member"
+  },
+  {
+    "code" : "DTS_USER",
+    "display" : "Data Transfer Site Member"
+  },
+  {
+    "code" : "HRP_USER",
+    "display" : "Health Research Platform Member"
+  },
+  {
+    "code" : "TTP_USER",
+    "display" : "Trusted Third Party Member"
+  },
+  {
+    "code" : "AMS_USER",
+    "display" : "Allowlist Management Site Member"
+  },
+  {
+    "code" : "DSF_ADMIN",
+    "display" : "DSF Administrator"
+  }]
+}
