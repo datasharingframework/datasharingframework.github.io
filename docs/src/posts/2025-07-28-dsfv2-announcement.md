@@ -11,7 +11,7 @@ tags:
   - DSF v2
 ---
 
-## Realease Strategy for the Data Sharing Framework 
+## Release Strategy for the Data Sharing Framework 
 
 The following outlines the current release strategy for the Data Sharing Framework (DSF) and provides an overview of planned developments.
 
