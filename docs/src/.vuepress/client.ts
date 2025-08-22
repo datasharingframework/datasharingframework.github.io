@@ -9,7 +9,7 @@ import NewsList from "./components/NewsList.vue"; // adjust if path differs
 
 export default defineClientConfig({
     enhance({ app }) {
-    app.component("NewsList", NewsList);
+    //app.component("NewsList", NewsList);
   },
   layouts: {
     ParentLayout,
