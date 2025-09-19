@@ -15,7 +15,7 @@ This HTTP status code may be encountered in different ways in the context of the
 This HTTP status code is a result of trying to upload a resource that is too large for the server to handle. This might be due to a misconfiguration of the DSF FHIR server's reverse proxy not allowing this much data to be uploaded.
 
 # 500 Internal Server Error
-This HTTP status may be a result of a connection timeout if a forward proxy is used
+This HTTP status may be a result of a connection timeout if a forward proxy is used or when using ping pong 2.x in DSF 1.x with a download resource size of >400MB.
 
 # 502 Bad Gateway
-This HTTP status code is usually the response of a proxy because the server was unavailable or did not respond
+This HTTP status code is usually the response of a proxy because the server was unavailable or did not respond.
