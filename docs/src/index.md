@@ -40,6 +40,13 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 ## News
 
+
+**Operaton**
+The Data Sharing Framework is entering an exciting new phase. With the upcoming DSF 2.0 release, we are transitioning our business process engine from Camunda 7 to Operaton 1.0.0, a modern, open-source BPMN 2.0 engine. This move marks a significant step toward improved scalability and long-term maintainability. 
+[Read more](/posts/2025-10-02-operaton-DSF-2.0)
+
+---
+
 **DSF 2.0 Announcement**
 We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. In this article is a  summary of what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
 [Read more](/posts/2025-07-28-dsfv2-announcement)
@@ -48,19 +55,6 @@ We’re excited to announce that the next major release, DSF 2.0, is currently i
 **Follow-up FHIR DevDays 2025**
 After much anticipation, the DSF team participated at the FHIR DevDays 2025. The Event was held from June 3rd until June 6th in Amsterdam. As the world’s largest event dedicated to HL7 FHIR, DevDays brings together health IT professionals from across the globe to deepen their understanding of the standard, to exchange knowledge, and to explore innovative real-world applications in healthcare!
 [Read more](/posts/2025-07-04-follow-up-fhir-devdays)
-
-
----
-<div class="image-container">
-  <img src="/photos/news/Devdays-world-small.png" alt="FHIR DevDays 2025" style="display: block;">
-</div>
-
-**FHIR DevDays 2025**
-Our DSF team will be at FHIR DevDays 2025 from June 3rd to 6th in Amsterdam! DevDays is the world’s leading FHIR event in the field of digital health. Join us at the event for engaging community talks by Maximilian Kurscheidt and Hauke Hund. We’ll be discussing the International Patient Summary Challenge 2025, as well as how we can foster research through Real-World Data Sharing and Process Orchestration using FHIR and BPMN. We look forward to seeing you there!
-
-If you'd like to connect with us during the event, feel free to arrange a meeting beforehand by emailing us at 📧<a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a>
-[Read more](/posts/2025-05-07-fhir-devdays-2025.html)
-
 
 --- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
