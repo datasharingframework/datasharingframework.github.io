@@ -69,7 +69,7 @@ function navigateToNewVersion() {
         <option value="v1.2.0">1.2.0</option>
         <option value="v1.1.0">1.1.0</option>
         <option value="v1.0.0">1.0.0</option>
-        <option value="v2.0.0-M3">2.0.0-M3</option>
+        <option value="v2.0.0-M4">2.0.0-M4</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>

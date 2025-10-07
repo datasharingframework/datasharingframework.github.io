@@ -114,6 +114,7 @@ export default hopeTheme({
     "/operations/old-versions": [],
     "/operations/latest/": generate_v1_latest_sidebar(),
     "/operations/next/": [],
+    "/operations/v2.0.0-M4/": [],
     "/operations/v2.0.0-M3/": [],
     "/operations/v1.8.0/": generate_v1_latest_sidebar(),
     "/operations/v1.7.1/": generate_v1_latest_sidebar(),
