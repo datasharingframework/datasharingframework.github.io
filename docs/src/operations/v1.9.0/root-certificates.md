@@ -187,7 +187,7 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
     Info: https://crt.sh/?caid=207671
     X509 Certificate: https://crt.sh/?id=4442848518
     Not after: Mar 15 09:17:38 2036 GMT
-* Root CA: **HHARICA Client RSA Root CA 2021**
+* Root CA: **HARICA Client RSA Root CA 2021**
   Info: https://crt.sh/?caid=202188
   X509 Certificate: https://crt.sh/?id=4147049674
   Not after: Feb 13 10:58:45 2045 GMT
