@@ -94,12 +94,12 @@ Here is a quick overview of the expected network setup.
 
 1. Add certificates and keys
     * Add the server certificate (certificate _A_), the corresponding private-key and the certificate chain (one file with all intermediate certificates, excluding the root CA) to **/opt/fhir/secrets/**
-        * ssl_certificate_file.pem (chmod: 440, chown: fhir:docker)
-        * ssl_certificate_key_file.pem (chmod: 440, chown: fhir:docker)
-        * ssl_certificate_chain_file.pem  (chmod: 440, chown: fhir:docker)
+        * ssl_certificate_file.pem (chmod: 440, chown: root:4101, 4101 is the user of the fhir proxy)
+        * ssl_certificate_key_file.pem (chmod: 440, chown: root:4101)
+        * ssl_certificate_chain_file.pem  (chmod: 444, chown: root:fhir)
     * Add the client certificate (Certificate _B_) and the corresponding private-key to **/opt/fhir/secrets/**
-        * client_certificate.pem (chmod: 440, chown: fhir:docker)
-        * client_certificate_private_key.pem (chmod: 440, chown: fhir:docker)
+        * client_certificate.pem (chmod: 440, chown: root:fhir)
+        * client_certificate_private_key.pem (chmod: 440, chown: root:fhir)
     * If the private key is encrypted, add a password file with the password as the only content to **/opt/fhir/secrets/client_certificate_private_key.pem.password**
     * If the private key is not encrypted, remove the corresponding docker secret lines from the `docker-compose.yml` file
         ```
@@ -112,12 +112,12 @@ Here is a quick overview of the expected network setup.
         ```
 
     ::: tip How to chmod / chown
-    For the example *ssl_certificate_file.pem (chmod: 440, chown: fhir:docker)* you must:
+    For the example *ssl_certificate_file.pem (chmod: 440, chown: root:4101)* you must:
 
     1. Set the file content as requested
     2. Change the file permissions to 440 (allow read access to the owner of the file and the group the file belongs to, deny write access to everybody and deny read for other users):
     `chmod 440 /opt/fhir/secrets/ssl_certificate_file.pem`
-    3. Change the owner of the file to the user `fhir` and the group the file belongs to to `docker`:
+    3. Change the owner of the file to the user root and the group the file belongs to to the id 4101:
     `chown fhir:docker /opt/fhir/secrets/ssl_certificate_file.pem`
 
     :::
@@ -172,8 +172,8 @@ Here is a quick overview of the expected network setup.
 
 1. Add certificates and keys
     * Add the client certificate (Certificate _B_) and the corresponding private-key to **/opt/bpe/secrets/**
-        * client_certificate.pem (chmod: 440 chown: bpe:docker)
-        * client_certificate_private_key.pem (chmod: 440 chown: bpe:docker)
+        * client_certificate.pem (chmod: 440 chown: root:bpe)
+        * client_certificate_private_key.pem (chmod: 440 chown: root:bpe)
     * If the private key is encrypted, add a password file with the password as the only content to **/opt/bpe/secrets/client_certificate_private_key.pem.password**
     * If the private key is not encrypted, remove the corresponding docker secret lines from the `docker-compose.yml` file
         ```
