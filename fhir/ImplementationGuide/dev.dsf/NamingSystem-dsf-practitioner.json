@@ -1,0 +1,36 @@
+{
+  "resourceType" : "NamingSystem",
+  "id" : "dsf-practitioner",
+  "meta" : {
+    "tag" : [{
+      "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+      "code" : "ALL"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: NamingSystem dsf-practitioner</b></p><a name=\"dsf-practitioner\"> </a><a name=\"hcdsf-practitioner\"> </a><a name=\"dsf-practitioner-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class=\"grid\"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-practitioner</td></tr><tr><td>Name</td><td>DSF Practitioner Identifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>E-mail address identifying a practitioner</p>\n</div></td></tr><tr><td>Publisher</td><td>DSF Community</td></tr></table><h3>Identifiers</h3><table class=\"grid\"><tr><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td>Other</td><td>http://dsf.dev/sid/practitioner-identifier</td></tr></table></div>"
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url",
+    "valueUri" : "http://dsf.dev/fhir/NamingSystem/dsf-practitioner"
+  }],
+  "name" : "DSF Practitioner Identifier",
+  "status" : "active",
+  "kind" : "identifier",
+  "date" : "2023-06-28",
+  "publisher" : "DSF Community",
+  "contact" : [{
+    "name" : "DSF Community",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://dsf.dev"
+    }]
+  }],
+  "description" : "E-mail address identifying a practitioner",
+  "usage" : "Used withing the DSF to identify practitioners",
+  "uniqueId" : [{
+    "type" : "other",
+    "value" : "http://dsf.dev/sid/practitioner-identifier"
+  }]
+}
