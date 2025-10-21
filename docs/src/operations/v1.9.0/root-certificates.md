@@ -180,19 +180,19 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
 ### Other CAs
 
 * Root CA: **HARICA Client ECC Root CA 2021**
-  Info: https://crt.sh/?caid=202188
-  X509 Certificate: https://crt.sh/?id=1199354
-  Not after: Jan 18 23:59:59 2038 GMT
+  Info: https://crt.sh/?caid=202189
+  X509 Certificate: https://crt.sh/?id=4147052292
+  Not after: Feb 13 11:03:33 2045 GMT
   * Issuing CA: **HARICA Client Authentication ECC** [client certificates only]
-    Info: https://crt.sh/?caid=207670
+    Info: https://crt.sh/?caid=207671
     X509 Certificate: https://crt.sh/?id=4442848518
     Not after: Mar 15 09:17:38 2036 GMT
 * Root CA: **HHARICA Client RSA Root CA 2021**
-  Info: https://crt.sh/?caid=207670
-  X509 Certificate: https://crt.sh/?id=1199354
-  Not after: Jan 18 23:59:59 2038 GMT
+  Info: https://crt.sh/?caid=202188
+  X509 Certificate: https://crt.sh/?id=4147049674
+  Not after: Feb 13 10:58:45 2045 GMT
   * Issuing CA: **HARICA Client Authentication RSA** [client certificates only]
-    Info: https://crt.sh/?caid=207671
+    Info: https://crt.sh/?caid=207670
     X509 Certificate: https://crt.sh/?id=4442848531
     Not after: Mar 15 09:19:36 2036 GMT
 
