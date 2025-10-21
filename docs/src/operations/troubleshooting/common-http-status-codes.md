@@ -18,4 +18,7 @@ This HTTP status code is a result of trying to upload a resource that is too lar
 This HTTP status may be a result of a connection timeout if a forward proxy is used or when using ping pong 2.x in DSF 1.x with a download resource size of >400MB.
 
 # 502 Bad Gateway
-This HTTP status code is usually the response of a proxy because the server was unavailable or did not respond.
+This HTTP status code is usually the response of a proxy because the upstream server sent an invalid response.
+
+# 504 Gateway Timeout
+This HTTP status code is usually the response of a proxy because the upstream server did not send a response in time.
