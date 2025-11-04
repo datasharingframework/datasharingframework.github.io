@@ -32,4 +32,4 @@ Following the production release of DSF 2, further development of DSF 1 will be 
 
 The new API V2 is particularly relevant for stakeholders involved in the development of custom process plugins. Feedback and contributions to the ongoing development are welcome.
 
-Any changes to the current timeline will be communicated promptly. Upcomming datails will be available under [Operations](../operations/v2.0.0-M3/index.md). 
+Any changes to the current timeline will be communicated promptly. Upcomming datails will be available under [Operations](../operations/v2.0.0-RC1/index.md). 

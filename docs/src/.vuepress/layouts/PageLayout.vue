@@ -55,6 +55,7 @@ function navigateToNewVersion() {
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
         <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
+        <option value="v2.0.0-RC1">2.0.0-RC1</option>
         <option value="v1.9.0">latest (1.9.0)</option>
         <option value="v1.8.0">1.8.0</option>
         <option value="v1.7.1">1.7.1</option>
@@ -70,7 +71,6 @@ function navigateToNewVersion() {
         <option value="v1.2.0">1.2.0</option>
         <option value="v1.1.0">1.1.0</option>
         <option value="v1.0.0">1.0.0</option>
-        <option value="v2.0.0-M4">2.0.0-M4</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>
