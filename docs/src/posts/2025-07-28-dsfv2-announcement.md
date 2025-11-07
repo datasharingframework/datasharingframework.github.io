@@ -2,7 +2,7 @@
 title: "DSF 2.0 Announcement"
 date: 2025-07-28
 type: "news"
-excerpt: "We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. In this article is a  summary of what to expect in the upcoming release."
+excerpt: "We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. This article is a summary on what to expect in the upcoming release."
 article: true
 category: 
   - News

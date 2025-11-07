@@ -39,7 +39,11 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## News
+**DSF 2.0.0 - First Release Candidate (RC1)**
+We are happy to announce the DSF 2.0.0 Release Candidate (RC1)! This milestone represents a major advancement for the DSF, bringing new features and significant improvements. The RC1 release is now publicly available on the DSF GitHub. We highlight some of the key features, you can find more details in the full article.
+[Read more](/posts/2025-11-07-dsfv2-rc1)
 
+---
 
 **Operaton**
 The Data Sharing Framework is entering an exciting new phase. With the upcoming DSF 2.0 release, we are transitioning our business process engine from Camunda 7 to Operaton 1.0.0, a modern, open-source BPMN 2.0 engine. This move marks a significant step toward improved scalability and long-term maintainability. 
@@ -48,13 +52,8 @@ The Data Sharing Framework is entering an exciting new phase. With the upcoming 
 ---
 
 **DSF 2.0 Announcement**
-We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. In this article is a  summary of what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
+We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. This article is a summary on what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
 [Read more](/posts/2025-07-28-dsfv2-announcement)
-
----
-**Follow-up FHIR DevDays 2025**
-After much anticipation, the DSF team participated at the FHIR DevDays 2025. The Event was held from June 3rd until June 6th in Amsterdam. As the world’s largest event dedicated to HL7 FHIR, DevDays brings together health IT professionals from across the globe to deepen their understanding of the standard, to exchange knowledge, and to explore innovative real-world applications in healthcare!
-[Read more](/posts/2025-07-04-follow-up-fhir-devdays)
 
 --- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
