@@ -52,7 +52,7 @@ The Data Sharing Framework is entering an exciting new phase. With the upcoming 
 ---
 
 **DSF 2.0 Announcement**
-We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. This article is a  summary on what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
+We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. This article is a summary on what to expect in the upcoming release. Upcomming datails will be available under [Operations](operations/v2.0.0-M3/index.md)
 [Read more](/posts/2025-07-28-dsfv2-announcement)
 
 --- 
