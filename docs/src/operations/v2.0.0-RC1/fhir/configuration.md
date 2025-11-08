@@ -30,26 +30,26 @@ icon: config
 ### DEV_DSF_FHIR_CLIENT_TIMEOUT_CONNECT
 - **Property:** dev.dsf.fhir.client.timeout.connect
 - **Required:** No
-- **Description:** Timeout in milliseconds until a connection is established between this DSF FHIR server and a remote DSF FHIR server
+- **Description:** Timeout until a connection is established between this DSF FHIR server and a remote DSF FHIR server
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `2000`
+- **Default:** `PT2S`
 
 
 ### DEV_DSF_FHIR_CLIENT_TIMEOUT_READ
 - **Property:** dev.dsf.fhir.client.timeout.read
 - **Required:** No
-- **Description:** Timeout in milliseconds until a reading a resource from a remote DSF FHIR server is aborted
+- **Description:** Timeout until a reading a resource from a remote DSF FHIR server is aborted
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `10000`
+- **Default:** `PT10S`
 
 
 ### DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS
 - **Property:** dev.dsf.fhir.client.trust.server.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to remote DSF FHIR servers
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to remote DSF FHIR servers
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/app_client_trust_certificates.pem`
-- **Default:** `ca/server_cert_root_cas.pem`
+- **Default:** `ca/server_root_cas`
 
 
 ### DEV_DSF_FHIR_CLIENT_VERBOSE
@@ -188,7 +188,7 @@ icon: config
 - **Recommendation:** By convention: The shortest possible FQDN that resolve the homepage of the organization
 - **Example:** `hospital.com`
 
-
+TODO
 ### DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT
 - **Property:** dev.dsf.fhir.server.organization.thumbprint
 - **Required:** Yes
@@ -302,6 +302,13 @@ icon: config
 - **Default:** `false`
 
 
+### DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN_AUDIENCE
+- **Property:** dev.dsf.server.auth.oidc.bearer.token.audience
+- **Required:** No
+- **Description:** Audience (aud) value to verify before accepting OIDC bearer tokens, uses value from `DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID` by default, set blank string e.g. `''` to disable
+- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set tor `true`
+
+
 ### DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID
 - **Property:** dev.dsf.server.auth.oidc.client.id
 - **Required:** No
@@ -312,8 +319,6 @@ icon: config
 - **Property:** dev.dsf.server.auth.oidc.client.secret
 - **Required:** No
 - **Description:** OIDC provider client_secret, must be specified if *DEV_DSF_SERVER_AUTH_OIDC_AUTHORIZATION_CODE_FLOW* is enabled
-- **Recommendation:** Use docker secret file to configure
-- **Example:** `/run/secrets/oidc_provider_client.secret`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CERTIFICATE
@@ -340,27 +345,34 @@ icon: config
 - **Example:** `/run/secrets/oidc_provider_client_certificate_private_key.pem.password`
 
 
-### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CONNECTTIMEOUT
-- **Property:** dev.dsf.server.auth.oidc.provider.client.connectTimeout
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TIMEOUT_CONNECT
+- **Property:** dev.dsf.server.auth.oidc.provider.client.timeout.connect
 - **Required:** No
-- **Description:** OIDC provider client connect timeout in milliseconds
-- **Default:** `5000`
+- **Description:** OIDC provider client connect timeout
+- **Default:** `PT5S`
 
 
-### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_IDLETIMEOUT
-- **Property:** dev.dsf.server.auth.oidc.provider.client.idleTimeout
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TIMEOUT_READ
+- **Property:** dev.dsf.server.auth.oidc.provider.client.timeout.read
 - **Required:** No
-- **Description:** OIDC provider client idle timeout in milliseconds
-- **Default:** `30000`
+- **Description:** OIDC provider client read timeout
+- **Default:** `PT30S`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS
 - **Property:** dev.dsf.server.auth.oidc.provider.client.trust.server.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to the OIDC provider
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to the OIDC provider
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/oidc_provider_trust_certificates.pem`
-- **Default:** `ca/server_cert_root_cas.pem`
+- **Default:** `ca/server_root_cas`
+
+
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_DISCOVERY_PATH
+- **Property:** dev.dsf.server.auth.oidc.provider.discovery.path
+- **Required:** No
+- **Description:** OIDC provider dicovery path
+- **Default:** `/.well-known/openid-configuration`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL
@@ -373,10 +385,10 @@ icon: config
 ### DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS
 - **Property:** dev.dsf.server.auth.trust.client.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted full CA chains to validate client certificates for https connections from local and remote clients
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted full CA chains to validate client certificates for https connections from local and remote clients
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/app_client_trust_certificates.pem`
-- **Default:** `ca/client_cert_ca_chains.pem`
+- **Default:** `ca/client_ca_chains`
 
 
 ### DEV_DSF_SERVER_CERTIFICATE

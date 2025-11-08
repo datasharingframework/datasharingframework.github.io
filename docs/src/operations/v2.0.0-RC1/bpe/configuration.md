@@ -166,20 +166,115 @@ icon: config
 - **Example:** `/run/secrets/app_client_certificate_private_key.pem.password`
 
 
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG
+- **Property:** dev.dsf.bpe.fhir.client.connections.config
+- **Required:** No
+- **Description:** FHIR server connections YAML config for v2 process plugins
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_ENABLE_DEBUG_LOGGING
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `enable-debug-logging` and `oidc-auth.enable-debug-logging`
+- **Recommendation:** To enable debug logging of requests and reponses to configured FHIR servers by default set to `true`
+- **Default:** `false`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_ENABLE_DEBUG_LOGGING
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `oidc-auth.verify-authorized-party`
+- **Recommendation:** To disable verification of the authorized party (aud) claim by default set to `false`
+- **Default:** `true`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_OIDC_DISCOVERY_PATH
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.oidc.discovery.path
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for property `oidc-auth.discovery-path`
+- **Default:** `/.well-known/openid-configuration`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TEST_CONNECTION_ON_STARTUP
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.test.connection.on.startup
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `test-connection-on-startup` and `oidc-auth.test-connection-on-startup`
+- **Recommendation:** To perform connection tests on BPE startup to configured FHIR servers by default set to `true`
+- **Default:** `false`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TIMEOUT_CONNECT
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.timeout.connect
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `connect-timeout` and `oidc-auth.connect-timeout`
+- **Default:** `PT2S`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TIMEOUT_READ
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.timeout.read
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `read-timeout` and `oidc-auth.read-timeout`
+- **Default:** `PT10M`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TRUST_SERVER_CERTIFICATE_CAS
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.trust.server.certificate.cas
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `trusted-root-certificates-file` and `oidc-auth.trusted-root-certificates-file`. Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates.
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
+- **Example:** `/run/secrets/app_client_trust_certificates.pem`
+- **Default:** `ca/server_root_cas`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache
+- **Required:** No
+- **Description:** Set `false` to disable caching of OIDC dicovery and jwks resources as well as access tokens in the 'Client Credentials Grant' client; access tokens are evicted 10 seconds before they expire
+- **Default:** `true`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE_TIMEOUT_ACCESS_TOKEN
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache.timeout.access.token
+- **Required:** No
+- **Description:** OIDC 'Client Credentials Grant' client cache timeout of access tokens before they expire, duration is subtracted from the expires at value of the acess token
+- **Default:** `PT10S`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE_TIMEOUT_CONFIGURATION_RESOURCE
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache.timeout.configuration.resource
+- **Required:** No
+- **Description:** OIDC 'Client Credentials Grant' client cache timeout of the 'openid-configuration' discovery resource
+- **Default:** `PT1H`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE_TIMEOUT_JWKS_RESOURCE
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache.timeout.jwks.resource
+- **Required:** No
+- **Description:** OIDC 'Client Credentials Grant' client cache timeout of the jwks resource
+- **Default:** `PT1H`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_TIME_VALIDATION_LEEWAY
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.time.validation.leeway
+- **Required:** No
+- **Description:** OIDC 'Client Credentials Grant' client access token time validation leeway for 'Not Before', 'Issued At' and 'Expires At' values
+- **Default:** `PT10S`
+
+
 ### DEV_DSF_BPE_FHIR_CLIENT_LOCAL_TIMEOUT_CONNECT
 - **Property:** dev.dsf.bpe.fhir.client.local.timeout.connect
 - **Required:** No
-- **Description:** Timeout in milliseconds until a connection is established with the local DSF FHIR server
+- **Description:** Timeout until a connection is established with the local DSF FHIR server
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `2000`
+- **Default:** `PT2S`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_LOCAL_TIMEOUT_READ
 - **Property:** dev.dsf.bpe.fhir.client.local.timeout.read
 - **Required:** No
-- **Description:** Timeout in milliseconds until reading a resource from the local DSF FHIR server is aborted
+- **Description:** Timeout until reading a resource from the local DSF FHIR server is aborted
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `60000`
+- **Default:** `PT60S`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_LOCAL_VERBOSE
@@ -192,17 +287,17 @@ icon: config
 ### DEV_DSF_BPE_FHIR_CLIENT_REMOTE_TIMEOUT_CONNECT
 - **Property:** dev.dsf.bpe.fhir.client.remote.timeout.connect
 - **Required:** No
-- **Description:** Timeout in milliseconds until a connection is established with a remote DSF FHIR server
+- **Description:** Timeout until a connection is established with a remote DSF FHIR server
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `5000`
+- **Default:** `PT5S`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_REMOTE_TIMEOUT_READ
 - **Property:** dev.dsf.bpe.fhir.client.remote.timeout.read
 - **Required:** No
-- **Description:** Timeout in milliseconds until a reading a resource from a remote DSF FHIR server is aborted
+- **Description:** Timeout until a reading a resource from a remote DSF FHIR server is aborted
 - **Recommendation:** Change default value only if timeout exceptions occur
-- **Default:** `60000`
+- **Default:** `PT60S`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_REMOTE_VERBOSE
@@ -215,17 +310,17 @@ icon: config
 ### DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS
 - **Property:** dev.dsf.bpe.fhir.client.trust.server.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to local and remote DSF FHIR servers
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to local and remote DSF FHIR servers
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/app_client_trust_certificates.pem`
-- **Default:** `ca/server_cert_root_cas.pem`
+- **Default:** `ca/server_root_cas`
 
 
 ### DEV_DSF_BPE_FHIR_QUESTIONNAIRE_RESPONSE_SUBSCRIPTION_SEARCH_PARAMETER
 - **Property:** dev.dsf.bpe.fhir.questionnaire.response.subscription.search.parameter
 - **Required:** No
 - **Description:** Subscription to receive notifications about questionnaire response resources from the DSF FHIR server
-- **Default:** `?criteria=QuestionnaireResponse%3Fstatus%3Dcompleted&status=active&type=websocket&payload=application/fhir%2Bjson`
+- **Default:** `?criteria:exact=QuestionnaireResponse%3Fstatus%3Dcompleted&status=active&type=websocket&payload=application/fhir%2Bjson`
 
 
 ### DEV_DSF_BPE_FHIR_SERVER_BASE_URL
@@ -245,15 +340,15 @@ icon: config
 ### DEV_DSF_BPE_FHIR_TASK_SUBSCRIPTION_RETRY_SLEEP
 - **Property:** dev.dsf.bpe.fhir.task.subscription.retry.sleep
 - **Required:** No
-- **Description:** Milliseconds between two retries to establish a websocket connection with the DSF FHIR server
-- **Default:** `5000`
+- **Description:** Time between two retries to establish a websocket connection with the DSF FHIR server
+- **Default:** `PT5S`
 
 
 ### DEV_DSF_BPE_FHIR_TASK_SUBSCRIPTION_SEARCH_PARAMETER
 - **Property:** dev.dsf.bpe.fhir.task.subscription.search.parameter
 - **Required:** No
 - **Description:** Subscription to receive notifications about task resources from the DSF FHIR server
-- **Default:** `?criteria=Task%3Fstatus%3Drequested&status=active&type=websocket&payload=application/fhir%2Bjson`
+- **Default:** `?criteria:exact=Task%3Fstatus%3Drequested&status=active&type=websocket&payload=application/fhir%2Bjson`
 
 
 ### DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE
@@ -377,10 +472,10 @@ icon: config
 ### DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS
 - **Property:** dev.dsf.bpe.mail.trust.server.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted root certificates to validate the server certificate of the SMTP server. Requires SMTP over TLS to be enabled via *DEV_DSF_BPE_MAIL_USESMTPS*
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates to validate the server certificate of the SMTP server. Requires SMTP over TLS to be enabled via *DEV_DSF_BPE_MAIL_USESMTPS*
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/smtp_server_trust_certificates.pem`
-- **Default:** `ca/server_cert_root_cas.pem`
+- **Default:** `ca/server_root_cas`
 
 
 ### DEV_DSF_BPE_MAIL_USERNAME
@@ -395,6 +490,41 @@ icon: config
 - **Required:** No
 - **Description:** To enable SMTP over TLS (smtps), set to `true`
 - **Default:** `false`
+
+
+### DEV_DSF_BPE_PROCESS_API_ALLOWED_BPE_CLASSES
+- **Property:** dev.dsf.bpe.process.api.allowed.bpe.classes
+- **Required:** No
+- **Description:** Map with files containing qualified classs names allowed to be loaded by plugins for api versions; map key must match v([1-9]+[0-9]*)
+- **Recommendation:** Change only during development
+- **Example:** `{v1: 'some/example.file', v2: 'other.file'}`
+- **Default:** `{:}`
+
+
+### DEV_DSF_BPE_PROCESS_API_ALLOWED_BPE_RESOURCE
+- **Property:** dev.dsf.bpe.process.api.allowed.bpe.resource
+- **Required:** No
+- **Description:** Map with files containing resources allowed to be loaded by plugins for api versions; map key must match v([1-9]+[0-9]*)
+- **Recommendation:** Change only during development
+- **Example:** `{v1: 'some/example.file', v2: 'other.file'}`
+- **Default:** `{:}`
+
+
+### DEV_DSF_BPE_PROCESS_API_DIRECTORY
+- **Property:** dev.dsf.bpe.process.api.directory
+- **Required:** No
+- **Description:** Directory containing the DSF BPE process plugin api jar files
+- **Recommendation:** Change only during development
+- **Default:** `api`
+
+
+### DEV_DSF_BPE_PROCESS_API_RESOURCES_WITH_PRIORITY
+- **Property:** dev.dsf.bpe.process.api.resources.with.priority
+- **Required:** No
+- **Description:** Map with files containing api/plugin resource with priority over bpe resources for plugins for api versions; map key must match v([1-9]+[0-9]*)
+- **Recommendation:** Change only during development
+- **Example:** `{v1: 'some/example.file', v2: 'other.file'}`
+- **Default:** `{:}`
 
 
 ### DEV_DSF_BPE_PROCESS_ENGINE_COREPOOLSIZE
@@ -436,16 +566,30 @@ icon: config
 ### DEV_DSF_BPE_PROCESS_FHIR_SERVER_RETRY_SLEEP
 - **Property:** dev.dsf.bpe.process.fhir.server.retry.sleep
 - **Required:** No
-- **Description:** Milliseconds between two retries to establish a connection with the local DSF FHIR server during process deployment
-- **Default:** `5000`
+- **Description:** Time between two retries to establish a connection with the local DSF FHIR server during process deployment
+- **Default:** `PT5S`
 
 
-### DEV_DSF_BPE_PROCESS_PLUGIN_DIRECTROY
-- **Property:** dev.dsf.bpe.process.plugin.directroy
+### DEV_DSF_BPE_PROCESS_FHIR_VALIDATION_ENABLED
+- **Property:** dev.dsf.bpe.process.fhir.validation.enabled
+- **Required:** No
+- **Description:** Set to true to enable FHIR validation feature for process plugins, not implemented for DSF version 2.0.x
+- **Default:** `false`
+
+
+### DEV_DSF_BPE_PROCESS_PLUGIN_DIRECTORY
+- **Property:** dev.dsf.bpe.process.plugin.directory
 - **Required:** No
 - **Description:** Directory containing the DSF BPE process plugins for deployment on startup of the DSF BPE server
 - **Recommendation:** Change only if you don't use the provided directory structure from the installation guide or made changes to tit
 - **Default:** `process`
+
+
+### DEV_DSF_BPE_PROCESS_PLUGIN_EXPLODED
+- **Property:** dev.dsf.bpe.process.plugin.exploded
+- **Required:** No
+- **Description:** Directories containing exploded DSF BPE process plugins for deployment on startup of the DSF BPE server; comma or space separated list, YAML block scalars supported
+- **Recommendation:** Only for testing
 
 
 ### DEV_DSF_BPE_PROCESS_RETIRED
@@ -570,6 +714,13 @@ icon: config
 - **Default:** `false`
 
 
+### DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN_AUDIENCE
+- **Property:** dev.dsf.server.auth.oidc.bearer.token.audience
+- **Required:** No
+- **Description:** Audience (aud) value to verify before accepting OIDC bearer tokens, uses value from `DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID` by default, set blank string e.g. `''` to disable
+- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set tor `true`
+
+
 ### DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID
 - **Property:** dev.dsf.server.auth.oidc.client.id
 - **Required:** No
@@ -580,8 +731,6 @@ icon: config
 - **Property:** dev.dsf.server.auth.oidc.client.secret
 - **Required:** No
 - **Description:** OIDC provider client_secret, must be specified if *DEV_DSF_SERVER_AUTH_OIDC_AUTHORIZATION_CODE_FLOW* is enabled
-- **Recommendation:** Use docker secret file to configure
-- **Example:** `/run/secrets/oidc_provider_client.secret`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CERTIFICATE
@@ -608,27 +757,34 @@ icon: config
 - **Example:** `/run/secrets/oidc_provider_client_certificate_private_key.pem.password`
 
 
-### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CONNECTTIMEOUT
-- **Property:** dev.dsf.server.auth.oidc.provider.client.connectTimeout
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TIMEOUT_CONNECT
+- **Property:** dev.dsf.server.auth.oidc.provider.client.timeout.connect
 - **Required:** No
-- **Description:** OIDC provider client connect timeout in milliseconds
-- **Default:** `5000`
+- **Description:** OIDC provider client connect timeout
+- **Default:** `PT5S`
 
 
-### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_IDLETIMEOUT
-- **Property:** dev.dsf.server.auth.oidc.provider.client.idleTimeout
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TIMEOUT_READ
+- **Property:** dev.dsf.server.auth.oidc.provider.client.timeout.read
 - **Required:** No
-- **Description:** OIDC provider client idle timeout in milliseconds
-- **Default:** `30000`
+- **Description:** OIDC provider client read timeout
+- **Default:** `PT30S`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS
 - **Property:** dev.dsf.server.auth.oidc.provider.client.trust.server.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to the OIDC provider
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted root certificates to validate server certificates for https connections to the OIDC provider
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/oidc_provider_trust_certificates.pem`
-- **Default:** `ca/server_cert_root_cas.pem`
+- **Default:** `ca/server_root_cas`
+
+
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_DISCOVERY_PATH
+- **Property:** dev.dsf.server.auth.oidc.provider.discovery.path
+- **Required:** No
+- **Description:** OIDC provider dicovery path
+- **Default:** `/.well-known/openid-configuration`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL
@@ -641,10 +797,10 @@ icon: config
 ### DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS
 - **Property:** dev.dsf.server.auth.trust.client.certificate.cas
 - **Required:** No
-- **Description:** PEM encoded file with one or more trusted full CA chains to validate client certificates for https connections from local and remote clients
-- **Recommendation:** Use docker secret file to configure
+- **Description:** Folder with PEM encoded files (*.crt, *.pem) or a single PEM encoded file with one or more trusted full CA chains to validate client certificates for https connections from local and remote clients
+- **Recommendation:** Add file to default folder via bind mount or use docker secret file to configure
 - **Example:** `/run/secrets/app_client_trust_certificates.pem`
-- **Default:** `ca/client_cert_ca_chains.pem`
+- **Default:** `ca/client_ca_chains`
 
 
 ### DEV_DSF_SERVER_CERTIFICATE
