@@ -176,7 +176,7 @@ icon: config
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
 - **Required:** No
 - **Description:** FHIR server connections YAML: Default value for properties `enable-debug-logging` and `oidc-auth.enable-debug-logging`
-- **Recommendation:** To enable debug logging of requests and reponses to configured FHIR servers by default set to `true`
+- **Recommendation:** To enable debug logging of requests and responses to configured FHIR servers by default set to `true`
 - **Default:** `false`
 
 
@@ -229,14 +229,14 @@ icon: config
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache
 - **Required:** No
-- **Description:** Set `false` to disable caching of OIDC dicovery and jwks resources as well as access tokens in the 'Client Credentials Grant' client; access tokens are evicted 10 seconds before they expire
+- **Description:** Set `false` to disable caching of OIDC discovery and jwks resources as well as access tokens in the 'Client Credentials Grant' client; access tokens are evicted 10 seconds before they expire
 - **Default:** `true`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_OIDC_CACHE_TIMEOUT_ACCESS_TOKEN
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.oidc.cache.timeout.access.token
 - **Required:** No
-- **Description:** OIDC 'Client Credentials Grant' client cache timeout of access tokens before they expire, duration is subtracted from the expires at value of the acess token
+- **Description:** OIDC 'Client Credentials Grant' client cache timeout of access tokens before they expire, duration is subtracted from the expires at value of the access token
 - **Default:** `PT10S`
 
 
@@ -407,7 +407,7 @@ icon: config
 - **Property:** dev.dsf.bpe.mail.password
 - **Required:** No
 - **Description:** SMTP server authentication password
-- **Recommendation:** Configure if the SMTP server reqiures username/password authentication; use docker secret file to configure using *DEV_DSF_BPE_MAIL_PASSWORD_FILE*; enable SMTP over TLS via *DEV_DSF_BPE_MAIL_USESMTPS*
+- **Recommendation:** Configure if the SMTP server requires username/password authentication; use docker secret file to configure using *DEV_DSF_BPE_MAIL_PASSWORD_FILE*; enable SMTP over TLS via *DEV_DSF_BPE_MAIL_USESMTPS*
 
 
 ### DEV_DSF_BPE_MAIL_PORT
@@ -482,7 +482,7 @@ icon: config
 - **Property:** dev.dsf.bpe.mail.username
 - **Required:** No
 - **Description:** SMTP server authentication username
-- **Recommendation:** Configure if the SMTP server reqiures username/password authentication; enable SMTP over TLS via *DEV_DSF_BPE_MAIL_USESMTPS*
+- **Recommendation:** Configure if the SMTP server requires username/password authentication; enable SMTP over TLS via *DEV_DSF_BPE_MAIL_USESMTPS*
 
 
 ### DEV_DSF_BPE_MAIL_USESMTPS
@@ -495,7 +495,7 @@ icon: config
 ### DEV_DSF_BPE_PROCESS_API_ALLOWED_BPE_CLASSES
 - **Property:** dev.dsf.bpe.process.api.allowed.bpe.classes
 - **Required:** No
-- **Description:** Map with files containing qualified classs names allowed to be loaded by plugins for api versions; map key must match v([1-9]+[0-9]*)
+- **Description:** Map with files containing qualified class names allowed to be loaded by plugins for api versions; map key must match v([1-9]+[0-9]*)
 - **Recommendation:** Change only during development
 - **Example:** `{v1: 'some/example.file', v2: 'other.file'}`
 - **Default:** `{:}`
@@ -632,13 +632,125 @@ icon: config
 ### DEV_DSF_BPE_SERVER_UI_THEME
 - **Property:** dev.dsf.bpe.server.ui.theme
 - **Required:** No
-- **Description:** UI theme parameter, adds a color indicator to the ui to distinguish `dev`, `test` and `prod` environments im configured; supported values: `dev`, `test` and `prod`
+- **Description:** UI theme parameter, adds a color indicator to the ui to distinguish `dev`, `test` and `prod` environments if configured; supported values: `dev`, `test` and `prod`
+
+
+### DEV_DSF_LOG_CONFIG
+- **Property:** dev.dsf.log.config
+- **Required:** No
+- **Description:** Location of a log4j configuration xml file; if file is readable, overrides configuration specified via *DEV_DSF_LOG_...* parameters
+- **Default:** `conf/log4j2.xml`
+
+
+### DEV_DSF_LOG_CONSOLE_ERR_ENABLED
+- **Property:** dev.dsf.log.console.err.enabled
+- **Required:** No
+- **Description:** Set to `true` to enable console err output of the standard logger
+- **Default:** `false`
+
+
+### DEV_DSF_LOG_CONSOLE_ERR_LEVEL
+- **Property:** dev.dsf.log.console.err.level
+- **Required:** No
+- **Description:** Standard logger console err output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
+- **Default:** `INFO`
+
+
+### DEV_DSF_LOG_CONSOLE_ERR_STYLE
+- **Property:** dev.dsf.log.console.err.style
+- **Required:** No
+- **Description:** Standard logger console err output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`, `TEXT_COLOR_MDC`, `TEXT_COLOR`
+- **Default:** `TEXT_COLOR`
+
+
+### DEV_DSF_LOG_CONSOLE_OUT_ENABLED
+- **Property:** dev.dsf.log.console.out.enabled
+- **Required:** No
+- **Description:** Set to `false` to disable console out output of the standard logger
+- **Default:** `true`
+
+
+### DEV_DSF_LOG_CONSOLE_OUT_LEVEL
+- **Property:** dev.dsf.log.console.out.level
+- **Required:** No
+- **Description:** Standard logger console out output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
+- **Default:** `INFO`
+
+
+### DEV_DSF_LOG_CONSOLE_OUT_STYLE
+- **Property:** dev.dsf.log.console.out.style
+- **Required:** No
+- **Description:** Standard logger console out output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`, `TEXT_COLOR_MDC`, `TEXT_COLOR`
+- **Default:** `TEXT_COLOR`
+
+
+### DEV_DSF_LOG_DATA_CONSOLE_ERR_ENABLED
+- **Property:** dev.dsf.log.data.console.err.enabled
+- **Required:** No
+- **Description:** Set to `true` to enable console err output of the special data logger; the data logger can be used by process plugins to log sensitive data
+- **Default:** `false`
+
+
+### DEV_DSF_LOG_DATA_CONSOLE_ERR_STYLE
+- **Property:** dev.dsf.log.data.console.err.style
+- **Required:** No
+- **Description:** Special data logger console err style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
+- **Default:** `TEXT`
+
+
+### DEV_DSF_LOG_DATA_CONSOLE_OUT_ENABLED
+- **Property:** dev.dsf.log.data.console.out.enabled
+- **Required:** No
+- **Description:** Set to `true` to enable console out output of the special data logger; the data logger can be used by process plugins to log sensitive data
+- **Default:** `false`
+
+
+### DEV_DSF_LOG_DATA_CONSOLE_OUT_STYLE
+- **Property:** dev.dsf.log.data.console.out.style
+- **Required:** No
+- **Description:** Special data logger console out style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
+- **Default:** `TEXT`
+
+
+### DEV_DSF_LOG_DATA_FILE_ENABLED
+- **Property:** dev.dsf.log.data.file.enabled
+- **Required:** No
+- **Description:** Set to `true` to enable log file output of the special data logger; the data logger can be used by process plugins to log sensitive data
+- **Default:** `false`
+
+
+### DEV_DSF_LOG_DATA_FILE_STYLE
+- **Property:** dev.dsf.log.data.file.style
+- **Required:** No
+- **Description:** Special data logger file style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
+- **Default:** `TEXT`
+
+
+### DEV_DSF_LOG_FILE_ENABLED
+- **Property:** dev.dsf.log.file.enabled
+- **Required:** No
+- **Description:** Set to `false` to disable log file output of the standard logger
+- **Default:** `true`
+
+
+### DEV_DSF_LOG_FILE_LEVEL
+- **Property:** dev.dsf.log.file.level
+- **Required:** No
+- **Description:** Standard logger log file output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
+- **Default:** `DEBUG`
+
+
+### DEV_DSF_LOG_FILE_STYLE
+- **Property:** dev.dsf.log.file.style
+- **Required:** No
+- **Description:** Standard logger log file output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
+- **Default:** `TEXT_MDC`
 
 
 ### DEV_DSF_PROXY_NOPROXY
 - **Property:** dev.dsf.proxy.noProxy
 - **Required:** No
-- **Description:** Forward proxy no-proxy list, entries will match exactly or agianst (one level) sub-domains, if no port is specified - all ports are matched; comma or space separated list, YAML block scalars supported
+- **Description:** Forward proxy no-proxy list, entries will match exactly or against (one level) sub-domains, if no port is specified - all ports are matched; comma or space separated list, YAML block scalars supported
 - **Example:** `foo.bar, test.com:8080`
 
 
@@ -783,7 +895,7 @@ icon: config
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_DISCOVERY_PATH
 - **Property:** dev.dsf.server.auth.oidc.provider.discovery.path
 - **Required:** No
-- **Description:** OIDC provider dicovery path
+- **Description:** OIDC provider discovery path
 - **Default:** `/.well-known/openid-configuration`
 
 
