@@ -188,12 +188,12 @@ icon: config
 - **Recommendation:** By convention: The shortest possible FQDN that resolve the homepage of the organization
 - **Example:** `hospital.com`
 
-TODO
+
 ### DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT
 - **Property:** dev.dsf.fhir.server.organization.thumbprint
-- **Required:** Yes
-- **Description:** The SHA-512 thumbprint of the local organization client certificate
-- **Recommendation:** The thumbprint can be calculated via `certtool --fingerprint --hash=sha512 --infile=client_certificate.pem`
+- **Required:** No
+- **Description:** The SHA-512 thumbprint of the local organization client certificate; will be calculated on startup based on the client certificate specified via *DEV_DSF_FHIR_CLIENT_CERTIFICATE*
+- **Recommendation:** Do not specify this variable when using the same client certificate for the FHIR and BPE server; the thumbprint can be calculated via `certtool --fingerprint --hash=sha512 --infile=client_certificate.pem`
 
 
 ### DEV_DSF_FHIR_SERVER_PAGE_COUNT
