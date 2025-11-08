@@ -47,7 +47,7 @@ icon: config
 
 ### SSL_CA_CERTIFICATE_FILE
 - **Required:** No
-- **Description:** Certificate chain file including all issuing, intermediate and root certificates used to validate client certificates, PEM encoded, sets the apache httpd parameter `SSLCACertificateFile`; not used by default, overrides `SSL_CA_CERTIFICATE_PATH` if not empty
+- **Description:** Certificate chain file including all issuing, intermediate and root certificates used to validate client certificates, PEM encoded, sets the apache httpd parameter `SSLCACertificateFile`; not used by default, overrides *SSL_CA_CERTIFICATE_PATH* if not empty
 
 
 ### SSL_CA_CERTIFICATE_PATH
@@ -59,33 +59,33 @@ icon: config
 
 ### SSL_CA_DN_REQUEST_FILE
 - **Required:** No
-- **Description:** File containing all signing certificates excepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from `SSL_CA_CERTIFICATE_FILE` are used; not used by default, overrides `SSL_CA_DN_REQUEST_PATH` if not empty
+- **Description:** File containing all signing certificates excepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from *SSL_CA_CERTIFICATE_FILE* are used; not used by default, overrides *SSL_CA_DN_REQUEST_PATH* if not empty
 
 
 ### SSL_CA_DN_REQUEST_PATH
 - **Required:** No
-- **Description:**  Folder with trusted client certificate issuing CAs, modifies the "Acceptable client certificate CA names" send to the client, uses all from `SSL_CA_CERTIFICATE_FILE` or `SSL_CA_CERTIFICATE_PATH` if not set or empty
+- **Description:**  Folder with trusted client certificate issuing CAs, modifies the "Acceptable client certificate CA names" send to the client, uses all from *SSL_CA_CERTIFICATE_FILE* or *SSL_CA_CERTIFICATE_PATH* if not set or empty
 - **Recommendation:** Override default folder content via bind mount or add *.crt files to default folder via bind mount
 - **Default:** `ca/client_issuing_cas`
 
 
 ### SSL_CERTIFICATE_CHAIN_FILE
 - **Required:** No
-- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via `SSL_CERTIFICATE_FILE` contains the certificate chain
+- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via *SSL_CERTIFICATE_FILE* contains the certificate chain
 - **Recommendation:** Use docker secret file to configure
 - **Example:** `/run/secrets/ssl_certificate_chain_file.pem`
 
 
 ### SSL_CERTIFICATE_CHAIN_FILE
 - **Required:** No
-- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via `SSL_CERTIFICATE_FILE` contains the certificate chain
+- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via *SSL_CERTIFICATE_FILE* contains the certificate chain
 - **Recommendation:** Use docker secret file to configure
 - **Example:** `/run/secrets/ssl_certificate_chain_file.pem`
 
 
 ### SSL_CERTIFICATE_FILE
 - **Required:** Yes
-- **Description:** Server certificate file, PEM encoded, sets the apache httpd parameter `SSLCertificateFile`, may contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate). Omit `SSL_CERTIFICATE_CHAIN_FILE` if chain included
+- **Description:** Server certificate file, PEM encoded, sets the apache httpd parameter `SSLCertificateFile`, may contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate). Omit *SSL_CERTIFICATE_CHAIN_FILE* if chain included
 - **Recommendation:** Use docker secret file to configure
 - **Example:** `/run/secrets/ssl_certificate_file.pem`
 
