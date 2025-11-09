@@ -20,7 +20,7 @@ In the following installation manual we will show you how you can install your o
 * DSF FHIR VM: min. 4 GB RAM, 4 vCPU, 20 GB HDD
 * DSF BPE VM: min. 4 GB RAM, 4 vCPU, 20 GB HDD
 ### Docker / Docker-Compose
-Both VMs need latest docker (>= 24.0.0) and docker compose. For the latest install guide see https://docs.docker.com/engine/install. 
+Both VMs need latest docker and docker compose. For the latest install guide see https://docs.docker.com/engine/install. 
 
 ```
 sudo apt-get update
@@ -112,8 +112,8 @@ Here is a quick overview of the expected network setup.
         ...
         L47:      DEV_DSF_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE: /run/secrets/app_client_certificate_private_key.pem.password
         ...
-        L109:  app_client_certificate_private_key.pem.password:
-        L110:    file: ./secrets/client_certificate_private_key.pem.password
+        L105:  app_client_certificate_private_key.pem.password:
+        L106:    file: ./secrets/client_certificate_private_key.pem.password
         ```
 
     ::: tip How to chmod / chown
@@ -145,9 +145,6 @@ Here is a quick overview of the expected network setup.
             Set your Organizations DSF identifier, aka the shortest FQDN that resolves to the main homepage of the organization, e.g. `hs-heilbronn.de`
         * **DEV_DSF_FHIR_SERVER_BASE_URL**: `https://dsf.todo.organization.com/fhir`  
             Set your FHIR servers external FQDN, e.g. `foo.bar.de` -> `https://foo.bar.de/fhir`
-        * **DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT**: `f4344032fe77bffb912ff5abfd44da89fe64d355affb8d0f14c9ecb8bdbf92c7fe5f995b1ec0c453e4228b395e331052e4639044df4933d57721de508a84d26f`  
-            Set the SHA-512 Hash (lowercase hex) of your client certificate (Certificate _B_)  
-            Use `certtool --fingerprint --hash=sha512 --infile=client_certificate.pem` to generate the hash.
         * **DEV_DSF_FHIR_SERVER_ROLECONFIG**: `|`
             (Optional) You can add other client certificates (e.g. personal certificates from admins) to your DSF instance. For additional information, see the FHIR server [Access Control](fhir/access-control) page.
             
@@ -182,12 +179,12 @@ Here is a quick overview of the expected network setup.
     * If the private key is encrypted, add a password file with the password as the only content to **/opt/bpe/secrets/client_certificate_private_key.pem.password**
     * If the private key is not encrypted, remove the corresponding docker secret lines from the `docker-compose.yml` file
         ```
-        L12:      - app_client_certificate_private_key.pem.password
+        L11:      - app_client_certificate_private_key.pem.password
         ...
-        L32:      DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE: /run/secrets/app_client_certificate_private_key.pem.password
+        L31:      DEV_DSF_BPE_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE: /run/secrets/app_client_certificate_private_key.pem.password
         ...
-        L83:  app_client_certificate_private_key.pem.password:
-        L84:    file: ./secrets/client_certificate_private_key.pem.password
+        L82:  app_client_certificate_private_key.pem.password:
+        L83:    file: ./secrets/client_certificate_private_key.pem.password
         ```
 1. Modify database passwords
     * **/opt/bpe/secrets/db_liquibase.password**
@@ -218,7 +215,7 @@ Here is a quick overview of the expected network setup.
 
 
 ### Logs
-By default, we will log both to the console (collected by docker) and to files in the log directory, so you can use `docker compose logs -f` in `/opt/bpe` and `/opt/fhir` to view informational, warning and error logs. If you encounter any error and the reported information is not detailled enough, you can also check the logs in the `/opt/fhir/log` and `/opt/bpe/log` directories with debugging logs. There, you will also find older log files. If you have any questions and can't resolve them by yourself please always include the latest logs from `/opt/fhir/log` and `/opt/bpe/log` in your support request.
+By default, we will log both to the console (collected by docker) and to files in the log directory, so you can use `docker compose logs -f` in `/opt/bpe` and `/opt/fhir` to view informational, warning and error logs. If you encounter any error and the reported information is not detailed enough, you can also check the logs in the `/opt/fhir/log` and `/opt/bpe/log` directories with debugging logs. There, you will also find older log files. If you have any questions and can't resolve them by yourself please always include the latest logs from `/opt/fhir/log` and `/opt/bpe/log` in your support request.
 
 On a successful BPE start, you should see the following entries in your BPE log:
 

@@ -38,8 +38,12 @@ When upgrading from DSF version < 1.9.0 it is important to migrate to [DSF 1.9.0
 +    image: ghcr.io/datasharingframework/fhir:2.0.0-RC1
      restart: on-failure
 ...
+     environment:
+-      DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT: f4344032fe77bffb...
+...
  
 ```
+The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not need to be specified starting version 2.0.0-RC1. The thumbprint is now calculated based on the client certificate specified via `DEV_DSF_FHIR_CLIENT_CERTIFICATE`.
 
 
 3. Upgrade the DSF FHIR containers  
