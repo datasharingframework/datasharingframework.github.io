@@ -39,6 +39,10 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## News
+**DSF at the Operaton Release Party!**
+On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team will attend the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). Don’t miss out on this exciting event and attend in person or through the livestream! [Read more](/posts/2025-11-12-operaton-release-party)
+
+---
 **DSF 2.0.0 - First Release Candidate (RC1)**
 We are happy to announce the DSF 2.0.0 Release Candidate (RC1)! This milestone represents a major advancement for the DSF, bringing new features and significant improvements. The RC1 release is now publicly available on the DSF GitHub. We highlight some of the key features, you can find more details in the full article.
 [Read more](/posts/2025-11-07-dsfv2-rc1)
@@ -51,11 +55,6 @@ The Data Sharing Framework is entering an exciting new phase. With the upcoming 
 
 ---
 
-**DSF 2.0 Announcement**
-We’re excited to announce that the next major release, DSF 2.0, is currently in development! This update brings significant improvements and new features designed to enhance performance and usability. This article is a summary on what to expect in the upcoming release. Upcoming details will be available under [Operations](operations/v2.0.0-RC1/index.md)
-[Read more](/posts/2025-07-28-dsfv2-announcement)
-
---- 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
 <div class="image-container">
