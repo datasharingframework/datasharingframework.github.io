@@ -39,8 +39,15 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## News
+
+**Recap: DSF Community Meeting 2025 in Heidelberg**
+The DSF Community meet-up in Heidelberg brought together developers and contributoers to share ideas and discuss the latest progress in the DSF Community project. Highlights included updates on DSF 2.0, API 2.0, and a sneak peek at the new Linter Tool. The event wrapped up with a look ahead to 2026. 
+[Read more](/posts/2025-11-18-dsf-meet-up-2025)
+
+---
 **DSF at the Operaton Release Party!**
-On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team will attend the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). Don’t miss out on this exciting event and attend in person or through the livestream! [Read more](/posts/2025-11-12-operaton-release-party)
+On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team will attend the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). Don’t miss out on this exciting event and attend in person or through the livestream! 
+[Read more](/posts/2025-11-12-operaton-release-party)
 
 ---
 **DSF 2.0.0 - First Release Candidate (RC1)**
@@ -49,11 +56,6 @@ We are happy to announce the DSF 2.0.0 Release Candidate (RC1)! This milestone r
 
 ---
 
-**Operaton**
-The Data Sharing Framework is entering an exciting new phase. With the upcoming DSF 2.0 release, we are transitioning our business process engine from Camunda 7 to Operaton 1.0.0, a modern, open-source BPMN 2.0 engine. This move marks a significant step toward improved scalability and long-term maintainability. 
-[Read more](/posts/2025-10-02-operaton-DSF-2.0)
-
----
 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
