@@ -10,7 +10,7 @@ The DSF BPE server supports [Authorization Code Flow](https://openid.net/specs/o
 
 
 ::: tip BPE Reverse Proxy
-The DSF BPE reverse proxy requires client certificates by default. To use OpenID Connect authentication the configuration parameter [SSL_VERIFY_CLIENT](configuration/reverseproxy.html#ssl-verify-client) needs to be set to `optional`.
+The DSF BPE reverse proxy requires client certificates by default. To use OpenID Connect authentication the configuration parameter [SSL_VERIFY_CLIENT](../bpe-reverse-proxy/configuration.html#ssl-verify-client) needs to be set to `optional`.
 :::
 
 

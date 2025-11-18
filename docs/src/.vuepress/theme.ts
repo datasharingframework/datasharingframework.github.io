@@ -5,42 +5,57 @@ import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v
 export default hopeTheme({
   author: {
     name: "DSF-Team",
-    url: "/community/team.html", 
+    url: "/community/team.html",
   },
-  
+
 
 
   logo: "/photos/home/logo-small.svg",
   darkmode: "toggle",
   contributors: false,
 
-  
+
   navbar: [
     {
       text: "Home",
       icon: "home",
       link: "/",
-    },  
+    },
     {
-        text: "Explore",
-        icon: "info",
-        link: "/explore/",
-        prefix: "/explore/",
-        children: ["concepts/introduction", "use-cases/", "publications", "/security/", "/news/"],
+      text: "Explore",
+      icon: "info",
+      link: "/explore/",
+      prefix: "/explore/",
+      children: ["concepts/introduction", "use-cases/", "publications", "/security/", "/news/"],
     },
     {
       text: "Operations",
       icon: "launch",
       prefix: "/operations/",
-      children: [ "get-started.md", "process-plugin-deployment.md", "old-versions.md"],
+      children: [
+        {
+          text: "Operations",
+          icon: "launch",
+          prefix: "/operations/",
+          children: [{
+            text: "Current version - 1.9.0",
+            link: "get-started.md",
+            icon: "launch"
+          }, {
+            text: "Next version - 2.0.0-RC2",
+            link: "v2.0.0-RC2/",
+            icon: "launch"
+          }, "old-versions.md"],
+        },
+      ],
     },
     {
       text: "Process Development",
       icon: "plugin",
       prefix: "/process-development/",
-      children: [ "api-v1/", "api-v2/" ]
+      children: ["api-v1/", "api-v2/"]
     },
-     {
+    {
       text: "DSF Development",
       icon: "info",
       link: "/dsf-development/",
@@ -48,7 +63,7 @@ export default hopeTheme({
     {
       text: "Community",
       icon: "creative",
-      prefix: "/community/",  
+      prefix: "/community/",
       children: [
         "team",
         "communication",
@@ -64,8 +79,8 @@ export default hopeTheme({
       link: "https://github.com/datasharingframework/dsf",
     },
   ],
- 
- 
+
+
   sidebar: {
     "/": [
       {
@@ -83,7 +98,7 @@ export default hopeTheme({
         icon: "info",
         prefix: "explore/",
         link: "explore/",
-        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"], 
+        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"],
       },
       {
         text: "Security Disclosure Policy",
@@ -95,7 +110,7 @@ export default hopeTheme({
         icon: "any",
         prefix: "explore/use-cases/",
         link: "explore/use-cases/",
-      }, 
+      },
       {
         text: "Publications",
         icon: "blog",
@@ -106,7 +121,7 @@ export default hopeTheme({
         icon: "creative",
         link: "tag/awards/",
       },
-     
+
     ],
     "/hackathon": [],
     "/spring-school": [],
@@ -114,7 +129,7 @@ export default hopeTheme({
     "/operations/old-versions": [],
     "/operations/latest/": generate_v1_latest_sidebar(),
     "/operations/next/": [],
-    "/operations/v2.0.0-RC1/": generate_v2_latest_sidebar(),
+    "/operations/v2.0.0-RC2/": generate_v2_latest_sidebar(),
     "/operations/v1.9.0/": generate_v1_latest_sidebar(),
     "/operations/v1.8.0/": generate_v1_gt_eq_1_7_0_sidebar(),
     "/operations/v1.7.1/": generate_v1_gt_eq_1_7_0_sidebar(),
@@ -136,173 +151,173 @@ export default hopeTheme({
         icon: "",
         prefix: "api-v1/",
         link: "api-v1/",
-        children: [ "get-started", {
+        children: ["get-started", {
           text: "Concepts",
           icon: "info",
           link: "concept",
           collapsible: true,
           children: [
-      {
-        text: "BPMN",
-        prefix: "bpmn/",
-        collapsible: true,
-        children: [
-          "conditions",
-          "gateways",
-          "messaging",
-          "sequence-flow",
-          "service-tasks",
-          "timer-intermediate-catching-events",
-        ],
-      },
-        {
-            text: "FHIR",
-            prefix: "fhir/",
+            {
+              text: "BPMN",
+              prefix: "bpmn/",
+              collapsible: true,
+              children: [
+                "conditions",
+                "gateways",
+                "messaging",
+                "sequence-flow",
+                "service-tasks",
+                "timer-intermediate-catching-events",
+              ],
+            },
+            {
+              text: "FHIR",
+              prefix: "fhir/",
+              collapsible: true,
+              children: [
+                "activitydefinition",
+                "codesystem",
+                "task",
+                "valueset",
+              ],
+            },
+            {
+              text: "DSF",
+              prefix: "dsf/",
+              collapsible: true,
+              children: [
+                "bpmn-process-execution",
+                "bpmn-process-variables",
+                "draft-task-resources",
+                "environment-variables",
+                "message-correlation",
+                "message-delegates",
+                "organization-identifiers",
+                "process-plugin-api",
+                "process-plugin-definition",
+                "read-access-tag",
+                "requester-and-recipient",
+                "service-delegates",
+                "spring-framework-integration",
+                "versions-placeholders-urls",
+              ],
+            },
+            {
+              text: "Guides",
+              prefix: "guides/",
+              collapsible: true,
+              children: [
+                "index",
+                "accessing-bpmn-process-variables",
+                "accessing-task-resources-during-execution",
+                "adding-task-input-parameters-to-task-profiles",
+                "configuring-read-access-tags",
+                "creating-activity-definitions",
+                "creating-codesystems-for-dsf-processes",
+                "creating-task-resources-based-on-a-definition",
+                "creating-valuesets-for-dsf-processes",
+                "managing-mutiple-incoming-messages-and-missing-messages",
+                "setting-targets-for-message-events",
+                "starting-a-process-via-task-resources",
+                "user-tasks-in-the-dsf",
+              ],
+            },
+          ],
+        }, "create", "publishing/publish-on-dsfhub", "tutorials/", "javadoc", {
+            text: "Process Plugin Dev Tools",
+            icon: "info",
+            prefix: "tooling",
             collapsible: true,
             children: [
-              "activitydefinition",
-              "codesystem",
-              "task",
-              "valueset",
-            ],
-          },
-          {
-            text: "DSF",
-            prefix: "dsf/",
-            collapsible: true,
-            children: [
-              "bpmn-process-execution",
-              "bpmn-process-variables",
-              "draft-task-resources",
-              "environment-variables",
-              "message-correlation",
-              "message-delegates",
-              "organization-identifiers",
-              "process-plugin-api",
-              "process-plugin-definition",
-              "read-access-tag",
-              "requester-and-recipient",
-              "service-delegates",
-              "spring-framework-integration",
-              "versions-placeholders-urls",
-            ],
-          },
-          {
-            text: "Guides",
-            prefix: "guides/",
-            collapsible: true,
-            children: [
-              "index",
-              "accessing-bpmn-process-variables",
-              "accessing-task-resources-during-execution",
-              "adding-task-input-parameters-to-task-profiles",
-              "configuring-read-access-tags",
-              "creating-activity-definitions",
-              "creating-codesystems-for-dsf-processes",
-              "creating-task-resources-based-on-a-definition",
-              "creating-valuesets-for-dsf-processes",
-              "managing-mutiple-incoming-messages-and-missing-messages",
-              "setting-targets-for-message-events",
-              "starting-a-process-via-task-resources",
-              "user-tasks-in-the-dsf",
-            ],
-          },
-        ],
-      }, "create",  "publishing/publish-on-dsfhub", "tutorials/", "javadoc", {
-          text: "Process Plugin Dev Tools",
-          icon: "info",
-          prefix: "tooling",
-          collapsible: true,
-          children: [
-            "validator"], 
+              "validator"],
           },]
-  },
+      },
       {
         text: "API v2",
         icon: "",
         prefix: "api-v2/",
         link: "api-v2/",
-        children: [ "get-started",{
+        children: ["get-started", {
           text: "Concepts",
           icon: "info",
           link: "concept",
           collapsible: true,
           children: [
-      {
-        text: "BPMN",
-        prefix: "bpmn/",
-        collapsible: true,
-        children: [
-          "conditions",
-          "gateways",
-          "messaging",
-          "sequence-flow",
-          "service-tasks",
-          "timer-intermediate-catching-events",
-        ],
-      },
-        {
-            text: "FHIR",
-            prefix: "fhir/",
+            {
+              text: "BPMN",
+              prefix: "bpmn/",
+              collapsible: true,
+              children: [
+                "conditions",
+                "gateways",
+                "messaging",
+                "sequence-flow",
+                "service-tasks",
+                "timer-intermediate-catching-events",
+              ],
+            },
+            {
+              text: "FHIR",
+              prefix: "fhir/",
+              collapsible: true,
+              children: [
+                "activitydefinition",
+                "codesystem",
+                "task",
+                "valueset",
+              ],
+            },
+            {
+              text: "DSF",
+              prefix: "dsf/",
+              collapsible: true,
+              children: [
+                "bpmn-process-execution",
+                "bpmn-process-variables",
+                "draft-task-resources",
+                "environment-variables",
+                "message-correlation",
+                "message-delegates",
+                "organization-identifiers",
+                "process-plugin-api",
+                "process-plugin-definition",
+                "read-access-tag",
+                "requester-and-recipient",
+                "service-delegates",
+                "spring-framework-integration",
+                "versions-placeholders-urls",
+              ],
+            },
+            {
+              text: "Guides",
+              prefix: "guides/",
+              collapsible: true,
+              children: [
+                "index",
+                "accessing-bpmn-process-variables",
+                "accessing-task-resources-during-execution",
+                "adding-task-input-parameters-to-task-profiles",
+                "configuring-read-access-tags",
+                "creating-activity-definitions",
+                "creating-codesystems-for-dsf-processes",
+                "creating-task-resources-based-on-a-definition",
+                "creating-valuesets-for-dsf-processes",
+                "managing-mutiple-incoming-messages-and-missing-messages",
+                "setting-targets-for-message-events",
+                "starting-a-process-via-task-resources",
+                "user-tasks-in-the-dsf",
+              ],
+            },
+          ],
+        }, "implementation", "migration", "create", "best-practices", "testing", "publishing/publish-on-dsfhub", "tutorials/", "javadoc", {
+            text: "Process Plugin Dev Tools",
+            icon: "info",
+            prefix: "tooling",
             collapsible: true,
             children: [
-              "activitydefinition",
-              "codesystem",
-              "task",
-              "valueset",
-            ],
-          },
-          {
-            text: "DSF",
-            prefix: "dsf/",
-            collapsible: true,
-            children: [
-              "bpmn-process-execution",
-              "bpmn-process-variables",
-              "draft-task-resources",
-              "environment-variables",
-              "message-correlation",
-              "message-delegates",
-              "organization-identifiers",
-              "process-plugin-api",
-              "process-plugin-definition",
-              "read-access-tag",
-              "requester-and-recipient",
-              "service-delegates",
-              "spring-framework-integration",
-              "versions-placeholders-urls",
-            ],
-          },
-          {
-            text: "Guides",
-            prefix: "guides/",
-            collapsible: true,
-            children: [
-              "index",
-              "accessing-bpmn-process-variables",
-              "accessing-task-resources-during-execution",
-              "adding-task-input-parameters-to-task-profiles",
-              "configuring-read-access-tags",
-              "creating-activity-definitions",
-              "creating-codesystems-for-dsf-processes",
-              "creating-task-resources-based-on-a-definition",
-              "creating-valuesets-for-dsf-processes",
-              "managing-mutiple-incoming-messages-and-missing-messages",
-              "setting-targets-for-message-events",
-              "starting-a-process-via-task-resources",
-              "user-tasks-in-the-dsf",
-            ],
-          },
-        ],
-      }, "implementation", "migration",  "create", "best-practices","testing", "publishing/publish-on-dsfhub",  "tutorials/", "javadoc", {
-          text: "Process Plugin Dev Tools",
-          icon: "info",
-          prefix: "tooling",
-          collapsible: true,
-          children: [
-            "validator"], 
+              "validator"],
           },]
-      },    
+      },
     ],
     "/dsf-development": [
       {
@@ -310,32 +325,32 @@ export default hopeTheme({
         icon: "",
         prefix: "v2/",
         link: "v2/",
-        children: [ "fhir-ig", "maven"], 
-      }, 
+        children: ["fhir-ig", "maven"],
+      },
     ],
-    "/community":[
+    "/community": [
       {
         text: "Community",
         icon: "",
         children: ["team", "communication", "ecosystem", "contribute/", "consultation-hours", "events/",]
       }
     ],
-   "/posts": [
-  {
-    text: "Home",
-    icon: "home",
-    link: "/",
-  },
-  {
-    text: "News",
-    icon: "news",
-    link: "/tag/news/", 
-  },
-  ], 
+    "/posts": [
+      {
+        text: "Home",
+        icon: "home",
+        link: "/",
+      },
+      {
+        text: "News",
+        icon: "news",
+        link: "/tag/news/",
+      },
+    ],
     "/intro/use-cases/internal-mii-data-sharing.html": []
   },
 
-  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a> • <a href='/security/'>Security</a>"  ,
+  footer: "<a href='https://www.hs-heilbronn.de/impressum'>Imprint</a> • <a href='https://www.hs-heilbronn.de/de/datenschutz'>Data Privacy</a> • <a href='/security/'>Security</a>",
   copyright: false,
   displayFooter: true,
 
@@ -372,42 +387,42 @@ export default hopeTheme({
     },
     tabs: false,
     codeTabs: true,
-      linksCheck: {
-        dev: true,
-        build: "error"
-      },
-      align: true,
-      attrs: true,
-      chartjs: false,
-      demo: false,
-      echarts: false,
-      flowchart: false,
-      gfm: true,
-      include: true,
-      mark: true,
-      mermaid: false,
-      playground: {
-        presets: [],
-      },
-      stylize: [
-        {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
+    linksCheck: {
+      dev: true,
+      build: "error"
+    },
+    align: true,
+    attrs: true,
+    chartjs: false,
+    demo: false,
+    echarts: false,
+    flowchart: false,
+    gfm: true,
+    include: true,
+    mark: true,
+    mermaid: false,
+    playground: {
+      presets: [],
+    },
+    stylize: [
+      {
+        matcher: "Recommended",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommended",
+            };
         },
-      ],
-      sub: true,
-      sup: true,
-      tasklist: false,
-      vPre: false,
-      vuePlayground: false,
-    
+      },
+    ],
+    sub: true,
+    sup: true,
+    tasklist: false,
+    vPre: false,
+    vuePlayground: false,
+
   },
 
 

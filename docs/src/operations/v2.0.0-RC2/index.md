@@ -1,5 +1,5 @@
 ---
-title: DSF 2.0.0-RC1
+title: DSF 2.0.0-RC2
 icon: guide
 ---
 
@@ -16,12 +16,12 @@ Thank you for helping us improve the DSF!
 
 # System Administrators
 
-- [Install DSF 2.0.0-RC1](install)
+- [Install DSF 2.0.0-RC2](install)
 - [Upgrade from DSF 1.9.0](upgrade-from-1)
 
 
 ## New features
-- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0-RC1)
+- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0-RC2)
 
 <!--
 This breaks the page with a 
