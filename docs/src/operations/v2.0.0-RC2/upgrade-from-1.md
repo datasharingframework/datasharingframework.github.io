@@ -66,6 +66,11 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
 +    image: ghcr.io/datasharingframework/bpe:2.0.0-RC2
      restart: on-failure
 ...
+     environment:
+-      DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD_FILE: /run/secrets/db_user_camunda.password
++      DEV_DSF_BPE_DB_USER_ENGINE_PASSWORD_FILE: /run/secrets/db_user_camunda.password
+...
+ 
 ```
 
 3. Upgrade the DSF BPE containers  
