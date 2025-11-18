@@ -618,7 +618,7 @@ icon: config
 ### DEV_DSF_BPE_SERVER_ROLECONFIG
 - **Property:** dev.dsf.bpe.server.roleConfig
 - **Required:** No
-- **Description:** Role config YAML as defined in [FHIR Server: Access Control](access-control)
+- **Description:** Role config YAML as defined in [BPE Server: Access Control](access-control)
 
 
 ### DEV_DSF_BPE_SERVER_STATIC_RESOURCE_CACHE
