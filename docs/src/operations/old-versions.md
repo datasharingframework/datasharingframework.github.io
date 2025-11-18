@@ -1,6 +1,6 @@
 ---
-title: Old Versions
-icon: note
+title: Old versions
+icon: launch
 ---
 
 ## DSF v1
@@ -19,8 +19,3 @@ icon: note
 - [1.2.0](./v1.2.0/)
 - [1.1.0](./v1.1.0/)
 - [1.0.0](./v1.0.0/)
-
-## DSF v2
-
-- [2.0.0-M4](./v2.0.0-M4/)
-- [2.0.0-M3](./v2.0.0-M3/)
