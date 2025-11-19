@@ -19,7 +19,7 @@ icon: creative
 
 ## Overview of DSF
 
-The **Data Sharing Framework (DSF)** is a secure middleware solution designed to facilitate data sharing across different organizations for biomedical research. It utilizes BPMN 2.0 and FHIR R4 standards to support processes such as data extraction, merging, pseudonymization, and provisioning. Funded by the German Federal Ministry of Education and Research as part of the Medical Informatics initiative, the DSF aims to improve data interoperability and security across institutional boundaries.
+The **Data Sharing Framework (DSF)** is a secure middleware solution designed to facilitate data sharing across different organizations for biomedical research. It utilizes BPMN 2.0 and FHIR R4 standards to support processes such as data extraction, merging, pseudonymization, and provisioning. Funded by the German Federal Ministry of Research, Technology and Space as part of the Medical Informatics initiative, the DSF aims to improve data interoperability and security across institutional boundaries.
 
 ## Key features and benefits
 

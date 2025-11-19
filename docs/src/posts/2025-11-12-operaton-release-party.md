@@ -19,7 +19,7 @@ The event promises to be an exciting opportunity to network and meet the Operato
 
 Alongside our presentation, other participants will also give short talks. If you’re curious about the topics covered, you can view the full event details on **[LinkedIn](https://www.linkedin.com/events/7377335371619024896/)**.
 
-For those unable to attend in person, the event will also be streamed live!
+For those unable to attend in person, the event will also be streamed live! Full videos of the talks are available [here](https://us06web.zoom.us/j/85166976056?pwd=1r5qb0irh5MbMRr7Q6riz0tWljLq9e.1)
 
  
 
@@ -31,6 +31,7 @@ For those unable to attend in person, the event will also be streamed live!
   * 17:30–17:50 DSF Presentation
 * **Location:** itemis, Speicherstraße 8, Dortmund (3rd floor – new harbor office)
 * **Livestream:** [Release Party](https://www.linkedin.com/events/operatonreleaseparty-online7392236568436133888/)
+* **Videos:** [Talks](https://us06web.zoom.us/j/85166976056?pwd=1r5qb0irh5MbMRr7Q6riz0tWljLq9e.1)
 
 View full event details on [LinkedIn]( <https://www.linkedin.com/events/7377335371619024896/>)
 
