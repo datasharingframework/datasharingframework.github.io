@@ -2,6 +2,7 @@
   "resourceType" : "CodeSystem",
   "id" : "organization-role",
   "meta" : {
+    "profile" : ["http://dsf.dev/fhir/StructureDefinition/code-system"],
     "tag" : [{
       "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
       "code" : "ALL"
@@ -9,15 +10,15 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem organization-role</b></p><a name=\"organization-role\"> </a><a name=\"hcorganization-role\"> </a><a name=\"organization-role-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/organization-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC<a name=\"organization-role-UAC\"> </a></td><td>Use-and-Access Committee</td></tr><tr><td style=\"white-space:nowrap\">COS<a name=\"organization-role-COS\"> </a></td><td>Coordinating Site</td></tr><tr><td style=\"white-space:nowrap\">CRR<a name=\"organization-role-CRR\"> </a></td><td>Central Research Repository</td></tr><tr><td style=\"white-space:nowrap\">DIC<a name=\"organization-role-DIC\"> </a></td><td>Data Integration Center</td></tr><tr><td style=\"white-space:nowrap\">DMS<a name=\"organization-role-DMS\"> </a></td><td>Data Management Site</td></tr><tr><td style=\"white-space:nowrap\">DTS<a name=\"organization-role-DTS\"> </a></td><td>Data Transfer Site</td></tr><tr><td style=\"white-space:nowrap\">HRP<a name=\"organization-role-HRP\"> </a></td><td>Health Research Platform</td></tr><tr><td style=\"white-space:nowrap\">TTP<a name=\"organization-role-TTP\"> </a></td><td>Trusted Third Party</td></tr><tr><td style=\"white-space:nowrap\">AMS<a name=\"organization-role-AMS\"> </a></td><td>Allowlist Management Site</td></tr></table></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem organization-role</b></p><a name=\"organization-role\"> </a><a name=\"hcorganization-role\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-code-system.html\">CodeSystem</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/organization-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC<a name=\"organization-role-UAC\"> </a></td><td>Use-and-Access Committee</td></tr><tr><td style=\"white-space:nowrap\">COS<a name=\"organization-role-COS\"> </a></td><td>Coordinating Site</td></tr><tr><td style=\"white-space:nowrap\">CRR<a name=\"organization-role-CRR\"> </a></td><td>Central Research Repository</td></tr><tr><td style=\"white-space:nowrap\">DIC<a name=\"organization-role-DIC\"> </a></td><td>Data Integration Center</td></tr><tr><td style=\"white-space:nowrap\">DMS<a name=\"organization-role-DMS\"> </a></td><td>Data Management Site</td></tr><tr><td style=\"white-space:nowrap\">DTS<a name=\"organization-role-DTS\"> </a></td><td>Data Transfer Site</td></tr><tr><td style=\"white-space:nowrap\">HRP<a name=\"organization-role-HRP\"> </a></td><td>Health Research Platform</td></tr><tr><td style=\"white-space:nowrap\">TTP<a name=\"organization-role-TTP\"> </a></td><td>Trusted Third Party</td></tr><tr><td style=\"white-space:nowrap\">AMS<a name=\"organization-role-AMS\"> </a></td><td>Allowlist Management Site</td></tr><tr><td style=\"white-space:nowrap\">ASP<a name=\"organization-role-ASP\"> </a></td><td>Analysis Service Provider</td></tr><tr><td style=\"white-space:nowrap\">SPR<a name=\"organization-role-SPR\"> </a></td><td>Service Provider Registry</td></tr><tr><td style=\"white-space:nowrap\">TSP<a name=\"organization-role-TSP\"> </a></td><td>Terminology Service Provider</td></tr><tr><td style=\"white-space:nowrap\">PPH<a name=\"organization-role-PPH\"> </a></td><td>Process Plugin Hub</td></tr><tr><td style=\"white-space:nowrap\">BIO<a name=\"organization-role-BIO\"> </a></td><td>Biobank</td></tr></table></div>"
   },
   "url" : "http://dsf.dev/fhir/CodeSystem/organization-role",
-  "version" : "1.0.0",
+  "version" : "2.0.0",
   "name" : "DSF_Organization_Role",
   "title" : "DSF Organization Role",
   "status" : "active",
   "experimental" : false,
-  "date" : "2023-06-28",
+  "date" : "2025-10-27",
   "publisher" : "DSF Community",
   "contact" : [{
     "name" : "DSF Community",
@@ -31,7 +32,7 @@
   "hierarchyMeaning" : "grouped-by",
   "versionNeeded" : false,
   "content" : "complete",
-  "count" : 9,
+  "count" : 14,
   "concept" : [{
     "code" : "UAC",
     "display" : "Use-and-Access Committee"
@@ -67,5 +68,25 @@
   {
     "code" : "AMS",
     "display" : "Allowlist Management Site"
+  },
+  {
+    "code" : "ASP",
+    "display" : "Analysis Service Provider"
+  },
+  {
+    "code" : "SPR",
+    "display" : "Service Provider Registry"
+  },
+  {
+    "code" : "TSP",
+    "display" : "Terminology Service Provider"
+  },
+  {
+    "code" : "PPH",
+    "display" : "Process Plugin Hub"
+  },
+  {
+    "code" : "BIO",
+    "display" : "Biobank"
   }]
 }

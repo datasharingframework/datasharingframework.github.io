@@ -1,0 +1,1745 @@
+# Home - Data Sharing Framework (DSF) Implementation Guide v2.0.0
+
+* [**Table of Contents**](toc.md)
+* **Home**
+
+## Home
+
+| | |
+| :--- | :--- |
+| *Official URL*:http://dsf.dev/fhir/ImplementationGuide/dev.dsf | *Version*:2.0.0 |
+| Draft as of 2025-11-24 | *Computable Name*:dsfig |
+
+The Data Sharing Framework (DSF) is a concept for a secure middleware to distribute data sharing processes based on the BPMN 2.0 and FHIR R4 standards. The DSF is used to support biomedical research with routine data, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed organizations. Every participating site runs a FHIR endpoint accessible by other sites and a business process engine in the local secured network. The process engines execute BPMN processes in order to coordinate local and remote steps necessary to enable cross-site data sharing or feasibility analyses. This includes access to local data repositories, use-and-access-committee decision support, consent filtering, and privacy preserving record-linkage and pseudonymization. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organizational boundaries. The secure communication infrastructure is funded by the German Federal Ministry of Education and Research within the Medical Informatics structure as [DSF Community](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php).
+
+
+
+## Resource Content
+
+```json
+{
+  "resourceType" : "ImplementationGuide",
+  "id" : "dev.dsf",
+  "url" : "http://dsf.dev/fhir/ImplementationGuide/dev.dsf",
+  "version" : "2.0.0",
+  "name" : "dsfig",
+  "title" : "Data Sharing Framework (DSF) Implementation Guide",
+  "status" : "draft",
+  "date" : "2025-11-24T11:45:54+01:00",
+  "publisher" : "DSF Community",
+  "contact" : [
+    {
+      "name" : "DSF Community",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "https://dsf.dev"
+        }
+      ]
+    }
+  ],
+  "packageId" : "dev.dsf",
+  "license" : "CC0-1.0",
+  "fhirVersion" : ["4.0.1"],
+  "dependsOn" : [
+    {
+      "id" : "hl7tx",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
+          "valueMarkdown" : "Automatically added as a dependency - all IGs depend on HL7 Terminology"
+        }
+      ],
+      "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
+      "packageId" : "hl7.terminology.r4",
+      "version" : "7.0.0"
+    },
+    {
+      "id" : "hl7ext",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
+          "valueMarkdown" : "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
+        }
+      ],
+      "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
+      "packageId" : "hl7.fhir.uv.extensions.r4",
+      "version" : "5.2.0"
+    }
+  ],
+  "definition" : {
+    "extension" : [
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "copyrightyear"
+          },
+          {
+            "url" : "value",
+            "valueString" : "2018+"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "releaselabel"
+          },
+          {
+            "url" : "value",
+            "valueString" : "ci-build"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-version"
+          },
+          {
+            "url" : "value",
+            "valueString" : "false"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "autoload-resources"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-qa"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/qa"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-temp"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/pages"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-output"
+          },
+          {
+            "url" : "value",
+            "valueString" : "output"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-suppressed-warnings"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/ignoreWarnings.txt"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "path-history"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://dsf.dev/fhir/history.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "template-html"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "template-md"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page-md.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-contact"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-context"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-copyright"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-jurisdiction"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-license"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-publisher"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "apply-wg"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "active-tables"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "fmm-definition"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://hl7.org/fhir/versions.html#maturity"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "propagate-status"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "excludelogbinaryformat"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueString" : "tabbed-snapshots"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
+        "valueCode" : "hl7.fhir.uv.tools.r4#0.8.0"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "copyrightyear"
+          },
+          {
+            "url" : "value",
+            "valueString" : "2018+"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "releaselabel"
+          },
+          {
+            "url" : "value",
+            "valueString" : "ci-build"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-version"
+          },
+          {
+            "url" : "value",
+            "valueString" : "false"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "autoload-resources"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-liquid"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/liquid"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-qa"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/qa"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-temp"
+          },
+          {
+            "url" : "value",
+            "valueString" : "temp/pages"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-output"
+          },
+          {
+            "url" : "value",
+            "valueString" : "output"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-suppressed-warnings"
+          },
+          {
+            "url" : "value",
+            "valueString" : "input/ignoreWarnings.txt"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "path-history"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://dsf.dev/fhir/history.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "template-html"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "template-md"
+          },
+          {
+            "url" : "value",
+            "valueString" : "template-page-md.html"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-contact"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-context"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-copyright"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-jurisdiction"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-license"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-publisher"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "apply-wg"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "active-tables"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "fmm-definition"
+          },
+          {
+            "url" : "value",
+            "valueString" : "http://hl7.org/fhir/versions.html#maturity"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "propagate-status"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "excludelogbinaryformat"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "code",
+            "valueCode" : "tabbed-snapshots"
+          },
+          {
+            "url" : "value",
+            "valueString" : "true"
+          }
+        ],
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
+      }
+    ],
+    "resource" : [
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/document-reference"
+        },
+        "name" : "DocumentReference",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization-parent-organization-role"
+        },
+        "name" : "ProcessAuthorizationParentOrganizationRole",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/meta"
+        },
+        "name" : "Meta",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization"
+        },
+        "name" : "ProcessAuthorization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-remote-parent-organization-role"
+        },
+        "name" : "ProcessAuthorizationRemoteParentOrganizationRole",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/questionnaire"
+        },
+        "name" : "Questionnaire",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/group"
+        },
+        "name" : "Group",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/library"
+        },
+        "name" : "Library",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-remote-all"
+        },
+        "name" : "ProcessAuthorizationRemoteAll",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/practitioner"
+        },
+        "name" : "Practitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization-organization-practitioner"
+        },
+        "name" : "ProcessAuthorizationOrganizationPractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/bundle"
+        },
+        "name" : "Bundle",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-questionnaire-authorization"
+        },
+        "name" : "QuestionnaireAuthorization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/subscription"
+        },
+        "name" : "Subscription",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-read-access-parent-organization-role"
+        },
+        "name" : "ReadAccessParentOrganizationRole",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/patient"
+        },
+        "name" : "Patient",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/measure-report"
+        },
+        "name" : "MeasureReport",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/naming-system"
+        },
+        "name" : "NamingSystem",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-organization-practitioner"
+        },
+        "name" : "ProcessAuthorizationLocalOrganizationPractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/code-system"
+        },
+        "name" : "CodeSystem",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/provenance"
+        },
+        "name" : "Provenance",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/measure"
+        },
+        "name" : "Measure",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/healthcare-service"
+        },
+        "name" : "HealthcareService",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/research-study"
+        },
+        "name" : "ResearchStudy",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/organization"
+        },
+        "name" : "Organization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/organization-parent"
+        },
+        "name" : "OrganizationParent",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/activity-definition"
+        },
+        "name" : "ActivityDefinition",
+        "description" : "A DSF Process with it's messages and corresponding Authorization Rules.",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/organization-affiliation"
+        },
+        "name" : "OrganizationAffiliation",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner"
+        },
+        "name" : "ProcessAuthorizationLocalParentOrganizationRolePractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization-organization"
+        },
+        "name" : "ProcessAuthorizationOrganization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/binary"
+        },
+        "name" : "Binary",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/value-set"
+        },
+        "name" : "ValueSet",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization-parent-organization-role-practitioner"
+        },
+        "name" : "ProcessAuthorizationParentOrganizationRolePractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/practitioner-role"
+        },
+        "name" : "PractitionerRole",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/structure-definition"
+        },
+        "name" : "StructureDefinition",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role"
+        },
+        "name" : "ProcessAuthorizationLocalParentOrganizationRole",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-read-access-organization"
+        },
+        "name" : "ReadAccessOrganization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-all"
+        },
+        "name" : "ProcessAuthorizationLocalAll",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-check-logical-reference"
+        },
+        "name" : "CheckLogicalReference",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-all-practitioner"
+        },
+        "name" : "ProcessAuthorizationLocalAllPractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/questionnaire-response"
+        },
+        "name" : "QuestionnaireResponse",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource:abstract"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/task"
+        },
+        "name" : "Task",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-process-authorization-practitioner"
+        },
+        "name" : "ProcessAuthorizationPractitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-local-organization"
+        },
+        "name" : "ProcessAuthorizationLocalOrganization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/location"
+        },
+        "name" : "Location",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:resource"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/endpoint"
+        },
+        "name" : "Endpoint",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:complex-type"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/coding-process-authorization-remote-organization"
+        },
+        "name" : "ProcessAuthorizationRemoteOrganization",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "StructureDefinition:extension"
+          }
+        ],
+        "reference" : {
+          "reference" : "StructureDefinition/extension-certificate-thumbprint"
+        },
+        "name" : "CertificateThumbprint",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/bpmn-message"
+        },
+        "name" : "DSF BPMN message values",
+        "description" : "CodeSystem with standard BPMN message values for Task resources",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/read-access-tag"
+        },
+        "name" : "DSF Read Access Tag",
+        "description" : "CodeSystem with read access tags",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/practitioner-role"
+        },
+        "name" : "DSF Practitioner Role",
+        "description" : "CodeSystem with DSF practitioner roles",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/organization-role"
+        },
+        "name" : "DSF Organization Role",
+        "description" : "CodeSystem with DSF organization roles used in OrganizationAffiliation resources",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "CodeSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "CodeSystem/process-authorization"
+        },
+        "name" : "DSF Process Authorization",
+        "description" : "CodeSystem with proces authorization codes",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/process-authorization-requester"
+        },
+        "name" : "DSF Process Authorization Requester",
+        "description" : "ValueSet with proces authorization codes for requesters",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/process-authorization-recipient"
+        },
+        "name" : "DSF Process Authorization Recipient",
+        "description" : "ValueSet with proces authorization codes for recipients",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/bpmn-message"
+        },
+        "name" : "DSF BPMN message values",
+        "description" : "ValueSet with standard BPMN message values for Task resources",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/read-access-tag"
+        },
+        "name" : "DSF Read Access Tag",
+        "description" : "ValueSet with read access tags",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/practitioner-role"
+        },
+        "name" : "DSF Practitioner Role",
+        "description" : "ValueSet with DSF practitioner roles used in OrganizationAffiliation resources",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "ValueSet"
+          }
+        ],
+        "reference" : {
+          "reference" : "ValueSet/organization-role"
+        },
+        "name" : "DSF Organization Role",
+        "description" : "ValueSet with DSF organization roles used in OrganizationAffiliation resources",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "NamingSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "NamingSystem/dsf-organization"
+        },
+        "name" : "DsfOrganizationIdentifier",
+        "description" : "Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "NamingSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "NamingSystem/dsf-practitioner"
+        },
+        "name" : "DsfPractitionerIdentifier",
+        "description" : "E-mail address identifying a practitioner",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "NamingSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "NamingSystem/dsf-endpoint"
+        },
+        "name" : "DsfEndpointIdentifier",
+        "description" : "Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "NamingSystem"
+          }
+        ],
+        "reference" : {
+          "reference" : "NamingSystem/dsf-task"
+        },
+        "name" : "DsfTaskIdentifier",
+        "description" : "Name identifying a draft Task resource",
+        "exampleBoolean" : false
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Subscription"
+          }
+        ],
+        "reference" : {
+          "reference" : "Subscription/dsf-bpmn-questionnaire-response-subscription"
+        },
+        "name" : "Example Subscription - dsf-bpmn-questionnaire-response-subscription",
+        "exampleCanonical" : "http://dsf.dev/fhir/StructureDefinition/subscription"
+      },
+      {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+            "valueString" : "Subscription"
+          }
+        ],
+        "reference" : {
+          "reference" : "Subscription/dsf-bpmn-task-subscription"
+        },
+        "name" : "Example Subscription - dsf-bpmn-task-subscription",
+        "exampleCanonical" : "http://dsf.dev/fhir/StructureDefinition/subscription"
+      }
+    ],
+    "page" : {
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+          "valueUrl" : "toc.html"
+        }
+      ],
+      "nameUrl" : "toc.html",
+      "title" : "Table of Contents",
+      "generation" : "html",
+      "page" : [
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "index.html"
+            }
+          ],
+          "nameUrl" : "index.html",
+          "title" : "Home",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "activitydefinition.html"
+            }
+          ],
+          "nameUrl" : "activitydefinition.html",
+          "title" : "Activitydefinition",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "allowlist.html"
+            }
+          ],
+          "nameUrl" : "allowlist.html",
+          "title" : "Allowlist",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "auth.html"
+            }
+          ],
+          "nameUrl" : "auth.html",
+          "title" : "Auth",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "questionnaire.html"
+            }
+          ],
+          "nameUrl" : "questionnaire.html",
+          "title" : "Questionnaire",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "readaccess.html"
+            }
+          ],
+          "nameUrl" : "readaccess.html",
+          "title" : "Readaccess",
+          "generation" : "markdown"
+        },
+        {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-page-name",
+              "valueUrl" : "task.html"
+            }
+          ],
+          "nameUrl" : "task.html",
+          "title" : "Task",
+          "generation" : "markdown"
+        }
+      ]
+    },
+    "parameter" : [
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/*"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/capabilities"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/examples"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/extensions"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/models"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/operations"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/profiles"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/resources"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/vocabulary"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/testing"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/history"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "fsh-generated/resources"
+      },
+      {
+        "code" : "path-pages",
+        "value" : "template/config"
+      },
+      {
+        "code" : "path-pages",
+        "value" : "input/images"
+      },
+      {
+        "code" : "path-tx-cache",
+        "value" : "input-cache/txcache"
+      }
+    ]
+  }
+}
+
+```

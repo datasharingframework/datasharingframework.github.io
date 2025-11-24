@@ -37,6 +37,14 @@
   color: #ffffff;
 }
 
+#publish-box a {
+  color: #63C7A6;
+}
+
+#segment-footer a {
+  color: #63C7A6;
+}
+
 .markdown-toc {
   color: white;
 }

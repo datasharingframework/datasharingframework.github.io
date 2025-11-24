@@ -2,7 +2,7 @@
   "codeSystems" : [
     {
       "url" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DsfBpmnMessage",
       "title" : "DSF BPMN message values",
@@ -10,29 +10,38 @@
       "systems" : ["http://dsf.dev/fhir/CodeSystem/bpmn-message"],
       "uses" : {
       },
-      "StructureDefinition-task-base.html" : "DSF Base Task"
+      "StructureDefinition-task.html" : "Task"
     },
     {
       "url" : "http://dsf.dev/fhir/ValueSet/organization-role",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Organization_Role",
       "title" : "DSF Organization Role",
       "description" : "ValueSet with DSF organization roles used in OrganizationAffiliation resources",
-      "systems" : ["http://dsf.dev/fhir/CodeSystem/organization-role"]
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/organization-role"],
+      "uses" : {
+      },
+      "StructureDefinition-organization-affiliation.html" : "OrganizationAffiliation"
     },
     {
       "url" : "http://dsf.dev/fhir/ValueSet/practitioner-role",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Practitioner_Role",
       "title" : "DSF Practitioner Role",
       "description" : "ValueSet with DSF practitioner roles used in OrganizationAffiliation resources",
-      "systems" : ["http://dsf.dev/fhir/CodeSystem/practitioner-role"]
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/practitioner-role"],
+      "uses" : {
+      },
+      "StructureDefinition-extension-process-authorization-organization-practitioner.html" : "ProcessAuthorizationOrganizationPractitioner",
+      "StructureDefinition-extension-process-authorization-practitioner.html" : "ProcessAuthorizationPractitioner",
+      "StructureDefinition-extension-process-authorization-parent-organization-role-practitioner.html" : "ProcessAuthorizationParentOrganizationRolePractitioner",
+      "StructureDefinition-extension-questionnaire-authorization.html" : "QuestionnaireAuthorization"
     },
     {
       "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-recipient",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Process_Authorization_Recipient",
       "title" : "DSF Process Authorization Recipient",
@@ -44,7 +53,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-requester",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Process_Authorization_Requester",
       "title" : "DSF Process Authorization Requester",
@@ -56,7 +65,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/ValueSet/read-access-tag",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Read_Access_Tag",
       "title" : "DSF Read Access Tag",

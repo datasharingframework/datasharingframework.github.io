@@ -5,7 +5,7 @@
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>null - XML Representation - Data Sharing Framework (DSF) Implementation Guide v2.0.0</title>
+    <title>Example Subscription - dsf-bpmn-questionnaire-response-subscription - XML Representation - Data Sharing Framework (DSF) Implementation Guide v2.0.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -33,10 +33,10 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
-    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"8.47"}
-    h3,h4,h5,h6{--heading-prefix:"8.47"}</style>
+    <style type="text/css">h2{--heading-prefix:"8.64"}
+    h3,h4,h5,h6{--heading-prefix:"8.64"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -115,7 +115,7 @@
         <a href="artifacts.html#terminology-naming-systems">NamingSystems</a>
       </li>
       <li>
-        <a href="artifacts.html#other">Subscriptions</a>
+        <a href="artifacts.html#example-example-instances">Subscriptions</a>
       </li>
     </ul>
   </li>
@@ -131,7 +131,7 @@
     <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
       <div class="container">  <!-- container -->
         <ul class="breadcrumb">
-          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b></b></li>
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Artifacts Summary</b></a></li><li><b>Example Subscription - dsf-bpmn-questionnaire-response-subscription</b></li>
 
         </ul>
       </div>  <!-- /container -->
@@ -190,7 +190,7 @@
 <a name="root"> </a>
 
 
-<h2 id="root">: null - XML Representation</h2>
+<h2 id="root">: Example Subscription - dsf-bpmn-questionnaire-response-subscription - XML Representation</h2>
 
 
 <p><a href="Subscription-dsf-bpmn-questionnaire-response-subscription.xml" no-download="true">Raw xml</a> | <a href="Subscription-dsf-bpmn-questionnaire-response-subscription.xml" download>Download</a></p>
@@ -200,27 +200,45 @@
 
 
 
-  <pre class="xml" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
+  <pre class="xml" data-fhir="generated" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-xml" style="white-space: pre; text-wrap: nowrap;">
+  &lt;!-- 
+
+    Copyright 2018-2025 Heilbronn University of Applied Sciences
+
+    Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+ --&gt;
 &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription">Subscription</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;dsf-bpmn-questionnaire-response-subscription&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.id">id</a> <a href="http://hl7.org/fhir/R4/datatypes.html#id">value</a>=&quot;dsf-bpmn-questionnaire-response-subscription&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.meta">meta</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a> <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">value</a>=&quot;http://dsf.dev/fhir/StructureDefinition/subscription&quot;/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.tag">tag</a>&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a> <a href="http://hl7.org/fhir/R4/datatypes.html#uri">value</a>=&quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;/&gt;
       &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.code">code</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;LOCAL&quot;/&gt;
-    &lt;/tag&gt;
-  &lt;/meta&gt;
+    &lt;/<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.tag">tag</a>&gt;
+  &lt;/<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.meta">meta</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.text">text</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Subscription dsf-bpmn-questionnaire-response-subscription&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;dsf-bpmn-questionnaire-response-subscription&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcdsf-bpmn-questionnaire-response-subscription&quot;&gt; &lt;/a&gt;&lt;a name=&quot;dsf-bpmn-questionnaire-response-subscription-en-US&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Tag: Local (Details: DSF Read Access Tag code LOCAL = 'Local')&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;reason&lt;/b&gt;: Businness Process Engine&lt;/p&gt;&lt;p&gt;&lt;b&gt;criteria&lt;/b&gt;: QuestionnaireResponse?status=completed&lt;/p&gt;&lt;h3&gt;Channels&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Payload&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;*&lt;/td&gt;&lt;td&gt;Websocket&lt;/td&gt;&lt;td&gt;application/fhir+json&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
-  &lt;/text&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p class=&quot;res-header-id&quot;&gt;&lt;b&gt;Generated Narrative: Subscription dsf-bpmn-questionnaire-response-subscription&lt;/b&gt;&lt;/p&gt;&lt;a name=&quot;dsf-bpmn-questionnaire-response-subscription&quot;&gt; &lt;/a&gt;&lt;a name=&quot;hcdsf-bpmn-questionnaire-response-subscription&quot;&gt; &lt;/a&gt;&lt;div style=&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%&quot;&gt;&lt;p style=&quot;margin-bottom: 0px&quot;/&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Profile: &lt;a href=&quot;StructureDefinition-subscription.html&quot;&gt;Subscription&lt;/a&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom: 0px&quot;&gt;Tag: Local (Details: DSF Read Access Tag code LOCAL = 'Local')&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;b&gt;status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;reason&lt;/b&gt;: Businness Process Engine&lt;/p&gt;&lt;p&gt;&lt;b&gt;criteria&lt;/b&gt;: QuestionnaireResponse?status=completed&lt;/p&gt;&lt;h3&gt;Channels&lt;/h3&gt;&lt;table class=&quot;grid&quot;&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;-&lt;/td&gt;&lt;td&gt;&lt;b&gt;Type&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Payload&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;display: none&quot;&gt;*&lt;/td&gt;&lt;td&gt;Websocket&lt;/td&gt;&lt;td&gt;application/fhir+json&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;<a name="end-xhtml"></a>
+  &lt;/<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.text">text</a>&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.status">status</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;active&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.reason">reason</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;Businness Process Engine&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.criteria">criteria</a> <a href="http://hl7.org/fhir/R4/datatypes.html#string">value</a>=&quot;QuestionnaireResponse?status=completed&quot;/&gt;
   &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.channel">channel</a>&gt;
     &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.channel.type">type</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;websocket&quot;/&gt;
     &lt;<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.channel.payload">payload</a> <a href="http://hl7.org/fhir/R4/datatypes.html#code">value</a>=&quot;application/fhir+json&quot;/&gt;
-  &lt;/channel&gt;
-&lt;/Subscription&gt;</code></pre>
+  &lt;/<a href="http://hl7.org/fhir/R4/subscription.html#Subscription.channel">channel</a>&gt;
+&lt;/<a href="http://hl7.org/fhir/R4/subscription.html#Subscription">Subscription</a>&gt;</code></pre>
 
 
   <!-- insert notes if present -->
@@ -244,7 +262,7 @@
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 5, 2025 13:47+0000">2025-06-05</span>
+          IG &#169; 2018+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 24, 2025 11:45+0100">2025-11-24</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

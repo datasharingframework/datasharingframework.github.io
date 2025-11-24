@@ -31,10 +31,10 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
-    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
@@ -113,7 +113,7 @@
         <a href="artifacts.html#terminology-naming-systems">NamingSystems</a>
       </li>
       <li>
-        <a href="artifacts.html#other">Subscriptions</a>
+        <a href="artifacts.html#example-example-instances">Subscriptions</a>
       </li>
     </ul>
   </li>
@@ -161,31 +161,28 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
    <p>Contents:</p>
    <ul>
       <li>
-         <a href="#1">Behavior: Capability Statements</a>
+         <a href="#1">Structures: Abstract Profiles</a>
       </li>
       <li>
-         <a href="#2">Structures: Abstract Profiles</a>
+         <a href="#2">Structures: Resource Profiles</a>
       </li>
       <li>
-         <a href="#3">Structures: Resource Profiles</a>
+         <a href="#3">Structures: Data Type Profiles</a>
       </li>
       <li>
-         <a href="#4">Structures: Data Type Profiles</a>
+         <a href="#4">Structures: Extension Definitions</a>
       </li>
       <li>
-         <a href="#5">Structures: Extension Definitions</a>
+         <a href="#5">Terminology: Value Sets</a>
       </li>
       <li>
-         <a href="#6">Terminology: Value Sets</a>
+         <a href="#6">Terminology: Code Systems</a>
       </li>
       <li>
-         <a href="#7">Terminology: Code Systems</a>
+         <a href="#7">Terminology: Naming Systems</a>
       </li>
       <li>
-         <a href="#8">Terminology: Naming Systems</a>
-      </li>
-      <li>
-         <a href="#9">Other</a>
+         <a href="#8">Example: Example Instances</a>
       </li>
    </ul>
 </div>
@@ -194,59 +191,51 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
      xmlns:html="http://www.w3.org/1999/xhtml">
    <p>This page provides a list of the FHIR artifacts defined as part of this implementation guide.</p>
    <a name="1"> </a>
-   <h3>Behavior: Capability Statements </h3>
-    <p>The following artifacts define the specific capabilities that different types of systems are expected to have in order to comply with this implementation guide.  Systems conforming to this implementation guide are expected to declare conformance to one or more of the following capability statements.</p>
+   <h3>Structures: Abstract Profiles </h3>
+    <p>These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles <em>based</em> on these abstract profiles but do not declare conformance to the abstract profiles themselves.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="CapabilityStatement-dsf.html" title="CapabilityStatement/dsf">CapabilityStatement/dsf</a>
+               <a href="StructureDefinition-task.html" title="StructureDefinition/task">Task</a>
             </td>
          </tr>
       </tbody>
    </table>
    <a name="2"> </a>
-   <h3>Structures: Abstract Profiles </h3>
-    <p>These are profiles on resources or data types that describe patterns used by other profiles, but cannot be instantiated directly.  I.e. instances can conform to profiles <em>based</em> on these abstract profiles, but do not declare conformance to the abstract profiles themselves.</p>
-<table class="grid">
-      <col style="width:20%"/>
-      <tbody>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-task-base.html"
-                  title="StructureDefinition/task-base">DSF Base Task</a>
-            </td>
-            <td>
-<p>The abstract Task resource the Tasks for individual DSF processes should be based on.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-questionnaire.html"
-                  title="StructureDefinition/questionnaire">DSF Questionnaire</a>
-            </td>
-            <td>
-<p>A Questionnaire in the DSF context with restrictions to enforce DSF specific details.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-questionnaire-response.html"
-                  title="StructureDefinition/questionnaire-response">DSF QuestionnaireResponse</a>
-            </td>
-            <td>
-<p>An QuestionnaireResponse in the DSF context with restrictions to enforce DSF specific details.</p>
-</td>
-         </tr>
-      </tbody>
-   </table>
-   <a name="3"> </a>
    <h3>Structures: Resource Profiles </h3>
     <p>These define constraints on FHIR resources for systems conforming to this implementation guide.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-activity-definition.html"
+                  title="StructureDefinition/activity-definition">ActivityDefinition</a>
+            </td>
+            <td>
+<p>A DSF Process with it's messages and corresponding Authorization Rules.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-binary.html"
+                  title="StructureDefinition/binary">Binary</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-bundle.html"
+                  title="StructureDefinition/bundle">Bundle</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-code-system.html"
@@ -258,47 +247,190 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-activity-definition.html"
-                  title="StructureDefinition/activity-definition">DSF ActivityDefinition</a>
+               <a href="StructureDefinition-document-reference.html"
+                  title="StructureDefinition/document-reference">DocumentReference</a>
             </td>
             <td>
-<p>A DSF Process with it's messages and corresponding Authorization Rules.</p>
+
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-endpoint.html"
-                  title="StructureDefinition/endpoint">DSF Endpoint</a>
+                  title="StructureDefinition/endpoint">Endpoint</a>
             </td>
             <td>
-<p>An Endpoint in the DSF context with restrictions to enforce DSF specific details.</p>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-group.html" title="StructureDefinition/group">Group</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-healthcare-service.html"
+                  title="StructureDefinition/healthcare-service">HealthcareService</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-library.html"
+                  title="StructureDefinition/library">Library</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-location.html"
+                  title="StructureDefinition/location">Location</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-measure.html"
+                  title="StructureDefinition/measure">Measure</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-measure-report.html"
+                  title="StructureDefinition/measure-report">MeasureReport</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-naming-system.html"
+                  title="StructureDefinition/naming-system">NamingSystem</a>
+            </td>
+            <td>
+
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-organization.html"
-                  title="StructureDefinition/organization">DSF Organization</a>
+                  title="StructureDefinition/organization">Organization</a>
             </td>
             <td>
-<p>An Organization in the DSF context with restrictions to enforce DSF specific details.</p>
+
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-organization-affiliation.html"
-                  title="StructureDefinition/organization-affiliation">DSF OrganizationAffiliation</a>
+                  title="StructureDefinition/organization-affiliation">OrganizationAffiliation</a>
             </td>
             <td>
-<p>An OrganizationAffiliation to describe a parent / participating organization relationship in the DSF context with restrictions to enforce DSF specific details.</p>
+
 </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-organization-parent.html"
-                  title="StructureDefinition/organization-parent">DSF Parent Organization</a>
+                  title="StructureDefinition/organization-parent">OrganizationParent</a>
             </td>
             <td>
-<p>A Parent Organization as Meta Organization (e.g., Consortia) in the DSF context with restrictions to enforce DSF specific details.</p>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-patient.html"
+                  title="StructureDefinition/patient">Patient</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-practitioner.html"
+                  title="StructureDefinition/practitioner">Practitioner</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-practitioner-role.html"
+                  title="StructureDefinition/practitioner-role">PractitionerRole</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-provenance.html"
+                  title="StructureDefinition/provenance">Provenance</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-questionnaire.html"
+                  title="StructureDefinition/questionnaire">Questionnaire</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-questionnaire-response.html"
+                  title="StructureDefinition/questionnaire-response">QuestionnaireResponse</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-research-study.html"
+                  title="StructureDefinition/research-study">ResearchStudy</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-structure-definition.html"
+                  title="StructureDefinition/structure-definition">StructureDefinition</a>
+            </td>
+            <td>
+
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-subscription.html"
+                  title="StructureDefinition/subscription">Subscription</a>
+            </td>
+            <td>
+
 </td>
          </tr>
          <tr>
@@ -312,7 +444,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="4"> </a>
+   <a name="3"> </a>
    <h3>Structures: Data Type Profiles </h3>
     <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
 <table class="grid">
@@ -320,8 +452,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="StructureDefinition-organization-reference.html"
-                  title="StructureDefinition/organization-reference">OrganizationReference</a>
+               <a href="StructureDefinition-meta.html" title="StructureDefinition/meta">Meta</a>
             </td>
          </tr>
          <tr>
@@ -380,7 +511,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="5"> </a>
+   <a name="4"> </a>
    <h3>Structures: Extension Definitions </h3>
     <p>These define constraints on FHIR data types for systems conforming to this implementation guide.</p>
 <table class="grid">
@@ -389,96 +520,72 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-certificate-thumbprint.html"
-                  title="StructureDefinition/extension-certificate-thumbprint">Certificate Thumbprint</a>
+                  title="StructureDefinition/extension-certificate-thumbprint">CertificateThumbprint</a>
             </td>
-            <td>
-<p>A certificate thumbprint of the client certificate of the organization / of the organization's endpoint.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-check-logical-reference.html"
                   title="StructureDefinition/extension-check-logical-reference">CheckLogicalReference</a>
             </td>
-            <td>
-<p>This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization.html"
                   title="StructureDefinition/extension-process-authorization">ProcessAuthorization</a>
             </td>
-            <td>
-<p>Defines authorization details for a process described by an ActivityDefinition. Specifies which entities are authorized to request and receive process-related tasks, including message name and task profile.       This extension enables fine-grained authorization control for processes defined in an ActivityDefinition. It includes:   - <code class="language-plaintext highlighter-rouge">message-name</code>: The name of the message associated with the process.   - <code class="language-plaintext highlighter-rouge">task-profile</code>: The canonical URL of the required Task profile.   - <code class="language-plaintext highlighter-rouge">requester</code> and <code class="language-plaintext highlighter-rouge">recipient</code>. See the respective ValueSets <code class="language-plaintext highlighter-rouge">http://dsf.dev/fhir/ValueSet/process-authorization-requester|1.0.0</code> and <code class="language-plaintext highlighter-rouge">http://dsf.dev/fhir/ValueSet/process-authorization-recipient|1.0.0</code> for allowed codes.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization-organization.html"
                   title="StructureDefinition/extension-process-authorization-organization">ProcessAuthorizationOrganization</a>
             </td>
-            <td>
-<p>This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization-organization-practitioner.html"
                   title="StructureDefinition/extension-process-authorization-organization-practitioner">ProcessAuthorizationOrganizationPractitioner</a>
             </td>
-            <td>
-<p>Specifies an organization and practitioner role for process authorization. This extension is used within a Coding to indicate both a specific organization (by its identifier) and a practitioner role (by a coding). The organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the practitioner role is specified as a Coding. This enables precise authorization of organization-practitioner-role combinations for requester or recipient roles in process authorization extensions.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization-parent-organization-role.html"
                   title="StructureDefinition/extension-process-authorization-parent-organization-role">ProcessAuthorizationParentOrganizationRole</a>
             </td>
-            <td>
-<p>This extension specifies the parent organization and the required role in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier) and a role (by a coding). The parent organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the role is specified as a Coding. This enables precise authorization of parent organization-role combinations for requester or recipient roles in process authorization extensions.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization-parent-organization-role-practitioner.html"
                   title="StructureDefinition/extension-process-authorization-parent-organization-role-practitioner">ProcessAuthorizationParentOrganizationRolePractitioner</a>
             </td>
-            <td>
-<p>This extension specifies the parent organization, the required role of the organization and the role of the practitioner in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier), a role (by a coding), and a practitioner role. The parent organization is identified with an Identifier using the system <code class="language-plaintext highlighter-rouge">http://dsf.dev/sid/organization-identifier</code>, and the roles are specified as a Coding. This enables precise authorization of parent organization-role combinations with a practitioner for requester roles in process authorization extensions.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-process-authorization-practitioner.html"
                   title="StructureDefinition/extension-process-authorization-practitioner">ProcessAuthorizationPractitioner</a>
             </td>
-            <td>
-<p>This extension specifies a practitioner role for process authorization. It is used within a Coding to indicate a practitioner role (by a coding). The practitioner role is specified as a Coding. This enables precise authorization for requester or roles in process authorization extensions.</p>
-</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-extension-questionnaire-authorization.html"
+                  title="StructureDefinition/extension-questionnaire-authorization">QuestionnaireAuthorization</a>
+            </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-read-access-organization.html"
                   title="StructureDefinition/extension-read-access-organization">ReadAccessOrganization</a>
             </td>
-            <td>
-<p>This extension specifies an organization by identifier for resouce read access.</p>
-</td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-extension-read-access-parent-organization-role.html"
                   title="StructureDefinition/extension-read-access-parent-organization-role">ReadAccessParentOrganizationRole</a>
             </td>
-            <td>
-<p>This extension specifies a list of organizations by membership in a parent organization by identifier and their role by coding for resouce read access.</p>
-</td>
          </tr>
       </tbody>
    </table>
-   <a name="6"> </a>
+   <a name="5"> </a>
    <h3>Terminology: Value Sets </h3>
     <p>These define sets of codes used by systems conforming to this implementation guide.</p>
 <table class="grid">
@@ -538,7 +645,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="7"> </a>
+   <a name="6"> </a>
    <h3>Terminology: Code Systems </h3>
     <p>These define new code systems used by systems conforming to this implementation guide.</p>
 <table class="grid">
@@ -590,7 +697,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="8"> </a>
+   <a name="7"> </a>
    <h3>Terminology: Naming Systems </h3>
     <p>These define identifier and/or code system identities used by systems conforming to this implementation guide.</p>
 <table class="grid">
@@ -598,7 +705,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="NamingSystem-dsf-endpoint.html" title="NamingSystem/dsf-endpoint">DSF Endpoint Identifier</a>
+               <a href="NamingSystem-dsf-endpoint.html" title="NamingSystem/dsf-endpoint">DsfEndpointIdentifier</a>
             </td>
             <td>
 <p>Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address</p>
@@ -607,7 +714,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <tr>
             <td style="column-width:30%">
                <a href="NamingSystem-dsf-organization.html"
-                  title="NamingSystem/dsf-organization">DSF Organization Identifier</a>
+                  title="NamingSystem/dsf-organization">DsfOrganizationIdentifier</a>
             </td>
             <td>
 <p>Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de</p>
@@ -616,7 +723,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <tr>
             <td style="column-width:30%">
                <a href="NamingSystem-dsf-practitioner.html"
-                  title="NamingSystem/dsf-practitioner">DSF Practitioner Identifier</a>
+                  title="NamingSystem/dsf-practitioner">DsfPractitionerIdentifier</a>
             </td>
             <td>
 <p>E-mail address identifying a practitioner</p>
@@ -624,7 +731,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
          <tr>
             <td style="column-width:30%">
-               <a href="NamingSystem-dsf-task.html" title="NamingSystem/dsf-task">DSF Task Identifier</a>
+               <a href="NamingSystem-dsf-task.html" title="NamingSystem/dsf-task">DsfTaskIdentifier</a>
             </td>
             <td>
 <p>Name identifying a draft Task resource</p>
@@ -632,22 +739,22 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="9"> </a>
-   <h3>Other </h3>
-    <p>These are resources that are used within this implementation guide that do not fit into one of the other categories.</p>
+   <a name="8"> </a>
+   <h3>Example: Example Instances </h3>
+    <p>These are example instances that show what data produced and consumed by systems conforming with this implementation guide might look like.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
          <tr>
             <td style="column-width:30%">
                <a href="Subscription-dsf-bpmn-questionnaire-response-subscription.html"
-                  title="Subscription/dsf-bpmn-questionnaire-response-subscription">Subscription/dsf-bpmn-questionnaire-response-subscription</a>
+                  title="Subscription/dsf-bpmn-questionnaire-response-subscription">Example Subscription - dsf-bpmn-questionnaire-response-subscription</a>
             </td>
          </tr>
          <tr>
             <td style="column-width:30%">
                <a href="Subscription-dsf-bpmn-task-subscription.html"
-                  title="Subscription/dsf-bpmn-task-subscription">Subscription/dsf-bpmn-task-subscription</a>
+                  title="Subscription/dsf-bpmn-task-subscription">Example Subscription - dsf-bpmn-task-subscription</a>
             </td>
          </tr>
       </tbody>
@@ -670,7 +777,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 5, 2025 13:47+0000">2025-06-05</span>
+          IG &#169; 2018+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 24, 2025 11:45+0100">2025-11-24</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

@@ -12,9 +12,10 @@
   <sch:pattern>
     <sch:title>f:ActivityDefinition</sch:title>
     <sch:rule context="f:ActivityDefinition">
-      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|1.0.0']) &gt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|1.0.0': minimum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|2.0.0']) &gt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|2.0.0': minimum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:url) &gt;= 1">url: minimum cardinality of 'url' is 1</sch:assert>
       <sch:assert test="count(f:version) &gt;= 1">version: minimum cardinality of 'version' is 1</sch:assert>
+      <sch:assert test="count(f:date) &gt;= 1">date: minimum cardinality of 'date' is 1</sch:assert>
       <sch:assert test="count(f:kind) &gt;= 1">kind: minimum cardinality of 'kind' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>

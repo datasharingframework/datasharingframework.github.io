@@ -5,11 +5,11 @@
 ","CE/CNE/CWE subset one of the sets of component 1-3 or 4-6","n/a","CV","fhir:Coding rdfs:subClassOf dt:CDCoding"
 "Coding.id","Coding.id","","","",0,1,"","","","string {[]} {[]}
 ","Unique id for inter-element referencing","Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.","","","","","","","","","",,,,,"",,,,"Element.id",0,1,"","","n/a"
-"Coding.extension","Coding.extension","","","",0,*,"","","","Extension {[]} {[]}
+"Coding.extension","Coding.extension","","","",1,*,"","","","Extension {[]} {[]}
 ","Extension","An Extension","","","","","","","","","",,,,,"","value:url}
 ","Extensions are always sliced by (at least) url",,"open","Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
-"Coding.extension:practitioner","Coding.extension","practitioner","","",1,1,"","","","Extension {[CanonicalType[http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner|1.0.0]]} {[]}
+"Coding.extension:practitioner","Coding.extension","practitioner","","",1,1,"","","","Extension {[CanonicalType[http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner|2.0.0]]} {[]}
 ","Extension","An Extension","","","","","","","","","",,,,,"",,,,"Element.extension",0,*,"","ele-1:All FHIR elements must have a @value or children {hasValue() or (children().count() > id.count())}
 ext-1:Must have either extensions or value[x], not both {extension.exists() != value.exists()}"
 "Coding.system","Coding.system","","","",1,1,"","","Y","uri {[]} {[]}
