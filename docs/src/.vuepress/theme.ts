@@ -1,6 +1,7 @@
 import { slimsearchPlugin } from "@vuepress/plugin-slimsearch";
 import { hopeTheme } from "vuepress-theme-hope";
-import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar, generate_v2_latest_sidebar } from "./sidebar/operations-v1";
+import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar } from "./sidebar/operations-v1";
+import { generate_v2_latest_sidebar } from "./sidebar/operations-v2";
 
 export default hopeTheme({
   author: {
