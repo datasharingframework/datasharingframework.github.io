@@ -4,4 +4,4 @@ icon: operate
 ---
 
 ## Process Plugin Dev Tools
-- [ DSF Process Plugin Validator](validator.md)
+- [ DSF Linter](linter-tool.md)

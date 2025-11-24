@@ -229,7 +229,7 @@ export default hopeTheme({
             prefix: "tooling",
             collapsible: true,
             children: [
-              "validator"],
+              "linter-tool",],
           },]
       },
       {
@@ -315,7 +315,7 @@ export default hopeTheme({
             prefix: "tooling",
             collapsible: true,
             children: [
-              "validator"],
+              "linter-tool"],
           },]
       },
     ],
