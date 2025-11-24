@@ -1,5 +1,5 @@
 ---
-title: Default Root Certificates
+title: Trusted Certificates
 icon: safe
 ---
 
@@ -10,14 +10,14 @@ Please ensure that you are using an organization-validated certificate (OV). We 
 :::
 
 ## Extending or Replacing Trusted Certificate Authorities
-X.509 certificates of default trusted CAs are stored as .pem files containing multiple certificates in the docker images and can be replaced by either using docker [bind mounts](https://docs.docker.com/engine/storage/bind-mounts) or configuring appropriate environment variables with different targets.
+X.509 certificates of default trusted CAs are stored as individual .pem files containing one certificate each in the docker images and can be replaced by either using docker [bind mounts](https://docs.docker.com/engine/storage/bind-mounts) or configuring appropriate environment variables with different targets.
 
 ### FHIR Reverse Proxy
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificateFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatefile)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestfile)).
 Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [SSL_CA_CERTIFICATE_FILE](fhir-reverse-proxy/configuration.html#ssl-ca-certificate-file)
+* [SSL_CA_CERTIFICATE_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-certificate-path)
   Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
-* [SSL_CA_DN_REQUEST_FILE](fhir-reverse-proxy/configuration.html#ssl-ca-dn-request-file)
+* [SSL_CA_DN_REQUEST_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
   Default Value: [ca/client_cert_issuing_cas.pem](/download/1.9.0/client_cert_issuing_cas.pem)
 
 **Note:** Default file location are relative to the docker image work directory `/usr/local/apache2`.
@@ -25,22 +25,30 @@ Use the following environment variable to configure non default .pem files or ov
 
 ### FHIR Server
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates as well as root CAs used for validating server certificates of remote DSF FHIR servers and the OIDC provider when using [OpenID Connect](fhir/oidc.html) for authenticating local users.
-Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
-* [DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-fhir-client-trust-server-certificate-cas)
-  Default Value: [ca/server_cert_root_cas.pem](/download/1.9.0/server_cert_root_cas.pem)
-* [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
-  Default Value: [ca/server_cert_root_cas.pem](/download/1.9.0/server_cert_root_cas.pem)
 
 **Note:** Default file location are relative to the docker image work directory `/opt/fhir`.
+
+You can add an additional certificate authority (e.g., your hospital CA) for 
+
+- server certificates by creating a bind-mount of the CA file into the `/opt/fhir/ca/server_root_cas/` directory
+- client certificates by creating bind-mounts of the intermediate CA files and their root CA file into the `/opt/fhir/ca/client_ca_chains/` directory.
+
+See the [BPE Server configuration](#bpe-server) for an example.
+
+If you can't override the default configuration with bind-mounts, you can use the following environment variables to configure non default .pem file directories or .pem file:
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: [ca/client_ca_chains](/download/1.9.0/client_cert_ca_chains.pem)
+* [DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-fhir-client-trust-server-certificate-cas)
+  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+* [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
+  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
 
 ### BPE Reverse Proxy
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificateFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatefile)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestfile)).
 Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [SSL_CA_CERTIFICATE_FILE](bpe-reverse-proxy/configuration.html#ssl-ca-certificate-file)
+* [SSL_CA_CERTIFICATE_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-certificate-path)
   Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
-* [SSL_CA_DN_REQUEST_FILE](bpe-reverse-proxy/configuration.html#ssl-ca-dn-request-file)
+* [SSL_CA_DN_REQUEST_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
   Default Value: [ca/client_cert_issuing_cas.pem](/download/1.9.0/client_cert_issuing_cas.pem)
 
 **Note:** Default file location are relative to the docker image work directory `/usr/local/apache2`.
@@ -48,17 +56,36 @@ Use the following environment variable to configure non default .pem files or ov
 
 ### BPE Server
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates as well as root CAs used for validating server certificates of local and remote DSF FHIR servers, the local mail server (if configured and SMTP over TLS required) and the OIDC provider when using [OpenID Connect](fhir/oidc.html) for authenticating local users.
-Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
-* [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
-  Default Value: [ca/server_cert_root_cas.pem](/download/1.9.0/server_cert_root_cas.pem)
-  [DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-mail-trust-server-certificate-cas)
-  Default Value: [ca/server_cert_root_cas.pem](/download/1.9.0/server_cert_root_cas.pem)
-* [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
-  Default Value: [ca/server_cert_root_cas.pem](/download/1.9.0/server_cert_root_cas.pem)
 
 **Note:** Default file location are relative to the docker image work directory `/opt/bpe`.
+
+You can add an additional certificate authority (e.g., your hospital CA) for 
+
+- server certificates by creating a bind-mount of the CA file into the `/opt/bpe/ca/server_root_cas/` directory
+- client certificates by creating bind-mounts of the intermediate CA files and their root CA file into the `/opt/bpe/ca/client_ca_chains/` directory.
+
+If you have an additional certificate authority (e.g., your hospital CA) as `hospital-root-ca.pem` in your `/opt/bpe/secrets` directory, you can add it by adding the following entry in your docker-compose.yml file:
+
+```diff
+services:
+  app:
+...
+    volumes:
++      - type: bind
++        source: ./secrets/hospital-root-ca.pem
++        target: /opt/bpe/ca/server_root_cas/hospital-root-ca.pem
++        read_only: true
+```
+
+Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: [ca/client_ca_chains](/download/1.9.0/client_cert_ca_chains.pem)
+* [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
+  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  [DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-mail-trust-server-certificate-cas)
+  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+* [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
+  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
 
 ## List of Default Trusted Certificate Authorities
 If not mentioned explicitly, issuing CAs listed will sign X.509 certificates with [Extended Key Usage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) entries `TLS WWW server authentication` and `TLS WWW client authentication`.
@@ -143,6 +170,15 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
      Info: https://crt.sh/?caid=713
      X509 Certificate: https://crt.sh/?id=133227
      Not after: Nov 5 08:35:58 2029 GMT
+* Root CA: **D-TRUST BR Root CA 1 2020 (ECC)**, optionally crosssigned by D-TRUST Root Class 3 CA 2 2009 [server only]
+  Info: https://crt.sh/?caid=192951
+  X509 Certificate: https://crt.sh/?id=3699642382 and https://crt.sh/?id=19754747817
+  Not after: Feb 11 09:44:59 2035
+* Root CA: **D-TRUST BR Root CA 2 2023 (RSA)**, optionally crosssigned by D-TRUST Root Class 3 CA 2 2009 [server only]
+  Info: https://crt.sh/?caid=266681
+  X509 Certificate: https://crt.sh/?id=9609658147 and https://crt.sh/?id=19754898942
+  Not after: May  9 08:56:30 2038 GMT
+
 * Root CA: **USERTrust ECC Certification Authority** [will be removed in a future release, incl. derived CAs]
   Info: https://crt.sh/?caid=1390
   X509 Certificate: https://crt.sh/?id=2841410
@@ -191,4 +227,6 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
   * Issuing CA: **D-TRUST Limited Basic CA 1-3 2019** [client certificates via TMF e.V.]
     X509 Certificate: https://www.d-trust.net/cgi-bin/D-TRUST_Limited_Basic_CA_1-3_2019.crt
     Not after: Jun 19 08:15:51 2034 GMT
+
+
 
