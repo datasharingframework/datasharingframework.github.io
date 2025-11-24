@@ -5,7 +5,7 @@ icon: config
 
 ## Overview
 
-The DSF FHIR server implements a subset of the FHIR R4 [REST API](http://hl7.org/fhir/R4/http.html). When accessing the API with a web browser a limited graphical user interface is shown. Without any additional configuration the API and user interface is only accessible with the X.509 client certificate configured for the organization via the configuration parameter: [DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT](configuration#dev-dsf-fhir-server-organization-thumbprint)
+The DSF FHIR server implements a subset of the FHIR R4 [REST API](http://hl7.org/fhir/R4/http.html). When accessing the API with a web browser a limited graphical user interface is shown. Without any additional configuration the API and user interface is only accessible with the X.509 client certificate configured for the organization via the client certificate configuration parameter  [DEV_DSF_FHIR_CLIENT_CERTIFICATE](configuration##dev-dsf-fhir-client-certificate) or the manual override option [DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT](configuration#dev-dsf-fhir-server-organization-thumbprint).
 
 ::: tip OpenID Connect
 To enable OpenID Connect authentication of local user, see the DSF FHIR server OpenID Connect [configuration page](oidc).
@@ -13,7 +13,7 @@ To enable OpenID Connect authentication of local user, see the DSF FHIR server O
 
 Access to the API and user interface can be enabled for additional client certificates and local users authenticating via OAuth 2.0 OpenID Connect. Access can be configured for so called roles, with all roles specified using the configuration parameter [DEV_DSF_FHIR_SERVER_ROLECONFIG](configuration#dev-dsf-fhir-server-roleconfig). The value for this environment variable is specified as YAML using the block scalar `|`.
 
-The listing below shows a minimal configuration to enable read access for a specific client-certificate:
+The listing below shows a minimal configuration to enable read access for all resources for a specific client-certificate:
 
 ```yaml
       DEV_DSF_FHIR_SERVER_ROLECONFIG: |
@@ -24,7 +24,20 @@ The listing below shows a minimal configuration to enable read access for a spec
               - SEARCH
               - HISTORY
 ```
-The list of user roles above contains a single rule-entry `example_read_only_role`, matching the user via a client certificate SHA-512 thumbprint and assigning three DSF roles. Any string can be used as the name for the rule-enty.
+
+The list of user roles above contains a single rule-entry `example_read_only_role`, matching the user via a client certificate SHA-512 thumbprint and assigning three DSF roles. Any string can be used as the name for the rule-entry.
+
+With DSF 2, you can now restrict the granted priviledges to specific resource types. If you want to restrict the rule-entry `example_read_only_role` to Organization resources, you can specify the resource type per dsf-role ("action"):
+
+```yaml
+      DEV_DSF_FHIR_SERVER_ROLECONFIG: |
+        - example_read_only_organization_role:
+            thumbprint: 00474993fa261b0225f93c5a66aa6fcc... [a-f0-9]{128}
+            dsf-role:
+              - READ: [Organization]
+              - SEARCH: [Organization]
+              - HISTORY: [Organization]
+```
 
 ::: tip Certificate Thumbprints
 SHA-512 certificate thumbprints in HEX form `[a-f0-9]{128}` can be calculated using:
@@ -62,6 +75,7 @@ DSF roles specified via the `dsf-role` property define general access to the RES
 
 `CREATE`, `READ`, `UPDATE`, `DELETE`, `SEARCH`, `HISTORY`, `PERMANENT_DELETE` and `WEBSOCKET`.
 
+
 #### practitioner-role
 
 In order to allow users to start processes, the property `practitioner-role` can be used to assign codes from FHIR [CodeSystem](http://hl7.org/fhir/R4/codesystem.html) resources. Codes are specified in the form `system-url|code`.
@@ -69,7 +83,7 @@ If the uses has a code specified here that match with a `requester` extension wi
 
 Process plugins can defined and use there own code-systems. However, the DSF specifies a standard set of practitioner roles within the CodeSystem `http://dsf.dev/fhir/CodeSystem/practitioner-role`:
 
-`UAC_USER`, `COS_USER`, `CRR_USER`, `DIC_USER`, `DMS_USER`, `DTS_USER`, `HRP_USER`, `TTP_USER`, `AMS_USER` and `DSF_ADMIN`.
+`UAC_USER`, `COS_USER`, `CRR_USER`, `DIC_USER`, `DMS_USER`, `DTS_USER`, `HRP_USER`, `TTP_USER`, `AMS_USER`, `ASP_USER`, `SPR_USER`, `TSP_USER`, `PPH_USER`, `BIO_USER`, and `DSF_ADMIN`.
 
 
 ## Examples
@@ -114,7 +128,7 @@ The second example defines a group of DSF administrators by specifying an `admin
 ```
 
 
-The third example allows read-only access. Two e-mail addresses are used to match this role. E-mail addresses from X.509 client certificates and OAuth 2.0 access tokens are matched:
+The third example allows read-only access, restricted to QuestionnaireResponse resources only. Two e-mail addresses are used to match this role. E-mail addresses from X.509 client certificates and OAuth 2.0 access tokens are matched:
 
 ```yaml
       DEV_DSF_FHIR_SERVER_ROLECONFIG: |
@@ -123,7 +137,8 @@ The third example allows read-only access. Two e-mail addresses are used to matc
               - first.user@test.org
               - second.user@test.org
             dsf-role:
-              - READ
-              - SEARCH
-              - HISTORY
+              - READ: [QuestionnaireResponse]
+              - UPDATE: [QuestionnaireResponse]
+              - SEARCH: [QuestionnaireResponse]
+              - HISTORY: [QuestionnaireResponse]
 ```
