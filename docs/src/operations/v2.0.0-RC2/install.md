@@ -17,8 +17,13 @@ In the following installation manual we will show you how you can install your o
 
 ## Prerequisites
 ### Virtual Machines
-* DSF FHIR VM: min. 4 GB RAM, 4 vCPU, 20 GB HDD
-* DSF BPE VM: min. 4 GB RAM, 4 vCPU, 20 GB HDD
+* DSF FHIR VM: min. 4 GB RAM, 4 vCPU, 100 GB HDD
+* DSF BPE VM: min. 8 GB RAM, 4 vCPU, 20 GB HDD
+
+If you plan to transfer a lot of large files, we recommend a larger FHIR VM disk for temporary storage (if your largest file to transfer is 200GB in size, we recommend a disk with a size of at least 1TB).
+
+Please make sure to use a CPU with a modern instruction set with crypto acceleration enabled. We saw large performance drops on systems with inadequate hardware.
+
 ### Docker / Docker-Compose
 Both VMs need latest docker and docker compose. For the latest install guide see https://docs.docker.com/engine/install. 
 
