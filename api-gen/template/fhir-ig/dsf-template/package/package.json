@@ -1,0 +1,12 @@
+{
+  "name": "dev.dsf.fhir.template",
+  "version": "0.0.1",
+  "type": "fhir.template",
+  "license": "Apache-2.0",
+  "description": "DSF FHIR IG Template",
+  "author": "https://dsf.dev",
+  "base": "fhir.base.template",
+  "dependencies": {
+    "fhir.base.template": "current"
+  }
+}
