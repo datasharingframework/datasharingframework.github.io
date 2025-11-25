@@ -37,7 +37,7 @@ wget (your jar-file download link)
 
 For example:
 ```
- wget https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/download/v1.0.0.1/mii-process-data-sharing-1.0.0.1.jar
+ wget https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/download/v1.1.0.0/mii-process-data-sharing-1.1.0.0.jar
 ```
 
 - Make sure the process is readable by the bpe user or group, for example by executing:
@@ -47,8 +47,8 @@ sudo chown root:bpe (your jar-file name.jar)
 ```
 For example:
 ```
-sudo chmod 440 mii-process-data-sharing-1.0.0.1.jar
-sudo chown root:bpe mii-process-data-sharing-1.0.0.1.jar
+sudo chmod 440 mii-process-data-sharing-1.1.0.0.jar
+sudo chown root:bpe mii-process-data-sharing-1.1.0.0.jar
 ```
 
 - Modify the process exclude config in `/opt/bpe/docker-compose.yml`
