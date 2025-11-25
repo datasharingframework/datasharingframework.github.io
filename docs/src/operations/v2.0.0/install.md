@@ -1,13 +1,13 @@
 ---
-title: Install DSF 2.0.0-RC2
+title: Install DSF 2.0.0
 icon: install
 ---
 
-::: danger DSF 2.0 Release Candidate
-This is a **pre-release version** of the Data Sharing Framework (DSF) 2.0.  
+::: info DSF 2.0.0
+This is the first **released version** of the Data Sharing Framework (DSF) 2.0.  
 Please **do not use this version in production environments**.
 
-We kindly invite **experienced DSF administrators** to test this release on their **staging or test instances** and share their feedback with us through the usual [communication channels](/community/communication#contact-the-team).
+We kindly invite **all DSF administrators** to test this release on their **staging or test instances** and share their feedback with us through the usual [communication channels](/community/communication#contact-the-team).
 
 Thank you for helping us improve the DSF!
 :::
@@ -94,8 +94,8 @@ Here is a quick overview of the expected network setup.
     Download and unpack the prepared DSF FHIR server config files and folder structure:
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_fhir_2_0_0-RC2.tar.gz
-    sudo tar --same-owner -zxvf dsf_fhir_2_0_0-RC2.tar.gz
+    wget https://dsf.dev/download/dsf_fhir_2_0_0.tar.gz
+    sudo tar --same-owner -zxvf dsf_fhir_2_0_0.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/fhir` assuming you changed into the `/opt` directory._
 
@@ -169,8 +169,8 @@ Here is a quick overview of the expected network setup.
     Download and extract prepared DSF BPE server config files and folder structure:  
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_bpe_2_0_0-RC2.tar.gz
-    sudo tar --same-owner -zxvf dsf_bpe_2_0_0-RC2.tar.gz
+    wget https://dsf.dev/download/dsf_bpe_2_0_0.tar.gz
+    sudo tar --same-owner -zxvf dsf_bpe_2_0_0.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/bpe` assuming you changed into the `/opt` directory._
 
