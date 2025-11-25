@@ -19,7 +19,7 @@ The event promises to be an exciting opportunity to network and meet the Operato
 
 Alongside our presentation, other participants will also give short talks. If you’re curious about the topics covered, you can view the full event details on **[LinkedIn](https://www.linkedin.com/events/7377335371619024896/)**.
 
-For those unable to attend in person, the event will also be streamed live! Full video of the event is available on [Linkedin](https://www.linkedin.com/events/operatonreleaseparty-online7392236568436133888/theater/)
+The full video of the event is now available on [Linkedin](https://www.linkedin.com/events/operatonreleaseparty-online7392236568436133888/theater/)
 
 
 <iframe src="https://www.linkedin.com/video/embed/live/urn:li:ugcPost:7392236570797416448" height="480" width="854" frameborder="0" allowfullscreen="" title="Operaton Release Party"></iframe>
