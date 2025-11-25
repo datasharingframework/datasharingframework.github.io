@@ -50,11 +50,11 @@ Every logger exposes a *.style property and a corresponding environment variable
 Plain, unformatted text output (default for console output, used before DSF 2).
 
 Use when:
-- You want minimal overhead and simple logging.
-- Logs are read directly on the system.
+- You want minimal overhead and simple logging
+- Logs are read directly on the system
 
 Avoid when:
-- A log aggregation system is used.
+- A log aggregation system is used
 
 #### TEXT_MDC
 
@@ -65,26 +65,26 @@ Plain text with MDC (Mapped Diagnostic Context) fields, such as:
 - user
 - requestId
 
-Recommended for:
-- Production file logs
-- Debugging distributed workflows with correlation IDs
+Use when:
+- You want to log production environments without aggregation systems
+- You want to debug distributed workflows with correlation IDs
 
-Not ideal for:
-- A log aggregation system is used.
+Avoid when:
+- A log aggregation system is used
 
 #### TEXT_COLOR and TEXT_COLOR_MDC
 
 ANSI-colored text output for terminals.
 
-Recommended for:
-- Local development
-- Docker logs viewed directly with docker logs
-- Developers who want fast visual distinction between INFO/WARN/ERROR
+Use when:
+- You want to develop locally
+- You want to view docker logs directly with `docker logs` command
+- You want a fast visual distinction between INFO/WARN/ERROR
 
-Avoid for:
-- Log ingestion systems
-- Consoles without ANSI escape code support
+Avoid when:
+- A log aggregation system is used
+- Consoles without ANSI escape code support are used
 
 
 ### JSON-Based Logging Styles
-We support the structured logging formats `JSON_LOGSTASH`, `JSON_ECS`(Elastic Common Schema), `JSON_GELF`(Graylog Extended Log Format), and `JSON_GCP` (Google Cloud Platform Logging). They all include Mapped Diagnostic Context information (e.g., process names, ids, ...) and should be used in combination with your log aggreation system of your choice.
+We support the structured logging formats `JSON_LOGSTASH`, `JSON_ECS`(Elastic Common Schema), `JSON_GELF`(Graylog Extended Log Format), and `JSON_GCP` (Google Cloud Platform Logging). They all include Mapped Diagnostic Context information (e.g., process names, ids, ...) and should be used in combination with the log aggreation system of your choice.

@@ -81,7 +81,7 @@ DSF roles specified via the `dsf-role` property define general access to the RES
 In order to allow users to start processes, the property `practitioner-role` can be used to assign codes from FHIR [CodeSystem](http://hl7.org/fhir/R4/codesystem.html) resources. Codes are specified in the form `system-url|code`.
 If the uses has a code specified here that match with a `requester` extension within the process plugin's [ActivityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) resource, the user can start the process if he also has the `dsf-role` `CREATE`.
 
-Process plugins can defined and use there own code-systems. However, the DSF specifies a standard set of practitioner roles within the CodeSystem `http://dsf.dev/fhir/CodeSystem/practitioner-role`:
+Process plugins can define and use their own code-systems. However, the DSF specifies a standard set of practitioner roles within the CodeSystem `http://dsf.dev/fhir/CodeSystem/practitioner-role`:
 
 `UAC_USER`, `COS_USER`, `CRR_USER`, `DIC_USER`, `DMS_USER`, `DTS_USER`, `HRP_USER`, `TTP_USER`, `AMS_USER`, `ASP_USER`, `SPR_USER`, `TSP_USER`, `PPH_USER`, `BIO_USER`, and `DSF_ADMIN`.
 
@@ -109,17 +109,19 @@ The first example defines a group of DSF administrators. Two client certificates
 ```
 
 
-The second example defines a group of DSF administrators by specifying an `admin` role that gets matched against OAuth 2.0 access tokens:
+The second example defines an administrator group consisting of all users with the OAuth role admin plus two additional administrators identified by their client-certificate thumbprints. These administrators may perform the basic DSF tasks: starting and continuing of new process instances (by creating tasks and answering QuestionnaireResponses) and reading all resources on the DSF FHIR server.
 
 ```yaml
       DEV_DSF_FHIR_SERVER_ROLECONFIG: |
-        - token-role-admins:
+        - example_minimal_admin:
+            thumbprint:
+              - 0123...cdef
+              - abcd...6789
             token-role: admin
             dsf-role:
-              - CREATE
+              - CREATE: [Task]
               - READ
-              - UPDATE
-              - DELETE
+              - UPDATE: [QuestionnaireResponse]
               - SEARCH
               - HISTORY
             practitioner-role:

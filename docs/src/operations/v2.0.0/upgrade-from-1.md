@@ -22,15 +22,17 @@ For DSF 2, we refined the [system requirements](install.md#prerequisites). If yo
 
 ::: info Non-standard configuration changes
 
-The most non-standard configuration changes working in DSF 1 will continue to work in DSF 2. If you have set custom timeout options please change them to the ISO 8601 standard. `120000` (Milliseconds) must be changed to `PT2M`.
+Most non-standard configuration changes working in DSF 1 will continue to work in DSF 2. If you have set custom timeout options please change them to the ISO 8601 standard. `120000` (Milliseconds) must be changed to `PT2M`.
 
 - You can now use more advanced [logging options](./fhir/logging.md).
 - If you use your own certificate authority, the [configuration](root-certificates.md) will be easier.
-- If can now use more fine granular access control settings in your own [access control / role config settings](./fhir/access-control.md).
+- More granular control in [access control / role config settings](./fhir/access-control.md).
 :::
 
 We recommend upgrading the PostgreSQL DBMS from version 15 to version 18. At present, it is possible to use PostgreSQL version 15, but we exclusively support PostgreSQL version 18 and test the DSF solely with version 18.
 The DBMS upgrade is described below in the update instructions.
+
+DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter validation rules in DSF 2 we strongly recommend using the latest compatible plugin versions. Updates within the same major and minor version (e.g., from 1.2.3.4 to 1.2.9.9) are generally safe. An overview of the recommended MII/NUM versions can be found [here](./install-plugins.md).
 
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
