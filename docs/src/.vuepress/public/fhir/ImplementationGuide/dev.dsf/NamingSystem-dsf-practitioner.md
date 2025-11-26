@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/NamingSystem/dsf-practitioner | *Version*: |
-| Active as of 2025-10-27 | *Computable Name*:DsfPractitionerIdentifier |
+| Active as of 2025-11-26 | *Computable Name*:DsfPractitionerIdentifier |
 
  
 E-mail address identifying a practitioner 
@@ -59,7 +59,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "name" : "DsfPractitionerIdentifier",
   "status" : "active",
   "kind" : "identifier",
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

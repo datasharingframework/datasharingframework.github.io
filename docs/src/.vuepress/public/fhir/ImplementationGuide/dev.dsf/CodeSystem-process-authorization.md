@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/CodeSystem/process-authorization | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Process_Authorization |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Process_Authorization |
 
  
 CodeSystem with proces authorization codes 
@@ -42,7 +42,7 @@ CodeSystem with proces authorization codes
   "title" : "DSF Process Authorization",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

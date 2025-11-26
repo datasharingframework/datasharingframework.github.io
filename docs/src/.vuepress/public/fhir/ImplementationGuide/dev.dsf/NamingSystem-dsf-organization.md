@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/NamingSystem/dsf-organization | *Version*: |
-| Active as of 2025-10-27 | *Computable Name*:DsfOrganizationIdentifier |
+| Active as of 2025-11-26 | *Computable Name*:DsfOrganizationIdentifier |
 
  
 Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de 
@@ -59,7 +59,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "name" : "DsfOrganizationIdentifier",
   "status" : "active",
   "kind" : "identifier",
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

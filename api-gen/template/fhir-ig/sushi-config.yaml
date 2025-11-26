@@ -93,7 +93,7 @@ menu:
     ValueSets: artifacts.html#terminology-value-sets
     CodeSystems: artifacts.html#terminology-code-systems
     NamingSystems: artifacts.html#terminology-naming-systems
-    Subscriptions: artifacts.html#other
+    Subscriptions: artifacts.html#example-example-instances
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │

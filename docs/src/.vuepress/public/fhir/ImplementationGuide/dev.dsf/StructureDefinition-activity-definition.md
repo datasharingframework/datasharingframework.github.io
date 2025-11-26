@@ -9,10 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/activity-definition | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:ActivityDefinition |
-
- 
-A DSF Process with it's messages and corresponding Authorization Rules. 
+| Active as of 2025-11-26 | *Computable Name*:ActivityDefinition |
 
 **Usages:**
 
@@ -52,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-activity-definition.
   "name" : "ActivityDefinition",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {
@@ -65,7 +62,6 @@ Other representations of profile: [CSV](StructureDefinition-activity-definition.
       ]
     }
   ],
-  "description" : "A DSF Process with it's messages and corresponding Authorization Rules.",
   "fhirVersion" : "4.0.1",
   "mapping" : [
     {

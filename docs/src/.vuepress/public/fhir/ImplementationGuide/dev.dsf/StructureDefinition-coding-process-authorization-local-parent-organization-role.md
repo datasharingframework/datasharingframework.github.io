@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:ProcessAuthorizationLocalParentOrganizationRole |
+| Active as of 2025-11-26 | *Computable Name*:ProcessAuthorizationLocalParentOrganizationRole |
 
 **Usages:**
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-coding-process-autho
   "name" : "ProcessAuthorizationLocalParentOrganizationRole",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

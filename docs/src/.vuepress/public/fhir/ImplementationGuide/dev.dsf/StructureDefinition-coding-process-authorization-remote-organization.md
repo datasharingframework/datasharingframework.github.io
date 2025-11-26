@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:ProcessAuthorizationRemoteOrganization |
+| Active as of 2025-11-26 | *Computable Name*:ProcessAuthorizationRemoteOrganization |
 
 **Usages:**
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-coding-process-autho
   "name" : "ProcessAuthorizationRemoteOrganization",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

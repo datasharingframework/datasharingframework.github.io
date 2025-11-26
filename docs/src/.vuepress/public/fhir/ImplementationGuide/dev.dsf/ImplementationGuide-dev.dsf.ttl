@@ -21,7 +21,7 @@
   fhir:name [ fhir:v "dsfig"] ; # 
   fhir:title [ fhir:v "Data Sharing Framework (DSF) Implementation Guide"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2025-11-24T11:45:54+01:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2025-11-26T16:56:02+01:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "DSF Community"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "DSF Community" ] ;
@@ -88,7 +88,7 @@
          ] ;
          fhir:value [
            a fhir:String ;
-           fhir:v "2018+"
+           fhir:v "2023+"
          ]
        ] ) ;
        fhir:url [
@@ -697,7 +697,7 @@
          ] ;
          fhir:value [
            a fhir:String ;
-           fhir:v "2018+"
+           fhir:v "2023+"
          ]
        ] ) ;
        fhir:url [
@@ -1817,7 +1817,6 @@
          fhir:reference [ fhir:v "StructureDefinition/activity-definition" ]
        ] ;
        fhir:name [ fhir:v "ActivityDefinition" ] ;
-       fhir:description [ fhir:v "A DSF Process with it's messages and corresponding Authorization Rules." ] ;
        fhir:example [
          a fhir:Boolean ;
          fhir:v false
@@ -2756,7 +2755,22 @@
      ] ;
      fhir:parameter ( [
        fhir:code [ fhir:v "path-resource" ] ;
-       fhir:value [ fhir:v "input/dsf-resources/*" ]
+       fhir:value [ fhir:v "input/dsf-resources/StructureDefinition" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/dsf-resources/CodeSystem" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/dsf-resources/NamingSystem" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/dsf-resources/Subscription" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/dsf-resources/ValueSet" ]
+     ] [
+       fhir:code [ fhir:v "path-resource" ] ;
+       fhir:value [ fhir:v "input/dsf-resources/CapabilityStatement" ]
      ] [
        fhir:code [ fhir:v "path-resource" ] ;
        fhir:value [ fhir:v "input/capabilities" ]

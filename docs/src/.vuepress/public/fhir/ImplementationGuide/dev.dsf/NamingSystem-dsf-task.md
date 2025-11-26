@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/NamingSystem/dsf-task | *Version*: |
-| Active as of 2025-10-27 | *Computable Name*:DsfTaskIdentifier |
+| Active as of 2025-11-26 | *Computable Name*:DsfTaskIdentifier |
 
  
 Name identifying a draft Task resource 
@@ -59,7 +59,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "name" : "DsfTaskIdentifier",
   "status" : "active",
   "kind" : "identifier",
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

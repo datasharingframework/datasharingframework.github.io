@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/task | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:Task |
+| Active as of 2025-11-26 | *Computable Name*:Task |
 
 **Usages:**
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-task.csv), [Excel](S
   "name" : "Task",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {
@@ -126,7 +126,10 @@ Other representations of profile: [CSV](StructureDefinition-task.csv), [Excel](S
         "type" : [
           {
             "code" : "Reference",
-            "targetProfile" : ["http://dsf.dev/fhir/StructureDefinition/organization|2.0.0"]
+            "targetProfile" : [
+              "http://dsf.dev/fhir/StructureDefinition/organization|2.0.0",
+              "http://hl7.org/fhir/StructureDefinition/Practitioner"
+            ]
           }
         ],
         "constraint" : [

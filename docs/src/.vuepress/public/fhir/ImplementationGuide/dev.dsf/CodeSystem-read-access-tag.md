@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/CodeSystem/read-access-tag | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Read_Access_Tag |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Read_Access_Tag |
 
  
 CodeSystem with read access tags 
@@ -41,7 +41,7 @@ CodeSystem with read access tags
   "title" : "DSF Read Access Tag",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

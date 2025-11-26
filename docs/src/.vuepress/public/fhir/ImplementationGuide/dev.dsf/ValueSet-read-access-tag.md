@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/ValueSet/read-access-tag | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Read_Access_Tag |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Read_Access_Tag |
 
  
 ValueSet with read access tags 
@@ -66,7 +66,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "title" : "DSF Read Access Tag",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

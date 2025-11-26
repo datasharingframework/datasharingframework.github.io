@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/ValueSet/process-authorization-requester | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Process_Authorization_Requester |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Process_Authorization_Requester |
 
  
 ValueSet with proces authorization codes for requesters 
@@ -60,7 +60,7 @@ ValueSet with proces authorization codes for requesters
   "title" : "DSF Process Authorization Requester",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

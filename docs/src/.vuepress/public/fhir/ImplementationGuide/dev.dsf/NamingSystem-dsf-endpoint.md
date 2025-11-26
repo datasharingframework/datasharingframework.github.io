@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/NamingSystem/dsf-endpoint | *Version*: |
-| Active as of 2025-10-27 | *Computable Name*:DsfEndpointIdentifier |
+| Active as of 2025-11-26 | *Computable Name*:DsfEndpointIdentifier |
 
  
 Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address 
@@ -59,7 +59,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "name" : "DsfEndpointIdentifier",
   "status" : "active",
   "kind" : "identifier",
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

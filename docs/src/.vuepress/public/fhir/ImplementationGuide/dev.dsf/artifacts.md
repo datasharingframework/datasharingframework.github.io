@@ -19,34 +19,34 @@ These are profiles on resources or data types that describe patterns used by oth
 
 These define constraints on FHIR resources for systems conforming to this implementation guide.
 
-| | |
-| :--- | :--- |
-| [ActivityDefinition](StructureDefinition-activity-definition.md) | A DSF Process with it's messages and corresponding Authorization Rules. |
-| [Binary](StructureDefinition-binary.md) |  |
-| [Bundle](StructureDefinition-bundle.md) |  |
-| [CodeSystem](StructureDefinition-code-system.md) |  |
-| [DocumentReference](StructureDefinition-document-reference.md) |  |
-| [Endpoint](StructureDefinition-endpoint.md) |  |
-| [Group](StructureDefinition-group.md) |  |
-| [HealthcareService](StructureDefinition-healthcare-service.md) |  |
-| [Library](StructureDefinition-library.md) |  |
-| [Location](StructureDefinition-location.md) |  |
-| [Measure](StructureDefinition-measure.md) |  |
-| [MeasureReport](StructureDefinition-measure-report.md) |  |
-| [NamingSystem](StructureDefinition-naming-system.md) |  |
-| [Organization](StructureDefinition-organization.md) |  |
-| [OrganizationAffiliation](StructureDefinition-organization-affiliation.md) |  |
-| [OrganizationParent](StructureDefinition-organization-parent.md) |  |
-| [Patient](StructureDefinition-patient.md) |  |
-| [Practitioner](StructureDefinition-practitioner.md) |  |
-| [PractitionerRole](StructureDefinition-practitioner-role.md) |  |
-| [Provenance](StructureDefinition-provenance.md) |  |
-| [Questionnaire](StructureDefinition-questionnaire.md) |  |
-| [QuestionnaireResponse](StructureDefinition-questionnaire-response.md) |  |
-| [ResearchStudy](StructureDefinition-research-study.md) |  |
-| [StructureDefinition](StructureDefinition-structure-definition.md) |  |
-| [Subscription](StructureDefinition-subscription.md) |  |
-| [ValueSet](StructureDefinition-value-set.md) |  |
+| |
+| :--- |
+| [ActivityDefinition](StructureDefinition-activity-definition.md) |
+| [Binary](StructureDefinition-binary.md) |
+| [Bundle](StructureDefinition-bundle.md) |
+| [CodeSystem](StructureDefinition-code-system.md) |
+| [DocumentReference](StructureDefinition-document-reference.md) |
+| [Endpoint](StructureDefinition-endpoint.md) |
+| [Group](StructureDefinition-group.md) |
+| [HealthcareService](StructureDefinition-healthcare-service.md) |
+| [Library](StructureDefinition-library.md) |
+| [Location](StructureDefinition-location.md) |
+| [Measure](StructureDefinition-measure.md) |
+| [MeasureReport](StructureDefinition-measure-report.md) |
+| [NamingSystem](StructureDefinition-naming-system.md) |
+| [Organization](StructureDefinition-organization.md) |
+| [OrganizationAffiliation](StructureDefinition-organization-affiliation.md) |
+| [OrganizationParent](StructureDefinition-organization-parent.md) |
+| [Patient](StructureDefinition-patient.md) |
+| [Practitioner](StructureDefinition-practitioner.md) |
+| [PractitionerRole](StructureDefinition-practitioner-role.md) |
+| [Provenance](StructureDefinition-provenance.md) |
+| [Questionnaire](StructureDefinition-questionnaire.md) |
+| [QuestionnaireResponse](StructureDefinition-questionnaire-response.md) |
+| [ResearchStudy](StructureDefinition-research-study.md) |
+| [StructureDefinition](StructureDefinition-structure-definition.md) |
+| [Subscription](StructureDefinition-subscription.md) |
+| [ValueSet](StructureDefinition-value-set.md) |
 
 ### Structures: Data Type Profiles 
 

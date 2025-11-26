@@ -8,7 +8,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/ImplementationGuide/dev.dsf | *Version*:2.0.0 |
-| Draft as of 2025-11-24 | *Computable Name*:dsfig |
+| Draft as of 2025-11-26 | *Computable Name*:dsfig |
 
 The Data Sharing Framework (DSF) is a concept for a secure middleware to distribute data sharing processes based on the BPMN 2.0 and FHIR R4 standards. The DSF is used to support biomedical research with routine data, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed organizations. Every participating site runs a FHIR endpoint accessible by other sites and a business process engine in the local secured network. The process engines execute BPMN processes in order to coordinate local and remote steps necessary to enable cross-site data sharing or feasibility analyses. This includes access to local data repositories, use-and-access-committee decision support, consent filtering, and privacy preserving record-linkage and pseudonymization. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organizational boundaries. The secure communication infrastructure is funded by the German Federal Ministry of Education and Research within the Medical Informatics structure as [DSF Community](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php).
 
@@ -25,7 +25,7 @@ The Data Sharing Framework (DSF) is a concept for a secure middleware to distrib
   "name" : "dsfig",
   "title" : "Data Sharing Framework (DSF) Implementation Guide",
   "status" : "draft",
-  "date" : "2025-11-24T11:45:54+01:00",
+  "date" : "2025-11-26T16:56:02+01:00",
   "publisher" : "DSF Community",
   "contact" : [
     {
@@ -77,7 +77,7 @@ The Data Sharing Framework (DSF) is a concept for a secure middleware to distrib
           },
           {
             "url" : "value",
-            "valueString" : "2018+"
+            "valueString" : "2023+"
           }
         ],
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
@@ -406,7 +406,7 @@ The Data Sharing Framework (DSF) is a concept for a secure middleware to distrib
           },
           {
             "url" : "value",
-            "valueString" : "2018+"
+            "valueString" : "2023+"
           }
         ],
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
@@ -1074,7 +1074,6 @@ The Data Sharing Framework (DSF) is a concept for a secure middleware to distrib
           "reference" : "StructureDefinition/activity-definition"
         },
         "name" : "ActivityDefinition",
-        "description" : "A DSF Process with it's messages and corresponding Authorization Rules.",
         "exampleBoolean" : false
       },
       {
@@ -1680,7 +1679,27 @@ The Data Sharing Framework (DSF) is a concept for a secure middleware to distrib
     "parameter" : [
       {
         "code" : "path-resource",
-        "value" : "input/dsf-resources/*"
+        "value" : "input/dsf-resources/StructureDefinition"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/CodeSystem"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/NamingSystem"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/Subscription"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/ValueSet"
+      },
+      {
+        "code" : "path-resource",
+        "value" : "input/dsf-resources/CapabilityStatement"
       },
       {
         "code" : "path-resource",

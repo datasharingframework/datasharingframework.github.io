@@ -10,7 +10,7 @@
   "name" : "dsfig",
   "title" : "Data Sharing Framework (DSF) Implementation Guide",
   "status" : "draft",
-  "date" : "2025-11-24T11:45:54+01:00",
+  "date" : "2025-11-26T16:56:02+01:00",
   "publisher" : "DSF Community",
   "contact" : [{
     "name" : "DSF Community",
@@ -50,7 +50,7 @@
       },
       {
         "url" : "value",
-        "valueString" : "2018+"
+        "valueString" : "2023+"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -329,7 +329,7 @@
       },
       {
         "url" : "value",
-        "valueString" : "2018+"
+        "valueString" : "2023+"
       }],
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-parameter"
     },
@@ -892,7 +892,6 @@
         "reference" : "StructureDefinition/activity-definition"
       },
       "name" : "ActivityDefinition",
-      "description" : "A DSF Process with it's messages and corresponding Authorization Rules.",
       "exampleBoolean" : false
     },
     {
@@ -1402,7 +1401,27 @@
     },
     "parameter" : [{
       "code" : "path-resource",
-      "value" : "input/dsf-resources/*"
+      "value" : "input/dsf-resources/StructureDefinition"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "input/dsf-resources/CodeSystem"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "input/dsf-resources/NamingSystem"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "input/dsf-resources/Subscription"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "input/dsf-resources/ValueSet"
+    },
+    {
+      "code" : "path-resource",
+      "value" : "input/dsf-resources/CapabilityStatement"
     },
     {
       "code" : "path-resource",

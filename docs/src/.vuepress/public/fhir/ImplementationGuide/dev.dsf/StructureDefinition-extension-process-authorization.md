@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/extension-process-authorization | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:ProcessAuthorization |
+| Active as of 2025-11-26 | *Computable Name*:ProcessAuthorization |
 
 **Context of Use**
 
@@ -57,7 +57,7 @@ Other representations of profile: [CSV](StructureDefinition-extension-process-au
   "name" : "ProcessAuthorization",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/CodeSystem/bpmn-message | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DsfBpmnMessage |
+| Active as of 2025-11-26 | *Computable Name*:DsfBpmnMessage |
 
  
 CodeSystem with standard BPMN message values for Task resources 
@@ -41,7 +41,7 @@ CodeSystem with standard BPMN message values for Task resources
   "title" : "DSF BPMN message values",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

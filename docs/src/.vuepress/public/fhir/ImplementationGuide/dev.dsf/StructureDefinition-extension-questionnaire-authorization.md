@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/extension-questionnaire-authorization | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:QuestionnaireAuthorization |
+| Active as of 2025-11-26 | *Computable Name*:QuestionnaireAuthorization |
 
 **Context of Use**
 
@@ -57,7 +57,7 @@ Other representations of profile: [CSV](StructureDefinition-extension-questionna
   "name" : "QuestionnaireAuthorization",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

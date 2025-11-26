@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/ValueSet/organization-role | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Organization_Role |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Organization_Role |
 
  
 ValueSet with DSF organization roles used in OrganizationAffiliation resources 
@@ -66,7 +66,7 @@ Tag: All (Details: DSF Read Access Tag code ALL = 'All')
   "title" : "DSF Organization Role",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

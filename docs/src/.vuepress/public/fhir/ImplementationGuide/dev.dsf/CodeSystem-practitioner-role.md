@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/CodeSystem/practitioner-role | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:DSF_Practitioner_Role |
+| Active as of 2025-11-26 | *Computable Name*:DSF_Practitioner_Role |
 
  
 CodeSystem with DSF practitioner roles 
@@ -41,7 +41,7 @@ CodeSystem with DSF practitioner roles
   "title" : "DSF Practitioner Role",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

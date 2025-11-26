@@ -93,6 +93,9 @@ GENONCE_SCRIPT="$IG_OUT_DIR/_genonce.sh"
 export _JAVA_OPTIONS="-Xmx8g -Xms4g"
 echo "Set _JAVA_OPTIONS=${_JAVA_OPTIONS}"
 
+./patch-sushi-config.sh
+echo "Patched sushi-config.yaml"
+
 # Run updatePublisher if available (make executable and pass --yes)
 if [ -f "$UPDATE_PUBLISHER_SCRIPT" ]; then
   echo "Found $UPDATE_PUBLISHER_SCRIPT, making executable and running with --yes"

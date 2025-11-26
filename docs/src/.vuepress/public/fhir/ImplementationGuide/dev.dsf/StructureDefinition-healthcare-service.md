@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/healthcare-service | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:HealthcareService |
+| Active as of 2025-11-26 | *Computable Name*:HealthcareService |
 
 **Usages:**
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-healthcare-service.c
   "name" : "HealthcareService",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

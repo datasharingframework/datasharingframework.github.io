@@ -34,7 +34,7 @@
   fhir:name [ fhir:v "ActivityDefinition"] ; # 
   fhir:status [ fhir:v "active"] ; # 
   fhir:experimental [ fhir:v false] ; # 
-  fhir:date [ fhir:v "2025-10-27"^^xsd:date] ; # 
+  fhir:date [ fhir:v "2025-11-26"^^xsd:date] ; # 
   fhir:publisher [ fhir:v "DSF Community"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "DSF Community" ] ;
@@ -43,7 +43,6 @@
        fhir:value [ fhir:v "https://dsf.dev" ]
      ] )
   ] ) ; # 
-  fhir:description [ fhir:v "A DSF Process with it's messages and corresponding Authorization Rules."] ; # 
   fhir:fhirVersion [ fhir:v "4.0.1"] ; # 
   fhir:mapping ( [
      fhir:identity [ fhir:v "workflow" ] ;

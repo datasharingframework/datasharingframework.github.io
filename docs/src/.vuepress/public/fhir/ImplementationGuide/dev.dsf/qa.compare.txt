@@ -1,10 +1,10 @@
 dsfig : Validation Results
 =========================================
 
-err = 2, warn = 108, info = 52
+err = 2, warn = 109, info = 53
 $--
 Generated $--. FHIR version $-- for dev.dsf#$-- (canonical = http://dsf.dev/fhir)
- Build Errors : 0 / 53 / 0
+ Build Errors : 0 / 54 / 0
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/fsh-generated/resources/ImplementationGuide-dev.dsf : 0 / 1 / 1
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/CodeSystem/dsf-bpmn-message-2.0.0 : 0 / 1 / 1
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/CodeSystem/dsf-organization-role-2.0.0 : 0 / 1 / 1
@@ -16,7 +16,7 @@ Generated $--. FHIR version $-- for dev.dsf#$-- (canonical = http://dsf.dev/fhir
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/NamingSystem/dsf-practitioner : 0 / 0 / 2
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/NamingSystem/dsf-task : 0 / 0 / 2
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-activity-definition-2.0.0 : 0 / 1 / 3
- /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-binary-2.0.0 : 0 / 1 / 1
+ /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-binary-2.0.0 : 0 / 1 / 2
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-bundle-2.0.0 : 0 / 1 / 2
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-code-system-2.0.0 : 0 / 0 / 2
  /Users/simon/projects/temp/datasharingframework.github.io/temp-out/fhir-ig-gen/input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-2.0.0 : 0 / 1 / 2
@@ -74,6 +74,7 @@ Generated $--. FHIR version $-- for dev.dsf#$-- (canonical = http://dsf.dev/fhir
 </table>
 == n/a ==
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/task.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
+WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/activity-definition.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/binary.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/bundle.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource StructureDefinition/code-system.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
@@ -151,6 +152,7 @@ INFORMATION: StructureDefinition/activity-definition: StructureDefinition.snapsh
 INFORMATION: Resource: The resource StructureDefinition/activity-definition could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'http://dsf.dev/fhir/StructureDefinition/activity-definition'): The Implementation Guide contains no examples for this profile
 == input/dsf-resources/StructureDefinition/dsf-binary-2.0.0.xml ==
+INFORMATION: Resource: The resource StructureDefinition/binary could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 WARNING: StructureDefinition.where(url = 'http://dsf.dev/fhir/StructureDefinition/binary'): The Implementation Guide contains no examples for this profile
 == input/dsf-resources/StructureDefinition/dsf-bundle-2.0.0.xml ==
 INFORMATION: Resource: The resource StructureDefinition/bundle could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)

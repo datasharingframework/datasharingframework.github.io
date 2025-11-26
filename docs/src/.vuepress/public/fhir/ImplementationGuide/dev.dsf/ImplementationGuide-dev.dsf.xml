@@ -10,7 +10,7 @@
   <name value="dsfig"/>
   <title value="Data Sharing Framework (DSF) Implementation Guide"/>
   <status value="draft"/>
-  <date value="2025-11-24T11:45:54+01:00"/>
+  <date value="2025-11-26T16:56:02+01:00"/>
   <publisher value="DSF Community"/>
   <contact>
     <name value="DSF Community"/>
@@ -44,7 +44,7 @@
         <valueString value="copyrightyear"/>
       </extension>
       <extension url="value">
-        <valueString value="2018+"/>
+        <valueString value="2023+"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -247,7 +247,7 @@
         <valueCode value="copyrightyear"/>
       </extension>
       <extension url="value">
-        <valueString value="2018+"/>
+        <valueString value="2023+"/>
       </extension>
     </extension>
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -710,7 +710,6 @@
         <reference value="StructureDefinition/activity-definition"/>
       </reference>
       <name value="ActivityDefinition"/>
-      <description value="A DSF Process with it's messages and corresponding Authorization Rules."/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -1174,7 +1173,27 @@
     </page>
     <parameter>
       <code value="path-resource"/>
-      <value value="input/dsf-resources/*"/>
+      <value value="input/dsf-resources/StructureDefinition"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/dsf-resources/CodeSystem"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/dsf-resources/NamingSystem"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/dsf-resources/Subscription"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/dsf-resources/ValueSet"/>
+    </parameter>
+    <parameter>
+      <code value="path-resource"/>
+      <value value="input/dsf-resources/CapabilityStatement"/>
     </parameter>
     <parameter>
       <code value="path-resource"/>

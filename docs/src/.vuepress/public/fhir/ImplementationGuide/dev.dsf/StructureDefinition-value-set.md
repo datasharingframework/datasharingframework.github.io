@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/value-set | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:ValueSet |
+| Active as of 2025-11-26 | *Computable Name*:ValueSet |
 
 **Usages:**
 
@@ -49,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-value-set.csv), [Exc
   "name" : "ValueSet",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {

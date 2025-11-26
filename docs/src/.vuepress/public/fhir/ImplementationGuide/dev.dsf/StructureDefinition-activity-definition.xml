@@ -25,7 +25,7 @@
   <name value="ActivityDefinition"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2025-10-27"/>
+  <date value="2025-11-26"/>
   <publisher value="DSF Community"/>
   <contact>
     <name value="DSF Community"/>
@@ -34,7 +34,6 @@
       <value value="https://dsf.dev"/>
     </telecom>
   </contact>
-  <description value="A DSF Process with it's messages and corresponding Authorization Rules."/>
   <fhirVersion value="4.0.1"/>
   <mapping>
     <identity value="workflow"/>

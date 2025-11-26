@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "19110fdb-cc48-40ee-acdc-6399f48047c2",
+  "id" : "170b8cfe-28df-4cc1-9ec6-7286b0c8d584",
   "meta" : {
-    "lastUpdated" : "2025-11-24T11:45:54.110+01:00"
+    "lastUpdated" : "2025-11-26T16:56:02.806+01:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -26,11 +26,11 @@
       "title" : "DSF BPMN message values",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:584c11b4-509a-416e-9ea9-530baa9e684e",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:10a0b215-53ff-4c58-b2a6-8ea8964ec08d",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 4,
         "offset" : 0,
         "parameter" : [{
@@ -97,11 +97,11 @@
       "title" : "DSF Organization Role",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:f5f3a459-403d-479b-8212-89f1d6abb875",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:0fcdb832-57df-4e17-8046-f820d5aad3b6",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 14,
         "offset" : 0,
         "parameter" : [{
@@ -218,11 +218,11 @@
       "title" : "DSF Practitioner Role",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:ecef8100-3ad0-4819-9aea-be97f54d9dcd",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:17f49558-d4d7-497d-802b-e1eeaadf9c3e",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 15,
         "offset" : 0,
         "parameter" : [{
@@ -344,11 +344,11 @@
       "title" : "DSF Process Authorization Recipient",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:134fab4f-858f-45dd-9b0f-0acfb4828e2a",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:ea200e6c-c83a-4536-83f5-4b1fd5198523",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 3,
         "offset" : 0,
         "parameter" : [{
@@ -410,11 +410,11 @@
       "title" : "DSF Process Authorization Requester",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:f88f4cb6-30f8-46bb-8439-1784449c0a61",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:5a9e0619-c2c9-4bc8-8e52-13a3176e6a9e",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 9,
         "offset" : 0,
         "parameter" : [{
@@ -506,11 +506,11 @@
       "title" : "DSF Read Access Tag",
       "status" : "active",
       "experimental" : false,
-      "date" : "2025-10-27",
+      "date" : "2025-11-26",
       "immutable" : true,
       "expansion" : {
-        "identifier" : "urn:uuid:0703fca9-48ea-406d-9741-7479c11e7660",
-        "timestamp" : "2025-11-24T11:46:33+01:00",
+        "identifier" : "urn:uuid:05d1761a-a096-407d-95ab-a4289ec414ec",
+        "timestamp" : "2025-11-26T16:56:42+01:00",
         "total" : 4,
         "offset" : 0,
         "parameter" : [{

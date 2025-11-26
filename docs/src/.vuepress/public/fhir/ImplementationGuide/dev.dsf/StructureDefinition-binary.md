@@ -9,7 +9,7 @@
 | | |
 | :--- | :--- |
 | *Official URL*:http://dsf.dev/fhir/StructureDefinition/binary | *Version*:2.0.0 |
-| Active as of 2025-10-27 | *Computable Name*:Binary |
+| Active as of 2025-11-26 | *Computable Name*:Binary |
 
 **Usages:**
 
@@ -34,6 +34,9 @@ Other representations of profile: [CSV](StructureDefinition-binary.csv), [Excel]
   "resourceType" : "StructureDefinition",
   "id" : "binary",
   "meta" : {
+    "profile" : [
+      "http://dsf.dev/fhir/StructureDefinition/structure-definition"
+    ],
     "tag" : [
       {
         "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
@@ -46,7 +49,7 @@ Other representations of profile: [CSV](StructureDefinition-binary.csv), [Excel]
   "name" : "Binary",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-10-27",
+  "date" : "2025-11-26",
   "publisher" : "DSF Community",
   "contact" : [
     {
