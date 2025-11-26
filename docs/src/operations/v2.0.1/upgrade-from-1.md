@@ -12,7 +12,7 @@ We kindly invite **all DSF administrators** to test this release on their **stag
 Thank you for helping us improve the DSF!
 :::
 
-Upgrading the DSF from 1.9.0 to 2.0.0 involves modifying the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 1.9.0 to 2.0.1 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.9.0 first
 When upgrading from DSF version < 1.9.0 it is important to migrate to [DSF 1.9.0 first](../v1.9.0/upgrade-from-1).
