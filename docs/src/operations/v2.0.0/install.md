@@ -113,12 +113,12 @@ Here is a quick overview of the expected network setup.
     * If the private key is encrypted, add a password file with the password as the only content to **/opt/fhir/secrets/client_certificate_private_key.pem.password**
     * If the private key is not encrypted, remove the corresponding docker secret lines from the `docker-compose.yml` file
         ```
-        L34:      - app_client_certificate_private_key.pem.password
+        L37:      - app_client_certificate_private_key.pem.password
         ...
-        L47:      DEV_DSF_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE: /run/secrets/app_client_certificate_private_key.pem.password
+        L50:      DEV_DSF_FHIR_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE: /run/secrets/app_client_certificate_private_key.pem.password
         ...
-        L105:  app_client_certificate_private_key.pem.password:
-        L106:    file: ./secrets/client_certificate_private_key.pem.password
+        L108:  app_client_certificate_private_key.pem.password:
+        L109:    file: ./secrets/client_certificate_private_key.pem.password
         ```
 
     ::: tip How to chmod / chown
