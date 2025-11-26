@@ -1,0 +1,96 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "practitioner-role",
+  "meta" : {
+    "profile" : ["http://dsf.dev/fhir/StructureDefinition/code-system"],
+    "tag" : [{
+      "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
+      "code" : "ALL"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem practitioner-role</b></p><a name=\"practitioner-role\"> </a><a name=\"hcpractitioner-role\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-code-system.html\">CodeSystem</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC_USER<a name=\"practitioner-role-UAC_USER\"> </a></td><td>Use-and-Access Committee User</td></tr><tr><td style=\"white-space:nowrap\">COS_USER<a name=\"practitioner-role-COS_USER\"> </a></td><td>Coordinating Site User</td></tr><tr><td style=\"white-space:nowrap\">CRR_USER<a name=\"practitioner-role-CRR_USER\"> </a></td><td>Central Research Repository User</td></tr><tr><td style=\"white-space:nowrap\">DIC_USER<a name=\"practitioner-role-DIC_USER\"> </a></td><td>Data Integration Center User</td></tr><tr><td style=\"white-space:nowrap\">DMS_USER<a name=\"practitioner-role-DMS_USER\"> </a></td><td>Data Management Site User</td></tr><tr><td style=\"white-space:nowrap\">DTS_USER<a name=\"practitioner-role-DTS_USER\"> </a></td><td>Data Transfer Site User</td></tr><tr><td style=\"white-space:nowrap\">HRP_USER<a name=\"practitioner-role-HRP_USER\"> </a></td><td>Health Research Platform User</td></tr><tr><td style=\"white-space:nowrap\">TTP_USER<a name=\"practitioner-role-TTP_USER\"> </a></td><td>Trusted Third Party User</td></tr><tr><td style=\"white-space:nowrap\">AMS_USER<a name=\"practitioner-role-AMS_USER\"> </a></td><td>Allowlist Management Site User</td></tr><tr><td style=\"white-space:nowrap\">ASP_USER<a name=\"practitioner-role-ASP_USER\"> </a></td><td>Analysis Service Provider User</td></tr><tr><td style=\"white-space:nowrap\">SPR_USER<a name=\"practitioner-role-SPR_USER\"> </a></td><td>Service Provider Registry User</td></tr><tr><td style=\"white-space:nowrap\">TSP_USER<a name=\"practitioner-role-TSP_USER\"> </a></td><td>Terminology Service Provider User</td></tr><tr><td style=\"white-space:nowrap\">PPH_USER<a name=\"practitioner-role-PPH_USER\"> </a></td><td>Process Plugin Hub User</td></tr><tr><td style=\"white-space:nowrap\">BIO_USER<a name=\"practitioner-role-BIO_USER\"> </a></td><td>Biobank User</td></tr><tr><td style=\"white-space:nowrap\">DSF_ADMIN<a name=\"practitioner-role-DSF_ADMIN\"> </a></td><td>DSF Administrator</td></tr></table></div>"
+  },
+  "url" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
+  "version" : "2.0.0",
+  "name" : "DSF_Practitioner_Role",
+  "title" : "DSF Practitioner Role",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-11-26",
+  "publisher" : "DSF Community",
+  "contact" : [{
+    "name" : "DSF Community",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://dsf.dev"
+    }]
+  }],
+  "description" : "CodeSystem with DSF practitioner roles",
+  "caseSensitive" : true,
+  "hierarchyMeaning" : "grouped-by",
+  "versionNeeded" : false,
+  "content" : "complete",
+  "count" : 15,
+  "concept" : [{
+    "code" : "UAC_USER",
+    "display" : "Use-and-Access Committee User"
+  },
+  {
+    "code" : "COS_USER",
+    "display" : "Coordinating Site User"
+  },
+  {
+    "code" : "CRR_USER",
+    "display" : "Central Research Repository User"
+  },
+  {
+    "code" : "DIC_USER",
+    "display" : "Data Integration Center User"
+  },
+  {
+    "code" : "DMS_USER",
+    "display" : "Data Management Site User"
+  },
+  {
+    "code" : "DTS_USER",
+    "display" : "Data Transfer Site User"
+  },
+  {
+    "code" : "HRP_USER",
+    "display" : "Health Research Platform User"
+  },
+  {
+    "code" : "TTP_USER",
+    "display" : "Trusted Third Party User"
+  },
+  {
+    "code" : "AMS_USER",
+    "display" : "Allowlist Management Site User"
+  },
+  {
+    "code" : "ASP_USER",
+    "display" : "Analysis Service Provider User"
+  },
+  {
+    "code" : "SPR_USER",
+    "display" : "Service Provider Registry User"
+  },
+  {
+    "code" : "TSP_USER",
+    "display" : "Terminology Service Provider User"
+  },
+  {
+    "code" : "PPH_USER",
+    "display" : "Process Plugin Hub User"
+  },
+  {
+    "code" : "BIO_USER",
+    "display" : "Biobank User"
+  },
+  {
+    "code" : "DSF_ADMIN",
+    "display" : "DSF Administrator"
+  }]
+}
