@@ -12,7 +12,7 @@ We kindly invite **all DSF administrators** to test this release on their **stag
 Thank you for helping us improve the DSF!
 :::
 
-Upgrading the DSF from 2.0.0 to 2.0.1 involves modifying the version the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 2.0.0 to 2.0.1 involves modifying the image versions in the docker-compose.yml files and recreating the containers. 
 
 
 DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter validation rules in DSF 2 we strongly recommend using the latest compatible plugin versions. Updates within the same major and minor version (e.g., from 1.2.3.4 to 1.2.9.9) are generally safe. An overview of the recommended MII/NUM versions can be found [here](./install-plugins.md).
