@@ -33,10 +33,10 @@
     <![endif]-->
 
     <!-- Favicons -->
-    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
-    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
-    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
-    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/icon-fhir-57.png"/>
     <link rel="shortcut icon" href="assets/ico/favicon.png"/>
   </head>
   <body onload="document.body.style.opacity='1'">
@@ -44,8 +44,8 @@
 	  <script src="assets/js/prism.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"8.40"}
-    h3,h4,h5,h6{--heading-prefix:"8.40"}</style>
+    <style type="text/css">h2{--heading-prefix:"8.57"}
+    h3,h4,h5,h6{--heading-prefix:"8.57"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -115,7 +115,7 @@
         <a href="artifacts.html#terminology-naming-systems">NamingSystems</a>
       </li>
       <li>
-        <a href="artifacts.html#other">Subscriptions</a>
+        <a href="artifacts.html#example-example-instances">Subscriptions</a>
       </li>
     </ul>
   </li>
@@ -199,7 +199,7 @@
         
           Active
           
-            as of 2023-06-28
+            as of 2025-10-27
           
         
       </td>
@@ -215,10 +215,13 @@
 
 
 
-  <pre class="json" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-json" style="white-space: pre; text-wrap: nowrap;">{
+  <pre class="json" data-fhir="generated" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-json" style="white-space: pre; text-wrap: nowrap;">{
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem">resourceType</a>" : "CodeSystem",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.id">id</a>" : "practitioner-role",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.meta">meta</a>" : {
+    "<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">profile</a>" : [
+      <a href="StructureDefinition-code-system.html" style="color: Maroon">&#x1F517;</a> "http://dsf.dev/fhir/StructureDefinition/code-system"
+    ],
     "<a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.tag">tag</a>" : [
       {
         "<a href="http://hl7.org/fhir/R4/datatypes.html#Coding#Coding.system">system</a>" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
@@ -228,15 +231,15 @@
   },
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.text">text</a>" : {
     "<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">status</a>" : "generated",
-    "<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: CodeSystem practitioner-role&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;practitioner-role\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcpractitioner-role\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;practitioner-role-en-US\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Tag: All (Details: DSF Read Access Tag code ALL = 'All')&lt;/p&gt;&lt;/div&gt;&lt;p&gt;This case-sensitive code system &lt;code&gt;http://dsf.dev/fhir/CodeSystem/practitioner-role&lt;/code&gt; defines the following codes in a Grouped By hierarchy:&lt;/p&gt;&lt;table class=\&quot;codes\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;UAC_USER&lt;a name=\&quot;practitioner-role-UAC_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Use-and-Access Committee Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;COS_USER&lt;a name=\&quot;practitioner-role-COS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Coordinating Site Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;CRR_USER&lt;a name=\&quot;practitioner-role-CRR_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Central Research Repository Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DIC_USER&lt;a name=\&quot;practitioner-role-DIC_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Integration Center Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DMS_USER&lt;a name=\&quot;practitioner-role-DMS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Management Site Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DTS_USER&lt;a name=\&quot;practitioner-role-DTS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Transfer Site Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;HRP_USER&lt;a name=\&quot;practitioner-role-HRP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Health Research Platform Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;TTP_USER&lt;a name=\&quot;practitioner-role-TTP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Trusted Third Party Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;AMS_USER&lt;a name=\&quot;practitioner-role-AMS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Allowlist Management Site Member&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DSF_ADMIN&lt;a name=\&quot;practitioner-role-DSF_ADMIN\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;DSF Administrator&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;"
+    "<a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.div">div</a>" : "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Generated Narrative: CodeSystem practitioner-role&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;practitioner-role\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcpractitioner-role\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profile: &lt;a href=\&quot;StructureDefinition-code-system.html\&quot;&gt;CodeSystem&lt;/a&gt;&lt;/p&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Tag: All (Details: DSF Read Access Tag code ALL = 'All')&lt;/p&gt;&lt;/div&gt;&lt;p&gt;This case-sensitive code system &lt;code&gt;http://dsf.dev/fhir/CodeSystem/practitioner-role&lt;/code&gt; defines the following codes in a Grouped By hierarchy:&lt;/p&gt;&lt;table class=\&quot;codes\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;&lt;b&gt;Code&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;b&gt;Display&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;UAC_USER&lt;a name=\&quot;practitioner-role-UAC_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Use-and-Access Committee User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;COS_USER&lt;a name=\&quot;practitioner-role-COS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Coordinating Site User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;CRR_USER&lt;a name=\&quot;practitioner-role-CRR_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Central Research Repository User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DIC_USER&lt;a name=\&quot;practitioner-role-DIC_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Integration Center User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DMS_USER&lt;a name=\&quot;practitioner-role-DMS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Management Site User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DTS_USER&lt;a name=\&quot;practitioner-role-DTS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Data Transfer Site User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;HRP_USER&lt;a name=\&quot;practitioner-role-HRP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Health Research Platform User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;TTP_USER&lt;a name=\&quot;practitioner-role-TTP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Trusted Third Party User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;AMS_USER&lt;a name=\&quot;practitioner-role-AMS_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Allowlist Management Site User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;ASP_USER&lt;a name=\&quot;practitioner-role-ASP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Analysis Service Provider User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;SPR_USER&lt;a name=\&quot;practitioner-role-SPR_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Service Provider Registry User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;TSP_USER&lt;a name=\&quot;practitioner-role-TSP_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Terminology Service Provider User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;PPH_USER&lt;a name=\&quot;practitioner-role-PPH_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Process Plugin Hub User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;BIO_USER&lt;a name=\&quot;practitioner-role-BIO_USER\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;Biobank User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=\&quot;white-space:nowrap\&quot;&gt;DSF_ADMIN&lt;a name=\&quot;practitioner-role-DSF_ADMIN\&quot;&gt; &lt;/a&gt;&lt;/td&gt;&lt;td&gt;DSF Administrator&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;"
   },
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.url">url</a>" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
-  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a>" : "1.0.0",
+  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.version">version</a>" : "2.0.0",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.name">name</a>" : "DSF_Practitioner_Role",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.title">title</a>" : "DSF Practitioner Role",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.status">status</a>" : "active",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.experimental">experimental</a>" : false,
-  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a>" : "2023-06-28",
+  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.date">date</a>" : "2025-10-27",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.publisher">publisher</a>" : "DSF Community",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.contact">contact</a>" : [
     {
@@ -254,43 +257,63 @@
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.hierarchyMeaning">hierarchyMeaning</a>" : "grouped-by",
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.versionNeeded">versionNeeded</a>" : false,
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.content">content</a>" : "complete",
-  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.count">count</a>" : 10,
+  "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.count">count</a>" : 15,
   "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept">concept</a>" : [
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "UAC_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Use-and-Access Committee Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Use-and-Access Committee User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "COS_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Coordinating Site Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Coordinating Site User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "CRR_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Central Research Repository Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Central Research Repository User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "DIC_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Integration Center Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Integration Center User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "DMS_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Management Site Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Management Site User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "DTS_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Transfer Site Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Data Transfer Site User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "HRP_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Health Research Platform Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Health Research Platform User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "TTP_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Trusted Third Party Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Trusted Third Party User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "AMS_USER",
-      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Allowlist Management Site Member"
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Allowlist Management Site User"
+    },
+    {
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "ASP_USER",
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Analysis Service Provider User"
+    },
+    {
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "SPR_USER",
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Service Provider Registry User"
+    },
+    {
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "TSP_USER",
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Terminology Service Provider User"
+    },
+    {
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "PPH_USER",
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Process Plugin Hub User"
+    },
+    {
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "BIO_USER",
+      "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.display">display</a>" : "Biobank User"
     },
     {
       "<a href="http://hl7.org/fhir/R4/codesystem.html#CodeSystem.concept.code">code</a>" : "DSF_ADMIN",
@@ -321,7 +344,7 @@
 
       <div class="inner-wrapper">
         <p>
-          IG &#169; 2023+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Thu, Jun 5, 2025 13:47+0000">2025-06-05</span>
+          IG &#169; 2018+ <a style="color:var(--footer-hyperlink-text-color)" href="https://dsf.dev">DSF Community</a>.  Package dev.dsf#2.0.0 based on <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>. Generated <span title="Mon, Nov 24, 2025 11:45+0100">2025-11-24</span>
           <br/>
           <span style="color: var(--footer-highlight-text-color)">
                       Links: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Table of Contents</a> |

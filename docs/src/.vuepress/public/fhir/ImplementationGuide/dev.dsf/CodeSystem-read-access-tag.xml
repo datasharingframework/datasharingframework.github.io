@@ -3,21 +3,22 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="read-access-tag"/>
   <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/code-system"/>
     <tag>
       <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
       <code value="ALL"/>
     </tag>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CodeSystem read-access-tag</b></p><a name="read-access-tag"> </a><a name="hcread-access-tag"> </a><a name="read-access-tag-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code> defines the following codes in a Grouped By hierarchy:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">LOCAL<a name="read-access-tag-LOCAL"> </a></td><td>Local</td><td>Read access for local users</td></tr><tr><td style="white-space:nowrap">ORGANIZATION<a name="read-access-tag-ORGANIZATION"> </a></td><td>Organization</td><td>Read access for organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization</td></tr><tr><td style="white-space:nowrap">ROLE<a name="read-access-tag-ROLE"> </a></td><td>Role</td><td>Read access for member organizations with role in consortium (parent organization) specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-consortium-role</td></tr><tr><td style="white-space:nowrap">ALL<a name="read-access-tag-ALL"> </a></td><td>All</td><td>Read access for remote and local users</td></tr></table></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CodeSystem read-access-tag</b></p><a name="read-access-tag"> </a><a name="hcread-access-tag"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-code-system.html">CodeSystem</a></p><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code> defines the following codes in a Grouped By hierarchy:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">LOCAL<a name="read-access-tag-LOCAL"> </a></td><td>Local</td><td>Read access for local users</td></tr><tr><td style="white-space:nowrap">ORGANIZATION<a name="read-access-tag-ORGANIZATION"> </a></td><td>Organization</td><td>Read access for organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization</td></tr><tr><td style="white-space:nowrap">ROLE<a name="read-access-tag-ROLE"> </a></td><td>Role</td><td>Read access for member organizations with role in consortium (parent organization) specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-consortium-role</td></tr><tr><td style="white-space:nowrap">ALL<a name="read-access-tag-ALL"> </a></td><td>All</td><td>Read access for remote and local users</td></tr></table></div>
   </text>
   <url value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <name value="DSF_Read_Access_Tag"/>
   <title value="DSF Read Access Tag"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2023-06-28"/>
+  <date value="2025-10-27"/>
   <publisher value="DSF Community"/>
   <contact>
     <name value="DSF Community"/>

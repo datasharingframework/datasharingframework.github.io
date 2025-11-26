@@ -13,5 +13,6 @@ dev.dsf.bpe.v2.error.impl
 dev.dsf.bpe.v2.fhir
 dev.dsf.bpe.v2.service
 dev.dsf.bpe.v2.service.process
+dev.dsf.bpe.v2.service.validation
 dev.dsf.bpe.v2.spring
 dev.dsf.bpe.v2.variables

@@ -1,6 +1,7 @@
 import { slimsearchPlugin } from "@vuepress/plugin-slimsearch";
 import { hopeTheme } from "vuepress-theme-hope";
-import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar, generate_v2_latest_sidebar } from "./sidebar/operations-v1";
+import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar } from "./sidebar/operations-v1";
+import { generate_v2_latest_sidebar } from "./sidebar/operations-v2";
 
 export default hopeTheme({
   author: {
@@ -38,12 +39,12 @@ export default hopeTheme({
           icon: "launch",
           prefix: "/operations/",
           children: [{
-            text: "Current version - 1.9.0",
-            link: "get-started.md",
+            text: "Stable version - 1.9.0",
+            link: "v1.9.0/readme.md",
             icon: "launch"
           }, {
-            text: "Next version - 2.0.0-RC2",
-            link: "v2.0.0-RC2/",
+            text: "Current version - 2.0.0",
+            link: "get-started.md",
             icon: "launch"
           }, "old-versions.md"],
         },
@@ -127,9 +128,9 @@ export default hopeTheme({
     "/spring-school": [],
     "/news": [],
     "/operations/old-versions": [],
-    "/operations/latest/": generate_v1_latest_sidebar(),
+    "/operations/latest/": generate_v2_latest_sidebar(),
     "/operations/next/": [],
-    "/operations/v2.0.0-RC2/": generate_v2_latest_sidebar(),
+    "/operations/v2.0.0/": generate_v2_latest_sidebar(),
     "/operations/v1.9.0/": generate_v1_latest_sidebar(),
     "/operations/v1.8.0/": generate_v1_gt_eq_1_7_0_sidebar(),
     "/operations/v1.7.1/": generate_v1_gt_eq_1_7_0_sidebar(),

@@ -2,6 +2,7 @@
   "resourceType" : "ValueSet",
   "id" : "bpmn-message",
   "meta" : {
+    "profile" : ["http://dsf.dev/fhir/StructureDefinition/value-set"],
     "tag" : [{
       "system" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
       "code" : "ALL"
@@ -9,15 +10,15 @@
   },
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet bpmn-message</b></p><a name=\"bpmn-message\"> </a><a name=\"hcbpmn-message\"> </a><a name=\"bpmn-message-en-US\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href=\"CodeSystem-bpmn-message.html\"><code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code></a></li></ul></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet bpmn-message</b></p><a name=\"bpmn-message\"> </a><a name=\"hcbpmn-message\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-value-set.html\">ValueSet</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href=\"CodeSystem-bpmn-message.html\"><code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code></a><span title=\"Version is explicitly stated to be 2.0.0\"> version &#x1F4CD;2.0.0</span></li></ul></div>"
   },
   "url" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
-  "version" : "1.0.0",
+  "version" : "2.0.0",
   "name" : "DsfBpmnMessage",
   "title" : "DSF BPMN message values",
   "status" : "active",
   "experimental" : false,
-  "date" : "2023-06-28",
+  "date" : "2025-10-27",
   "publisher" : "DSF Community",
   "contact" : [{
     "name" : "DSF Community",
@@ -31,7 +32,7 @@
   "compose" : {
     "include" : [{
       "system" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
-      "version" : "1.0.0"
+      "version" : "2.0.0"
     }]
   }
 }

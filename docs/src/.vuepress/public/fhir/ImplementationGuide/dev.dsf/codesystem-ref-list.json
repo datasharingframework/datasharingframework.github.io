@@ -2,7 +2,7 @@
   "codeSystems" : [
     {
       "url" : "http://dsf.dev/fhir/CodeSystem/bpmn-message",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DsfBpmnMessage",
       "title" : "DSF BPMN message values",
@@ -13,7 +13,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/CodeSystem/organization-role",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Organization_Role",
       "title" : "DSF Organization Role",
@@ -24,7 +24,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/CodeSystem/practitioner-role",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Practitioner_Role",
       "title" : "DSF Practitioner Role",
@@ -35,7 +35,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/CodeSystem/process-authorization",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Process_Authorization",
       "title" : "DSF Process Authorization",
@@ -47,7 +47,7 @@
     },
     {
       "url" : "http://dsf.dev/fhir/CodeSystem/read-access-tag",
-      "version" : "1.0.0",
+      "version" : "2.0.0",
       "status" : "active",
       "name" : "DSF_Read_Access_Tag",
       "title" : "DSF Read Access Tag",
