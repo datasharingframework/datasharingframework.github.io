@@ -17,10 +17,9 @@ During the event, Hauke gave a talk titled **“Migration Experiences from Camun
 
 The event was an exciting opportunity to network and meet the Operaton community face-to-face for the first time. We were delighted to meet the community and the core contributors.We would like to thank everyone for the great event. 
 
-Alongside our presentation, other participants also gave short talks. If you’re curious about the topics that were covered, you can view the full event details on **[LinkedIn](https://www.linkedin.com/events/7377335371619024896/)**. The full event recording is available on [Youtube](https://youtu.be/xy4afGyDw6Y?si=bQv9foebobwfg5Y1)
+Alongside our presentation, other participants also gave short talks. If you’re curious about the topics that were covered, you can view the full event details on **[LinkedIn](https://www.linkedin.com/events/7377335371619024896/)**.
 
-## Watch Hauke Hund’s talk from the event here:
-<iframe width="854" height="480" src="https://www.youtube.com/embed/xy4afGyDw6Y?si=hN9tXM8M50OV-Pib&amp;start=13890" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+The Talk **“Migration Experiences from Camunda 7 to Operaton for DSF 2.0”** is available to watch on [YouTube](https://www.youtube.com/watch?reload=9&v=xy4afGyDw6Y&t=13885s).
 
 ---
 
@@ -30,6 +29,6 @@ Alongside our presentation, other participants also gave short talks. If you’r
   * 12:00–19:00 Full Event
   * 17:30–17:50 DSF Presentation
 * **Location:** itemis, Speicherstraße 8, Dortmund (3rd floor – new harbor office)
-* **Videos:** [Youtube](https://www.youtube.com/watch?v=xy4afGyDw6Y)
+* **Video:** The full event recording is available on [Youtube](https://www.youtube.com/watch?v=xy4afGyDw6Y)
 * View full event details on [LinkedIn]( <https://www.linkedin.com/events/7377335371619024896/>)
 
