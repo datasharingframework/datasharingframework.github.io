@@ -46,7 +46,7 @@ The [LIFE Institute](https://www.uniklinikum-leipzig.de/einrichtungen/life/) of 
 ### Medical Informatics Initiative: "Data Sharing Framework Community" (2023-2026)
 
 
-![BMBF Logo =228x158](/photos/learnmore/funding/bmbf.png) 
+![BMFTR Logo =228x158](/photos/learnmore/funding/bmftr.png) 
 
  The DSF Community connects the DSF competencies of the entire [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/de/start) so that new use cases, in particular from Module 3 or the [Network University Medicine (NUM)](https://www.netzwerk-universitaetsmedizin.de/), are better supported in creating the respective DSF plugins. In the context of Module 2b, the DSF Community contributes to the further development of the common digital infrastructure of the MII together with the [FDPG+](https://forschen-fuer-gesundheit.de/) and [TRANSIT](https://www.gesundheitsforschung-bmbf.de/de/transit-medizininformatik-struktur-data-management-unit-16148.php) projects. [BMBF](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)
 
