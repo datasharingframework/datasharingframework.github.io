@@ -40,6 +40,12 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 ## News
 
+**🚀 DSF 2 Released!**
+We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the **test infrastructure**! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
+[Read more](posts/2025-11-28-dsfv2-release)
+
+---
+
 **Recap: DSF Community Meeting 2025 in Heidelberg**
 The DSF Community meet-up in Heidelberg brought together developers and contributoers to share ideas and discuss the latest progress in the DSF Community project. Highlights included updates on DSF 2.0, API 2.0, and a sneak peek at the new Linter Tool. The event wrapped up with a look ahead to 2026. 
 [Read more](/posts/2025-11-18-dsf-meet-up-2025)
@@ -50,12 +56,6 @@ On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Da
 [Read more](/posts/2025-11-12-operaton-release-party)
 
 ---
-**DSF 2.0.0 - First Release Candidate (RC1)**
-We are happy to announce the DSF 2.0.0 Release Candidate (RC1)! This milestone represents a major advancement for the DSF, bringing new features and significant improvements. The RC1 release is now publicly available on the DSF GitHub. We highlight some of the key features, you can find more details in the full article.
-[Read more](/posts/2025-11-07-dsfv2-rc1)
-
----
-
 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
