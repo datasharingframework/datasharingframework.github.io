@@ -52,7 +52,7 @@ The DSF Community meet-up in Heidelberg brought together developers and contribu
 
 ---
 **DSF at the Operaton Release Party!**
-On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team will attend the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). Don’t miss out on this exciting event and attend in person or through the livestream! 
+On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team attended the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). 
 [Read more](/posts/2025-11-12-operaton-release-party)
 
 ---
