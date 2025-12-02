@@ -33,30 +33,32 @@ features:
 ---
 ---
 # Data Sharing Framework
-The **Data Sharing Framework (DSF)** is a concept for a secure middleware to distribute data sharing processes based on the BPMN 2.0 and FHIR R4 standards. The DSF is used to support biomedical research with routine data, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed organizations. Every participating site runs a FHIR endpoint accessible by other sites and a business process engine in the local secured network. The process engines execute BPMN processes in order to coordinate local and remote steps necessary to enable cross-site data sharing or feasibility analysis. This includes access to local data repositories, use-and-access-committee decision support, consent filtering, and privacy preserving record-linkage and pseudonymization. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organizational boundaries. The secure communication infrastructure is funded by the German Federal Ministry of Education and Research within the Medical Informatics structure as *[DSF Community](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)*. 
+The **Data Sharing Framework (DSF)** is a concept for a secure middleware to distribute data sharing processes based on the BPMN 2.0 and FHIR R4 standards. The DSF is used to support biomedical research with routine data, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed organizations. Every participating site runs a FHIR endpoint accessible by other sites and a business process engine in the local secured network. The process engines execute BPMN processes in order to coordinate local and remote steps necessary to enable cross-site data sharing or feasibility analysis. This includes access to local data repositories, use-and-access-committee decision support, consent filtering, and privacy preserving record-linkage and pseudonymization. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organizational boundaries. The secure communication infrastructure is funded by the German Federal Ministry of Research, Technology and Space within the Medical Informatics structure as *[DSF Community](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)*. 
 
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
 
 ## News
+
+**🚀 DSF 2 Released!**
+We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the **test infrastructure**! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
+[Read more](posts/2025-11-28-dsfv2-release)
+
+---
+
+**Recap: DSF Community Meeting 2025 in Heidelberg**
+The DSF Community meet-up in Heidelberg brought together developers and contributoers to share ideas and discuss the latest progress in the DSF Community project. Highlights included updates on DSF 2.0, API 2.0, and a sneak peek at the new Linter Tool. The event wrapped up with a look ahead to 2026. 
+[Read more](/posts/2025-11-18-dsf-meet-up-2025)
+
+---
 **DSF at the Operaton Release Party!**
-On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team will attend the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). Don’t miss out on this exciting event and attend in person or through the livestream! [Read more](/posts/2025-11-12-operaton-release-party)
-
----
-**DSF 2.0.0 - First Release Candidate (RC1)**
-We are happy to announce the DSF 2.0.0 Release Candidate (RC1)! This milestone represents a major advancement for the DSF, bringing new features and significant improvements. The RC1 release is now publicly available on the DSF GitHub. We highlight some of the key features, you can find more details in the full article.
-[Read more](/posts/2025-11-07-dsfv2-rc1)
-
----
-
-**Operaton**
-The Data Sharing Framework is entering an exciting new phase. With the upcoming DSF 2.0 release, we are transitioning our business process engine from Camunda 7 to Operaton 1.0.0, a modern, open-source BPMN 2.0 engine. This move marks a significant step toward improved scalability and long-term maintainability. 
-[Read more](/posts/2025-10-02-operaton-DSF-2.0)
+On Friday, November 21st, 2025, Hauke Hund and Maximilian Kurscheidt from the Data Sharing Framework (DSF) team attended the Operaton Release Party at the itemis headquarters in Dortmund to celebrate the upcoming release of [Operaton 1.0](https://operaton.org/). 
+[Read more](/posts/2025-11-12-operaton-release-party)
 
 ---
 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
 <div class="image-container">
-    <img src="/photos/learnmore/funding/bmbf-mii.png">
+    <img src="/photos/learnmore/funding/bmftr-mii.png">
 </div>
