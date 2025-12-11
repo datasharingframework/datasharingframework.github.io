@@ -16,19 +16,24 @@ It is divided into steps for each of the main components of ActivityDefinitions:
 
 *We will assume you know how to translate [ElementDefinitions](https://www.hl7.org/fhir/R4/elementdefinition.html) to actual elements in a FHIR resource. If you do not, you might want to check out the guide on [creating Task resources](../guides/creating-task-resources-based-on-a-definition.md) first.*
 
-#### 1. Read Access Tag
-Let us start out with an empty [ActivityDefinition](../fhir/activitydefinition.md):
+#### 1. Profile and Read Access Tag
+Let us start out with an empty [ActivityDefinition](../concepts/fhir/activitydefinition.md):
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     
 </ActivityDefinition>
 ```
-
-The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/read-access-tag.md). It describes who is allowed to read this resource through the DSF FHIR server's REST API. You can learn more complex configurations of the [Read Access Tag](../dsf/read-access-tag.md) in [this guide](../dsf/read-access-tag.md). In this case, we will allow read access to everyone:
+The first elements to be added to [ActivityDefinitions](../concepts/fhir/activitydefinition.md) are the profile and the read access tag as part of the `meta` element.
+The profile element includes the URL of the profile the [ActivityDefinition](../concepts/fhir/activitydefinition.md) should conform to.
+In case of the DSF this is always `http://dsf.dev/fhir/StructureDefinition/activity-definition`.
+The [Read Access Tag](../concepts/dsf/read-access-tag.md) describes who is
+allowed to read this resource through the DSF FHIR server's REST API. You can learn more complex configurations of the
+[Read Access Tag](../concepts/dsf/read-access-tag.md) in [this guide](../concepts/dsf/read-access-tag.md). In this case, we will allow read access to everyone:
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
