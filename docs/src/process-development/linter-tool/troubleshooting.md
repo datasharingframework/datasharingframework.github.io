@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
+icon: config
 ---
-
 ### "Input must be a JAR file" Error
 
 **Problem**: The linter only accepts JAR files as input.

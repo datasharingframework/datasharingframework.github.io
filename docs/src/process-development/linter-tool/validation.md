@@ -1,12 +1,20 @@
 ---
 title: Validation Rules
+icon: note
 ---
+## Validation Rules
 
 The linter performs comprehensive validation across multiple dimensions. This section details all validation rules organized by resource type.
 
 ### BPMN Validation
 
 The linter performs comprehensive validation on BPMN 2.0 process definitions using the Camunda BPMN model API.
+
+**Important:** The linter automatically detects the DSF API version (V1 or V2) from the plugin configuration and applies version-specific validation rules. Many validation rules differ between V1 and V2 API, particularly for:
+- Service Task and Send Task implementation classes
+- Execution Listeners
+- Task Listeners (User Tasks)
+- Message Events (Intermediate Throw and End Events)
 
 #### Task Validation
 
@@ -18,21 +26,34 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Implementation Class Validation**:
   - `camunda:class` or `camunda:delegateExpression` must be specified
+  - Error: `BpmnServiceTaskImplementationNotExistLintItem`
   - Error: `BpmnServiceTaskImplementationClassEmptyLintItem`
   - Implementation class must exist in the classpath
   - Error: `BpmnServiceTaskImplementationClassNotFoundLintItem`
-  - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-  - Error: `BpmnServiceTaskImplementationClassNotImplementingJavaDelegateLintItem`
-  - Class must implement DSF-specific task interface (if applicable)
-  - Error: `BpmnServiceTaskNoInterfaceClassImplementingLintItem`
+  
+- **API Version-Specific Requirements**:
+  - **V1 API**:
+    - Both checks are performed separately:
+      - Class must extend `dev.dsf.bpe.v1.activity.AbstractServiceDelegate`
+        - Error: `BpmnServiceTaskNotExtendingAbstractServiceDelegateLintItem` (if not extending)
+      - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+        - Error: `BpmnServiceTaskImplementationClassNotImplementingJavaDelegateLintItem` (if not implementing)
+    - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
+  - **V2 API**:
+    - Class must implement `dev.dsf.bpe.v2.activity.ServiceTask`
+    - Error: `BpmnServiceTaskNoInterfaceClassImplementingLintItem`
 
 ##### User Tasks
 
 - **Name Validation**:
   - Task must have a non-empty name
+  - Error: `BpmnUserTaskNameEmptyLintItem`
 
 - **Form Key Validation**:
-  - `camunda:formKey` must be present and valid
+  - `camunda:formKey` must be present and non-empty
+  - Error: `BpmnUserTaskFormKeyEmptyLintItem`
+  - Must reference an external form (starting with "external:", "http://", or "https://")
+  - Error: `BpmnUserTaskFormKeyIsNotAnExternalFormLintItem`
   - Must reference a valid Questionnaire resource
 
 - **Listener Validation**:
@@ -40,8 +61,73 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - Error: `BpmnUserTaskListenerJavaClassNotFoundLintItem`
   - Listener must have class attribute
   - Error: `BpmnUserTaskListenerMissingClassAttributeLintItem`
-  - Listener must extend/implement required class
-  - Error: `BpmnUserTaskListenerNotExtendingOrImplementingRequiredClassLintItem`
+  
+- **API Version-Specific Requirements**:
+  - **V1 API**:
+    - Listener must extend `dev.dsf.bpe.v1.activity.DefaultUserTaskListener` OR implement `org.camunda.bpm.engine.delegate.TaskListener`
+    - Error: `BpmnUserTaskListenerNotExtendingOrImplementingRequiredClassLintItem`
+  - **V2 API**:
+    - Listener must extend `dev.dsf.bpe.v2.activity.DefaultUserTaskListener` OR implement `dev.dsf.bpe.v2.activity.UserTaskListener`
+    - Error: `BpmnUserTaskListenerNotExtendingOrImplementingRequiredClassLintItem`
+
+- **Task Listener Input Parameter Validation (V2 API only)**:
+  - Validates input parameters (`camunda:inputParameter`) within task listeners for API v2
+  - Applies to all task listeners in API v2, with severity based on whether the listener extends `DefaultUserTaskListener`
+  
+  - **`practitionerRole` Parameter**:
+    - If a `practitionerRole` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
+    - **Severity**:
+      - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
+      - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
+    - Error/Warning: `BpmnPractitionerRolehasNoValueOrNullLintItem`
+    - Success: `BpmnElementLintItemSuccess` (when value is present and non-empty)
+  
+  - **`practitioners` Parameter**:
+    - If a `practitioners` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
+    - **Severity**:
+      - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
+      - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
+    - Error/Warning: `BpmnPractitionershasNoValueOrNullLintItem`
+    - Success: `BpmnElementLintItemSuccess` (when value is present and non-empty)
+  
+  - **Validation Behavior**:
+    - Only validates input parameters if they are explicitly defined in the BPMN file
+    - Supports various value formats: direct text content, `<camunda:string>`, or `<camunda:list>` with `<camunda:value>` elements
+    - Validation is skipped if the input parameter is not present (no lint items generated)
+    - Validation only applies to API v2 task listeners
+
+- **Task Listener TaskOutput Field Injections Validation (V2 API only)**:
+  - Validates the taskOutput field injections (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) used to configure output parameters for UserTask listeners
+  - Applies to all task listeners in API v2
+  
+  - **Completeness Check**:
+    - If any of the three fields (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) is set, all three must be set
+    - Error: `BpmnUserTaskListenerIncompleteTaskOutputFieldsLintItem`
+    - Message: "If taskOutputSystem, taskOutputCode, or taskOutputVersion is set, all three must be set"
+    - Validation is skipped if none of the fields are set
+  
+  - **FHIR Resource Validation**:
+    - **`taskOutputSystem`**: Should reference a valid CodeSystem URL
+      - Uses `FhirAuthorizationCache.containsSystem()` to check if the CodeSystem exists
+      - Error: `BpmnUserTaskListenerTaskOutputSystemInvalidFhirResourceLintItem` if CodeSystem is unknown
+      - Success: `BpmnElementLintItemSuccess` when CodeSystem is valid
+    
+    - **`taskOutputCode`**: Should be a valid code in the referenced CodeSystem
+      - Uses `FhirAuthorizationCache.isUnknown()` to check if the code exists in the CodeSystem
+      - Error: `BpmnUserTaskListenerTaskOutputCodeInvalidFhirResourceLintItem` if code is unknown
+      - Success: `BpmnElementLintItemSuccess` when code is valid
+    
+    - **`taskOutputVersion`**: Must contain a placeholder (e.g., `#{version}`)
+      - Uses `LintingUtils.containsPlaceholder()` to check for placeholders
+      - Warning: `BpmnUserTaskListenerTaskOutputVersionNoPlaceholderLintItem` if no placeholder found
+      - Success: `BpmnElementLintItemSuccess` when placeholder is present
+  
+  - **Validation Behavior**:
+    - Only validates field injections if they are explicitly defined in the task listener's `extensionElements`
+    - Field values are read from `camunda:field` elements with `camunda:stringValue` or nested `<camunda:string>` elements
+    - Validation is skipped if none of the fields are set (no lint items generated)
+    - Validation only applies to API v2 task listeners
+    - FHIR resource validation is only performed if all three fields are set (completeness check passes)
 
 ##### Send Tasks
 
@@ -52,8 +138,18 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - Implementation class must exist
   - Error: `BpmnMessageSendTaskImplementationClassEmptyLintItem`
   - Error: `BpmnMessageSendTaskImplementationClassNotFoundLintItem`
-  - Class must implement required interface
-  - Error: `BpmnSendTaskNoInterfaceClassImplementingLintItem`
+  
+- **API Version-Specific Requirements**:
+  - **V1 API**:
+    - Both checks are performed separately:
+      - Class must extend `dev.dsf.bpe.v1.activity.AbstractTaskMessageSend`
+        - Error: `BpmnSendTaskNotExtendingAbstractTaskMessageSendLintItem` (if not extending)
+      - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+        - Error: `BpmnMessageSendEventImplementationClassNotImplementingJavaDelegateLintItem` (if not implementing)
+    - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
+  - **V2 API**:
+    - Class must implement `dev.dsf.bpe.v2.activity.MessageSendTask`
+    - Error: `BpmnSendTaskNoInterfaceClassImplementingLintItem`
 
 - **Field Injection Validation**:
   - Message-related field injections must be valid
@@ -77,18 +173,26 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - Error: `BpmnEventNameEmptyLintItem`
   - Error: `BpmnMessageStartEventMessageNameEmptyLintItem`
   - Error: `BpmnMessageIntermediateCatchEventNameEmptyLintItem`
+  - Error: `BpmnMessageIntermediateCatchEventMessageNameEmptyLintItem`
   - Error: `BpmnMessageBoundaryEventNameEmptyLintItem`
 
 - **Implementation Class Validation**:
   - For send events, implementation class must exist
   - Error: `BpmnMessageSendEventImplementationClassEmptyLintItem`
   - Error: `BpmnMessageSendEventImplementationClassNotFoundLintItem`
-  - Class must implement JavaDelegate
-  - Error: `BpmnMessageSendEventImplementationClassNotImplementingJavaDelegateLintItem`
   - Intermediate throw events should not have message definitions
   - Error: `BpmnMessageIntermediateThrowEventHasMessageLintItem`
-  - Throw events must implement required interface
-  - Error: `BpmnEndOrIntermediateThrowEventMissingInterfaceLintItem`
+  
+- **API Version-Specific Requirements**:
+  - **V1 API**:
+    - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+    - Error: `BpmnMessageSendEventImplementationClassNotImplementingJavaDelegateLintItem`
+    - Throw events must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+    - Error: `BpmnEndOrIntermediateThrowEventMissingInterfaceLintItem`
+  - **V2 API**:
+    - Message Intermediate Throw Events must implement `dev.dsf.bpe.v2.activity.MessageIntermediateThrowEvent`
+    - Message End Events must implement `dev.dsf.bpe.v2.activity.MessageEndEvent`
+    - Error: `BpmnEndOrIntermediateThrowEventMissingInterfaceLintItem`
 
 - **Field Injection Validation**:
   - `profile` field injection:
@@ -134,6 +238,14 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 ##### Signal Events
 
 - **Signal Definition Validation**:
+  - Signal end events must have a non-empty name
+  - Error: `BpmnSignalEndEventNameEmptyLintItem`
+  - Signal end events must have a signal definition
+  - Error: `BpmnSignalEndEventSignalEmptyLintItem`
+  - Signal intermediate throw events must have a non-empty name
+  - Error: `BpmnSignalIntermediateThrowEventNameEmptyLintItem`
+  - Signal intermediate throw events must have a signal definition
+  - Error: `BpmnSignalIntermediateThrowEventSignalEmptyLintItem`
   - Signal definitions must be valid
   - Signal references must be correct
 
@@ -148,6 +260,8 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Sequence Flow Validation**:
   - Outgoing sequence flows must have appropriate names
+  - When multiple outgoing flows exist, gateway must have a name
+  - Error: `BpmnExclusiveGatewayHasMultipleOutgoingFlowsButNameIsEmptyLintItem`
   - Conditional expressions required when multiple paths exist
   - Default flow validation
 
@@ -155,6 +269,8 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Sequence Flow Validation**:
   - Similar requirements as exclusive gateways
+  - When multiple outgoing flows exist, gateway must have a name
+  - Error: `BpmnInclusiveGatewayHasMultipleOutgoingFlowsButNameIsEmptyLintItem`
   - Multiple path handling
 
 ##### Event-Based Gateways
@@ -177,6 +293,7 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 - **Asynchronous Execution**:
   - `asyncBefore` must be set to `true` for proper asynchronous execution
   - Required for multi-instance subprocesses
+  - Error: `BpmnSubProcessHasMultiInstanceButIsNotAsyncBeforeTrueLintItem`
 
 ##### Start/End Events in SubProcesses
 
@@ -185,12 +302,28 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - Error: `BpmnStartEventNotPartOfSubProcessLintItem`
   - End events must be part of subprocess
   - Error: `BpmnEndEventNotPartOfSubProcessLintItem`
+  - End events inside subprocesses should have `asyncAfter` set to `true`
+  - Error: `BpmnEndEventInsideSubProcessShouldHaveAsyncAfterTrueLintItem`
 
 #### Floating Elements
 
 - **Element Placement**:
   - Elements must be properly connected
   - Error: `BpmnFloatingElementLintItem`
+
+#### Execution Listeners
+
+- **Execution Listener Validation**:
+  - Execution listener classes must exist in the classpath
+  - Error: `BpmnExecutionListenerClassNotFoundLintItem`
+  
+- **API Version-Specific Requirements**:
+  - **V1 API**:
+    - Execution listener classes must implement `org.camunda.bpm.engine.delegate.ExecutionListener`
+    - Error: `BpmnExecutionListenerNotImplementingRequiredInterfaceLintItem`
+  - **V2 API**:
+    - Execution listener classes must implement `dev.dsf.bpe.v2.activity.ExecutionListener`
+    - Error: `BpmnExecutionListenerNotImplementingRequiredInterfaceLintItem`
 
 #### Unknown Field Injections
 
@@ -201,6 +334,12 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 ### FHIR Resource Validation
 
 The linter validates FHIR resources against DSF-specific profiles and HL7 FHIR specifications.
+
+#### Unparsable FHIR Resources
+
+- **Resource Parsing**:
+  - FHIR resources must be valid XML or JSON
+  - Error: `UnparsableFhirResourceLintItem`
 
 #### Task Resources
 
@@ -286,6 +425,8 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
     - Error: `FhirTaskStatusRequiredInputBusinessKeyLintItem`
     - Must be absent when status is "draft"
     - Error: `FhirTaskBusinessKeyExistsLintItem`
+    - Business key validation may be skipped in certain conditions
+    - Warning: `FhirTaskBusinessKeyCheckIsSkippedLintItem`
   - `correlation-key` slice:
     - Validated against StructureDefinition cardinality
     - Error: `FhirTaskCorrelationExistsLintItem`
@@ -419,7 +560,7 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **CodeSystem Validation**:
   - CodeSystem URLs validated against DSF terminology cache
-  - Error: `FhirValueSetUnknownCodeLintItem`
+  - Warn: `FhirValueSetUnknownCodeLintItem`
   - Code exists but in different CodeSystem
   - Error: `FhirValueSetFalseUrlReferencedLintItem`
 
@@ -600,7 +741,8 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 #### ServiceLoader Registration
 
 - **Registration File**:
-  - Must be registered in `META-INF/services/dev.dsf.bpe.process.ProcessPlugin` (v1) or equivalent (v2)
+  - **V1 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v1.ProcessPluginDefinition`
+  - **V2 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v2.ProcessPluginDefinition`
   - Error: `PluginDefinitionMissingServiceLoaderRegistrationLintItem`
   - Plugin class must be loadable
   - Error: `PluginDefinitionProcessPluginRessourceNotLoadedLintItem`

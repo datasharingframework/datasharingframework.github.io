@@ -305,16 +305,11 @@ export default hopeTheme({
       {
         text: "Process Plugin Dev Tools",
         icon: "info",
+        prefix: "linter-tool/",
         children: [
-          {
-            text:"DSF Linter Tool",
-            icon: "operate",
-            prefix: "linter-tool/",
-            children: [
-                  "linter-tool", "validation","phases", "development", "troubleshooting"],
+                  "linter-tool", 
+                  "validation","phases", "development", "troubleshooting"],
           }
-            ]
-      },
     ],
     "/dsf-development": [
       {

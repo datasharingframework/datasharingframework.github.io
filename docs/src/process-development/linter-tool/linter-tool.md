@@ -1,6 +1,8 @@
 ---
-title: Linter Tool
+title: DSF Linter Tool
+icon: customize
 ---
+# DSF Linter - Complete Documentation
 
 A comprehensive linting tool for DSF (Data Sharing Framework) process plugins. Validates BPMN processes, FHIR resources, and plugin configurations from JAR files.
 
@@ -11,15 +13,15 @@ A comprehensive linting tool for DSF (Data Sharing Framework) process plugins. V
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [CLI Options](#cli-options)
-7. [Report Generation](#report-generation)
-8. [Architecture](#architecture)
-11. [API Reference](#api-reference)
+6. [Report Generation](#report-generation)
+7. [Architecture](#architecture)
+8. [API Reference](#api-reference)
 
 ## Overview
 
 The DSF Linter is a static analysis tool designed to validate DSF process plugins before deployment. It performs comprehensive checks on:
 
-- **BPMN Process Definitions**: Validates Camunda/Operaton BPMN 2.0 models, task implementations, event configurations, and FHIR resource references
+- **BPMN Process Definitions**: Validates Camunda BPMN 2.0 models, task implementations, event configurations, and FHIR resource references
 - **FHIR Resources**: Validates ActivityDefinition, Task, StructureDefinition, ValueSet, CodeSystem, and Questionnaire resources
 - **Plugin Configuration**: Verifies ServiceLoader registrations, resource references, and plugin structure
 
@@ -34,6 +36,14 @@ The DSF Linter is a static analysis tool designed to validate DSF process plugin
 - ✅ CI/CD integration ready
 - ✅ Comprehensive error reporting with severity levels
 - ✅ Extensible architecture for custom validation rules
+
+### What is DSF?
+
+The Data Sharing Framework (DSF) is a framework for implementing interoperable healthcare data sharing processes. DSF process plugins contain:
+
+- **BPMN Processes**: Business process definitions using Camunda BPMN 2.0
+- **FHIR Resources**: Healthcare data resources conforming to HL7 FHIR specifications
+- **Plugin Classes**: Java classes implementing the DSF ProcessPlugin interface
 
 ## Quick Start
 
@@ -159,9 +169,9 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
   --path plugin.jar --html --json --report-path ./reports
 
-# Verbose output with colored console
+# Verbose output (colors enabled by default, use --no-color to disable)
 java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
-  --path plugin.jar --html --verbose --color
+  --path plugin.jar --html --verbose
 
 # Lint Maven project (two-step process)
 # Step 1: Build the project
@@ -196,9 +206,9 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 | `--path <input>` | `-p` | Path to JAR file (local or remote URL) | Yes |
 | `--html` | | Generate HTML report | No |
 | `--json` | | Generate JSON report | No |
-| `--report-path <dir>` | `-r` | Custom report directory (default: temp directory) | No |
+| `--report-path <dir>` | `-r` | Custom report directory (default: `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`) | No |
 | `--verbose` | `-v` | Enable verbose logging output | No |
-| `--color` | | Enable colored console output | No |
+| `--no-color` | | Disable colored console output (default: enabled) | No |
 | `--no-fail` | | Exit with code 0 even if linter errors are found | No |
 | `--help` | `-h` | Display help message | No |
 | `--version` | | Display version information | No |
@@ -302,7 +312,7 @@ The JSON report provides machine-readable output for CI/CD integration and autom
 
 ```json
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "timestamp": "2024-01-15T10:30:00Z",
   "projectPath": "/path/to/plugin.jar",
   "executionTimeMs": 2300,
@@ -366,7 +376,7 @@ Each lint item in the JSON report has the following structure:
 ### Example Console Output
 
 ```
-DSF Linter v1.0.0
+DSF Linter v2.0.0
 =================================================================
 Project: /path/to/plugin.jar
 Report:  /tmp/dsf-linter-report-plugin/dsf-linter-report
@@ -691,13 +701,3 @@ Discovers plugins and resources.
 ```java
 DiscoveryResult discover(ProjectContext context)
 ```
-
-## Changelog
-
-### Version 1.0.0
-- Initial release
-- BPMN validation
-- FHIR validation
-- Plugin configuration validation
-- HTML report generation
-

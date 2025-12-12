@@ -1,6 +1,8 @@
 ---
 title: Development
+icon: code
 ---
+## Development
 
 ### Requirements
 
@@ -132,3 +134,13 @@ Log levels:
    - Check classloader setup
    - Verify dependencies
    - Check API version compatibility
+
+### Code Style Guidelines
+
+- Follow Java naming conventions
+- Use meaningful variable and method names
+- Add JavaDoc comments for public APIs
+- Keep methods focused and small
+- Use immutable objects where possible
+- Handle exceptions appropriately
+- Write unit tests for new features
