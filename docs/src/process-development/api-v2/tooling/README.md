@@ -4,4 +4,4 @@ icon: operate
 ---
 
 ## Process Plugin Dev Tools
-- [ DSF Linter](linter-tool.md)
+- [ DSF Linter](/linter-tool/linter-tool)
