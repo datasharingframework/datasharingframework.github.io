@@ -39,6 +39,15 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## News
+::: info **Save The Date - DSF Community Events 2026**
+
+The DSF Community invites you to two events in the first quarter of 2026:
+* **1. DSF Hackathon ([online](https://dsf.dev/hackathon)) – January 20, 2026, 10:00 a.m.–4:00 p.m.**
+* **2. DSF Spring School – February 24–26, 2026 at Heilbronn University**
+[Read more](posts/2025-12-20-save-the-date-2026.md)
+:::
+
+
 
 **🚀 DSF 2 Released!**
 We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the **test infrastructure**! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
