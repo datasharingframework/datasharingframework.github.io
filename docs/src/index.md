@@ -41,10 +41,9 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ## News
 ::: info **Save The Date - DSF Community Events 2026**
 
-die DSF Community lädt Sie herzlich zu zwei Veranstaltungen im ersten Quartal 2026 ein:
-* **1. DSF Hackathon ([online](https://dsf.dev/hackathon)) – 20.01.2026, 10:00–16:00 Uhr**
-* **2. DSF Spring School – 24.–26.02.2026 an der Hochschule Heilbronn**
-English version is available in the full article. 
+The DSF Community invites you to two events in the first quarter of 2026:
+* **1. DSF Hackathon ([online](https://dsf.dev/hackathon)) – January 20, 2026, 10:00 a.m.–4:00 p.m.**
+* **2. DSF Spring School – February 24–26, 2026 at Heilbronn University**
 [Read more](posts/2025-12-20-save-the-date-2026.md)
 :::
 
