@@ -6,9 +6,9 @@ icon: news
 ::: info **Save The Date - DSF Community Events 2026**
 
 The DSF Community invites you to two events in the first quarter of 2026:
-**1. DSF Hackathon [(online)](https://dsf.dev/hackathon) – January 20, 2026, 10:00 a.m.–4:00 p.m.**
+**1. DSF Hackathon (online) – January 20, 2026, 10:00 a.m.–4:00 p.m.**
 **2nd DSF Spring School – February 24–26, 2026 at Heilbronn University**
-[Read more](posts/2025-12-20-save-the-date-2026.md)
+
 :::
 
 ## Past Events
