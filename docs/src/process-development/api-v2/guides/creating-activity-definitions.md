@@ -216,19 +216,19 @@ The next slice is `requester`:
             <min value="1" />
             <type>
                 <code value="Coding" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|1.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|2.0.0" />
             </type>
             <binding>
                 <strength value="required" />
-                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-requester|1.0.0" />
+                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-requester|2.0.0" />
             </binding>
         </element>
      ...
@@ -278,7 +278,7 @@ We now have to look at the elements that are defined in one of the profiles to f
         <max value="1" />
         <type>
             <code value="Extension" />
-            <profile value="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|1.0.0" />
+            <profile value="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|2.0.0" />
         </type>
     </element>
     <element id="Coding.system">
@@ -523,13 +523,13 @@ Now we are back to looking at the [dsf-extension-process-authorization](https://
             <min value="1" />
             <type>
                 <code value="Coding" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
             </type>
             <binding>
                 <strength value="required" />
-                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient|1.0.0" />
+                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient|2.0.0" />
             </binding>
         </element>
      ...

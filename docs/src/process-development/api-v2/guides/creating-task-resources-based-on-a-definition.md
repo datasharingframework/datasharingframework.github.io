@@ -27,7 +27,7 @@ Before we start adding any elements listed in Forge's element tree, we have to i
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
 </Task>
 ```
@@ -36,9 +36,9 @@ The first element which can be found in the element tree is the `instantiatesCan
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
 </Task>
 ```
 We can continue this process for all primitive elements like these. Just make sure you pay attention to use the correct data type (e.g. proper coding value for elements with `coding` type).
@@ -50,9 +50,9 @@ By now your [Task](../fhir/task.md) resources should look something like this:
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
@@ -68,9 +68,9 @@ We will start the same way we started with primitive elements, by adding the `re
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
@@ -84,9 +84,9 @@ Then, we will add primitive elements to `requester` like we did before for `Task
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
@@ -101,9 +101,9 @@ Next, we will add the `identifier` element and its primitive sub-elements just l
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
@@ -125,9 +125,9 @@ You should now be able to fill out all elements in your [Task](../fhir/task.md) 
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
@@ -193,9 +193,9 @@ Now you should be able to add all remaining mandatory elements to your [Task](..
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|1.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/task-start-dic-process|2.0"/>
     </meta>
-    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|1.0" />
+    <instantiatesCanonical value="http://dsf.dev/bpe/Process/dicProcess|2.0" />
     <status value="requested"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00" />
