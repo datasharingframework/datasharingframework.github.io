@@ -5,6 +5,7 @@ icon: guide
 
 The [English version](#hackathon-on-the-20-01-2026-english-version) is available below.
 
+Der Link zum Beitritt zur Konferenz erscheint hier am 20.01.2026.
 
 ## Hackathon am 20.01.2026
 
@@ -13,11 +14,6 @@ The [English version](#hackathon-on-the-20-01-2026-english-version) is available
 - Ort: https://dsf.dev/sprechstunde
 :::
 
-::: tip Zusammenfassung
-- [Vorbereitung](#vorbereitung)
-- [Installationshinweise](#installationshinweise)
-- [Beitritt]()
-::: 
 
 Liebe DSF Community, 
 
@@ -51,12 +47,6 @@ Falls Sie Fragen zum Hackathon oder zum neuen DSF Release haben, melden Sie sich
 ::: tip Joint Technical Consultation of the DSF Community and FDPG+
 Mondays, 14:00–14:50
 Location: https://dsf.dev/sprechstunde
-:::
-
-::: tip Summary
-- [Preparation](#Preparation)
-- [Installation](#Installation)
-- [Join](#)
 :::
 
 During the hackathon, we will present the new DSF 2 release. The aim of the event is to support sites in migrating to the new version, with a particular focus on the MII production environment.
