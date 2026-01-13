@@ -41,27 +41,27 @@ icon: config
 - **Example:** `jdbc:postgresql://db/bpe`
 
 
-### DEV_DSF_BPE_DB_USER_CAMUNDA_GROUP
-- **Property:** dev.dsf.bpe.db.user.camunda.group
+### DEV_DSF_BPE_DB_USER_ENGINE_GROUP
+- **Property:** dev.dsf.bpe.db.user.engine.group
 - **Required:** No
-- **Description:** Name of the user group to access the database from the DSF BPE server for camunda processes
-- **Default:** `camunda_users`
+- **Description:** Name of the user group to access the database from the DSF BPE server workflow engine
+- **Default:** `bpe_engine_users`
 
 
-### DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD or DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD_FILE
-- **Property:** dev.dsf.bpe.db.user.camunda.password
+### DEV_DSF_BPE_DB_USER_ENGINE_PASSWORD or DEV_DSF_BPE_DB_USER_ENGINE_PASSWORD_FILE
+- **Property:** dev.dsf.bpe.db.user.engine.password
 - **Required:** Yes
-- **Description:** Password to access the database from the DSF BPE server for camunda processes
-- **Recommendation:** Use docker secret file to configure using *DEV_DSF_BPE_DB_USER_CAMUNDA_PASSWORD_FILE*
-- **Example:** `/run/secrets/db_user_camunda.password`
+- **Description:** Password to access the database from the DSF BPE server workflow engine
+- **Recommendation:** Use docker secret file to configure using *DEV_DSF_BPE_DB_USER_ENGINE_PASSWORD_FILE*
+- **Example:** `/run/secrets/db_user_engine.password`
 
 
-### DEV_DSF_BPE_DB_USER_CAMUNDA_USERNAME
-- **Property:** dev.dsf.bpe.db.user.camunda.username
+### DEV_DSF_BPE_DB_USER_ENGINE_USERNAME
+- **Property:** dev.dsf.bpe.db.user.engine.username
 - **Required:** No
-- **Description:** Username to access the database from the DSF BPE server for camunda processes
+- **Description:** Username to access the database from the DSF BPE server workflow engine
 - **Recommendation:** Use a different user then in *DEV_DSF_BPE_DB_USER_USERNAME*
-- **Default:** `camunda_server_user`
+- **Default:** `bpe_server_engine_user`
 
 
 ### DEV_DSF_BPE_DB_USER_GROUP
