@@ -22,7 +22,7 @@ For DSF 2, we refined the [system requirements](install.md#prerequisites). If yo
 
 ::: info Non-standard configuration changes
 
-Most non-standard configuration changes working in DSF 1 will continue to work in DSF 2. If you have set custom timeout options please change them to the ISO 8601 standard. `120000` (Milliseconds) must be changed to `PT2M`.
+Most non-standard configuration changes working in DSF 1 will continue to work in DSF 2. If you have set custom timeout options in the DSF configuration (starting with `DEV_DSF_...`) please change them to the ISO 8601 standard. `120000` (Milliseconds) must be changed to `PT2M`. The configuration options for process plugins (e.g., starting with `DE_...`) remain unchanged.
 
 - You can now use more advanced [logging options](./fhir/logging.md).
 - If you use your own certificate authority, the [configuration](root-certificates.md) will be easier.
