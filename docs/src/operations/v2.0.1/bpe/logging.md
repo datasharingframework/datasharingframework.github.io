@@ -785,4 +785,4 @@ Multiple styles are supported for the **Data Logger** file, *stdout* and *stderr
 :::
 
 ### Custom Logging Config
-A fully custom log4j2 xml logging config can be set via the environment variables [`DEV_DSF_LOG_CONFIG`](./configuration.md#dev-dsf-log-config).
+A fully custom log4j2 xml logging config can be set via the environment variable [`DEV_DSF_LOG_CONFIG`](./configuration.md#dev-dsf-log-config).
