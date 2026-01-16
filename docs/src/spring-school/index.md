@@ -1,70 +1,60 @@
 ---
-title: DSF Spring School 2025
+title: DSF Spring School 2026
 icon: guide
 ---
 
-## Einladung 
+## Invitation 
+We would like to invite you to the third DSF Community Spring School. The target audience includes domain experts, DSF power users, process plugin developers, and those who want to become one. 
 
-Bald findet die zweite DSF Community Spring School statt. Zielgruppe sind Domänenexpert\*innen, DSF-Poweruser und Prozesspluginentwickler\*innen und die, die es werden wollen. 
+In addition to an introduction to development with DSF 2.0, we want to hold a hackathon and work on the following:
 
-Neben einer Einführung in die Entwicklung mit dem DSF 2.0 wollen wir einen Hackathon durchführen und folgendes bearbeiten:
+* Monitoring and other tooling related to DSF
+* Secure deployment in distributed infrastructures with signed and reproducible builds
+* Your ideas and projects 
 
-- Monitoring und weiteres Tooling rund um das DSF
-- Sicheres Deployment in verteilten Infrastrukturen mit signierten und reproduzierbaren Builds
-- Eure mitgebrachten Ideen und Projekte
-
-Gerne könnt ihr die Veranstaltung auch nutzen, um die Entwicklung von Prozess Plugins neu kennen zu lernen.
+You are also welcome to use the event to learn about the development of process plugins.
 
 ::: tip Eckdaten
-
-- Datum: 02. April, 10:00 Uhr bis 04. April, 16:00 Uhr
-- Ort: Hochschule Heilbronn - Techcampus, Max-Planck-Str. 39, Heilbronn
-- Teilnahmegebühren: 100€/ Person mit Verpflegung* (Anreise und Übernachtungskosten müssen selbst getragen werden)
-
+* Date: 24. February , 10:00 Uhr until 26. February, 16:00 Uhr
+* Place: Hochschule Heilbronn - Techcampus, Max-Planck-Str. 39, Heilbronn
+* Participation fees: 120€/ Person with Catering\* (Travel and accommodation costs must be covered by the participant.)
 :::
 
-Die DSF Community Spring School ist eine hervorragende Gelegenheit, neues Wissen zu erlangen, sich mit Gleichgesinnten auszutauschen und gemeinsam an der Weiterentwicklung des Data Sharing Frameworks und der übergreifenden Prozesse der MII zu arbeiten.
+The DSF Community Spring School offers an excellent opportunity to gain new knowledge, exchange ideas with like-minded people, and work together on the further development of the Data Sharing Framework and the overarching processes of the MII.
 
-::: tip Registrierung
-
-Bitte registriert euch bis zum 15. März unter: https://eveeno.com/DSF-Spring-School-2025
-
+:::tip
+Please register until 15. February under: <https://eveeno.com/dsf-spring-school-2026>
 :::
 
-Für Rückfragen stehen wir gerne unter dsf-gecko@hs-heilbronn.de zur Verfügung, weitere Informationen und eine Agenda findet ihr weiter unten.
-Wir freuen uns darauf, mit euch gemeinsam bei unserer Spring School an relevanten Themen zu arbeiten.
+If you have any questions, please contact us at [dsf-gecko@hs-heilbronn.de](mailto:dsf-gecko@hs-heilbronn.de). Further information and an agenda can be found below. We look forward to working with you on relevant topics at our Spring School.
 
-\*Enthalten sind: Mittagessen, Getränke und Snacks für 3 Tage und Abendessen an Tag 2
+\*Included are: lunch, drinks, and snacks for 3 days, and dinner on day 2.
 
-## Agenda
+## Agenda 
+Below is the preliminary agenda for the DSF Spring School from February 24, 2026, to February 26, 2026.
+Status: 16.01.2026
 
-Nachfolgend die vorläufige Agenda der DSF Spring School vom 02.04.-04.04.2025.  
-Stand: 13.02.2025
+### Day 1
+**10:00 am:** DSF Spring School Kickoff & Introduction to DSF 2.0
+**12:00 pm:** Lunch in the cafeteria
+**1:00 pm:** Session 1, including coffee break
+**5:30 pm:** End of Day 1
+**6:30pm:** Optional evening dinner (self-paid)
 
-### Tag 1
+### Day 2
+**9:00 am:** Kickoff Day 2
+**10:00 am:** Session 2, including coffee break
+**12:00 pm:** Lunch in the cafeteria
+**1:00 pm:** Session 3, including coffee break
+**5:30 pm:** End of day 2
+**6:00 pm:** “Hack-end” including pizza
 
-10:00 Uhr: DSF Spring School Kickoff, Einführung DSF 2.0  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Session 1 inkl. Kaffeepause  
-17:30 Uhr: Ende Tag 1  
-18:30 Uhr: optionales Abendessen in einem Restaurant (TBD, Selbstzahler)  
+### Day 3
+**9:00 am:** Session 4, including coffee break
+**12:00 pm:** Lunch in the cafeteria
+**1:00 pm:** Preparation & wrap-up, including coffee break
+**2:30 pm:** Wrap-up
+**4:00 pm:** End of event
 
-### Tag 2
-
-09:00 Uhr: Kickoff Tag 2  
-10:00 Uhr: Session 2 inkl. Kaffeepause  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Session 3 inkl. Kaffeepause  
-17:30 Uhr: Ende Tag 2  
-18:00 Uhr: “Hack-end” inkl. Pizza  
-
-### Tag 3
-
-09:00 Uhr: Session 4 inkl. Kaffeepause  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Vorbereitung Wrap-Up inkl. Kaffeepause  
-14:30 Uhr: Wrap-Up  
-16:00 Uhr: Ende der Veranstaltung  
-
-## Vorbereitung
-Diese Informationen werden rechtzeitig vor der Veranstaltung ergänzt.
+## Preparation
+This information will be added in time before the event.
