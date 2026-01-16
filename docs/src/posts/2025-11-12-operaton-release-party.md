@@ -19,7 +19,7 @@ The event was an exciting opportunity to network and meet the Operaton community
 
 Alongside our presentation, other participants also gave short talks. If you’re curious about the topics that were covered, you can view the full event details on **[LinkedIn](https://www.linkedin.com/events/7377335371619024896/)**.
 
-The Talk **“Migration Experiences from Camunda 7 to Operaton for DSF 2.0”** is available to watch on [YouTube](https://www.youtube.com/watch?reload=9&v=xy4afGyDw6Y&t=13885s).
+The Talk **“Migration Experiences from Camunda 7 to Operaton for DSF 2.0”** is available to watch on [YouTube](https://www.youtube.com/watch?v=sdjm1wqGMMM).
 
 ---
 

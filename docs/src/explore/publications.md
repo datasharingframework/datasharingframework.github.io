@@ -25,6 +25,12 @@ icon: blog
 - S.T. Schweizer, H. Hund, M. Kurscheidt, C. Zilske, J.P. Böhringer, C. Fegeler, **Handling Complexity in Decentralized Research Networks: The Data Sharing Framework Allowlist Management Application**, Stud Health Technol Inform, 317 (2024) 85-93, [doi:10.3233/SHTI240841](https://ebooks.iospress.nl/doi/10.3233/SHTI240841)
 
 ### Recorded Talks
+#### Operaton 2025
+- [Migration experiences from Camunda 7 to Operaton for DSF 2.0 ](https://www.youtube.com/watch?v=sdjm1wqGMMM)
+
+#### Miracum Difuture Kolloquium 2024
+- [MII Modul 2 Verbundprojekt „Data Sharing Framework Community“](https://sites.google.com/master-bids.de/miracum-difuture-kolloquium/archiv/2024/2024-02-20_data-sharing-framework-community)
+
 #### GMDS Conference 2022
 - [Hands On! - Introduction to the Data Sharing Framework from a User Perspective ](https://www.youtube.com/playlist?list=PLsHs7HOt6jDMe3PNevpo-uGsDTWVSMsYZ)
 
