@@ -14,7 +14,7 @@ In addition to an introduction to development with DSF 2.0, we want to hold a ha
 
 You are also welcome to use the event to learn about the development of process plugins.
 
-::: tip Eckdaten
+::: tip Key data
 * Date: 24. February , 10:00 Uhr until 26. February, 16:00 Uhr
 * Place: Hochschule Heilbronn - Techcampus, Max-Planck-Str. 39, Heilbronn
 * Participation fees: 120€/ Person with Catering\* (Travel and accommodation costs must be covered by the participant.)
