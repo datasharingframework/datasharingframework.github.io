@@ -48,6 +48,7 @@ no-auth-server:
 ID: `basic-auth-server` 
 
 ```yaml
+# yaml-language-server: $schema=https://dsf.dev/schema/fhir_client_connections.json
 basic-auth-server:
   base-url: https://basic.auth.server/fhir
   basic-auth:
@@ -60,6 +61,7 @@ basic-auth-server:
 ID: `cert-auth-server` 
 
 ```yaml
+# yaml-language-server: $schema=https://dsf.dev/schema/fhir_client_connections.json
 cert-auth-server:
   base-url: https://cert.auth.server/fhir/foo
   cert-auth:
@@ -73,6 +75,7 @@ cert-auth-server:
 ID: `oidc-auth-server`
 
 ```yaml
+# yaml-language-server: $schema=https://dsf.dev/schema/fhir_client_connections.json
 oidc-auth-server:
   base-url: https://oidc.auth.server/fhir
   oidc-auth:
