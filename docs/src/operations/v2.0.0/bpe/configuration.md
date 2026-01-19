@@ -171,7 +171,7 @@ icon: config
 - **Required:** No
 - **Description:** FHIR server connections YAML config for v2 process plugins
 
-
+<!-- see https://github.com/datasharingframework/dsf/issues/411
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_ENABLE_DEBUG_LOGGING
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
 - **Required:** No
@@ -186,7 +186,7 @@ icon: config
 - **Description:** FHIR server connections YAML: Default value for properties `oidc-auth.verify-authorized-party`
 - **Recommendation:** To disable verification of the authorized party (aud) claim by default set to `false`
 - **Default:** `true`
-
+-->
 
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_OIDC_DISCOVERY_PATH
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.default.oidc.discovery.path
