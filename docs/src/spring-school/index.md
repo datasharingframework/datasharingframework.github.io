@@ -6,11 +6,10 @@ icon: guide
 ## Invitation 
 We would like to invite you to the third DSF Community Spring School. The target audience includes domain experts, DSF power users, process plugin developers, and those who want to become one. 
 
-In addition to an introduction to development with DSF 2.0, we want to hold a hackathon and work on the following:
-
+During the event, participants might work together on topics such as (topics might change due to feedback of participants):
+* Your ideas and projects
 * Monitoring and other tooling related to DSF
 * Secure deployment in distributed infrastructures with signed and reproducible builds
-* Your ideas and projects 
 
 You are also welcome to use the event to learn about the development of process plugins.
 
