@@ -41,7 +41,7 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 ## News
 
 ::: info **DSF Spring School 2026 - Registrations are now open!**
-Get ready for the third edition of the **DSF Community Spring School 2026**, happening **February 24–26 at Heilbronn University**! Dive into a immersive, hand-on experience and connect with the DSF Community. Sign up now, save the date, and be part of it! Free Pizza included!
+Get ready for the third edition of the **DSF Community Spring School 2026**, happening **February 24–26 at Heilbronn University**! Dive into a immersive, hand-on experience and connect with the DSF Community. Sign up now, save the date, and be part of it!
 **[Read more](posts/2026-01-21-spring-school-2026.md)**
 
 👉 **Read more about the program, agenda, and registration here:**
