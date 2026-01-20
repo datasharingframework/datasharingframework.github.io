@@ -5,22 +5,17 @@ icon: guide
 
 The [English version](#hackathon-on-the-20-01-2026-english-version) is available below.
 
-Der Link zum Beitritt zur Konferenz erscheint hier am 20.01.2026.
+::: tip Beitritt
+- Ort: https://audimax.heiconf.uni-heidelberg.de/326g-u27k-feyk-wzxm
+:::
+
 
 ## Hackathon am 20.01.2026
-
-::: tip Gemeinsame technische Sprechstunde der DSF-Community
-- Montags, 14:00-14:50 Uhr
-- Ort: https://dsf.dev/sprechstunde
-:::
 
 
 Liebe DSF Community, 
 
 Im Rahmen des Hackathons stellen wir das neue DSF-2-Release vor. Ziel der Veranstaltung ist es, Standorte beim Umstieg auf die neue Version zu unterstützen, insbesondere im Hinblick auf den Einsatz in der produktiven MII-Umgebung.
-
-
-**Hinweis: Auf den Testinstanzen kann der Wechsel auf DSF 2.0.1 bereits jetzt erfolgen.**
 
 
 ### Zeitplan
