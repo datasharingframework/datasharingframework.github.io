@@ -5,7 +5,6 @@ icon: update
 
 ::: info DSF 2.0.1
 This is one of the first **released versions** of the Data Sharing Framework (DSF) 2.0.  
-Please **do not use this version in production environments**.
 
 We kindly invite **all DSF administrators** to test this release on their **staging or test instances** and share their feedback with us through the usual [communication channels](/community/communication#contact-the-team).
 
