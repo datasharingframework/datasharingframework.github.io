@@ -3,14 +3,6 @@ title: Upgrade from DSF 1.9.0
 icon: update
 ---
 
-::: info DSF 2.0.1
-This is one of the first **released versions** of the Data Sharing Framework (DSF) 2.0.  
-
-We kindly invite **all DSF administrators** to test this release on their **staging or test instances** and share their feedback with us through the usual [communication channels](/community/communication#contact-the-team).
-
-Thank you for helping us improve the DSF!
-:::
-
 Upgrading the DSF from 1.9.0 to 2.0.1 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.9.0 first
