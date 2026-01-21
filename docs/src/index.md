@@ -49,12 +49,9 @@ Get ready for the third edition of the **DSF Community Spring School 2026**, hap
 
 :::
 
-::: info **Save The Date - DSF Community Events 2026**
-The DSF Community invites you to two events in the first quarter of 2026:
-* **1. DSF Hackathon ([online](https://dsf.dev/hackathon)) – January 20, 2026, 10:00 a.m.–4:00 p.m.**
-* **2. DSF Spring School – February 24–26, 2026 at Heilbronn University**
-[Read more](posts/2025-12-20-save-the-date-2026.md)
-:::
+**DSF Community Hackathon 2026 Recap**
+On **January 20**, 2026 we hosted the **DSF Community Hackathon**, bringing together **over 60 participants** to support locations migrating to the new **DSF 2.0.1 release**. Through presentations, hands-on online support, and direct assistance with updating their DSF instances and process plugins. The event proved to be an overall success, with 35 instances running DSF 2.0.1 now.
+[Read more](posts/2026-01-21-hackathon.md)
 
 ---
 
@@ -64,11 +61,6 @@ We are thrilled to announce that Version 2 of the Data Sharing Framework is fina
 
 ---
 
-**Recap: DSF Community Meeting 2025 in Heidelberg**
-The DSF Community meet-up in Heidelberg brought together developers and contributoers to share ideas and discuss the latest progress in the DSF Community project. Highlights included updates on DSF 2.0, API 2.0, and a sneak peek at the new Linter Tool. The event wrapped up with a look ahead to 2026. 
-[Read more](/posts/2025-11-18-dsf-meet-up-2025)
-
----
 
 #### Feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de">dsf-gecko@hs-heilbronn.de</a> and we will take care of your request as soon as possible.
 
