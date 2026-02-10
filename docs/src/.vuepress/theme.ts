@@ -38,12 +38,8 @@ export default hopeTheme({
           text: "Operations",
           icon: "launch",
           prefix: "/operations/",
-          children: [{
-            text: "Stable version - 1.9.0",
-            link: "v1.9.0/readme.md",
-            icon: "launch"
-          }, {
-            text: "Current version - 2.0.2",
+          children: [ {
+            text: "Current Version - 2.0.2",
             link: "get-started.md",
             icon: "launch"
           }, "old-versions.md"],
