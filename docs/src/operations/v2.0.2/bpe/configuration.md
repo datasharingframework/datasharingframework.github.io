@@ -171,7 +171,7 @@ icon: config
 - **Required:** No
 - **Description:** FHIR server connections YAML config for v2 process plugins
 
-<!-- see https://github.com/datasharingframework/dsf/issues/411
+
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_ENABLE_DEBUG_LOGGING
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
 - **Required:** No
@@ -180,19 +180,19 @@ icon: config
 - **Default:** `false`
 
 
-### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_ENABLE_DEBUG_LOGGING
-- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging
-- **Required:** No
-- **Description:** FHIR server connections YAML: Default value for properties `oidc-auth.verify-authorized-party`
-- **Recommendation:** To disable verification of the authorized party (aud) claim by default set to `false`
-- **Default:** `true`
--->
-
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_OIDC_DISCOVERY_PATH
 - **Property:** dev.dsf.bpe.fhir.client.connections.config.default.oidc.discovery.path
 - **Required:** No
 - **Description:** FHIR server connections YAML: Default value for property `oidc-auth.discovery-path`
 - **Default:** `/.well-known/openid-configuration`
+
+
+### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_OIDC_VERIFY_AUTHORIZED_PARTY
+- **Property:** dev.dsf.bpe.fhir.client.connections.config.default.oidc.verify.authorized.party
+- **Required:** No
+- **Description:** FHIR server connections YAML: Default value for properties `oidc-auth.verify-authorized-party`
+- **Recommendation:** To disable verification of the authorized party (aud) claim by default set to `false`
+- **Default:** `true`
 
 
 ### DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TEST_CONNECTION_ON_STARTUP
@@ -745,6 +745,13 @@ icon: config
 - **Required:** No
 - **Description:** Standard logger log file output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
 - **Default:** `TEXT_MDC`
+
+
+### DEV_DSF_LOG_MIN_LEVEL_LOGGERS
+- **Property:** dev.dsf.log.min.level.loggers
+- **Required:** No
+- **Description:** List of logger names that are enabled to produce log output with the minimal configured log level from `DEV_DSF_LOG_CONSOLE_OUT_LEVEL`, `DEV_DSF_LOG_CONSOLE_ERR_LEVEL` and `DEV_DSF_LOG_FILE_LEVEL`
+- **Default:** `dev.dsf, de.medizininformatik_initiative.processes.common`
 
 
 ### DEV_DSF_PROXY_NOPROXY

@@ -335,6 +335,13 @@ icon: config
 - **Default:** `TEXT_MDC`
 
 
+### DEV_DSF_LOG_MIN_LEVEL_LOGGERS
+- **Property:** dev.dsf.log.min.level.loggers
+- **Required:** No
+- **Description:** List of logger names that are enabled to produce log output with the minimal configured log level from `DEV_DSF_LOG_CONSOLE_OUT_LEVEL`, `DEV_DSF_LOG_CONSOLE_ERR_LEVEL` and `DEV_DSF_LOG_FILE_LEVEL`
+- **Default:** `dev.dsf`
+
+
 ### DEV_DSF_PROXY_NOPROXY
 - **Property:** dev.dsf.proxy.noProxy
 - **Required:** No
