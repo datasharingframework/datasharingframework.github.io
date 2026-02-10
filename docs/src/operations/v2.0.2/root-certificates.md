@@ -116,15 +116,15 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
     Info: https://crt.sh/?caid=207660
     X509 Certificate: https://crt.sh/?id=4442848529
     Not after: Mar 15 09:34:16 2036 GMT
-* Root CA: **HARICA Client ECC Root CA 2021**
+* Root CA: **HARICA Client ECC Root CA 2021** [client certificates only]
   Info: https://crt.sh/?caid=202189
   X509 Certificate: https://crt.sh/?id=4147052292
   Not after: Feb 13 11:03:33 2045 GMT
-  * Issuing CA: **GEANT S/MIME ECC 1** [client/smime certificates only]
+  * Issuing CA: **GEANT S/MIME ECC 1** [client certificates only]
     Info: https://crt.sh/?caid=390048
     X509 Certificate: https://crt.sh/?id=16099180988
     Not after: Dec 31 11:11:39 2039 GMT
-  * Issuing CA: **HARICA S/MIME ECC** [client/smime certificates only]
+  * Issuing CA: **HARICA S/MIME ECC** [client certificates only]
     Info: https://crt.sh/?caid=207659
     X509 Certificate: https://crt.sh/?id=4442848523
     Not after: Mar 15 09:36:57 2036 GMT
@@ -132,15 +132,15 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
     Info: https://crt.sh/?caid=207671
     X509 Certificate: https://crt.sh/?id=4442848518
     Not after: Mar 15 09:17:38 2036 GMT
-* Root CA: **HARICA Client RSA Root CA 2021**
+* Root CA: **HARICA Client RSA Root CA 2021** [client certificates only]
   Info: https://crt.sh/?caid=202188
   X509 Certificate: https://crt.sh/?id=4147049674
   Not after: Feb 13 10:58:45 2045 GMT
-  * Issuing CA: **GEANT S/MIME RSA 1** [client/smime certificates only]
+  * Issuing CA: **GEANT S/MIME RSA 1** [client certificates only]
     Info: https://crt.sh/?caid=390049
     X509 Certificate: https://crt.sh/?id=16099180989
     Not after: Dec 31 11:13:07 2039 GMT
-  * Issuing CA: **HARICA S/MIME RSA** [client/smime certificates only]
+  * Issuing CA: **HARICA S/MIME RSA** [client certificates only]
     Info: https://crt.sh/?caid=207658
     X509 Certificate: https://crt.sh/?id=4442848517
     Not after: Mar 15 09:37:37 2036 GMT
@@ -148,19 +148,19 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
     Info: https://crt.sh/?caid=207670
     X509 Certificate: https://crt.sh/?id=4442848531
     Not after: Mar 15 09:19:36 2036 GMT
-* Root CA: **T-TeleSec GlobalRoot Class 2** [will be removed in a future release, incl. derived CAs]
+* Root CA: **T-TeleSec GlobalRoot Class 2** [client certificates only, will be removed in a future release, incl. derived CAs]
   Info: https://crt.sh/?caid=6068
   X509 Certificate: https://crt.sh/?id=8733622
   Not after: Oct 1 23:59:59 2033 GMT
-  * Intermediate Root CA: **DFN-Verein Certification Authority 2**
+  * Intermediate Root CA: **DFN-Verein Certification Authority 2** [client certificates only, will be removed in a future release, incl. derived CAs]
     Info: https://crt.sh/?caid=22818
     X509 Certificate: https://crt.sh/?id=23908438
     Not after: Feb 22 23:59:59 2031 GMT
-   * Issuing CA: **DFN-Verein Global Issuing CA** [existing, still valid client certificates, no new certificates]
+   * Issuing CA: **DFN-Verein Global Issuing CA** [client certificates only, no new certificates]
      Info: https://crt.sh/?caid=23770
      X509 Certificate: https://crt.sh/?id=25484751
      Not after: Feb 22 23:59:59 2031 GMT
-   * Issuing CA: **Fraunhofer User CA - G02** [existing, still valid client certificates, no new certificates]
+   * Issuing CA: **Fraunhofer User CA - G02** [client certificates only, no new certificates]
      Info: https://crt.sh/?caid=23772
      X509 Certificate: https://crt.sh/?id=25484789
      Not after: Feb 22 23:59:59 2031 GMT
@@ -192,11 +192,11 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
   * Issuing CA: **GEANT OV ECC CA 4**
     Info: https://crt.sh/?caid=160140
     X509 Certificate: https://crt.sh/?id=2475254970
-  * Issuing CA: **GEANT Personal ECC CA 4** [client/smime certificates only]
+  * Issuing CA: **GEANT Personal ECC CA 4** [client certificates only]
     Info: https://crt.sh/?caid=160136
     X509 Certificate: https://crt.sh/?id=2475254903
     Not after: May 1 23:59:59 2033 GMT
-  * Issuing CA: **GEANT eScience Personal ECC CA 4** [client/smime certificates only]
+  * Issuing CA: **GEANT eScience Personal ECC CA 4** [client certificates only]
     Info: https://crt.sh/?caid=160138
     X509 Certificate: https://crt.sh/?id=2475254888
     Not after: May 1 23:59:59 2033 GMT
@@ -212,15 +212,15 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
     Info: https://crt.sh/?caid=160137
     X509 Certificate: https://crt.sh/?id=2475254782
     Not after: May 1 23:59:59 2033 GMT
-  * Issuing CA: **GEANT Personal CA 4** [client/smime certificates only]
+  * Issuing CA: **GEANT Personal CA 4** [client certificates only]
     Info: https://crt.sh/?caid=160144
     X509 Certificate: https://crt.sh/?id=2475255043
     Not after: May 1 23:59:59 2033 GMT
-  * Issuing CA: **GEANT eScience Personal CA 4** [client/smime certificates only]
+  * Issuing CA: **GEANT eScience Personal CA 4** [client certificates only]
     Info: https://crt.sh/?caid=160134
     X509 Certificate: https://crt.sh/?id=2475253350
     Not after: May 1 23:59:59 2033 GMT
-* Root CA: **D-TRUST Limited Basic Root CA 1 2019**
+* Root CA: **D-TRUST Limited Basic Root CA 1 2019** [client certificates only]
   X509 Certificate: https://www.d-trust.net/cgi-bin/D-TRUST_Limited_Basic_Root_CA_1_2019.crt
   Not after: Jun 19 08:15:51 2034 GMT
   * Issuing CA: **D-TRUST Limited Basic CA 1-2 2019** [client certificates via TMF e.V.]
@@ -229,6 +229,18 @@ If not mentioned explicitly, issuing CAs listed will sign X.509 certificates wit
   * Issuing CA: **D-TRUST Limited Basic CA 1-3 2019** [client certificates via TMF e.V.]
     X509 Certificate: https://www.d-trust.net/cgi-bin/D-TRUST_Limited_Basic_CA_1-3_2019.crt
     Not after: Jun 19 08:15:51 2034 GMT
-
-
-
+* Root CA: **DFN-Verein Community Root CA 2022** [client certificates only]
+  X509 Certificate: https://doku.tid.dfn.de/_media/de:dfnpki:ca:dfn-verein_community_root_ca_2022.pem
+  Not after: Jan 21 14:08:41 2042 GMT
+  * Issuing CA: **DFN-Verein Community Issuing CA 2022** [client certificates only]
+    X509 Certificate: https://doku.tid.dfn.de/_media/de:dfnpki:ca:dfn-verein_community_issuing_ca_2022.pem
+    Not after: Jan 21 14:08:41 2042 GMT
+  * Issuing CA: **Fraunhofer Service CA 2022** [client certificates only]
+    X509 Certificate: https://doku.tid.dfn.de/_media/de:dfnpki:ca:fraunhofer_service_ca_2022.pem
+    Not after: Jan 21 14:08:41 2042 GMT
+  * Issuing CA: **Fraunhofer User CA 2022** [client certificates only]
+    X509 Certificate: https://doku.tid.dfn.de/_media/de:dfnpki:ca:fraunhofer_user_ca_2022.pem
+    Not after: Jan 21 14:08:41 2042 GMT
+  * Issuing CA: **MPG Community CA** [client certificates only]
+    X509 Certificate: https://doku.tid.dfn.de/_media/de:dfnpki:ca:mpg_community_ca.pem
+    Not after: Jan 21 14:08:41 2042 GMT
