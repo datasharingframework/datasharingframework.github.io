@@ -3,7 +3,7 @@ title: DSF 1.9.0
 icon: guide
 ---
 
-Data Sharing Framework 1.x is the current major release of the Data Sharing Framework.
+Data Sharing Framework 1.x is the latest release of major version 1 of the Data Sharing Framework.
 
 # System Administrators
 
