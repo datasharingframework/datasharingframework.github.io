@@ -9,10 +9,13 @@ icon: note
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
 :::
 
-### Second Release Candidate for 2.0.0
+### 2.0.0 - Major Release
 General remarks:
-- This is the second release candidate for the upcoming major version 2.0.0. Do not use this release in production.
-- Two new default trusted server root CAs were added and a number of bugs fixed since the 2.0.0-RC1 release, for details see PRs: [#394](https://github.com/datasharingframework/dsf/issues/394) and [#396](https://github.com/datasharingframework/dsf/issues/396).
+
+- This is the 2.0.0 major release of the DSF. DSF installations in version 1.9.0 can be upgraded to this release.
+- To Update an existing 1.x installation, please see the [1.9.0 -> 2.0.0 upgrade guide](https://dsf.dev/operations/v2.0.0/upgrade-from-1.html). 
+- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.0.0/install.html).
+- A list of compatible process plugins can be found in the [plugin install guide](https://dsf.dev/operations/latest/install-plugins.html).
 
 Feature Summary:
 - With the 2.0.0 release the workflow engine for the **DSF BPE Server** was migrated from *Camunda 7* to the community-driven, open-source BPMN engine [Operaton](https://operaton.org). The migration includes a byte-code rewriting layer that allows existing v1 process plugins compiled against Camunda classes to continue running without recompilation.
@@ -22,17 +25,17 @@ Feature Summary:
  - The DSF 2.0.0 code-base was upgraded to Java 25 and uses latest versions of Jetty and HAPI. A new [dsf-maven-plugin](https://repo1.maven.org/maven2/dev/dsf/dsf-maven-plugin/2.0.0-RC2) was created to automate build steps and help process plugins developers in generating configuration documentation and docker-compose based DSF development setups.
 
 Docker images for this release can be accessed via the GitHub Docker registry - ghcr.io:
-* **bpe**: [ghcr.io/datasharingframework/bpe:2.0.0-RC2](https://github.com/orgs/datasharingframework/packages/container/bpe/581165653?tag=2.0.0-RC2)
-* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.0.0-RC2](https://github.com/orgs/datasharingframework/packages/container/bpe_proxy/581150393?tag=2.0.0-RC2)
-* **fhir**: [ghcr.io/datasharingframework/fhir:2.0.0-RC2](https://github.com/orgs/datasharingframework/packages/container/fhir/581159107?tag=2.0.0-RC2)
-* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.0.0-RC2](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/581149400?tag=2.0.0-RC2)
+* **bpe**: [ghcr.io/datasharingframework/bpe:2.0.0](https://github.com/orgs/datasharingframework/packages/container/bpe/590035938?tag=2.0.0)
+* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.0.0](https://github.com/orgs/datasharingframework/packages/container/bpe_proxy/590020738?tag=2.0.0)
+* **fhir**: [ghcr.io/datasharingframework/fhir:2.0.0](https://github.com/orgs/datasharingframework/packages/container/fhir/590028980?tag=2.0.0)
+* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.0.0](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/590020411?tag=2.0.0)
 
 Process Plugin API v1 on Maven Central:
 ```xml
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v1</artifactId>
-    <version>2.0.0-RC2</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 Process Plugin API v2 on Maven Central:
@@ -40,7 +43,7 @@ Process Plugin API v2 on Maven Central:
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v2</artifactId>
-    <version>2.0.0-RC2</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 DSF Maven Plugin on Maven Central:
@@ -48,11 +51,13 @@ DSF Maven Plugin on Maven Central:
 <plugin>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-maven-plugin</artifactId>
-    <version>2.0.0-RC2</version>
+    <version>2.0.0</version>
 </plugin>
 ```
 
 Issues closed:
+- 1.9.0 to 2.0.0 Transition [#400](https://github.com/datasharingframework/dsf/issues/400)
+- Fix 2.0.0-RC2 Bugs [#397](https://github.com/datasharingframework/dsf/issues/397)
 - Add New D-Trust Server Certificate Root CAs [#395](https://github.com/datasharingframework/dsf/issues/395)
 - Fix 2.0.0-RC1 Bugs [#393](https://github.com/datasharingframework/dsf/issues/393)
 - Add Licence Headers [#391](https://github.com/datasharingframework/dsf/issues/391)
