@@ -3,7 +3,7 @@ title: Upgrade from DSF 1.9.0
 icon: update
 ---
 
-Upgrading the DSF from 1.9.0 to 2.0.1 involves modifying the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 1.9.0 to 2.0.2 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.9.0 first
 When upgrading from DSF version < 1.9.0 it is important to migrate to [DSF 1.9.0 first](../v1.9.0/upgrade-from-1).
@@ -28,20 +28,20 @@ DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter val
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/fhir` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.0.1_upgrade`
+    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.0.2_upgrade`
 
-2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.0.1.
+2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.0.2.
 ```diff
  version: '3.8'
  services:
    proxy:
 -    image: ghcr.io/datasharingframework/fhir_proxy:1.9.0
-+    image: ghcr.io/datasharingframework/fhir_proxy:2.0.1
++    image: ghcr.io/datasharingframework/fhir_proxy:2.0.2
      restart: on-failure
 ...
    app:
 -    image: ghcr.io/datasharingframework/fhir:1.9.0
-+    image: ghcr.io/datasharingframework/fhir:2.0.1
++    image: ghcr.io/datasharingframework/fhir:2.0.2
      restart: on-failure
 ...
      environment:
@@ -61,15 +61,15 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
 ## Modify DSF BPE Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/bpe` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.0.1_upgrade`
+    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.0.2_upgrade`
 
-2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.0.1.
+2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.0.2.
 ```diff
  version: '3.8'
  services:
    app:
 -    image: ghcr.io/datasharingframework/bpe:1.9.0
-+    image: ghcr.io/datasharingframework/bpe:2.0.1
++    image: ghcr.io/datasharingframework/bpe:2.0.2
      restart: on-failure
 ...
      environment:
@@ -86,12 +86,12 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
     ```
 
 5. Verify your upgrade:
-    * Verify the DSF FHIR server is running in version 2.0.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.0.1, [...]`
+    * Verify the DSF FHIR server is running in version 2.0.2. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.0.2, [...]`
     * Verify the DSF FHIR server started without errors
     * Verify the DSF FHIR server is accessible via https, for example by browsing to https://your-dsf-endpoint.de/fhir/ (authentication with your client-certificate)
-    * Verify the DSF BPE server is running in version 2.0.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.0.1, [...]`
+    * Verify the DSF BPE server is running in version 2.0.2. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.0.2, [...]`
     * Verify the DSF BPE server started without errors
     * Verify your install with a ping/pong test  
 
