@@ -37,6 +37,8 @@ Two Certificates from the GÉANT TCS (via DFN e.V.), D-Trust (via TMF e.V.) or D
 
 If you use GÉANT TCS certificates, then they are configured by default with the necessary *X509v3 Extended Key Usage*s: `TLS Web Server Authentication, TLS Web Client Authentication`.
 
+For further details on supported Root Certificate Authorities click [here](root-certificates.html#list-of-default-trusted-certificate-authorities)
+
 
 ### Network setup / Network access
 

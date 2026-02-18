@@ -4,7 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import { ref, onMounted } from 'vue'
 
 const version = ref("");
-const latestVersion = "v1.8.0";
+const latestVersion = "v2.0.1";
 
 
 function setVersionBasedOnCurrentPath() : void {
@@ -55,7 +55,10 @@ function navigateToNewVersion() {
       <div class="version-selector" v-if="route.path.startsWith('/operations/')">
         <label class="vp-sidebar-header" for="version-select"><strong>Version:</strong> </label>
         <select id="version-select" class="vp-sidebar-header" v-model="version" @change="navigateToNewVersion">
-        <option value="v1.8.0">latest (1.8.0)</option>
+        <option value="v2.0.1">latest (2.0.1)</option>
+        <option value="v2.0.0">2.0.0</option>
+        <option value="v1.9.0">1.9.0</option>
+        <option value="v1.8.0">1.8.0</option>
         <option value="v1.7.1">1.7.1</option>
         <option value="v1.7.0">1.7.0</option>
         <option value="v1.6.0">1.6.0</option>
@@ -69,7 +72,6 @@ function navigateToNewVersion() {
         <option value="v1.2.0">1.2.0</option>
         <option value="v1.1.0">1.1.0</option>
         <option value="v1.0.0">1.0.0</option>
-        <option value="v2.0.0-M3">2.0.0-M3</option>
       </select></div>
     </template>
     <PageContent id="main-content" class="vp-page"/>

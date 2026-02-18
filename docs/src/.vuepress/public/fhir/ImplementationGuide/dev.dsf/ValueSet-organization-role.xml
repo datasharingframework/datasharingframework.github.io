@@ -3,21 +3,22 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="organization-role"/>
   <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
     <tag>
       <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
       <code value="ALL"/>
     </tag>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet organization-role</b></p><a name="organization-role"> </a><a name="hcorganization-role"> </a><a name="organization-role-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href="CodeSystem-organization-role.html"><code>http://dsf.dev/fhir/CodeSystem/organization-role</code></a></li></ul></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet organization-role</b></p><a name="organization-role"> </a><a name="hcorganization-role"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-value-set.html">ValueSet</a></p><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href="CodeSystem-organization-role.html"><code>http://dsf.dev/fhir/CodeSystem/organization-role</code></a><span title="Version is explicitly stated to be 2.0.0"> version &#x1F4CD;2.0.0</span></li></ul></div>
   </text>
   <url value="http://dsf.dev/fhir/ValueSet/organization-role"/>
-  <version value="1.0.0"/>
+  <version value="2.0.0"/>
   <name value="DSF_Organization_Role"/>
   <title value="DSF Organization Role"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2023-06-28"/>
+  <date value="2025-11-26"/>
   <publisher value="DSF Community"/>
   <contact>
     <name value="DSF Community"/>
@@ -31,7 +32,7 @@
   <compose>
     <include>
       <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
-      <version value="1.0.0"/>
+      <version value="2.0.0"/>
     </include>
   </compose>
 </ValueSet>

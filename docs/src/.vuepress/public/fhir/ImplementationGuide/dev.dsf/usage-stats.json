@@ -5,7 +5,7 @@
   "extensions": [
     {
       "url": "http://dsf.dev/fhir/StructureDefinition/extension-certificate-thumbprint",
-      "title": "Certificate Thumbprint",
+      "title": "CertificateThumbprint",
       "types": [
         "string"
       ]
@@ -334,6 +334,79 @@
       ]
     },
     {
+      "url": "http://dsf.dev/fhir/StructureDefinition/extension-questionnaire-authorization",
+      "title": "QuestionnaireAuthorization",
+      "types": [
+        "Identifier",
+        "string",
+        "Extension",
+        "code",
+        "CodeableConcept",
+        "uri",
+        "string",
+        "Period",
+        "Reference",
+        "Coding",
+        "string",
+        "Extension",
+        "uri",
+        "string",
+        "code",
+        "string",
+        "boolean",
+        "base64Binary",
+        "boolean",
+        "canonical",
+        "code",
+        "date",
+        "dateTime",
+        "decimal",
+        "id",
+        "instant",
+        "integer",
+        "markdown",
+        "oid",
+        "positiveInt",
+        "string",
+        "time",
+        "unsignedInt",
+        "uri",
+        "url",
+        "uuid",
+        "Address",
+        "Age",
+        "Annotation",
+        "Attachment",
+        "CodeableConcept",
+        "Coding",
+        "ContactPoint",
+        "Count",
+        "Distance",
+        "Duration",
+        "HumanName",
+        "Identifier",
+        "Money",
+        "Period",
+        "Quantity",
+        "Range",
+        "Ratio",
+        "Reference",
+        "SampledData",
+        "Signature",
+        "Timing",
+        "ContactDetail",
+        "Contributor",
+        "DataRequirement",
+        "Expression",
+        "ParameterDefinition",
+        "RelatedArtifact",
+        "TriggerDefinition",
+        "UsageContext",
+        "Dosage",
+        "Meta"
+      ]
+    },
+    {
       "url": "http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization",
       "title": "ReadAccessOrganization",
       "types": [
@@ -426,7 +499,19 @@
     "ActivityDefinition": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/activity-definition",
-        "title": "DSF ActivityDefinition"
+        "title": "ActivityDefinition"
+      }
+    ],
+    "Binary": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/binary",
+        "title": "Binary"
+      }
+    ],
+    "Bundle": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/bundle",
+        "title": "Bundle"
       }
     ],
     "CodeSystem": [
@@ -435,40 +520,130 @@
         "title": "CodeSystem"
       }
     ],
+    "DocumentReference": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/document-reference",
+        "title": "DocumentReference"
+      }
+    ],
     "Endpoint": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/endpoint",
-        "title": "DSF Endpoint"
+        "title": "Endpoint"
+      }
+    ],
+    "Group": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/group",
+        "title": "Group"
+      }
+    ],
+    "HealthcareService": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/healthcare-service",
+        "title": "HealthcareService"
+      }
+    ],
+    "Library": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/library",
+        "title": "Library"
+      }
+    ],
+    "Location": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/location",
+        "title": "Location"
+      }
+    ],
+    "Measure": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/measure",
+        "title": "Measure"
+      }
+    ],
+    "MeasureReport": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/measure-report",
+        "title": "MeasureReport"
+      }
+    ],
+    "NamingSystem": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/naming-system",
+        "title": "NamingSystem"
       }
     ],
     "Organization": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/organization-parent",
-        "title": "DSF Parent Organization"
+        "title": "OrganizationParent"
       }
     ],
     "OrganizationAffiliation": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/organization-affiliation",
-        "title": "DSF OrganizationAffiliation"
+        "title": "OrganizationAffiliation"
+      }
+    ],
+    "Patient": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/patient",
+        "title": "Patient"
+      }
+    ],
+    "Practitioner": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/practitioner",
+        "title": "Practitioner"
+      }
+    ],
+    "PractitionerRole": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/practitioner-role",
+        "title": "PractitionerRole"
+      }
+    ],
+    "Provenance": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/provenance",
+        "title": "Provenance"
       }
     ],
     "Questionnaire": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/questionnaire",
-        "title": "DSF Questionnaire"
+        "title": "Questionnaire"
       }
     ],
     "QuestionnaireResponse": [
       {
         "url": "http://dsf.dev/fhir/StructureDefinition/questionnaire-response",
-        "title": "DSF QuestionnaireResponse"
+        "title": "QuestionnaireResponse"
+      }
+    ],
+    "ResearchStudy": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/research-study",
+        "title": "ResearchStudy"
+      }
+    ],
+    "StructureDefinition": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/structure-definition",
+        "title": "StructureDefinition"
+      }
+    ],
+    "Subscription": [
+      {
+        "url": "http://dsf.dev/fhir/StructureDefinition/subscription",
+        "title": "Subscription"
       }
     ],
     "Task": [
       {
-        "url": "http://dsf.dev/fhir/StructureDefinition/task-base",
-        "title": "DSF Base Task"
+        "url": "http://dsf.dev/fhir/StructureDefinition/task",
+        "title": "Task"
       }
     ],
     "ValueSet": [
@@ -486,29 +661,37 @@
     "http://dsf.dev/fhir/StructureDefinition/extension-check-logical-reference": [
       "NamingSystem.uniqueId"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|2.0.0": [
       "Coding"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization|2.0.0": [
       "Coding"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner|2.0.0": [
       "Coding"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|2.0.0": [
       "Coding"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner|2.0.0": [
       "Coding"
     ],
-    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|1.0.0": [
+    "http://dsf.dev/fhir/StructureDefinition/extension-process-authorization|2.0.0": [
       "ActivityDefinition"
+    ],
+    "http://dsf.dev/fhir/StructureDefinition/extension-questionnaire-authorization|2.0.0": [
+      "QuestionnaireResponse"
+    ],
+    "http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization|2.0.0": [
+      "Binary.meta.tag",
+      "Meta.tag"
+    ],
+    "http://dsf.dev/fhir/StructureDefinition/extension-read-access-parent-organization-role|2.0.0": [
+      "Binary.meta.tag",
+      "Meta.tag"
     ],
     "http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url": [
       "NamingSystem"
-    ],
-    "http://hl7.org/fhir/StructureDefinition/capabilitystatement-websocket": [
-      "CapabilityStatement.rest"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice": [
       "StructureDefinition.snapshot.element.constraint"
@@ -517,7 +700,6 @@
       "StructureDefinition.snapshot.element.constraint"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
-      "StructureDefinition.differential.element.binding",
       "StructureDefinition.snapshot.element.binding"
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet": [

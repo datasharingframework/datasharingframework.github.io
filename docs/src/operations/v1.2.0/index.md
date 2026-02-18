@@ -10,9 +10,9 @@ This is a major DSF release not compatible with 0.9.x and older version develope
 
 # System Administrators
 
-- [Upgrade from DSF 0.9.x.](upgrade-from-0)
-- [Upgrade from DSF 1.x.](upgrade-from-1)
 - [Install DSF 1.2.0](install)
+- [Upgrade from DSF 1.x.](upgrade-from-1)
+- [Upgrade from DSF 0.9.x.](upgrade-from-0)
 
 
 ## New features

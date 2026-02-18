@@ -5,3 +5,25 @@ docs/src/.vuepress/.cache/
 docs/src/.vuepress/.temp/
 docs/src/.vuepress/dist/
 docs/yarn.lock
+/temp-out/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+*.iml
+.DS_Store
+*.log
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env
+.env.local
+.env.*.local
+.cache/
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+.sass-cache/

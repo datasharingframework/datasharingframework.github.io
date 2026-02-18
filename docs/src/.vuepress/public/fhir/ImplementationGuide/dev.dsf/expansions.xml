@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="6d1fbd7b-7d4c-4721-865c-86edd08f76fd"/>
+  <id value="170b8cfe-28df-4cc1-9ec6-7286b0c8d584"/>
   <meta>
-    <lastUpdated value="2025-06-05T13:47:22.839+00:00"/>
+    <lastUpdated value="2025-11-26T16:56:02.806+01:00"/>
   </meta>
   <type value="collection"/>
   <entry>
@@ -11,6 +11,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -21,99 +22,129 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-bpmn-message.html">codesystem DSF BPMN message values v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-bpmn-message.html">codesystem DSF BPMN message values v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/bpmn-message|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
             <p>This value set contains 4 concepts</p>
-            <table class="codes">
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>JSON</b>
                 </td>
                 <td>
-                  <b>Definition</b>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-message-name"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-message-name"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-bpmn-message.html#bpmn-message-message-name">message-name</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td>
                 <td>Message Name</td>
                 <td>
-                  <div>
-                    <p>BPMN 2.0 message event name</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;message-name&quot;, &quot;display&quot;: &quot;Message Name&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;message-name&quot;&gt;&lt;display value=&quot;Message Name&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-business-key"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-business-key"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-bpmn-message.html#bpmn-message-business-key">business-key</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td>
                 <td>Business Key</td>
                 <td>
-                  <div>
-                    <p>Camunda business key used to identify process instances</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;business-key&quot;, &quot;display&quot;: &quot;Business Key&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;business-key&quot;&gt;&lt;display value=&quot;Business Key&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-correlation-key"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-correlation-key"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-bpmn-message.html#bpmn-message-correlation-key">correlation-key</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td>
                 <td>Correlation Key</td>
                 <td>
-                  <div>
-                    <p>DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;correlation-key&quot;, &quot;display&quot;: &quot;Correlation Key&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;correlation-key&quot;&gt;&lt;display value=&quot;Correlation Key&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-error"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/bpmn-message-error"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-bpmn-message.html#bpmn-message-error">error</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/bpmn-message</td>
                 <td>Error</td>
                 <td>
-                  <div>
-                    <p>Explaining why this task failed</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;error&quot;, &quot;display&quot;: &quot;Error&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/bpmn-message&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;error&quot;&gt;&lt;display value=&quot;Error&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/bpmn-message"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DsfBpmnMessage"/>
         <title value="DSF BPMN message values"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:4964706b-3ef7-43fc-aa5a-0542103f36cf"/>
-          <timestamp value="2025-06-05T13:48:24+00:00"/>
+          <identifier value="urn:uuid:10a0b215-53ff-4c58-b2a6-8ea8964ec08d"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -129,7 +160,7 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/bpmn-message|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/bpmn-message|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/bpmn-message"/>
@@ -160,6 +191,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -170,112 +202,346 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-organization-role.html">codesystem DSF Organization Role v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-organization-role.html">codesystem DSF Organization Role v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/organization-role|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
-            <p>This value set contains 9 concepts</p>
-            <table class="codes">
+            <p>This value set contains 14 concepts</p>
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>Definition</b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-UAC"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-UAC"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-UAC">UAC</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Use-and-Access Committee</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;UAC&quot;, &quot;display&quot;: &quot;Use-and-Access Committee&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;UAC&quot;&gt;&lt;display value=&quot;Use-and-Access Committee&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-COS"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-COS"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-COS">COS</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Coordinating Site</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;COS&quot;, &quot;display&quot;: &quot;Coordinating Site&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;COS&quot;&gt;&lt;display value=&quot;Coordinating Site&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-CRR"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-CRR"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-CRR">CRR</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Central Research Repository</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;CRR&quot;, &quot;display&quot;: &quot;Central Research Repository&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;CRR&quot;&gt;&lt;display value=&quot;Central Research Repository&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DIC"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DIC"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-DIC">DIC</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Data Integration Center</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DIC&quot;, &quot;display&quot;: &quot;Data Integration Center&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DIC&quot;&gt;&lt;display value=&quot;Data Integration Center&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DMS"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DMS"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-DMS">DMS</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Data Management Site</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DMS&quot;, &quot;display&quot;: &quot;Data Management Site&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DMS&quot;&gt;&lt;display value=&quot;Data Management Site&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DTS"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-DTS"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-DTS">DTS</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Data Transfer Site</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DTS&quot;, &quot;display&quot;: &quot;Data Transfer Site&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DTS&quot;&gt;&lt;display value=&quot;Data Transfer Site&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-HRP"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-HRP"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-HRP">HRP</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Health Research Platform</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;HRP&quot;, &quot;display&quot;: &quot;Health Research Platform&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;HRP&quot;&gt;&lt;display value=&quot;Health Research Platform&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-TTP"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-TTP"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-TTP">TTP</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Trusted Third Party</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;TTP&quot;, &quot;display&quot;: &quot;Trusted Third Party&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;TTP&quot;&gt;&lt;display value=&quot;Trusted Third Party&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-AMS"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-AMS"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-organization-role.html#organization-role-AMS">AMS</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/organization-role</td>
                 <td>Allowlist Management Site</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;AMS&quot;, &quot;display&quot;: &quot;Allowlist Management Site&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;AMS&quot;&gt;&lt;display value=&quot;Allowlist Management Site&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-ASP"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-organization-role.html#organization-role-ASP">ASP</a>
+                </td>
+                <td>Analysis Service Provider</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;ASP&quot;, &quot;display&quot;: &quot;Analysis Service Provider&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;ASP&quot;&gt;&lt;display value=&quot;Analysis Service Provider&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-SPR"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-organization-role.html#organization-role-SPR">SPR</a>
+                </td>
+                <td>Service Provider Registry</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;SPR&quot;, &quot;display&quot;: &quot;Service Provider Registry&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;SPR&quot;&gt;&lt;display value=&quot;Service Provider Registry&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-TSP"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-organization-role.html#organization-role-TSP">TSP</a>
+                </td>
+                <td>Terminology Service Provider</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;TSP&quot;, &quot;display&quot;: &quot;Terminology Service Provider&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;TSP&quot;&gt;&lt;display value=&quot;Terminology Service Provider&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-PPH"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-organization-role.html#organization-role-PPH">PPH</a>
+                </td>
+                <td>Process Plugin Hub</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;PPH&quot;, &quot;display&quot;: &quot;Process Plugin Hub&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;PPH&quot;&gt;&lt;display value=&quot;Process Plugin Hub&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/organization-role-BIO"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/organization-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-organization-role.html#organization-role-BIO">BIO</a>
+                </td>
+                <td>Biobank</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;BIO&quot;, &quot;display&quot;: &quot;Biobank&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/organization-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;BIO&quot;&gt;&lt;display value=&quot;Biobank&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/organization-role"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DSF_Organization_Role"/>
         <title value="DSF Organization Role"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:4dc13d15-65a9-4552-ba8f-b5f5edc67e40"/>
-          <timestamp value="2025-06-05T13:48:25+00:00"/>
-          <total value="9"/>
+          <identifier value="urn:uuid:0fcdb832-57df-4e17-8046-f820d5aad3b6"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
+          <total value="14"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -291,7 +557,7 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/organization-role|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/organization-role|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
@@ -338,6 +604,31 @@
             <code value="AMS"/>
             <display value="Allowlist Management Site"/>
           </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
+            <code value="ASP"/>
+            <display value="Analysis Service Provider"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
+            <code value="SPR"/>
+            <display value="Service Provider Registry"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
+            <code value="TSP"/>
+            <display value="Terminology Service Provider"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
+            <code value="PPH"/>
+            <display value="Process Plugin Hub"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/organization-role"/>
+            <code value="BIO"/>
+            <display value="Biobank"/>
+          </contains>
         </expansion>
       </ValueSet>
     </resource>
@@ -347,6 +638,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -357,120 +649,367 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-practitioner-role.html">codesystem DSF Practitioner Role v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-practitioner-role.html">codesystem DSF Practitioner Role v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/practitioner-role|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
-            <p>This value set contains 10 concepts</p>
-            <table class="codes">
+            <p>This value set contains 15 concepts</p>
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>Definition</b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-UAC_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-UAC_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-UAC_USER">UAC_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Use-and-Access Committee Member</td>
+                <td>Use-and-Access Committee User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;UAC_USER&quot;, &quot;display&quot;: &quot;Use-and-Access Committee User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;UAC_USER&quot;&gt;&lt;display value=&quot;Use-and-Access Committee User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-COS_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-COS_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-COS_USER">COS_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Coordinating Site Member</td>
+                <td>Coordinating Site User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;COS_USER&quot;, &quot;display&quot;: &quot;Coordinating Site User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;COS_USER&quot;&gt;&lt;display value=&quot;Coordinating Site User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-CRR_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-CRR_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-CRR_USER">CRR_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Central Research Repository Member</td>
+                <td>Central Research Repository User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;CRR_USER&quot;, &quot;display&quot;: &quot;Central Research Repository User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;CRR_USER&quot;&gt;&lt;display value=&quot;Central Research Repository User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DIC_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DIC_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-DIC_USER">DIC_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Data Integration Center Member</td>
+                <td>Data Integration Center User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DIC_USER&quot;, &quot;display&quot;: &quot;Data Integration Center User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DIC_USER&quot;&gt;&lt;display value=&quot;Data Integration Center User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DMS_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DMS_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-DMS_USER">DMS_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Data Management Site Member</td>
+                <td>Data Management Site User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DMS_USER&quot;, &quot;display&quot;: &quot;Data Management Site User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DMS_USER&quot;&gt;&lt;display value=&quot;Data Management Site User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DTS_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DTS_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-DTS_USER">DTS_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Data Transfer Site Member</td>
+                <td>Data Transfer Site User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DTS_USER&quot;, &quot;display&quot;: &quot;Data Transfer Site User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DTS_USER&quot;&gt;&lt;display value=&quot;Data Transfer Site User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-HRP_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-HRP_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-HRP_USER">HRP_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Health Research Platform Member</td>
+                <td>Health Research Platform User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;HRP_USER&quot;, &quot;display&quot;: &quot;Health Research Platform User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;HRP_USER&quot;&gt;&lt;display value=&quot;Health Research Platform User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-TTP_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-TTP_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-TTP_USER">TTP_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Trusted Third Party Member</td>
+                <td>Trusted Third Party User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;TTP_USER&quot;, &quot;display&quot;: &quot;Trusted Third Party User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;TTP_USER&quot;&gt;&lt;display value=&quot;Trusted Third Party User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-AMS_USER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-AMS_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-AMS_USER">AMS_USER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
-                <td>Allowlist Management Site Member</td>
+                <td>Allowlist Management Site User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;AMS_USER&quot;, &quot;display&quot;: &quot;Allowlist Management Site User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;AMS_USER&quot;&gt;&lt;display value=&quot;Allowlist Management Site User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DSF_ADMIN"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-ASP_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-practitioner-role.html#practitioner-role-ASP_USER">ASP_USER</a>
+                </td>
+                <td>Analysis Service Provider User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;ASP_USER&quot;, &quot;display&quot;: &quot;Analysis Service Provider User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;ASP_USER&quot;&gt;&lt;display value=&quot;Analysis Service Provider User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-SPR_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-practitioner-role.html#practitioner-role-SPR_USER">SPR_USER</a>
+                </td>
+                <td>Service Provider Registry User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;SPR_USER&quot;, &quot;display&quot;: &quot;Service Provider Registry User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;SPR_USER&quot;&gt;&lt;display value=&quot;Service Provider Registry User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-TSP_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-practitioner-role.html#practitioner-role-TSP_USER">TSP_USER</a>
+                </td>
+                <td>Terminology Service Provider User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;TSP_USER&quot;, &quot;display&quot;: &quot;Terminology Service Provider User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;TSP_USER&quot;&gt;&lt;display value=&quot;Terminology Service Provider User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-PPH_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-practitioner-role.html#practitioner-role-PPH_USER">PPH_USER</a>
+                </td>
+                <td>Process Plugin Hub User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;PPH_USER&quot;, &quot;display&quot;: &quot;Process Plugin Hub User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;PPH_USER&quot;&gt;&lt;display value=&quot;Process Plugin Hub User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-BIO_USER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-practitioner-role.html#practitioner-role-BIO_USER">BIO_USER</a>
+                </td>
+                <td>Biobank User</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;BIO_USER&quot;, &quot;display&quot;: &quot;Biobank User&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;BIO_USER&quot;&gt;&lt;display value=&quot;Biobank User&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/practitioner-role-DSF_ADMIN"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-practitioner-role.html#practitioner-role-DSF_ADMIN">DSF_ADMIN</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/practitioner-role</td>
                 <td>DSF Administrator</td>
+                <td/>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;DSF_ADMIN&quot;, &quot;display&quot;: &quot;DSF Administrator&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/practitioner-role&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;DSF_ADMIN&quot;&gt;&lt;display value=&quot;DSF Administrator&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/practitioner-role"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DSF_Practitioner_Role"/>
         <title value="DSF Practitioner Role"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:6e001b23-659e-42ac-bae1-83d6cc3b8471"/>
-          <timestamp value="2025-06-05T13:48:25+00:00"/>
-          <total value="10"/>
+          <identifier value="urn:uuid:17f49558-d4d7-497d-802b-e1eeaadf9c3e"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
+          <total value="15"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -486,52 +1025,77 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/practitioner-role|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/practitioner-role|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="UAC_USER"/>
-            <display value="Use-and-Access Committee Member"/>
+            <display value="Use-and-Access Committee User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="COS_USER"/>
-            <display value="Coordinating Site Member"/>
+            <display value="Coordinating Site User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="CRR_USER"/>
-            <display value="Central Research Repository Member"/>
+            <display value="Central Research Repository User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="DIC_USER"/>
-            <display value="Data Integration Center Member"/>
+            <display value="Data Integration Center User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="DMS_USER"/>
-            <display value="Data Management Site Member"/>
+            <display value="Data Management Site User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="DTS_USER"/>
-            <display value="Data Transfer Site Member"/>
+            <display value="Data Transfer Site User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="HRP_USER"/>
-            <display value="Health Research Platform Member"/>
+            <display value="Health Research Platform User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="TTP_USER"/>
-            <display value="Trusted Third Party Member"/>
+            <display value="Trusted Third Party User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
             <code value="AMS_USER"/>
-            <display value="Allowlist Management Site Member"/>
+            <display value="Allowlist Management Site User"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
+            <code value="ASP_USER"/>
+            <display value="Analysis Service Provider User"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
+            <code value="SPR_USER"/>
+            <display value="Service Provider Registry User"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
+            <code value="TSP_USER"/>
+            <display value="Terminology Service Provider User"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
+            <code value="PPH_USER"/>
+            <display value="Process Plugin Hub User"/>
+          </contains>
+          <contains>
+            <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
+            <code value="BIO_USER"/>
+            <display value="Biobank User"/>
           </contains>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/practitioner-role"/>
@@ -547,6 +1111,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -557,85 +1122,109 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-process-authorization.html">codesystem DSF Process Authorization v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-process-authorization.html">codesystem DSF Process Authorization v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/process-authorization|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
             <p>This value set contains 3 concepts</p>
-            <table class="codes">
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>JSON</b>
                 </td>
                 <td>
-                  <b>Definition</b>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION">LOCAL_ORGANIZATION</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ORGANIZATION</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ORGANIZATION&quot;, &quot;display&quot;: &quot;LOCAL_ORGANIZATION&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ORGANIZATION&quot;&gt;&lt;display value=&quot;LOCAL_ORGANIZATION&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE">LOCAL_ROLE</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ROLE</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ROLE&quot;, &quot;display&quot;: &quot;LOCAL_ROLE&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ROLE&quot;&gt;&lt;display value=&quot;LOCAL_ROLE&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL">LOCAL_ALL</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ALL</td>
                 <td>
-                  <div>
-                    <p>Process authorization for all local organizations</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ALL&quot;, &quot;display&quot;: &quot;LOCAL_ALL&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ALL&quot;&gt;&lt;display value=&quot;LOCAL_ALL&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DSF_Process_Authorization_Recipient"/>
         <title value="DSF Process Authorization Recipient"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:0fdceea4-439b-48ec-aece-004bf677e767"/>
-          <timestamp value="2025-06-05T13:48:25+00:00"/>
+          <identifier value="urn:uuid:ea200e6c-c83a-4536-83f5-4b1fd5198523"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
           <total value="3"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -651,7 +1240,7 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/process-authorization|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/process-authorization|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/process-authorization"/>
@@ -677,6 +1266,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -687,169 +1277,229 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-process-authorization.html">codesystem DSF Process Authorization v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-process-authorization.html">codesystem DSF Process Authorization v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/process-authorization|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
             <p>This value set contains 9 concepts</p>
-            <table class="codes">
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>JSON</b>
                 </td>
                 <td>
-                  <b>Definition</b>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION">LOCAL_ORGANIZATION</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ORGANIZATION</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ORGANIZATION&quot;, &quot;display&quot;: &quot;LOCAL_ORGANIZATION&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ORGANIZATION&quot;&gt;&lt;display value=&quot;LOCAL_ORGANIZATION&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION_PRACTITIONER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ORGANIZATION_PRACTITIONER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION_PRACTITIONER">LOCAL_ORGANIZATION_PRACTITIONER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ORGANIZATION_PRACTITIONER</td>
                 <td>
-                  <div>
-                    <p>Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ORGANIZATION_PRACTITIONER&quot;, &quot;display&quot;: &quot;LOCAL_ORGANIZATION_PRACTITIONER&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ORGANIZATION_PRACTITIONER&quot;&gt;&lt;display value=&quot;LOCAL_ORGANIZATION_PRACTITIONER&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ORGANIZATION"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ORGANIZATION"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-REMOTE_ORGANIZATION">REMOTE_ORGANIZATION</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>REMOTE_ORGANIZATION</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;REMOTE_ORGANIZATION&quot;, &quot;display&quot;: &quot;REMOTE_ORGANIZATION&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;REMOTE_ORGANIZATION&quot;&gt;&lt;display value=&quot;REMOTE_ORGANIZATION&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE">LOCAL_ROLE</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ROLE</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ROLE&quot;, &quot;display&quot;: &quot;LOCAL_ROLE&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ROLE&quot;&gt;&lt;display value=&quot;LOCAL_ROLE&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE_PRACTITIONER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ROLE_PRACTITIONER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE_PRACTITIONER">LOCAL_ROLE_PRACTITIONER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ROLE_PRACTITIONER</td>
                 <td>
-                  <div>
-                    <p>Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ROLE_PRACTITIONER&quot;, &quot;display&quot;: &quot;LOCAL_ROLE_PRACTITIONER&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ROLE_PRACTITIONER&quot;&gt;&lt;display value=&quot;LOCAL_ROLE_PRACTITIONER&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ROLE"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ROLE"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-REMOTE_ROLE">REMOTE_ROLE</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>REMOTE_ROLE</td>
                 <td>
-                  <div>
-                    <p>Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;REMOTE_ROLE&quot;, &quot;display&quot;: &quot;REMOTE_ROLE&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;REMOTE_ROLE&quot;&gt;&lt;display value=&quot;REMOTE_ROLE&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL">LOCAL_ALL</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ALL</td>
                 <td>
-                  <div>
-                    <p>Process authorization for all local organizations</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ALL&quot;, &quot;display&quot;: &quot;LOCAL_ALL&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ALL&quot;&gt;&lt;display value=&quot;LOCAL_ALL&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL_PRACTITIONER"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-LOCAL_ALL_PRACTITIONER"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL_PRACTITIONER">LOCAL_ALL_PRACTITIONER</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>LOCAL_ALL_PRACTITIONER</td>
                 <td>
-                  <div>
-                    <p>Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL_ALL_PRACTITIONER&quot;, &quot;display&quot;: &quot;LOCAL_ALL_PRACTITIONER&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL_ALL_PRACTITIONER&quot;&gt;&lt;display value=&quot;LOCAL_ALL_PRACTITIONER&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ALL"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/process-authorization-REMOTE_ALL"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-process-authorization.html#process-authorization-REMOTE_ALL">REMOTE_ALL</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/process-authorization</td>
                 <td>REMOTE_ALL</td>
                 <td>
-                  <div>
-                    <p>Process authorization for all remote organizations</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;REMOTE_ALL&quot;, &quot;display&quot;: &quot;REMOTE_ALL&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/process-authorization&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;REMOTE_ALL&quot;&gt;&lt;display value=&quot;REMOTE_ALL&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/process-authorization-requester"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DSF_Process_Authorization_Requester"/>
         <title value="DSF Process Authorization Requester"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:ea98b5a6-6f49-4a50-ae16-d30ffb8e39a7"/>
-          <timestamp value="2025-06-05T13:48:25+00:00"/>
+          <identifier value="urn:uuid:5a9e0619-c2c9-4bc8-8e52-13a3176e6a9e"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
           <total value="9"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -865,7 +1515,7 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/process-authorization|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/process-authorization|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/process-authorization"/>
@@ -921,6 +1571,7 @@
     <resource>
       <ValueSet>
         <meta>
+          <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
           <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
@@ -931,99 +1582,129 @@
           <div xmlns="http://www.w3.org/1999/xhtml">
             <p class="res-header-id"/>
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion performed internally based on 
-              <a href="CodeSystem-read-access-tag.html">codesystem DSF Read Access Tag v1.0.0 (CodeSystem)</a>
+              <a href="CodeSystem-read-access-tag.html">codesystem DSF Read Access Tag v2.0.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="http://dsf.dev/fhir/CodeSystem/read-access-tag|2.0.0" title="Click to Copy URL" class="btn-copy"> </button>
+              </span>
             </p>
             <p>This value set contains 4 concepts</p>
-            <table class="codes">
+            <table class="codes" data-fhir="generated">
               <tr>
+                <td>
+                  <b>System</b>
+                </td>
                 <td style="white-space:nowrap">
                   <b>Code</b>
                 </td>
                 <td>
-                  <b>System</b>
+                  <b>Display (en)</b>
                 </td>
                 <td>
-                  <b>Display (en-US)</b>
+                  <b>JSON</b>
                 </td>
                 <td>
-                  <b>Definition</b>
+                  <b>XML</b>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-LOCAL"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-LOCAL"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-read-access-tag.html#read-access-tag-LOCAL">LOCAL</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td>
                 <td>Local</td>
                 <td>
-                  <div>
-                    <p>Read access for local users</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;LOCAL&quot;, &quot;display&quot;: &quot;Local&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;LOCAL&quot;&gt;&lt;display value=&quot;Local&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ORGANIZATION"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ORGANIZATION"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-read-access-tag.html#read-access-tag-ORGANIZATION">ORGANIZATION</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td>
                 <td>Organization</td>
                 <td>
-                  <div>
-                    <p>Read access for organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-organization</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;ORGANIZATION&quot;, &quot;display&quot;: &quot;Organization&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;ORGANIZATION&quot;&gt;&lt;display value=&quot;Organization&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ROLE"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ROLE"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-read-access-tag.html#read-access-tag-ROLE">ROLE</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td>
                 <td>Role</td>
                 <td>
-                  <div>
-                    <p>Read access for member organizations with role in consortium (parent organization) specified via extension http://dsf.dev/fhir/StructureDefinition/extension-read-access-consortium-role</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;ROLE&quot;, &quot;display&quot;: &quot;Role&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;ROLE&quot;&gt;&lt;display value=&quot;Role&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
               <tr>
-                <td style="white-space:nowrap">
-                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ALL"> </a>  
+                <td>
+                  <a name="x-http://dsf.dev/fhir/CodeSystem/read-access-tag-ALL"> </a>
+                  <code>http://dsf.dev/fhir/CodeSystem/read-access-tag</code>
+                </td>
+                <td style="white-space:nowrap">  
                   <a href="CodeSystem-read-access-tag.html#read-access-tag-ALL">ALL</a>
                 </td>
-                <td>http://dsf.dev/fhir/CodeSystem/read-access-tag</td>
                 <td>All</td>
                 <td>
-                  <div>
-                    <p>Read access for remote and local users</p>
-
-                  </div>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;, &quot;version&quot;: &quot;2.0.0&quot;, &quot;code&quot;: &quot;ALL&quot;, &quot;display&quot;: &quot;All&quot;}" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;http://dsf.dev/fhir/CodeSystem/read-access-tag&quot;&gt;&lt;version value=&quot;2.0.0&quot;&gt;&lt;code value=&quot;ALL&quot;&gt;&lt;display value=&quot;All&quot;&gt;&lt;/coding&gt;" title="Click to Copy as Coding" class="btn-copy"> </button>
+                  </span>
                 </td>
               </tr>
             </table>
           </div>
         </text>
         <url value="http://dsf.dev/fhir/ValueSet/read-access-tag"/>
-        <version value="1.0.0"/>
+        <version value="2.0.0"/>
         <name value="DSF_Read_Access_Tag"/>
         <title value="DSF Read Access Tag"/>
         <status value="active"/>
         <experimental value="false"/>
-        <date value="2023-06-28"/>
+        <date value="2025-11-26"/>
         <immutable value="true"/>
         <expansion>
-          <identifier value="urn:uuid:c5aaacf0-f376-4bd0-9876-55f55f31bf29"/>
-          <timestamp value="2025-06-05T13:48:25+00:00"/>
+          <identifier value="urn:uuid:05d1761a-a096-407d-95ab-a4289ec414ec"/>
+          <timestamp value="2025-11-26T16:56:42+01:00"/>
           <total value="4"/>
           <offset value="0"/>
           <parameter>
             <name value="displayLanguage"/>
-            <valueCode value="en-US"/>
+            <valueCode value="en"/>
           </parameter>
           <parameter>
             <name value="count"/>
@@ -1039,7 +1720,7 @@
           </parameter>
           <parameter>
             <name value="used-codesystem"/>
-            <valueUri value="http://dsf.dev/fhir/CodeSystem/read-access-tag|1.0.0"/>
+            <valueUri value="http://dsf.dev/fhir/CodeSystem/read-access-tag|2.0.0"/>
           </parameter>
           <contains>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>

@@ -12,8 +12,8 @@
   <sch:pattern>
     <sch:title>f:Coding</sch:title>
     <sch:rule context="f:Coding">
-      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|1.0.0']) &gt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|1.0.0': minimum cardinality of 'extension' is 1</sch:assert>
-      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|1.0.0']) &lt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|1.0.0': maximum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|2.0.0']) &gt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|2.0.0': minimum cardinality of 'extension' is 1</sch:assert>
+      <sch:assert test="count(f:extension[@url = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|2.0.0']) &lt;= 1">extension with URL = 'http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role|2.0.0': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:system) &gt;= 1">system: minimum cardinality of 'system' is 1</sch:assert>
       <sch:assert test="count(f:code) &gt;= 1">code: minimum cardinality of 'code' is 1</sch:assert>
     </sch:rule>

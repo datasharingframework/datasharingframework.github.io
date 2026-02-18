@@ -3,14 +3,14 @@
   "id" : "dev.dsf",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide dev.dsf</b></p><a name=\"dev.dsf\"> </a><a name=\"hcdev.dsf\"> </a><a name=\"dev.dsf-en-US\"> </a><h2>dsfig</h2><p>The official URL for this implementation guide is: </p><pre>http://dsf.dev/fhir/ImplementationGuide/dev.dsf</pre></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ImplementationGuide dev.dsf</b></p><a name=\"dev.dsf\"> </a><a name=\"hcdev.dsf\"> </a><h2>dsfig</h2><p>The official URL for this implementation guide is: </p><pre>http://dsf.dev/fhir/ImplementationGuide/dev.dsf</pre></div>"
   },
   "url" : "http://dsf.dev/fhir/ImplementationGuide/dev.dsf",
   "version" : "2.0.0",
   "name" : "dsfig",
   "title" : "Data Sharing Framework (DSF) Implementation Guide",
   "status" : "draft",
-  "date" : "2025-06-05T13:46:38+00:00",
+  "date" : "2025-11-26T16:56:02+01:00",
   "publisher" : "DSF Community",
   "contact" : [{
     "name" : "DSF Community",
@@ -30,7 +30,7 @@
     }],
     "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
     "packageId" : "hl7.terminology.r4",
-    "version" : "6.4.0"
+    "version" : "7.0.0"
   },
   {
     "id" : "hl7ext",
@@ -320,7 +320,7 @@
     },
     {
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
-      "valueCode" : "hl7.fhir.uv.tools.r4#0.5.0"
+      "valueCode" : "hl7.fhir.uv.tools.r4#0.8.0"
     },
     {
       "extension" : [{
@@ -600,287 +600,13 @@
     "resource" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CapabilityStatement"
-      }],
-      "reference" : {
-        "reference" : "CapabilityStatement/dsf"
-      }
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/bpmn-message"
-      },
-      "name" : "DSF BPMN message values",
-      "description" : "CodeSystem with standard BPMN message values for Task resources"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/organization-role"
-      },
-      "name" : "DSF Organization Role",
-      "description" : "CodeSystem with DSF organization roles used in OrganizationAffiliation resources"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/practitioner-role"
-      },
-      "name" : "DSF Practitioner Role",
-      "description" : "CodeSystem with DSF practitioner roles"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/process-authorization"
-      },
-      "name" : "DSF Process Authorization",
-      "description" : "CodeSystem with proces authorization codes"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/read-access-tag"
-      },
-      "name" : "DSF Read Access Tag",
-      "description" : "CodeSystem with read access tags"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "NamingSystem"
-      }],
-      "reference" : {
-        "reference" : "NamingSystem/dsf-endpoint"
-      },
-      "name" : "DSF Endpoint Identifier",
-      "description" : "Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "NamingSystem"
-      }],
-      "reference" : {
-        "reference" : "NamingSystem/dsf-organization"
-      },
-      "name" : "DSF Organization Identifier",
-      "description" : "Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "NamingSystem"
-      }],
-      "reference" : {
-        "reference" : "NamingSystem/dsf-practitioner"
-      },
-      "name" : "DSF Practitioner Identifier",
-      "description" : "E-mail address identifying a practitioner"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "NamingSystem"
-      }],
-      "reference" : {
-        "reference" : "NamingSystem/dsf-task"
-      },
-      "name" : "DSF Task Identifier",
-      "description" : "Name identifying a draft Task resource"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/activity-definition"
+        "reference" : "StructureDefinition/document-reference"
       },
-      "name" : "DSF ActivityDefinition",
-      "description" : "A DSF Process with it's messages and corresponding Authorization Rules."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/code-system"
-      },
-      "name" : "CodeSystem"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-all"
-      },
-      "name" : "ProcessAuthorizationLocalAll"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-all-practitioner"
-      },
-      "name" : "ProcessAuthorizationLocalAllPractitioner"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-organization"
-      },
-      "name" : "ProcessAuthorizationLocalOrganization"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-organization-practitioner"
-      },
-      "name" : "ProcessAuthorizationLocalOrganizationPractitioner"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role"
-      },
-      "name" : "ProcessAuthorizationLocalParentOrganizationRole"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner"
-      },
-      "name" : "ProcessAuthorizationLocalParentOrganizationRolePractitioner"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-remote-all"
-      },
-      "name" : "ProcessAuthorizationRemoteAll"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-remote-organization"
-      },
-      "name" : "ProcessAuthorizationRemoteOrganization"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:complex-type"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/coding-process-authorization-remote-parent-organization-role"
-      },
-      "name" : "ProcessAuthorizationRemoteParentOrganizationRole"
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/endpoint"
-      },
-      "name" : "DSF Endpoint",
-      "description" : "An Endpoint in the DSF context with restrictions to enforce DSF specific details."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/extension-certificate-thumbprint"
-      },
-      "name" : "Certificate Thumbprint",
-      "description" : "A certificate thumbprint of the client certificate of the organization / of the organization's endpoint."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/extension-check-logical-reference"
-      },
-      "name" : "CheckLogicalReference",
-      "description" : "This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/extension-process-authorization"
-      },
-      "name" : "ProcessAuthorization",
-      "description" : "Defines authorization details for a process described by an ActivityDefinition. Specifies which entities are authorized to request and receive process-related tasks, including message name and task profile.       This extension enables fine-grained authorization control for processes defined in an ActivityDefinition. It includes:   - `message-name`: The name of the message associated with the process.   - `task-profile`: The canonical URL of the required Task profile.   - `requester` and `recipient`. See the respective ValueSets `http://dsf.dev/fhir/ValueSet/process-authorization-requester|1.0.0` and `http://dsf.dev/fhir/ValueSet/process-authorization-recipient|1.0.0` for allowed codes."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/extension-process-authorization-organization"
-      },
-      "name" : "ProcessAuthorizationOrganization",
-      "description" : "This extension indicates whether logical references will be checked in the context of a NamingSystem resource. If set to true, logical references will be validated against the NamingSystem's unique identifiers."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:extension"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/extension-process-authorization-organization-practitioner"
-      },
-      "name" : "ProcessAuthorizationOrganizationPractitioner",
-      "description" : "Specifies an organization and practitioner role for process authorization. This extension is used within a Coding to indicate both a specific organization (by its identifier) and a practitioner role (by a coding). The organization is identified with an Identifier using the system `http://dsf.dev/sid/organization-identifier`, and the practitioner role is specified as a Coding. This enables precise authorization of organization-practitioner-role combinations for requester or recipient roles in process authorization extensions."
+      "name" : "DocumentReference",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -891,7 +617,18 @@
         "reference" : "StructureDefinition/extension-process-authorization-parent-organization-role"
       },
       "name" : "ProcessAuthorizationParentOrganizationRole",
-      "description" : "This extension specifies the parent organization and the required role in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier) and a role (by a coding). The parent organization is identified with an Identifier using the system `http://dsf.dev/sid/organization-identifier`, and the role is specified as a Coding. This enables precise authorization of parent organization-role combinations for requester or recipient roles in process authorization extensions."
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/meta"
+      },
+      "name" : "Meta",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -899,10 +636,76 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/extension-process-authorization-parent-organization-role-practitioner"
+        "reference" : "StructureDefinition/extension-process-authorization"
       },
-      "name" : "ProcessAuthorizationParentOrganizationRolePractitioner",
-      "description" : "This extension specifies the parent organization, the required role of the organization and the role of the practitioner in process authorization. It is used within a Coding to indicate both a specific parent organization (by its identifier), a role (by a coding), and a practitioner role. The parent organization is identified with an Identifier using the system `http://dsf.dev/sid/organization-identifier`, and the roles are specified as a Coding. This enables precise authorization of parent organization-role combinations with a practitioner for requester roles in process authorization extensions."
+      "name" : "ProcessAuthorization",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-remote-parent-organization-role"
+      },
+      "name" : "ProcessAuthorizationRemoteParentOrganizationRole",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/questionnaire"
+      },
+      "name" : "Questionnaire",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/group"
+      },
+      "name" : "Group",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/library"
+      },
+      "name" : "Library",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-remote-all"
+      },
+      "name" : "ProcessAuthorizationRemoteAll",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/practitioner"
+      },
+      "name" : "Practitioner",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -910,10 +713,21 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/extension-process-authorization-practitioner"
+        "reference" : "StructureDefinition/extension-process-authorization-organization-practitioner"
       },
-      "name" : "ProcessAuthorizationPractitioner",
-      "description" : "This extension specifies a practitioner role for process authorization. It is used within a Coding to indicate a practitioner role (by a coding). The practitioner role is specified as a Coding. This enables precise authorization for requester or roles in process authorization extensions."
+      "name" : "ProcessAuthorizationOrganizationPractitioner",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/bundle"
+      },
+      "name" : "Bundle",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -921,10 +735,21 @@
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/extension-read-access-organization"
+        "reference" : "StructureDefinition/extension-questionnaire-authorization"
       },
-      "name" : "ReadAccessOrganization",
-      "description" : "This extension specifies an organization by identifier for resouce read access."
+      "name" : "QuestionnaireAuthorization",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/subscription"
+      },
+      "name" : "Subscription",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -935,7 +760,106 @@
         "reference" : "StructureDefinition/extension-read-access-parent-organization-role"
       },
       "name" : "ReadAccessParentOrganizationRole",
-      "description" : "This extension specifies a list of organizations by membership in a parent organization by identifier and their role by coding for resouce read access."
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/patient"
+      },
+      "name" : "Patient",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/measure-report"
+      },
+      "name" : "MeasureReport",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/naming-system"
+      },
+      "name" : "NamingSystem",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-local-organization-practitioner"
+      },
+      "name" : "ProcessAuthorizationLocalOrganizationPractitioner",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/code-system"
+      },
+      "name" : "CodeSystem",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/provenance"
+      },
+      "name" : "Provenance",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/measure"
+      },
+      "name" : "Measure",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/healthcare-service"
+      },
+      "name" : "HealthcareService",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/research-study"
+      },
+      "name" : "ResearchStudy",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -945,19 +869,8 @@
       "reference" : {
         "reference" : "StructureDefinition/organization"
       },
-      "name" : "DSF Organization",
-      "description" : "An Organization in the DSF context with restrictions to enforce DSF specific details."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/organization-affiliation"
-      },
-      "name" : "DSF OrganizationAffiliation",
-      "description" : "An OrganizationAffiliation to describe a parent / participating organization relationship in the DSF context with restrictions to enforce DSF specific details."
+      "name" : "Organization",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -967,8 +880,30 @@
       "reference" : {
         "reference" : "StructureDefinition/organization-parent"
       },
-      "name" : "DSF Parent Organization",
-      "description" : "A Parent Organization as Meta Organization (e.g., Consortia) in the DSF context with restrictions to enforce DSF specific details."
+      "name" : "OrganizationParent",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/activity-definition"
+      },
+      "name" : "ActivityDefinition",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/organization-affiliation"
+      },
+      "name" : "OrganizationAffiliation",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -976,42 +911,32 @@
         "valueString" : "StructureDefinition:complex-type"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/organization-reference"
+        "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner"
       },
-      "name" : "OrganizationReference"
+      "name" : "ProcessAuthorizationLocalParentOrganizationRolePractitioner",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource:abstract"
+        "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/questionnaire"
+        "reference" : "StructureDefinition/extension-process-authorization-organization"
       },
-      "name" : "DSF Questionnaire",
-      "description" : "A Questionnaire in the DSF context with restrictions to enforce DSF specific details."
+      "name" : "ProcessAuthorizationOrganization",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource:abstract"
+        "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/questionnaire-response"
+        "reference" : "StructureDefinition/binary"
       },
-      "name" : "DSF QuestionnaireResponse",
-      "description" : "An QuestionnaireResponse in the DSF context with restrictions to enforce DSF specific details."
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource:abstract"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/task-base"
-      },
-      "name" : "DSF Base Task",
-      "description" : "The abstract Task resource the Tasks for individual DSF processes should be based on."
+      "name" : "Binary",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -1021,69 +946,244 @@
       "reference" : {
         "reference" : "StructureDefinition/value-set"
       },
-      "name" : "ValueSet"
+      "name" : "ValueSet",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Subscription"
+        "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
-        "reference" : "Subscription/dsf-bpmn-questionnaire-response-subscription"
-      }
+        "reference" : "StructureDefinition/extension-process-authorization-parent-organization-role-practitioner"
+      },
+      "name" : "ProcessAuthorizationParentOrganizationRolePractitioner",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Subscription"
+        "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "Subscription/dsf-bpmn-task-subscription"
-      }
+        "reference" : "StructureDefinition/practitioner-role"
+      },
+      "name" : "PractitionerRole",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "ValueSet/bpmn-message"
+        "reference" : "StructureDefinition/structure-definition"
+      },
+      "name" : "StructureDefinition",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-local-parent-organization-role"
+      },
+      "name" : "ProcessAuthorizationLocalParentOrganizationRole",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/extension-read-access-organization"
+      },
+      "name" : "ReadAccessOrganization",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-local-all"
+      },
+      "name" : "ProcessAuthorizationLocalAll",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/extension-check-logical-reference"
+      },
+      "name" : "CheckLogicalReference",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-local-all-practitioner"
+      },
+      "name" : "ProcessAuthorizationLocalAllPractitioner",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/questionnaire-response"
+      },
+      "name" : "QuestionnaireResponse",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource:abstract"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/task"
+      },
+      "name" : "Task",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/extension-process-authorization-practitioner"
+      },
+      "name" : "ProcessAuthorizationPractitioner",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-local-organization"
+      },
+      "name" : "ProcessAuthorizationLocalOrganization",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/location"
+      },
+      "name" : "Location",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/endpoint"
+      },
+      "name" : "Endpoint",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:complex-type"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/coding-process-authorization-remote-organization"
+      },
+      "name" : "ProcessAuthorizationRemoteOrganization",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/extension-certificate-thumbprint"
+      },
+      "name" : "CertificateThumbprint",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/bpmn-message"
       },
       "name" : "DSF BPMN message values",
-      "description" : "ValueSet with standard BPMN message values for Task resources"
+      "description" : "CodeSystem with standard BPMN message values for Task resources",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "ValueSet/organization-role"
+        "reference" : "CodeSystem/read-access-tag"
       },
-      "name" : "DSF Organization Role",
-      "description" : "ValueSet with DSF organization roles used in OrganizationAffiliation resources"
+      "name" : "DSF Read Access Tag",
+      "description" : "CodeSystem with read access tags",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "ValueSet/practitioner-role"
+        "reference" : "CodeSystem/practitioner-role"
       },
       "name" : "DSF Practitioner Role",
-      "description" : "ValueSet with DSF practitioner roles used in OrganizationAffiliation resources"
+      "description" : "CodeSystem with DSF practitioner roles",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
+        "valueString" : "CodeSystem"
       }],
       "reference" : {
-        "reference" : "ValueSet/process-authorization-recipient"
+        "reference" : "CodeSystem/organization-role"
       },
-      "name" : "DSF Process Authorization Recipient",
-      "description" : "ValueSet with proces authorization codes for recipients"
+      "name" : "DSF Organization Role",
+      "description" : "CodeSystem with DSF organization roles used in OrganizationAffiliation resources",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/process-authorization"
+      },
+      "name" : "DSF Process Authorization",
+      "description" : "CodeSystem with proces authorization codes",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -1094,7 +1194,32 @@
         "reference" : "ValueSet/process-authorization-requester"
       },
       "name" : "DSF Process Authorization Requester",
-      "description" : "ValueSet with proces authorization codes for requesters"
+      "description" : "ValueSet with proces authorization codes for requesters",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/process-authorization-recipient"
+      },
+      "name" : "DSF Process Authorization Recipient",
+      "description" : "ValueSet with proces authorization codes for recipients",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/bpmn-message"
+      },
+      "name" : "DSF BPMN message values",
+      "description" : "ValueSet with standard BPMN message values for Task resources",
+      "exampleBoolean" : false
     },
     {
       "extension" : [{
@@ -1105,7 +1230,102 @@
         "reference" : "ValueSet/read-access-tag"
       },
       "name" : "DSF Read Access Tag",
-      "description" : "ValueSet with read access tags"
+      "description" : "ValueSet with read access tags",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/practitioner-role"
+      },
+      "name" : "DSF Practitioner Role",
+      "description" : "ValueSet with DSF practitioner roles used in OrganizationAffiliation resources",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/organization-role"
+      },
+      "name" : "DSF Organization Role",
+      "description" : "ValueSet with DSF organization roles used in OrganizationAffiliation resources",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/dsf-organization"
+      },
+      "name" : "DsfOrganizationIdentifier",
+      "description" : "Shortest DNS that resolves the homepage of the organization, e.g. hs-heilbronn.de, ukhd.de, uksh.de",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/dsf-practitioner"
+      },
+      "name" : "DsfPractitionerIdentifier",
+      "description" : "E-mail address identifying a practitioner",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/dsf-endpoint"
+      },
+      "name" : "DsfEndpointIdentifier",
+      "description" : "Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/dsf-task"
+      },
+      "name" : "DsfTaskIdentifier",
+      "description" : "Name identifying a draft Task resource",
+      "exampleBoolean" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Subscription"
+      }],
+      "reference" : {
+        "reference" : "Subscription/dsf-bpmn-questionnaire-response-subscription"
+      },
+      "name" : "Example Subscription - dsf-bpmn-questionnaire-response-subscription",
+      "exampleCanonical" : "http://dsf.dev/fhir/StructureDefinition/subscription"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Subscription"
+      }],
+      "reference" : {
+        "reference" : "Subscription/dsf-bpmn-task-subscription"
+      },
+      "name" : "Example Subscription - dsf-bpmn-task-subscription",
+      "exampleCanonical" : "http://dsf.dev/fhir/StructureDefinition/subscription"
     }],
     "page" : {
       "extension" : [{

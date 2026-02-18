@@ -15,4 +15,9 @@ Data Sharing Framework 1.x is the current major release of the Data Sharing Fram
 ## New features
 - See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v1.8.0)
 
-
+<!--
+This breaks the page with a 
+Hydration completed but contains mismatches.
+error
+<releas-notes  path="release-notes.md" />
+-->

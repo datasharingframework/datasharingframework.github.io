@@ -27,7 +27,9 @@ export default defineUserConfig({
       description: "",
     },
   },*/
-  plugins: [ ],
+  plugins: [
+    
+   ],
 
   // Enable it with pwa
   shouldPrefetch: false,

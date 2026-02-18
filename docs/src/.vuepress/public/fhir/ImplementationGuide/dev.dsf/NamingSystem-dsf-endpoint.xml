@@ -3,22 +3,23 @@
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="dsf-endpoint"/>
   <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/naming-system"/>
     <tag>
       <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
       <code value="ALL"/>
     </tag>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: NamingSystem dsf-endpoint</b></p><a name="dsf-endpoint"> </a><a name="hcdsf-endpoint"> </a><a name="dsf-endpoint-en-US"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class="grid"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-endpoint</td></tr><tr><td>Name</td><td>DSF Endpoint Identifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address</p>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: NamingSystem dsf-endpoint</b></p><a name="dsf-endpoint"> </a><a name="hcdsf-endpoint"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-naming-system.html">NamingSystem</a></p><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><h3>Summary</h3><table class="grid"><tr><td>Defining URL</td><td>http://dsf.dev/fhir/NamingSystem/dsf-endpoint</td></tr><tr><td>Name</td><td>DsfEndpointIdentifier</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Shortest DNS that resolves a DSF endpoint, typically the domain name used in endpoint.address</p>
 </div></td></tr><tr><td>Publisher</td><td>DSF Community</td></tr></table><h3>Identifiers</h3><table class="grid"><tr><td><b>Type</b></td><td><b>Value</b></td></tr><tr><td>Other</td><td>http://dsf.dev/sid/endpoint-identifier</td></tr></table></div>
   </text>
   <extension url="http://hl7.org/fhir/5.0/StructureDefinition/extension-NamingSystem.url">
     <valueUri value="http://dsf.dev/fhir/NamingSystem/dsf-endpoint"/>
   </extension>
-  <name value="DSF Endpoint Identifier"/>
+  <name value="DsfEndpointIdentifier"/>
   <status value="active"/>
   <kind value="identifier"/>
-  <date value="2023-06-28"/>
+  <date value="2025-11-26"/>
   <publisher value="DSF Community"/>
   <contact>
     <name value="DSF Community"/>

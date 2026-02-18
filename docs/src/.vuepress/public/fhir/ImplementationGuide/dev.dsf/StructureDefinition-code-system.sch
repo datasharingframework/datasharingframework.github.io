@@ -14,6 +14,7 @@
     <sch:rule context="f:CodeSystem">
       <sch:assert test="count(f:url) &gt;= 1">url: minimum cardinality of 'url' is 1</sch:assert>
       <sch:assert test="count(f:version) &gt;= 1">version: minimum cardinality of 'version' is 1</sch:assert>
+      <sch:assert test="count(f:date) &gt;= 1">date: minimum cardinality of 'date' is 1</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>
