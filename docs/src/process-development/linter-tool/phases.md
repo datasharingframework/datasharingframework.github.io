@@ -2,6 +2,8 @@
 title: Linting Phases
 icon: config
 ---
+### Linting Phases
+
 The linter executes in five phases:
 
 #### Phase 1: Project Setup

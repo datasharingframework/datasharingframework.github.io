@@ -64,11 +64,11 @@ mvn clean package -X
 
 ```bash
 # Lint a local JAR file
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path your-plugin.jar --html
 
 # Lint a remote JAR file
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 
 # View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/index.html
@@ -78,7 +78,7 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 
 ### Requirements
 
-- **Java**: 17 or higher
+- **Java**: 17 or higher (Java 25+ required for API Version 2 validation)
 - **Maven**: 3.6 or higher
 - **Operating System**: Windows, Linux, or macOS
 
@@ -93,7 +93,7 @@ cd dsf-linter
 mvn clean package
 
 # The executable JAR will be at:
-# linter-cli/target/linter-cli-1.0-SNAPSHOT.jar
+# linter-cli/target/linter-cli-0.1.1.jar
 ```
 
 ### Distribution
@@ -102,7 +102,7 @@ The linter is distributed as a single executable JAR file that includes all depe
 
 ```bash
 # Copy to a convenient location
-cp linter-cli/target/linter-cli-1.0-SNAPSHOT.jar ~/bin/dsf-linter.jar
+cp linter-cli/target/linter-cli-0.1.1.jar ~/bin/dsf-linter.jar
 
 # Use from anywhere
 java -jar ~/bin/dsf-linter.jar --path plugin.jar --html
@@ -129,8 +129,8 @@ The linter expects the following structure in the JAR file:
 plugin.jar
 ├── META-INF/
 │   └── services/
-│       ├── dev.dsf.bpe.process.ProcessPlugin (v1)
-│       └── dev.dsf.bpe.process.v2.ProcessPlugin (v2)
+│       ├── dev.dsf.bpe.v1.ProcessPluginDefinition (v1)
+│       └── dev.dsf.bpe.v2.ProcessPluginDefinition (v2)
 ├── bpe/
 │   └── *.bpmn (BPMN process definitions)
 └── fhir/
@@ -154,11 +154,11 @@ plugin.jar
 
 ```bash
 # Local JAR file
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path C:\path\to\plugin.jar --html
 
 # Remote JAR file
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 ```
 
@@ -166,11 +166,11 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 
 ```bash
 # Multiple report formats with custom path
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html --json --report-path ./reports
 
 # Verbose output (colors enabled by default, use --no-color to disable)
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html --verbose
 
 # Lint Maven project (two-step process)
@@ -178,7 +178,7 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 cd /path/to/project && mvn clean package
 
 # Step 2: Lint the resulting JAR
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
 
@@ -186,16 +186,16 @@ java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
 
 ```bash
 # GitHub Actions / GitLab CI
-FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html --json --verbose
 
 # Jenkins (fail on errors)
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html
 # Exit code: 0 = success, 1 = errors
 
 # Don't fail build (gradual adoption)
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html --no-fail
 ```
 
@@ -242,6 +242,17 @@ Reports are generated in the following structure:
 ├── plugin-name.html        # Detailed report for each plugin
 └── plugin-name.json        # JSON report (if --json specified)
 ```
+
+The default `<report-path>` resolves to `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`, for example:
+
+```
+/tmp/dsf-linter-report-my-plugin/dsf-linter-report/
+├── index.html
+├── my-plugin.html
+└── my-plugin.json
+```
+
+Use `--report-path` to override this location.
 
 ### HTML Report
 
@@ -312,8 +323,8 @@ The JSON report provides machine-readable output for CI/CD integration and autom
 
 ```json
 {
-  "version": "2.0.0",
-  "timestamp": "2024-01-15T10:30:00Z",
+  "version": "0.1.1",
+  "timestamp": "2025-06-15T10:30:00Z",
   "projectPath": "/path/to/plugin.jar",
   "executionTimeMs": 2300,
   "success": true,
@@ -376,7 +387,7 @@ Each lint item in the JSON report has the following structure:
 ### Example Console Output
 
 ```
-DSF Linter v2.0.0
+DSF Linter v0.1.1
 =================================================================
 Project: /path/to/plugin.jar
 Report:  /tmp/dsf-linter-report-plugin/dsf-linter-report
@@ -411,6 +422,7 @@ Summary
 ```
 
 ## Architecture
+![DSF Linter Architecture](/assets/linter/architecture.svg)
 
 ### Project Structure
 
@@ -418,58 +430,134 @@ Summary
 dsf-linter/
 ├── linter-core/                              # Core linting logic
 │   ├── src/main/java/dev/dsf/linter/
+│   │   ├── DsfLinter.java                    # Main orchestrator
 │   │   ├── analysis/                         # Resource analysis
 │   │   │   └── LeftoverResourceDetector.java
 │   │   ├── bpmn/                             # BPMN parsing & validation
 │   │   │   ├── BpmnLinter.java
 │   │   │   ├── BpmnModelLinter.java
+│   │   │   ├── BpmnElementLinter.java
+│   │   │   ├── BpmnProcessLinter.java
 │   │   │   ├── BpmnTaskLinter.java
 │   │   │   ├── BpmnEventLinter.java
+│   │   │   ├── BpmnFieldInjectionLinter.java
 │   │   │   ├── BpmnGatewayAndFlowLinter.java
 │   │   │   └── BpmnSubProcessLinter.java
+│   │   ├── classloading/                     # Dynamic class loading
+│   │   │   ├── ProjectClassLoaderFactory.java
+│   │   │   └── ClassInspector.java
+│   │   ├── constants/                        # Constants & configuration
+│   │   │   ├── BpmnElementType.java
+│   │   │   └── DsfApiConstants.java
+│   │   ├── exception/                        # Custom exceptions
+│   │   │   ├── ApiVersionUnknownException.java
+│   │   │   ├── MissingServiceRegistrationException.java
+│   │   │   └── ResourceLinterException.java
 │   │   ├── fhir/                             # FHIR parsing & validation
 │   │   │   ├── FhirResourceLinter.java
+│   │   │   ├── FhirFileLinter.java
 │   │   │   ├── FhirTaskLinter.java
 │   │   │   ├── FhirStructureDefinitionLinter.java
 │   │   │   ├── FhirValueSetLinter.java
 │   │   │   ├── FhirActivityDefinitionLinter.java
 │   │   │   ├── FhirCodeSystemLinter.java
 │   │   │   └── FhirQuestionnaireLinter.java
-│   │   ├── service/                          # Linting services
-│   │   │   ├── BpmnLintingService.java
-│   │   │   ├── FhirLintingService.java
-│   │   │   ├── PluginLintingService.java
-│   │   │   └── PluginLintingOrchestrator.java
-│   │   ├── output/                           # Lint item definitions
-│   │   │   └── item/                         # Specific lint items (200+ classes)
-│   │   ├── report/                           # Report generation
-│   │   │   └── LintingReportGenerator.java
 │   │   ├── input/                            # Input handling & JAR processing
-│   │   │   └── InputResolver.java
-│   │   ├── setup/                            # Project setup & building
-│   │   │   └── ProjectSetupHandler.java
-│   │   ├── plugin/                           # Plugin definition discovery
-│   │   │   └── PluginDefinitionDiscovery.java
-│   │   ├── classloading/                     # Dynamic class loading
-│   │   │   ├── ProjectClassLoaderFactory.java
-│   │   │   └── ClassInspector.java
+│   │   │   ├── InputResolver.java
+│   │   │   ├── InputType.java
+│   │   │   └── JarHandler.java
 │   │   ├── logger/                           # Logging infrastructure
 │   │   │   ├── Logger.java
 │   │   │   ├── ConsoleLogger.java
-│   │   │   └── Console.java
-│   │   ├── constants/                        # Constants & configuration
-│   │   │   └── DsfApiConstants.java
-│   │   ├── exception/                        # Custom exceptions
-│   │   │   ├── ResourceLinterException.java
-│   │   │   └── MissingServiceRegistrationException.java
+│   │   │   ├── Console.java
+│   │   │   ├── LogDecorators.java
+│   │   │   └── LogUtils.java
+│   │   ├── output/                           # Lint item definitions & types
+│   │   │   ├── FloatingElementType.java
+│   │   │   ├── FlowElementType.java
+│   │   │   ├── LinterSeverity.java
+│   │   │   ├── LintingType.java
+│   │   │   ├── ProcessingLevel.java
+│   │   │   └── item/                         # Lint item base classes
+│   │   │       ├── AbstractLintItem.java
+│   │   │       ├── BpmnElementLintItem.java
+│   │   │       ├── BpmnFlowElementLintItem.java
+│   │   │       ├── BpmnLintItem.java
+│   │   │       ├── FhirElementLintItem.java
+│   │   │       ├── FhirLintItem.java
+│   │   │       ├── LintItem.java
+│   │   │       └── PluginLintItem.java
+│   │   ├── plugin/                           # Plugin definition discovery
+│   │   │   ├── EnhancedPluginDefinitionDiscovery.java
+│   │   │   ├── PluginDefinitionDiscovery.java
+│   │   │   └── PluginDiscoveryError.java
+│   │   ├── report/                           # Report generation
+│   │   │   ├── HtmlReportGenerator.java
+│   │   │   ├── JsonReportGenerator.java
+│   │   │   ├── LintConsolePrinter.java
+│   │   │   └── LintingReportGenerator.java
+│   │   ├── service/                          # Linting services
+│   │   │   ├── AbstractResourceLintingService.java
+│   │   │   ├── BpmnLintingService.java
+│   │   │   ├── FhirLintingService.java
+│   │   │   ├── LintingResult.java
+│   │   │   ├── PluginLintingOrchestrator.java
+│   │   │   ├── PluginLintingService.java
+│   │   │   ├── PluginMetadataLinter.java
+│   │   │   └── ResourceDiscoveryService.java
+│   │   ├── setup/                            # Project setup & JAR extraction
+│   │   │   └── ProjectSetupHandler.java
 │   │   └── util/                             # Utilities
 │   │       ├── api/                          # API version detection
+│   │       │   ├── ApiVersion.java
+│   │       │   ├── ApiVersionDetector.java
+│   │       │   ├── ApiVersionHolder.java
+│   │       │   ├── DetectedVersion.java
+│   │       │   ├── DetectionSource.java
+│   │       │   └── PluginVersionUtils.java
+│   │       ├── bpmn/                         # BPMN utilities
+│   │       │   ├── BpmnModelUtils.java
+│   │       │   └── linters/                  # Element-specific BPMN linters
+│   │       │       ├── BpmnBoundaryEventLinter.java
+│   │       │       ├── BpmnEndEventLinter.java
+│   │       │       ├── BpmnEventLinter.java
+│   │       │       ├── BpmnIntermediateCatchEventLinter.java
+│   │       │       ├── BpmnIntermediateThrowEventLinter.java
+│   │       │       ├── BpmnListenerLinter.java
+│   │       │       ├── BpmnMessageEventImplementationLinter.java
+│   │       │       ├── BpmnMessageLinter.java
+│   │       │       ├── BpmnStartEventLinter.java
+│   │       │       └── BpmnTimerLinter.java
 │   │       ├── cache/                        # Caching utilities
+│   │       │   └── ConcurrentCache.java
 │   │       ├── converter/                    # Format converters
+│   │       │   └── JsonXmlConverter.java
 │   │       ├── linting/                      # Linting utilities
+│   │       │   ├── AbstractFhirInstanceLinter.java
+│   │       │   ├── LintingOutput.java
+│   │       │   ├── LintingUtils.java
+│   │       │   └── PluginLintingUtils.java
 │   │       ├── loader/                       # Class/service loading
-│   │       ├── maven/                        # Maven utilities
+│   │       │   ├── ClassLoaderUtils.java
+│   │       │   └── ServiceLoaderUtils.java
 │   │       └── resource/                     # Resource management
+│   │           ├── CompositeResourceProvider.java
+│   │           ├── FhirAuthorizationCache.java
+│   │           ├── FhirFileUtils.java
+│   │           ├── FhirResourceEntry.java
+│   │           ├── FhirResourceExtractor.java
+│   │           ├── FhirResourceLocator.java
+│   │           ├── FhirResourceParser.java
+│   │           ├── FileSystemResourceProvider.java
+│   │           ├── JarResourceProvider.java
+│   │           ├── ResourceDiscoveryUtils.java
+│   │           ├── ResourceEntryFactory.java
+│   │           ├── ResourcePathNormalizer.java
+│   │           ├── ResourceProvider.java
+│   │           ├── ResourceResolutionResult.java
+│   │           ├── ResourceResolutionService.java
+│   │           ├── ResourceRootResolver.java
+│   │           └── ResourceType.java
 │   ├── src/main/resources/
 │   │   ├── logback.xml                       # Logging configuration
 │   │   ├── logback-verbose.xml               # Verbose logging configuration
@@ -503,6 +591,23 @@ dsf-linter/
 | `InputResolver` | Resolves and downloads remote JAR files |
 | `BpmnModelLinter` | Validates BPMN model structure and elements |
 | `FhirResourceLinter` | Validates FHIR resources using pluggable linters |
+
+### Design Patterns
+
+The linter uses several design patterns:
+
+- **Template Method Pattern**: Abstract base classes define linting algorithm structure
+- **Strategy Pattern**: Pluggable linters for different resource types
+- **Factory Pattern**: Classloader and service creation
+- **Service Locator Pattern**: Plugin discovery via ServiceLoader
+- **Builder Pattern**: Configuration and result objects
+
+### Thread Safety
+
+- Most components are stateless and thread-safe
+- Classloader isolation ensures no cross-plugin interference
+- Temporary context classloader used for resource access
+- Result objects are immutable
 
 ## API Reference
 

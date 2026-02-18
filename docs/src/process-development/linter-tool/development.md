@@ -2,11 +2,9 @@
 title: Development
 icon: code
 ---
-## Development
-
 ### Requirements
 
-- **Java**: 17 or higher
+- **Java**: 17 or higher (Java 25+ required for API Version 2 validation)
 - **Maven**: 3.6 or higher
 - **IDE**: IntelliJ IDEA, Eclipse, or VS Code (optional)
 
@@ -78,7 +76,7 @@ vim linter-core/src/main/java/dev/dsf/linter/service/BpmnLintingService.java
 mvn clean package -DskipTests
 
 # 3. Test with a sample plugin
-java -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+java -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path test-plugin.jar --html --verbose
 
 # 4. Check the generated report
@@ -99,7 +97,7 @@ git commit -m "Description of changes"
 ```bash
 # Start the linter with debugger enabled
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 \
-  -jar linter-cli/target/linter-cli-1.0-SNAPSHOT.jar \
+  -jar linter-cli/target/linter-cli-0.1.1.jar \
   --path plugin.jar --html --verbose
 
 # Attach debugger from IDE to localhost:5005
