@@ -21,13 +21,13 @@ Below is a template for a [Questionnaire](https://www.hl7.org/fhir/R4/questionna
 ```xml
 <Questionnaire xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire|1.5.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire"/>
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
         </tag>
     </meta>
-    <url value="http://dsf.dev/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
+    <url value="http://my.org/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
     <!-- version managed by bpe -->
     <version value="#{version}"/>
     <!-- date managed by bpe -->

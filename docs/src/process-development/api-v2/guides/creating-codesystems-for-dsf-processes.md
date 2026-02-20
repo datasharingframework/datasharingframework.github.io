@@ -9,12 +9,13 @@ Sometimes it is necessary to create custom [CodeSystem](../fhir/codesystem.md) r
 ```xml
 <CodeSystem xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/code-system" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />    
         </tag>  
     </meta>
-    <url value="http://dsf.dev/fhir/CodeSystem/my-code-system" />       <!--dummy value-->
+    <url value="http://my.org/fhir/CodeSystem/my-code-system" />       <!--dummy value-->
     <!-- version managed by bpe -->
     <version value="#{version}" />
     <name value="My CodeSystem" />      <!--dummy value-->
@@ -42,4 +43,4 @@ Dummy values should be replaced with appropriate values. Elements managed by the
 When building a plugin, the [CodeSystem](../fhir/codesystem.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
 
 ## Related Topics
-[Adding Task Input Parameters to Task Profiles](adding-task-input-parameters-to-task-profiles.md), [CodeSystem](../fhir/codesystem.md), [Creating ValueSets for DSF processes](creating-valuesets-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)
+[Adding Task Input Parameters to Task Profiles](adding-task-parameters-to-task-profiles.md), [CodeSystem](../fhir/codesystem.md), [Creating ValueSets for DSF processes](creating-valuesets-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)

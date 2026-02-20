@@ -14,6 +14,7 @@ Maven Dependency:
 	<dependency>
 		<groupId>dev.dsf</groupId>
 		<artifactId>dsf-bpe-process-api-v2</artifactId>
+		<artifactId>dsf-bpe-process-api-v2</artifactId>
 		<version>${dsf.version}</version>
 		<scope>provided</scope>
 	</dependency>
@@ -21,20 +22,27 @@ Maven Dependency:
 ```
 
 ### Process Plugin Api
-[Service Delegates](service-delegates.md) or [Message Delegates](message-delegates.md) expose a `ProcessPluginApi` instance when overriding their `execute` and `getAdditionalInputParameters` methods. This API instance provides the following utility classes:
-- `FhirClientProvider`**:** Provides access to a generic, configurable FHIR web client. Used for connections to FHIR servers that are not the DSF FHIR server.
-- `DsfClientProvider`**:** Provides access to preconfigured FHIR web client to access DSF FHIR server including utility methods.
-- `TaskHelper`**:** Provides utility methods to interact with Task resource. Namely, Input and Output Parameters.
-- `FhirContext`**:** Provides access to the FHIR context.
-- `EndpointProvider`**:** Provides utility methods to interact with Endpoint resources.
-- `MailService`**:** Provides methods to use the DSF's e-mail functionality.
-- `ObjectMapper`**:** Provides access to an ObjectMapper instance to perform e.g. JSON-serialization.
-- `OrganizationProvider`**:** Provides utility methods to interact with Organization resources.
-- `OidcClientProvider`**:** Provides utility methods for OIDC functionality.
-- `ProcessAuthorizationHelper`**:** Provides utility methods to interact with process authorization in [ActivityDefinitions](../fhir/activitydefinition.md).
-- `ProxyConfig`**:** Allows you to retrieve information about the DSF proxy.
-- `QuestionnaireResponseHelper`**:** Provides utility methods to interact with [QuestionnaireResponse](../fhir/questionnaire-and-questionnaireresponse.md) resources.
-- `ReadAccessHelper`**:** Provides utility methods to modify a resource's [read access tag](read-access-tag.md).
+[Activities](activities.md) usually provide access to an instance of `ProcessPluginApi` when implementing/overriding their methods.
+This API instance provides a variety of utility classes:
+- `ProcessPluginDefinition`**:** access to the plugin's [`ProcessPluginDefinition`](process-plugin-definition.md)
+- `ProxyConfig`**:** forward proxy configuration
+- `EndpointProvider`**:** access to Endpoint resources
+- `FhirContext`**:** HAPI FHIR Context for parsing/serializing
+- `DsfClientProvider`**:** Webservice client to access a DSF FHIR server
+- `FhirClientProvider`**:** Webservice client to access a generic FHIR server
+- `OidcClientProvider`**:** Webservice client for OIDC 
+- `MailService`**:** for sending automatic E-Mails (if configured)
+- `MimeTypeService`**:** utility for validating MIME types
+- `ObjectMapper`**:** ObjectMapper instance to serialize/deserialize POJOs to/from formats like JSON. ObjectMapper should not be used for FHIR resources. The parser provided by the FhirContext should be used instead
+- `OrganizationProvider`**:** access to Organization resources
+- `ProcessAuthorizationHelper`**:** utility for process authorization in [ActivityDefinitions](../fhir/activitydefinition.md)
+- `QuestionnaireResponseHelper`**:** utility for manipulating [QuestionnaireResponse](../guides/user-tasks-in-the-dsf.md) resources
+- `ReadAccessHelper`**:** utility for adding and validating [Read Access Tags](read-access-tag.md) in FHIR resources
+- `TaskHelper`**:** utility for reading and creating [Input and Output Parameters](../fhir/task.md) in Task resources
+- `CompressionService`**:** utility to compress/decompress data using various compression methods
+- `CryptoService`**:** utility for cryptography like creating RSA key pairs
+- `TargetProvider`**:** utility to create [Target instances](messaging.md) e.g. based on the identifier of a parent organization
+- `Variables`**:** access to BPMN execution variables
 
 ## Related Topics
-[Service Delegates](service-delegates.md), [Message Delegates](message-delegates.md)
+[Activities](activities.md), [Input and Output Parameters](../fhir/task.md), [ProcessPluginDefinition](process-plugin-definition.md), [Read Access Tags](read-access-tag.md)

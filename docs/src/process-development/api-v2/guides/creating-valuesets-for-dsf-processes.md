@@ -10,12 +10,13 @@ In some cases, it may be necessary to create a [ValueSet](../fhir/valueset.md). 
 ```xml
 <ValueSet xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/value-set" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
         </tag> 
     </meta>
-    <url value="http://dsf.dev/fhir/ValueSet/my-value-set"/>    <!--dummy value-->
+    <url value="http://my.org/fhir/ValueSet/my-value-set"/>    <!--dummy value-->
     <!-- version managed by bpe -->
     <version value="#{version}" />
     <name value="My ValueSet"/>     <!--dummy value-->
@@ -25,12 +26,12 @@ In some cases, it may be necessary to create a [ValueSet](../fhir/valueset.md). 
     <experimental value="false"/>
     <!-- date managed by bpe -->
     <date value="#{date}"/>
-    <publisher value="DSF"/>    <!--dummy value-->
+    <publisher value="My Org"/>    <!--dummy value-->
     <description value="ValueSet with all codes from my-code-system"/>      <!--dummy value-->
     <immutable value="true"/>
     <compose>
         <include>
-            <system value="http://dsf.dev/fhir/CodeSystem/my-code-system"/>     <!--dummy value-->
+            <system value="http://my.org/fhir/CodeSystem/my-code-system"/>     <!--dummy value-->
             <version value="#{version}"/>   
         </include>  
     </compose>
@@ -42,14 +43,14 @@ Dummy values should be replaced with appropriate, context-specific values. Eleme
     ...
     <compose>
         <include>
-            <system value="http://dsf.dev/fhir/CodeSystem/my-code-system"/>
+            <system value="http://my.org/fhir/CodeSystem/my-code-system"/>
             <version value="#{version}"/>   
             <concept>
                 <code value="my-code"/>
             </concept>
         </include>  
         <include>
-            <system value="http://dsf.dev/fhir/CodeSystem/my-other-code-system"/>
+            <system value="http://my.org/fhir/CodeSystem/my-other-code-system"/>
             <version value="#{version}"/>
             <concept>
                 <code value="my-other-code"/>

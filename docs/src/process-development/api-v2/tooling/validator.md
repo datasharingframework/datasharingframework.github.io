@@ -8,7 +8,7 @@ icon: operate
 
 The **DSF Validator** is a quality‑assurance tool for Digital Sample Framework (DSF) process plugins. Version **1.3.0** extends the 1.2.0 release by adding 
 
-* a dedicated **FHIR *Task* validator** for the base profile `dsf-task-base`,
+* a dedicated **FHIR *Task* validator** for the base profile `DSF Task base definition`,
 * a **StructureDefinition validator** with slice‑aware cardinality checks, 
 * enhanced terminology look‑ups via **FhirAuthorizationCache**, and
 * a streamlined **CLI & Maven plugin** that share the same validation core.
@@ -228,7 +228,7 @@ Developers review `report/aggregated.json` or per‑file reports under `success/
 
 Version **1.3.0** turns the DSF Validator into a *profile‑aware* verification tool:
 
-* It validates every BPMN construct and all core FHIR artefacts *plus* the DSF‑specific `dsf-task-base` profile and StructureDefinitions.
+* It validates every BPMN construct and all core FHIR artefacts *plus* the DSF‑specific `DSF Task base definition` profile and StructureDefinitions.
 * It caches authorised `CodeSystem` codes, enforces slice cardinalities ([build.fhir.org](https://build.fhir.org/profiling.html?utm_source=chatgpt.com)), and guards core metadata placeholders.
 * It can be launched via an intuitive CLI or a zero‑configuration Maven plugin, making it an early quality gate that helps DSF process authors catch structural, semantic, and interoperability issues long before deployment.
 

@@ -5,7 +5,7 @@ icon: creative
 
 ## Requester and Recipient Elements
 
-Below is a set of examples for each Coding used by `requester` and `recipient` elements from the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml). CodeSystems referenced in the examples can be found [here](https://github.com/datasharingframework/dsf/tree/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem). This collection aims to provide a reference point when creating [ActivityDefinitions](../fhir/activitydefinition.md).
+Below is a set of examples for each Coding used by `requester` and `recipient` elements from the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml). CodeSystems referenced in the examples can be found [here](https://github.com/datasharingframework/dsf/tree/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem). This collection aims to provide a reference point when creating [ActivityDefinitions](../fhir/activitydefinition.md).
 
 ### Requester
 The `requester` element uses one of the following Codings:
