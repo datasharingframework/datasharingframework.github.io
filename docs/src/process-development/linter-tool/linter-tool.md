@@ -758,10 +758,10 @@ All lint items extend `AbstractLintItem` and implement specific interfaces.
 
 #### Severity Levels
 
-- `ERROR`: Critical issues that must be fixed
-- `WARNING`: Issues that should be addressed
-- `INFO`: Informational messages
-- `SUCCESS`: Validation passed successfully
+- `ERROR`: Critical issue that **must be fixed**. Will cause the plugin to fail at deployment or runtime.
+- `WARNING`: Violation of DSF best practices, or something that **could be an error depending on context**.
+- `INFO`: Technically valid, but something looks unusual or incomplete. Worth a second look — no immediate action required.
+- `SUCCESS`: Validation passed. Shown to confirm what was checked and give confidence in the covered areas.
 
 #### Common Lint Item Methods
 
