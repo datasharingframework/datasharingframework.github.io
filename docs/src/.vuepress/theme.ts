@@ -50,12 +50,13 @@ export default hopeTheme({
       text: "Process Development",
       icon: "plugin",
       prefix: "/process-development/",
-      children: ["api-v1/", "api-v2/"]
+      children: ["api-v1/", "api-v2/", "linter-tool/linter-tool"],
     },
     {
       text: "DSF Development",
       icon: "info",
-      link: "/dsf-development/",
+      prefix: "/dsf-development/",
+      children: ["v2/fhir-ig", "v2/maven"],
     },
     {
       text: "Community",
@@ -306,8 +307,7 @@ export default hopeTheme({
         icon: "info",
         prefix: "linter-tool/",
         children: [
-                  "linter-tool", 
-                  "validation","phases", "development", "troubleshooting"],
+                  "linter-tool", "validation","phases", "development", "troubleshooting", "changelog"],
           }
     ],
     "/dsf-development": [

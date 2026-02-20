@@ -2,19 +2,115 @@
 title: Validation Rules
 icon: note
 ---
-## Validation Rules
-
 The linter performs comprehensive validation across multiple dimensions. This section details all validation rules organized by resource type.
 
-### BPMN Validation
+## Table of Contents
 
+1. [BPMN Validation](#bpmn-validation)
+2. [FHIR Validation](#fhir-resource-validation)
+3. [Plugin Configuration](#plugin-configuration-validation)
+
+### BPMN Validation
 The linter performs comprehensive validation on BPMN 2.0 process definitions using the Camunda BPMN model API.
+
+![BPMN Linting](/assets/linter/bpmn-linting.svg)
 
 **Important:** The linter automatically detects the DSF API version (V1 or V2) from the plugin configuration and applies version-specific validation rules. Many validation rules differ between V1 and V2 API, particularly for:
 - Service Task and Send Task implementation classes
 - Execution Listeners
 - Task Listeners (User Tasks)
 - Message Events (Intermediate Throw and End Events)
+
+#### Process Validation
+
+##### Process ID Pattern Validation
+
+- **Pattern Requirement**:
+  - Process ID must follow the pattern: `domain_processname`
+  - Domain and process name must consist only of alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-)
+  - Exactly one underscore must separate domain and process name
+  - Error: `BPMN_PROCESS_ID_PATTERN_MISMATCH`
+  - Error: `BPMN_PROCESS_ID_EMPTY`
+  - Success: `SUCCESS` when the pattern is matched
+
+- **Valid Examples**:
+  - ✅ `testorg_myprocess`
+  - ✅ `dsf-dev_download-allowlist`
+  - ✅ `example123_process456`
+
+- **Invalid Examples**:
+  - ❌ `myProcess` (missing underscore)
+  - ❌ `test.org_myprocess` (dots not allowed)
+  - ❌ `test_my_process` (multiple underscores not allowed)
+  - ❌ `test_process_name` (only one underscore allowed)
+
+- **Pattern Definition**:
+  ```regex
+  ^(?<domainNoDots>[a-zA-Z0-9-]+)_(?<processName>[a-zA-Z0-9-]+)$
+  ```
+
+- **DSF Framework Reference**:
+  - This validation is based on the DSF Framework requirement defined in:
+  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+
+##### Process Count Validation
+
+- **Requirement**:
+  - Each BPMN file must contain **exactly one** process definition
+  - Error: `BPMN_FILE_NO_PROCESS` (when no process is found)
+  - Error: `BPMN_FILE_MULTIPLE_PROCESSES` (when more than one process is found)
+  - Success: `SUCCESS` when exactly one process is found
+
+- **Valid Examples**:
+  - ✅ BPMN file with 1 process definition
+
+- **Invalid Examples**:
+  - ❌ BPMN file with 0 process definitions
+  - ❌ BPMN file with 2 or more process definitions
+
+- **DSF Framework Reference**:
+  - This validation is based on the DSF Framework requirement defined in:
+  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+  - DSF validates: `if (processes.size() != 1) { return false; }`
+
+##### Process History Time To Live Validation
+
+- **Requirement**:
+  - Process should have `camunda:historyTimeToLive` attribute set
+  - If not set (null or empty), DSF automatically uses default value `P30D` (30 days)
+  - Warning: `BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING`
+  - Success: `SUCCESS` when historyTimeToLive is explicitly set
+
+- **Valid Examples**:
+  - ✅ `<process id="myprocess" camunda:historyTimeToLive="P30D">`
+  - ✅ `<process id="myprocess" camunda:historyTimeToLive="P7D">`
+
+- **Warning Example**:
+  - ⚠️ `<process id="myprocess">` (no historyTimeToLive attribute)
+
+- **DSF Framework Reference**:
+  - DSF Framework sets default at runtime if not specified:
+  - `process.setOperatonHistoryTimeToLiveString("P30D")`
+  - Best practice: Set explicitly in BPMN file
+
+##### Process Executable Validation
+
+- **Requirement**:
+  - Process must have `isExecutable="true"` attribute set
+  - Processes without this attribute cannot be deployed and executed by the process engine
+  - Error: `BPMN_PROCESS_NOT_EXECUTABLE`
+  - Success: `SUCCESS` when isExecutable is true
+
+- **Valid Examples**:
+  - ✅ `<process id="myprocess" isExecutable="true">`
+
+- **Invalid Examples**:
+  - ❌ `<process id="myprocess">` (no isExecutable attribute, defaults to false)
+  - ❌ `<process id="myprocess" isExecutable="false">`
+
+- **Reason**:
+  - The process engine only deploys and executes processes marked as executable
+  - Non-executable processes are typically used for documentation or as templates
 
 #### Task Validation
 
@@ -152,17 +248,44 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
     - Error: `BpmnSendTaskNoInterfaceClassImplementingLintItem`
 
 - **Field Injection Validation**:
-  - Message-related field injections must be valid
-  - FHIR resource references must be correct
+  - Same field injections as Message Send Events are validated: `profile`, `messageName`, and `instantiatesCanonical`
+  - `profile` field injection:
+    - Must be non-empty
+    - Error: `BpmnFieldInjectionProfileEmptyLintItem`
+    - Must contain version placeholder `#{version}`
+    - Error: `BpmnFieldInjectionProfileNoVersionPlaceholderLintItem`
+    - Must reference existing StructureDefinition
+    - Error: `BpmnNoStructureDefinitionFoundForMessageLintItem`
+  - `messageName` field injection:
+    - Must be non-empty
+    - Error: `BpmnFieldInjectionMessageValueEmptyLintItem`
+    - Must be a string literal
+    - Error: `BpmnFieldInjectionNotStringLiteralLintItem`
+  - `instantiatesCanonical` field injection:
+    - Must be non-empty
+    - Error: `BpmnFieldInjectionInstantiatesCanonicalEmptyLintItem`
+    - Must end with version placeholder `|#{version}`
+    - Error: `BpmnFieldInjectionInstantiatesCanonicalNoVersionPlaceholderLintItem`
+    - Must reference existing ActivityDefinition
+    - Error: `BpmnNoActivityDefinitionFoundForMessageLintItem`
+  - Unknown field injections are reported
+    - Error: `BpmnUnknownFieldInjectionLintItem`
 
 ##### Receive Tasks
 
 - **Name Validation**:
   - Task must have a non-empty name
+  - Warning: `BpmnEventNameEmptyLintItem`
 
 - **Message Definition Validation**:
-  - Message definition must be valid
-  - FHIR message name cross-checks
+  - Message definition must be present and have a non-empty message name
+  - Error: `BpmnMessageStartEventMessageNameEmptyLintItem`
+
+- **FHIR Resource Validation**:
+  - Message name must reference an existing ActivityDefinition
+  - Error: `BpmnNoActivityDefinitionFoundForMessageLintItem`
+  - Message name must reference an existing StructureDefinition
+  - Error: `BpmnNoStructureDefinitionFoundForMessageLintItem`
 
 #### Event Validation
 
@@ -219,9 +342,17 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 ##### Timer Events
 
-- **Time Expression Validation**:
-  - Time cycle/date/duration expressions must be valid
-  - Placeholder usage validation
+- **Timer Type Validation**:
+  - At least one of `timeDate`, `timeCycle`, or `timeDuration` must be set
+  - Error: `BpmnFloatingElementLintItem` ("Timer type is empty")
+
+- **Fixed Date Warning**:
+  - `timeDate` expressions are flagged with an informational message to verify if a fixed date is intended
+  - Info: `BpmnFloatingElementLintItem` ("Timer type is a fixed date/time (timeDate)")
+
+- **Placeholder Validation**:
+  - `timeCycle` and `timeDuration` values should contain a placeholder (e.g., `#{interval}`)
+  - Warning: `BpmnFloatingElementLintItem` ("Timer value appears fixed (no placeholder found)")
 
 ##### Error Boundary Events
 
@@ -251,8 +382,25 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 ##### Conditional Events
 
+- **Event Name Validation**:
+  - Conditional Intermediate Catch Event should have a non-empty name
+  - Warning: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event name is empty")
+
+- **Variable Name Validation**:
+  - `camunda:variableName` attribute must not be empty
+  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event variable name is empty")
+
+- **Variable Events Validation**:
+  - `camunda:variableEvents` attribute must not be empty
+  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event variableEvents is empty")
+
+- **Condition Type Validation**:
+  - `camunda:conditionType` must be set, or a condition expression must be provided (in which case `"expression"` is assumed)
+  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event condition type is empty")
+
 - **Condition Expression Validation**:
-  - Condition expressions must be valid
+  - When condition type is `"expression"`, the condition expression must not be empty
+  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event condition expression is empty")
 
 #### Gateway and Flow Validation
 
@@ -335,6 +483,8 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 The linter validates FHIR resources against DSF-specific profiles and HL7 FHIR specifications.
 
+![FHIR Linting](/assets/linter/fhir-linting.svg)
+
 #### Unparsable FHIR Resources
 
 - **Resource Parsing**:
@@ -400,6 +550,46 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
 - **Date Placeholder**:
   - `authoredOn` must contain `#{date}`
   - Error: `FhirTaskDateNoPlaceholderLintItem`
+
+##### Task Identifier Validation
+
+- **System Validation**:
+  - Task identifiers must have a valid system element
+  - Expected system: `http://dsf.dev/sid/task-identifier`
+  - Error: `FHIR_TASK_IDENTIFIER_MISSING_SYSTEM` (when system is missing or empty)
+  - Error: `FHIR_TASK_IDENTIFIER_INVALID_SYSTEM` (when system is set but incorrect)
+  - Success: When the system is correctly set to `http://dsf.dev/sid/task-identifier`
+
+- **Value Format Validation**:
+  - Task identifiers with system `http://dsf.dev/sid/task-identifier` must follow a specific format
+  - Format: `{process-url}/{process-version}/{task-example-name}`
+  - Example: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName`
+  - Error: `FHIR_TASK_IDENTIFIER_INVALID_FORMAT`
+  - Success: When the identifier format is valid
+
+- **Pattern Definition**:
+  ```regex
+  ^https?://[^/]+/bpe/Process/[a-zA-Z0-9-]+/(?:\d+\.\d+|#{version})/.+$
+  ```
+  The pattern accepts both actual version numbers (e.g., `1.0`) and placeholders (e.g., `#{version}`) for development-time validation.
+
+- **Valid Examples**:
+  - ✅ System: `http://dsf.dev/sid/task-identifier`
+  - ✅ Value: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName` (with actual version)
+  - ✅ Value: `http://test.org/bpe/Process/someProcessName/#{version}/someExampleName` (with placeholder)
+  - ✅ Value: `https://dsf.dev/bpe/Process/myProcess/2.5/startTask`
+  - ✅ Value: `http://medizininformatik-initiative.de/bpe/Process/coordinateDataSharing/#{version}/coordinateDataSharing`
+
+- **Invalid Examples**:
+  - ❌ System missing or empty
+  - ❌ System: `http://wrong.system/identifier` (wrong system URL)
+  - ❌ Value: `http://test.org/someProcessName/1.0/taskName` (missing `/bpe/Process/` segment)
+  - ❌ Value: `http://test.org/bpe/Process/myProcess/1/taskName` (version must be in `X.Y` format, e.g. `1.0`)
+  - ❌ Empty or blank identifier value
+
+- **DSF Framework Reference**:
+  - Based on the DSF NamingSystem definition: `http://dsf.dev/sid/task-identifier`
+  - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
 
 ##### Task.input Validation
 
@@ -576,9 +766,37 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 ##### URL Validation
 
-- **URL Format**:
-  - URL must be valid
+- **URL Presence**:
+  - URL must be present and non-empty
   - Error: `FhirActivityDefinitionInvalidFhirUrlLintItem`
+
+- **URL Pattern Validation**:
+  - ActivityDefinition URL must follow a specific pattern
+  - Format: `http[s]://domain/bpe/Process/processName`
+  - Example: `http://dsf.dev/bpe/Process/test`
+  - Error: `ACTIVITY_DEFINITION_INVALID_URL_PATTERN`
+  - Success: When the URL pattern is valid
+
+- **Pattern Definition**:
+  ```regex
+  ^http[s]{0,1}://(?<domain>(?:(?:[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])\.)+(?:[a-zA-Z0-9]{1,63}))/bpe/Process/(?<processName>[a-zA-Z0-9-]+)$
+  ```
+
+- **Valid Examples**:
+  - ✅ `http://dsf.dev/bpe/Process/test`
+  - ✅ `https://example.org/bpe/Process/my-process`
+  - ✅ `http://test.example.com/bpe/Process/process123`
+
+- **Invalid Examples**:
+  - ❌ `http://dsf.dev/Process/test` (missing `/bpe/`)
+  - ❌ `http://dsf.dev/bpe/Process/test_invalid` (underscore not allowed in processName)
+  - ❌ `http://dsf.dev/bpe/Process/` (missing processName)
+  - ❌ `ftp://dsf.dev/bpe/Process/test` (only http/https allowed)
+
+- **DSF Framework Reference**:
+  - Based on the DSF Framework requirement defined in:
+  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+  - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
 
 ##### Status Validation
 
@@ -745,7 +963,7 @@ ValueSet resources are validated against the DSF ValueSet base profile.
   - **V2 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v2.ProcessPluginDefinition`
   - Error: `PluginDefinitionMissingServiceLoaderRegistrationLintItem`
   - Plugin class must be loadable
-  - Error: `PluginDefinitionProcessPluginRessourceNotLoadedLintItem`
+  - Error: `PluginDefinitionProcessPluginResourceNotLoadedLintItem`
 
 #### Resource References
 
@@ -774,6 +992,34 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 - **FHIR Resources**:
   - At least one FHIR resource must be defined
   - Error: `PluginDefinitionNoFhirResourcesDefinedLintItem`
+
+#### Version Validation
+
+##### Resource Version Validation
+
+- **Version Pattern Requirement**:
+  - Plugin version must follow the pattern: `d.d.d.d` (e.g., `1.0.0.1`, `2.5.3.10`)
+  - Resource version is derived from the first two numbers (e.g., `1.0` from `1.0.0.1`)
+  - Error: `PLUGIN_DEFINITION_RESOURCE_VERSION_NULL`
+
+- **Valid Examples**:
+  - ✅ Version `1.0.0.1` → Resource Version `1.0`
+  - ✅ Version `2.5.3.10` → Resource Version `2.5`
+
+- **Invalid Examples**:
+  - ❌ Version `1.0.0` (missing fourth number)
+  - ❌ Version `1.0` (only two numbers)
+  - ❌ Version `invalid` (non-numeric)
+
+- **Pattern Definition**:
+  ```regex
+  (?<resourceVersion>\d+\.\d+)\.\d+\.\d+
+  ```
+
+- **DSF Framework Reference**:
+  - This validation is based on the DSF Framework requirement defined in:
+  - `dsf-bpe/dsf-bpe-process-api-v2/src/main/java/dev/dsf/bpe/v2/ProcessPluginDefinition.java`
+  - The `getResourceVersion()` method extracts the resource version from the plugin version
 
 #### Leftover Resource Detection
 
