@@ -22,18 +22,18 @@ To avoid specifying the version and release date in multiple files, the placehol
 
 BPMN models have an ID called process definition key. The BPMN process definition key needs to be specified following the pattern:
 ```
-^[-a-zA-Z0-9]+_[-a-zA-Z0-9]+$  Example: domainorg_processKey
+^[-a-zA-Z0-9]+_[-a-zA-Z0-9]+$  Example: exampleorg_processKey
 ```
 In addition, the BPMN model needs to specify a version. The `#{version}` [placeholder](#placeholders) should be used for this as well. The DSF will also reference this process in URL form in FHIR resources:
 ```
-http://domain.org/bpe/Process/processKey|1.2
+http://example.org/bpe/Process/processKey|1.2
 ```
 
 The version in the URL `|1.2` only uses the resource version and omits the code base version. As mentioned in [Version Pattern](#version-pattern), this means that only changes to the first two version numbers are significant to signal compatibility when communicating with other process plugin instances. The process definition key and URL are also related to each other. The DSF will try to match BPMN models to FHIR resources by transforming the URL into a process definition key. That is why it is mandatory to follow the pattern above.
 
 The above URL will be used as the instantiatesCanonical value for [Task](../fhir/task.md) profile definitions as well as references to [Task](../fhir/task.md) profiles in other resources. It is also used as the URL value for [ActivityDefinitions](../fhir/activitydefinition.md). In this case though, the URL has to be split into two parts. The version (`|1.2`) needs to be separated from the URL and used as a value for the `ActivityDefinition.version` element. Since it refers to the plugin's resource version, the `#{version}` [placeholder](#placeholders) should be used here instead. Going by the example from above, the final URL looks like this:
 ```
-http://domain.org/bpe/Process/processKey
+http://example.org/bpe/Process/processKey
 ```
 This will be the value for the `ActivityDefinition.url` element with `#{version}` as the value for the `ActivityDefinition.version` element.
 
