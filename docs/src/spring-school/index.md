@@ -14,7 +14,7 @@ During the event, participants might work together on topics such as (topics mig
 You are also welcome to use the event to learn about the development of process plugins.
 
 ::: tip Key data
-* **Date:** February 24, 2026, starting at 10 a.m. until 26. February, 16:00 Uhr
+* **Date:** February 24, 2026, starting at 10 a.m. until 26. February, 4:00 p.m.
 * **Place:** Heilbronn University, Tech Campus
 Max-Planck-Str. 39, 74074 Heilbronn
 Building A, Room 306, 3rd floor
@@ -39,11 +39,11 @@ If you have any questions, please contact us at [dsf-gecko@hs-heilbronn.de](mail
 ### Day 1: Tuesday, February 24, 2026
 - **10:00 am:** Start in A306
     -  Introduction, topic collection, and presentation
-- **12:30- 1:30 pm:** Lunch in the cafeteria
+- **12:30-1:30 pm:** Lunch in the cafeteria
 - **1:30-5:00 pm:**
     - Work block
     - Start of DSF process plugin tutorial
-- **6:45pm:** Dinner at Brauart in the Parkhotel, Gartenstraße 1, Heilbronn (self-paid)
+- **6:45 pm:** Dinner at Brauart in the Parkhotel, Gartenstraße 1, Heilbronn (self-paid)
 
 ### Day 2: Wednesday, February 25, 2026
 - **10:00 am:** Start in A306
@@ -60,7 +60,7 @@ If you have any questions, please contact us at [dsf-gecko@hs-heilbronn.de](mail
 - **10:00 am:** Start in A306
     - Work block
 - **12:30-13:30 pm:** Lunch in the cafeteria
-- **1:30- 16:00 pm:** 
+- **1:30-16:00 pm:** 
     - Review of results, presentations 
     - Conclusion
 
