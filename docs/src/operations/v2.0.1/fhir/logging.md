@@ -3,88 +3,702 @@ title: Logging
 icon: config
 ---
 
-## Introduction
-The DSF FHIR Server provides two logging mechanisms: a **Standard Application Logger** and a dedicated 
-**Audit Logger** for compliance-relevant access events. DSF 2.0.0 introduces unified `*.enabled` flags, 
-extended output styles, and improved environment variable support.
+The DSF FHIR Server provides a **Standard Application Logger** and a dedicated **Audit Logger** for compliance-relevant access events. Both mechanisms can output there messages to standard output (stdout), standard error (stderr) and dedicated log files.
 
+By default the **Standard Application Logger** is configured to output with min. level `INFO` and format `TEXT_COLOR` to *stdout* as well as min. level `DEBUG` and format `TEXT_MDC` to a dedicated log file. In addition the **Audit Logger** is enabled by default to log with format `TEXT_MDC` to a dedicated log file.
 
+### Standard Application Logger
+The file, *stdout* and *stderr* outputs for the **Standard Application Logger** can be enabled or disabled using the environment variables [`DEV_DSF_LOG_FILE_ENABLED`](./configuration.md#dev-dsf-log-file-enabled), [`DEV_DSF_LOG_CONSOLE_OUT_ENABLED`](./configuration.md#dev-dsf-log-console-out-enabled) and [`DEV_DSF_LOG_CONSOLE_ERR_ENABLED`](./configuration.md#dev-dsf-log-console-err-enabled).
 
-## Audit Logging
+#### Output Level
+Log messages are grouped by severity (low to high): `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`. A minimal log level can be configured for the file, *stdout* and *stderr* outputs using the environment variables [`DEV_DSF_LOG_FILE_LEVEL`](./configuration.md#dev-dsf-log-file-level), [`DEV_DSF_LOG_CONSOLE_OUT_LEVEL`](./configuration.md#dev-dsf-log-console-out-level) and [`DEV_DSF_LOG_CONSOLE_ERR_LEVEL`](./configuration.md#dev-dsf-log-console-err-level).
 
+#### Output Style
+Multiple styles are supported for the **Standard Application Logger** file, *stdout* and *stderr* outputs. All structured logging JSON styles include additional infos (Mapped Diagnostic Context) about the requesting user. The output style can be configured using the environment variables [`DEV_DSF_LOG_FILE_STYLE`](./configuration.md#dev-dsf-log-file-style), [`DEV_DSF_LOG_CONSOLE_OUT_STYLE`](./configuration.md#dev-dsf-log-console-out-style) and [`DEV_DSF_LOG_CONSOLE_ERR_STYLE`](./configuration.md#dev-dsf-log-console-err-style). The **TEXT_COLOR** and **TEXT_COLOR_MDC** styles are not supported for the file output.
+* **TEXT** a minimal text format.
+* **TEXT_COLOR** a minimal text format with ANSI escape sequences to colorize WARN and ERROR messages. Not supported for the file output.
+* **TEXT_MDC** text format with additional infos (Mapped Diagnostic Context) about the requesting user.
+* **TEXT_COLOR_MDC** text format with additional infos (Mapped Diagnostic Context) about the requesting user and ANSI escape sequences to colorize WARN and ERROR events. Not supported for the file output.
+* **JSON_ECS** follows the Elastic Common Schema (ECS) reference.
+* **JSON_GCP** uses the Google Cloud Platform structured logging model with additional `_thread`, `_logger` and `_exception` fields.
+* **JSON_GELF** follows the Graylog Extended Log Format (GELF) payload specification with added `_thread` and `_logger` fields.
+* **JSON_LOGSTASH** uses the Logstash json_event pattern for log4j.
 
+::: code-tabs#shell
 
-| Purpose | Property Key | Environment Variable | Default |
-|---------|--------------|----------------------|---------|
-| Enable audit logs on stderr | [`dev.dsf.log.audit.console.err.enabled`](./configuration.md#dev-dsf-log-audit-console-err-enabled) | [`DEV_DSF_LOG_AUDIT_CONSOLE_ERR_ENABLED`](./configuration.md#dev-dsf-log-audit-console-err-enabled) | `false` |
-| Style for stderr | [`dev.dsf.log.audit.console.err.style`](./configuration.md#dev-dsf-log-audit-console-err-style) | [`DEV_DSF_LOG_AUDIT_CONSOLE_ERR_STYLE`](./configuration.md#dev-dsf-log-audit-console-err-style) | `TEXT` |
-| Enable audit logs on stdout | [`dev.dsf.log.audit.console.out.enabled`](./configuration.md#dev-dsf-log-audit-console-out-enabled) | [`DEV_DSF_LOG_AUDIT_CONSOLE_OUT_ENABLED`](./configuration.md#dev-dsf-log-audit-console-out-enabled) | `false` |
-| Style for stdout | [`dev.dsf.log.audit.console.out.style`](./configuration.md#dev-dsf-log-audit-console-out-style) | [`DEV_DSF_LOG_AUDIT_CONSOLE_OUT_STYLE`](./configuration.md#dev-dsf-log-audit-console-out-style) | `TEXT` |
-| Enable audit log file | [`dev.dsf.log.audit.file.enabled`](./configuration.md#dev-dsf-log-audit-file-enabled) | [`DEV_DSF_LOG_AUDIT_FILE_ENABLED`](./configuration.md#dev-dsf-log-audit-file-enabled) | `true` |
-| Style for audit log file | [`dev.dsf.log.audit.file.style`](./configuration.md#dev-dsf-log-audit-file-style) | [`DEV_DSF_LOG_AUDIT_FILE_STYLE`](./configuration.md#dev-dsf-log-audit-file-style) | `TEXT_MDC` |
+@tab TEXT
 
----
+```text :no-line-numbers
+2026-01-13 15:57:57,567 [main] INFO  dev.dsf.common.buildinfo.BuildInfoReaderImpl - Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685
+2026-01-13 16:03:28,524 [main] ERROR org.springframework.web.context.ContextLoader - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)
+	at org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)
+	at org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)
+	at org.eclipse.jetty.server.Server.start(Server.java:689)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)
+	at org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:630)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)
+	at dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)
+	at dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 36 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 39 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 60 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)
+	at dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 63 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 84 more
+Caused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 87 more
+Caused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)
+	at dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)
+	at dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)
+	... 95 more
+Caused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)
+	... 98 more
+Caused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher
+	at org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)
+	at org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)
+	at org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)
+	at org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)
+	at org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)
+	at org.bouncycastle.util.io.Streams.readAll(Unknown Source)
+	... 100 more
+Caused by: javax.crypto.BadPaddingException: pad block corrupted
+	at org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher$BufferedGenericBlockCipher.doFinal(Unknown Source)
+	at org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.engineDoFinal(Unknown Source)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2139)
+	... 106 more
+2026-01-13 16:09:55,478 [jetty-server-95] INFO  dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule - Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/3 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}
+```
 
-## Standard Application Logging
+@tab TEXT_MDC
 
-| Purpose | Property Key | Environment Variable | Default |
-|---------|--------------|----------------------|---------|
-| External Log4j2 config | [`dev.dsf.log.config`](./configuration.md#dev-dsf-log-config) | [`DEV_DSF_LOG_CONFIG`](./configuration.md#dev-dsf-log-config) | `conf/log4j2.xml` |
-| Enable stderr logging | [`dev.dsf.log.console.err.enabled`](./configuration.md#dev-dsf-log-console-err-enabled) | [`DEV_DSF_LOG_CONSOLE_ERR_ENABLED`](./configuration.md#dev-dsf-log-console-err-enabled) | `false` |
-| Level for stderr | [`dev.dsf.log.console.err.level`](./configuration.md#dev-dsf-log-console-err-level) | [`DEV_DSF_LOG_CONSOLE_ERR_LEVEL`](./configuration.md#dev-dsf-log-console-err-level) | `INFO` |
-| Style for stderr | [`dev.dsf.log.console.err.style`](./configuration.md#dev-dsf-log-console-err-style) | [`DEV_DSF_LOG_CONSOLE_ERR_STYLE`](./configuration.md#dev-dsf-log-console-err-style) | `TEXT_COLOR` |
-| Enable stdout logging | [`dev.dsf.log.console.out.enabled`](./configuration.md#dev-dsf-log-console-out-enabled) | [`DEV_DSF_LOG_CONSOLE_OUT_ENABLED`](./configuration.md#dev-dsf-log-console-out-enabled) | `true` |
-| Level for stdout | [`dev.dsf.log.console.out.level`](./configuration.md#dev-dsf-log-console-out-level) | [`DEV_DSF_LOG_CONSOLE_OUT_LEVEL`](./configuration.md#dev-dsf-log-console-out-level) | `INFO` |
-| Style for stdout | [`dev.dsf.log.console.out.style`](./configuration.md#dev-dsf-log-console-out-style) | [`DEV_DSF_LOG_CONSOLE_OUT_STYLE`](./configuration.md#dev-dsf-log-console-out-style) | `TEXT_COLOR` |
-| Enable file logging | [`dev.dsf.log.file.enabled`](./configuration.md#dev-dsf-log-file-enabled) | [`DEV_DSF_LOG_FILE_ENABLED`](./configuration.md#dev-dsf-log-file-enabled) | `true` |
-| File log level | [`dev.dsf.log.file.level`](./configuration.md#dev-dsf-log-file-level) | [`DEV_DSF_LOG_FILE_LEVEL`](./configuration.md#dev-dsf-log-file-level) | `DEBUG` |
-| File log style | [`dev.dsf.log.file.style`](./configuration.md#dev-dsf-log-file-style) | [`DEV_DSF_LOG_FILE_STYLE`](./configuration.md#dev-dsf-log-file-style) | `TEXT_MDC` |
+```text :no-line-numbers
+2026-01-13 16:11:47,115 [main] INFO  dev.dsf.common.buildinfo.BuildInfoReaderImpl - Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685
+2026-01-13 16:12:36,611 [main] ERROR org.springframework.web.context.ContextLoader - Context initialization failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)
+	at org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)
+	at org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)
+	at org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)
+	at org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)
+	at org.eclipse.jetty.server.Server.start(Server.java:689)
+	at org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)
+	at org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:630)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)
+	at dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)
+	at dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 36 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 39 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 60 more
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)
+	at dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 63 more
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 84 more
+Caused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)
+	at dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)
+	... 87 more
+Caused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)
+	at dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)
+	at dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)
+	... 95 more
+Caused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
+	at org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)
+	at de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)
+	... 98 more
+Caused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher
+	at org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)
+	at org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)
+	at org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)
+	at org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)
+	at org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)
+	at org.bouncycastle.util.io.Streams.readAll(Unknown Source)
+	... 100 more
+Caused by: javax.crypto.BadPaddingException: pad block corrupted
+	at org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher$BufferedGenericBlockCipher.doFinal(Unknown Source)
+	at org.bouncycastle.jcajce.provider.symmetric.util.BaseBlockCipher.engineDoFinal(Unknown Source)
+	at java.base/javax.crypto.Cipher.doFinal(Cipher.java:2139)
+	... 106 more
+2026-01-13 16:13:25,589 [jetty-server-94] INFO  dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule - {dsf.user.endpoint.identifier=fhir, dsf.user.name=Test_Organization/webbrowser.test.user@invalid, dsf.user.organization.identifier=Test_Organization, dsf.user.practitioner.dn=CN=Webbrowser Test User,O=DSF,C=DE, dsf.user.practitioner.identifier=webbrowser.test.user@invalid, dsf.user.practitioner.roles=[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN], dsf.user.practitioner.thumbprint=a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7, dsf.user.roles=[HISTORY, READ, CREATE, UPDATE, SEARCH]} - Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/5 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}
+```
 
-## Logging Styles
-The DSF logging system supports multiple output styles that can be selected independently for each logging channel (console, file, audit, data).
-Every logger exposes a *.style property and a corresponding environment variable.
+@tab JSON_ECS
 
-### Text-Based Logging Styles
-#### TEXT
+```json :no-line-numbers
+{
+    "@timestamp": "2026-01-12T12:54:35.653Z",
+    "ecs.version": "1.2.0",
+    "log.level": "INFO",
+    "message": "Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685",
+    "process.thread.name": "main",
+    "log.logger": "dev.dsf.common.buildinfo.BuildInfoReaderImpl"
+}
+{
+    "@timestamp": "2026-01-12T12:54:36.931Z",
+    "ecs.version": "1.2.0",
+    "log.level": "ERROR",
+    "message": "Context initialization failed",
+    "process.thread.name": "main",
+    "log.logger": "org.springframework.web.context.ContextLoader",
+    "error.type": "org.springframework.beans.factory.BeanCreationException",
+    "error.message": "Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher",
+    "error.stack_trace": "org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)\n\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)\n\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)\n\tat org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)\n\tat org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)\n\tat org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)\n\tat org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)\n\tat org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)\n\tat org.eclipse.jetty.server.Server.start(Server.java:689)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)\n\tat org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)\n\tat org.eclipse.jetty.server.Server.doStart(Server.java:630)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)\n\tat dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 36 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 39 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 60 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 63 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 84 more\nCaused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 87 more\nCaused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)\n\tat dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)\n\t... 95 more\nCaused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)\n\t... 98 more\nCaused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher\n\tat org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)\n\tat org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)\n\tat org.bounc…"
+}
+{
+    "@timestamp": "2026-01-12T13:27:49.008Z",
+    "ecs.version": "1.2.0",
+    "log.level": "INFO",
+    "message": "Read of Organization/90500752-381a-46fa-858f-14d6d5b11627/_history/4 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}",
+    "process.thread.name": "jetty-server-83",
+    "log.logger": "dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule",
+    "dsf.user.endpoint.identifier": "fhir",
+    "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "dsf.user.organization.identifier": "Test_Organization",
+    "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "dsf.user.roles": "[UPDATE, READ, CREATE, HISTORY, SEARCH]"
+}
+```
 
-Plain, unformatted text output (default for console output, used before DSF 2).
+@tab JSON_GCP
 
-Use when:
-- You want minimal overhead and simple logging
-- Logs are read directly on the system
+```json :no-line-numbers
+{
+    "timestampSeconds": 1768222644,
+    "timestampNanos": 461746234,
+    "severity": "INFO",
+    "message": "Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685",
+    "logging.googleapis.com/sourceLocation": {
+        "function": "dev.dsf.common.buildinfo.BuildInfoReaderImpl.logBuildInfo"
+    },
+    "logging.googleapis.com/trace_sampled": true,
+    "thread": "main",
+    "logger": "dev.dsf.common.buildinfo.BuildInfoReaderImpl"
+}
+{
+    "timestampSeconds": 1768222645,
+    "timestampNanos": 738845490,
+    "severity": "ERROR",
+    "message": "Context initialization failed\norg.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)\n\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)\n\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)\n\tat org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)\n\tat org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)\n\tat org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)\n\tat org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)\n\tat org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)\n\tat org.eclipse.jetty.server.Server.start(Server.java:689)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)\n\tat org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)\n\tat org.eclipse.jetty.server.Server.doStart(Server.java:630)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)\n\tat dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 36 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 39 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 60 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 63 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 84 more\nCaused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 87 more\nCaused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)\n\tat dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)\n\t... 95 more\nCaused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)\n\t... 98 more\nCaused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher\n\tat org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)\n\tat org.bouncycastle.util.io.Streams.pipeAll…",
+    "logging.googleapis.com/sourceLocation": {
+        "function": "org.springframework.web.context.ContextLoader.initWebApplicationContext"
+    },
+    "logging.googleapis.com/trace_sampled": true,
+    "exception": "org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)\n\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)\n\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)\n\tat org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)\n\tat org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)\n\tat org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)\n\tat org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)\n\tat org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)\n\tat org.eclipse.jetty.server.Server.start(Server.java:689)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)\n\tat org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)\n\tat org.eclipse.jetty.server.Server.doStart(Server.java:630)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)\n\tat dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 36 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 39 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 60 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 63 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 84 more\nCaused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 87 more\nCaused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)\n\tat dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)\n\t... 95 more\nCaused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)\n\t... 98 more\nCaused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher\n\tat org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)\n\tat org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)\n\tat org.bounc…",
+    "thread": "main",
+    "logger": "org.springframework.web.context.ContextLoader"
+}
+{
+    "timestampSeconds": 1768225245,
+    "timestampNanos": 847212542,
+    "severity": "INFO",
+    "message": "Read of Organization/90500752-381a-46fa-858f-14d6d5b11627/_history/5 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}",
+    "logging.googleapis.com/labels": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, READ, HISTORY, CREATE, SEARCH]"
+    },
+    "logging.googleapis.com/sourceLocation": {
+        "function": "dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule.reasonReadAllowed"
+    },
+    "logging.googleapis.com/trace_sampled": true,
+    "thread": "jetty-server-63",
+    "logger": "dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule"
+}
+```
 
-Avoid when:
-- A log aggregation system is used
+@tab JSON_GELF
 
-#### TEXT_MDC
+```json :no-line-numbers
+{
+    "version": "1.1",
+    "host": "46e6824590a7",
+    "short_message": "Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685",
+    "timestamp": 1768224184.7015762,
+    "level": 6,
+    "_logger": "dev.dsf.common.buildinfo.BuildInfoReaderImpl",
+    "_thread": "main"
+}
+{
+    "version": "1.1",
+    "host": "46e6824590a7",
+    "short_message": "Context initialization failed",
+    "full_message": "org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)\n\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)\n\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)\n\tat org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)\n\tat org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)\n\tat org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)\n\tat org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)\n\tat org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)\n\tat org.eclipse.jetty.server.Server.start(Server.java:689)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)\n\tat org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)\n\tat org.eclipse.jetty.server.Server.doStart(Server.java:630)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)\n\tat dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 36 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 39 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 60 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$0(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 63 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 84 more\nCaused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 87 more\nCaused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)\n\tat dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)\n\t... 95 more\nCaused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)\n\t... 98 more\nCaused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher\n\tat org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)\n\tat org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)\n\tat org.bounc…",
+    "timestamp": 1768224186.0572188,
+    "level": 3,
+    "_logger": "org.springframework.web.context.ContextLoader",
+    "_thread": "main"
+}
+{
+    "version": "1.1",
+    "host": "f169cdb63fde",
+    "short_message": "Read of Organization/90500752-381a-46fa-858f-14d6d5b11627/_history/6 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}",
+    "timestamp": 1768225406.81688,
+    "level": 6,
+    "_logger": "dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule",
+    "_thread": "jetty-server-89",
+    "_dsf.user.endpoint.identifier": "fhir",
+    "_dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "_dsf.user.organization.identifier": "Test_Organization",
+    "_dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "_dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "_dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "_dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "_dsf.user.roles": "[CREATE, SEARCH, READ, UPDATE, HISTORY]"
+}
+```
 
-Plain text with MDC (Mapped Diagnostic Context) fields, such as:
+@tab:active JSON_LOGSTASH
 
-- correlationId
-- processInstanceId
-- user
-- requestId
+```json :no-line-numbers
+{
+    "@version": 1,
+    "source_host": "da524e19dd3e",
+    "message": "Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685",
+    "thread_name": "main",
+    "@timestamp": "2026-01-12T14:24:17.152+0100",
+    "level": "INFO",
+    "logger_name": "dev.dsf.common.buildinfo.BuildInfoReaderImpl"
+}
+{
+    "exception": {
+        "exception_class": "org.springframework.beans.factory.BeanCreationException",
+        "exception_message": "Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher",
+        "stacktrace": "org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1228)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1194)\n\tat org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1130)\n\tat org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:990)\n\tat org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)\n\tat org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:394)\n\tat org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:274)\n\tat org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:126)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:1614)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.contextInitialized(ServletContextHandler.java:501)\n\tat org.eclipse.jetty.ee10.servlet.ServletHandler.initialize(ServletHandler.java:675)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.startContext(ServletContextHandler.java:1348)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startWebapp(WebAppContext.java:1429)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.startContext(WebAppContext.java:1387)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.lambda$doStart$0(ServletContextHandler.java:1066)\n\tat org.eclipse.jetty.server.handler.ContextHandler$ScopedContext.call(ContextHandler.java:1636)\n\tat org.eclipse.jetty.ee10.servlet.ServletContextHandler.doStart(ServletContextHandler.java:1063)\n\tat org.eclipse.jetty.ee10.webapp.WebAppContext.doStart(WebAppContext.java:520)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.start(ContainerLifeCycle.java:170)\n\tat org.eclipse.jetty.server.Server.start(Server.java:689)\n\tat org.eclipse.jetty.util.component.ContainerLifeCycle.doStart(ContainerLifeCycle.java:121)\n\tat org.eclipse.jetty.server.Handler$Abstract.doStart(Handler.java:545)\n\tat org.eclipse.jetty.server.Server.doStart(Server.java:630)\n\tat org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:92)\n\tat dev.dsf.common.jetty.JettyServer.start(JettyServer.java:374)\n\tat dev.dsf.fhir.FhirJettyServer.main(FhirJettyServer.java:56)\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 36 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig.activityDefinitionAuthorizationRule(AuthorizationConfig.java:123)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.CGLIB$activityDefinitionAuthorizationRule$2(<generated>)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.AuthorizationConfig$$SpringCGLIB$$0.activityDefinitionAuthorizationRule(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 39 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 60 more\nCaused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:489)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1375)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1205)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:569)\n\tat org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)\n\tat org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)\n\tat org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:432)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:403)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig.referenceResolver(ReferenceConfig.java:54)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.CGLIB$referenceResolver$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ReferenceConfig$$SpringCGLIB$$0.referenceResolver(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 63 more\nCaused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:200)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:89)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:169)\n\tat org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)\n\t... 84 more\nCaused by: java.lang.RuntimeException: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:92)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.CGLIB$clientProvider$1(<generated>)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$FastClass$$1.invoke(<generated>)\n\tat org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)\n\tat org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:400)\n\tat dev.dsf.fhir.spring.config.ClientConfig$$SpringCGLIB$$0.clientProvider(<generated>)\n\tat java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:565)\n\tat org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:172)\n\t... 87 more\nCaused by: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:435)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:398)\n\tat dev.dsf.fhir.spring.config.ClientConfig.createKeyStore(ClientConfig.java:111)\n\tat dev.dsf.fhir.spring.config.ClientConfig.clientProvider(ClientConfig.java:79)\n\t... 95 more\nCaused by: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher\n\tat org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo.decryptPrivateKeyInfo(Unknown Source)\n\tat de.hsheilbronn.mi.utils.crypto.io.PemReader.readPrivateKey(PemReader.java:430)\n\t... 98 more\nCaused by: org.bouncycastle.crypto.io.InvalidCipherTextIOException: Error finalising cipher\n\tat org.bouncycastle.jcajce.io.CipherInputStream.finaliseCipher(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.nextChunk(Unknown Source)\n\tat org.bouncycastle.jcajce.io.CipherInputStream.read(Unknown Source)\n\tat org.bouncycastle.util.io.Streams.pipeAll(Unknown Source)\n\tat org.bounc…"
+    },
+    "@version": 1,
+    "source_host": "da524e19dd3e",
+    "message": "Context initialization failed",
+    "thread_name": "main",
+    "@timestamp": "2026-01-12T14:24:18.486+0100",
+    "level": "ERROR",
+    "logger_name": "org.springframework.web.context.ContextLoader"
+}
+{
+    "mdc": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, READ, CREATE, HISTORY, SEARCH]"
+    },
+    "@version": 1,
+    "source_host": "4bc83d5bca72",
+    "message": "Read of Organization/90500752-381a-46fa-858f-14d6d5b11627/_history/7 authorized for identity 'Test_Organization/webbrowser.test.user@invalid', matching access tag {ALL}",
+    "thread_name": "jetty-server-89",
+    "@timestamp": "2026-01-12T14:44:52.948+0100",
+    "level": "INFO",
+    "logger_name": "dev.dsf.fhir.authorization.AbstractMetaTagAuthorizationRule"
+}
+```
 
-Use when:
-- You want to log production environments without aggregation systems
-- You want to debug distributed workflows with correlation IDs
+:::
 
-Avoid when:
-- A log aggregation system is used
+### Audit Logger
+The file, *stdout* and *stderr* outputs for the **Audit Logger** can be enabled or disabled using the environment variables [`DEV_DSF_LOG_AUDIT_FILE_ENABLED`](./configuration.md#dev-dsf-log-audit-file-enabled), [`DEV_DSF_LOG_AUDIT_CONSOLE_OUT_ENABLED`](./configuration.md#dev-dsf-log-audit-console-out-enabled) and [`DEV_DSF_LOG_AUDIT_CONSOLE_ERR_ENABLED`](./configuration.md#dev-dsf-log-audit-console-err-enabled).
 
-#### TEXT_COLOR and TEXT_COLOR_MDC
+All audit messages are logged with the same severity level (INFO). Audit messages are not included in the Standard Application Logger output.
 
-ANSI-colored text output for terminals.
+#### Output Style
+Multiple styles are supported for the **Audit Logger** file, *stdout* and *stderr* outputs. All structured logging JSON styles include additional infos (Mapped Diagnostic Context) about the requesting user. The output style can be configured using the environment variables [`DEV_DSF_LOG_AUDIT_FILE_STYLE`](./configuration.md#dev-dsf-log-audit-file-style), [`DEV_DSF_LOG_AUDIT_CONSOLE_OUT_STYLE`](./configuration.md#dev-dsf-log-audit-console-out-style) and [`DEV_DSF_LOG_AUDIT_CONSOLE_ERR_STYLE`](./configuration.md#dev-dsf-log-audit-console-err-style).
+* **TEXT** a minimal text format.
+* **TEXT_MDC** text format with additional infos (Mapped Diagnostic Context) about the requesting user.
+* **JSON_ECS** follows the Elastic Common Schema (ECS) reference.
+* **JSON_GCP** uses the Google Cloud Platform structured logging model with additional `_thread`, `_logger` and `_exception` fields.
+* **JSON_GELF** follows the Graylog Extended Log Format (GELF) payload specification with added `_thread` and `_logger` fields.
+* **JSON_LOGSTASH** uses the Logstash json_event pattern for log4j.
 
-Use when:
-- You want to develop locally
-- You want to view docker logs directly with `docker logs` command
-- You want a fast visual distinction between INFO/WARN/ERROR
+::: code-tabs#shell
 
-Avoid when:
-- A log aggregation system is used
-- Consoles without ANSI escape code support are used
+@tab TEXT
 
+```text :no-line-numbers
+2026-01-14 13:05:15,281 Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/6 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}
+2026-01-14 13:05:15,281 Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/6 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK
+```
 
-### JSON-Based Logging Styles
-We support the structured logging formats `JSON_LOGSTASH`, `JSON_ECS`(Elastic Common Schema), `JSON_GELF`(Graylog Extended Log Format), and `JSON_GCP` (Google Cloud Platform Logging). They all include Mapped Diagnostic Context information (e.g., process names, ids, ...) and should be used in combination with the log aggreation system of your choice.
+@tab TEXT_MDC
+
+```text :no-line-numbers
+2026-01-14 13:06:58,279 {dsf.user.endpoint.identifier=fhir, dsf.user.name=Test_Organization/webbrowser.test.user@invalid, dsf.user.organization.identifier=Test_Organization, dsf.user.practitioner.dn=CN=Webbrowser Test User,O=DSF,C=DE, dsf.user.practitioner.identifier=webbrowser.test.user@invalid, dsf.user.practitioner.roles=[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN], dsf.user.practitioner.thumbprint=a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7, dsf.user.roles=[HISTORY, READ, CREATE, UPDATE, SEARCH]} Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/7 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}
+2026-01-14 13:06:58,281 {dsf.user.endpoint.identifier=fhir, dsf.user.name=Test_Organization/webbrowser.test.user@invalid, dsf.user.organization.identifier=Test_Organization, dsf.user.practitioner.dn=CN=Webbrowser Test User,O=DSF,C=DE, dsf.user.practitioner.identifier=webbrowser.test.user@invalid, dsf.user.practitioner.roles=[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN], dsf.user.practitioner.thumbprint=a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7, dsf.user.roles=[HISTORY, READ, CREATE, UPDATE, SEARCH]} Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/7 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK
+```
+
+@tab JSON_ECS
+
+```json :no-line-numbers
+{
+    "@timestamp": "2026-01-14T12:10:18.467Z",
+    "ecs.version": "1.2.0",
+    "log.level": "INFO",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/8 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}",
+    "process.thread.name": "jetty-server-84",
+    "log.logger": "dsf-audit-logger",
+    "dsf.user.endpoint.identifier": "fhir",
+    "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "dsf.user.organization.identifier": "Test_Organization",
+    "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "dsf.user.roles": "[UPDATE, READ, CREATE, HISTORY, SEARCH]"
+}
+{
+    "@timestamp": "2026-01-14T12:10:18.470Z",
+    "ecs.version": "1.2.0",
+    "log.level": "INFO",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/8 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK",
+    "process.thread.name": "jetty-server-84",
+    "log.logger": "dsf-audit-logger",
+    "dsf.user.endpoint.identifier": "fhir",
+    "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "dsf.user.organization.identifier": "Test_Organization",
+    "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "dsf.user.roles": "[UPDATE, READ, CREATE, HISTORY, SEARCH]"
+}
+```
+
+@tab JSON_GCP
+
+```json :no-line-numbers
+{
+    "timestampSeconds": 1768392701,
+    "timestampNanos": 247233466,
+    "severity": "INFO",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/9 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}",
+    "logging.googleapis.com/labels": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, CREATE, SEARCH, READ, HISTORY]"
+    },
+    "logging.googleapis.com/sourceLocation": {
+        "function": "dev.dsf.fhir.webservice.secure.AbstractResourceServiceSecure.checkRead"
+    },
+    "logging.googleapis.com/trace_sampled": true,
+    "thread": "jetty-server-76",
+    "logger": "dsf-audit-logger"
+}
+{
+    "timestampSeconds": 1768392701,
+    "timestampNanos": 249559501,
+    "severity": "INFO",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/9 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK",
+    "logging.googleapis.com/labels": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, CREATE, SEARCH, READ, HISTORY]"
+    },
+    "logging.googleapis.com/sourceLocation": {
+        "function": "dev.dsf.fhir.webservice.secure.AbstractResourceServiceSecure.lambda$checkRead$1"
+    },
+    "logging.googleapis.com/trace_sampled": true,
+    "thread": "jetty-server-76",
+    "logger": "dsf-audit-logger"
+}
+```
+
+@tab JSON_GELF
+
+```json :no-line-numbers
+{
+    "version": "1.1",
+    "host": "5061409e4b61",
+    "short_message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/10 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}",
+    "timestamp": 1768393090.890408,
+    "level": 6,
+    "_logger": "dsf-audit-logger",
+    "_thread": "jetty-server-63",
+    "_dsf.user.endpoint.identifier": "fhir",
+    "_dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "_dsf.user.organization.identifier": "Test_Organization",
+    "_dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "_dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "_dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "_dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "_dsf.user.roles": "[CREATE, SEARCH, HISTORY, READ, UPDATE]"
+}
+{
+    "version": "1.1",
+    "host": "5061409e4b61",
+    "short_message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/10 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK",
+    "timestamp": 1768393090.8934536,
+    "level": 6,
+    "_logger": "dsf-audit-logger",
+    "_thread": "jetty-server-63",
+    "_dsf.user.endpoint.identifier": "fhir",
+    "_dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+    "_dsf.user.organization.identifier": "Test_Organization",
+    "_dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+    "_dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+    "_dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+    "_dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+    "_dsf.user.roles": "[CREATE, SEARCH, HISTORY, READ, UPDATE]"
+}
+```
+
+@tab:active JSON_LOGSTASH
+
+```json :no-line-numbers
+{
+    "mdc": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, READ, HISTORY, CREATE, SEARCH]"
+    },
+    "@version": 1,
+    "source_host": "df1d729560c0",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/11 allowed for identity 'Test_Organization/webbrowser.test.user@invalid', reason: Identity has role READ [Organization], matching access tag {ALL}",
+    "thread_name": "jetty-server-89",
+    "@timestamp": "2026-01-14T13:19:02.403+0100",
+    "level": "INFO",
+    "logger_name": "dsf-audit-logger"
+}
+{
+    "mdc": {
+        "dsf.user.endpoint.identifier": "fhir",
+        "dsf.user.name": "Test_Organization/webbrowser.test.user@invalid",
+        "dsf.user.organization.identifier": "Test_Organization",
+        "dsf.user.practitioner.dn": "CN=Webbrowser Test User,O=DSF,C=DE",
+        "dsf.user.practitioner.identifier": "webbrowser.test.user@invalid",
+        "dsf.user.practitioner.roles": "[http://dsf.dev/fhir/CodeSystem/practitioner-role|DSF_ADMIN]",
+        "dsf.user.practitioner.thumbprint": "a8874b56a7442fae17f27acc8f91a6b8f531c1855c9c7070ce04baf3a3ba17cc5cc337ba7cbd9cbb1a24d331ce99d2eb71c1368de1ae4b142084c696991214e7",
+        "dsf.user.roles": "[UPDATE, READ, HISTORY, CREATE, SEARCH]"
+    },
+    "@version": 1,
+    "source_host": "df1d729560c0",
+    "message": "Read of Organization/6d40351b-2237-486f-8fa0-6bed0ca08e72/_history/11 for identity 'Test_Organization/webbrowser.test.user@invalid' successful, status: 200 OK",
+    "thread_name": "jetty-server-89",
+    "@timestamp": "2026-01-14T13:19:02.406+0100",
+    "level": "INFO",
+    "logger_name": "dsf-audit-logger"
+}
+```
+
+:::
+
+### Custom Logging Config
+A fully custom log4j2 xml logging config can be set via the environment variable [`DEV_DSF_LOG_CONFIG`](./configuration.md#dev-dsf-log-config).

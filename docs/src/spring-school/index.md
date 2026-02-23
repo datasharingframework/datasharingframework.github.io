@@ -1,70 +1,72 @@
 ---
-title: DSF Spring School 2025
+title: DSF Spring School 2026
 icon: guide
 ---
 
-## Einladung 
+## Invitation 
+We would like to invite you to the third DSF Community Spring School. The target audience includes domain experts, DSF power users, process plugin developers, and those who want to become one. 
 
-Bald findet die zweite DSF Community Spring School statt. Zielgruppe sind Domänenexpert\*innen, DSF-Poweruser und Prozesspluginentwickler\*innen und die, die es werden wollen. 
+During the event, participants might work together on topics such as (topics might change due to feedback of participants):
+* Your ideas and projects
+* Monitoring and other tooling related to DSF
+* Secure deployment in distributed infrastructures with signed and reproducible builds
 
-Neben einer Einführung in die Entwicklung mit dem DSF 2.0 wollen wir einen Hackathon durchführen und folgendes bearbeiten:
+You are also welcome to use the event to learn about the development of process plugins.
 
-- Monitoring und weiteres Tooling rund um das DSF
-- Sicheres Deployment in verteilten Infrastrukturen mit signierten und reproduzierbaren Builds
-- Eure mitgebrachten Ideen und Projekte
+::: tip Key data
+* **Date:** February 24, 2026, starting at 10 a.m. until 26. February, 4:00 p.m.
+* **Place:** Heilbronn University, Tech Campus
+Max-Planck-Str. 39, 74074 Heilbronn
+Building A, Room 306, 3rd floor
+https://maps.app.goo.gl/5dqX8E7E8tyMNgAn9
+We will put up signs at the main entrance of the university.
 
-Gerne könnt ihr die Veranstaltung auch nutzen, um die Entwicklung von Prozess Plugins neu kennen zu lernen.
-
-::: tip Eckdaten
-
-- Datum: 02. April, 10:00 Uhr bis 04. April, 16:00 Uhr
-- Ort: Hochschule Heilbronn - Techcampus, Max-Planck-Str. 39, Heilbronn
-- Teilnahmegebühren: 100€/ Person mit Verpflegung* (Anreise und Übernachtungskosten müssen selbst getragen werden)
-
+* **Registration fees:** 120€/ Person with Catering\* (Travel and accommodation costs must be covered by the participant.)
 :::
 
-Die DSF Community Spring School ist eine hervorragende Gelegenheit, neues Wissen zu erlangen, sich mit Gleichgesinnten auszutauschen und gemeinsam an der Weiterentwicklung des Data Sharing Frameworks und der übergreifenden Prozesse der MII zu arbeiten.
+The DSF Community Spring School offers an excellent opportunity to gain new knowledge, exchange ideas with like-minded people, and work together on the further development of the Data Sharing Framework and the overarching processes of the MII.
 
-::: tip Registrierung
-
-Bitte registriert euch bis zum 15. März unter: https://eveeno.com/DSF-Spring-School-2025
-
+:::tip
+Please register until 15. February under: <https://eveeno.com/dsf-spring-school-2026>
 :::
 
-Für Rückfragen stehen wir gerne unter dsf-gecko@hs-heilbronn.de zur Verfügung, weitere Informationen und eine Agenda findet ihr weiter unten.
-Wir freuen uns darauf, mit euch gemeinsam bei unserer Spring School an relevanten Themen zu arbeiten.
+If you have any questions, please contact us at [dsf-gecko@hs-heilbronn.de](mailto:dsf-gecko@hs-heilbronn.de). Further information and an agenda can be found below. We look forward to working with you on relevant topics at our Spring School.
 
-\*Enthalten sind: Mittagessen, Getränke und Snacks für 3 Tage und Abendessen an Tag 2
+\*Included are: lunch, drinks, and snacks for 3 days, and dinner on day 2.
 
-## Agenda
+## Agenda 
 
-Nachfolgend die vorläufige Agenda der DSF Spring School vom 02.04.-04.04.2025.  
-Stand: 13.02.2025
+### Day 1: Tuesday, February 24, 2026
+- **10:00 am:** Start in A306
+    -  Introduction, topic collection, and presentation
+- **12:30-1:30 pm:** Lunch in the cafeteria
+- **1:30-5:00 pm:**
+    - Work block
+    - Start of DSF process plugin tutorial
+- **6:45 pm:** Dinner at Brauart in the Parkhotel, Gartenstraße 1, Heilbronn (self-paid)
 
-### Tag 1
+### Day 2: Wednesday, February 25, 2026
+- **10:00 am:** Start in A306
+    - Work block
+    - DSF process plugin tutorial 
+- **12:30-1:30 pm:** Lunch in the cafeteria
+- **1:30-4:00 pm:** 
+    - Work block
+    - DSF process plugin tutorial
+- **5:00-6:30 pm:** Community Contributions
+- **6:30 pm:** “Hacking with pizza and games"
 
-10:00 Uhr: DSF Spring School Kickoff, Einführung DSF 2.0  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Session 1 inkl. Kaffeepause  
-17:30 Uhr: Ende Tag 1  
-18:30 Uhr: optionales Abendessen in einem Restaurant (TBD, Selbstzahler)  
+### Day 3: Thursday, February 26, 2026
+- **10:00 am:** Start in A306
+    - Work block
+- **12:30-13:30 pm:** Lunch in the cafeteria
+- **1:30-16:00 pm:** 
+    - Review of results, presentations 
+    - Conclusion
 
-### Tag 2
+## Preparation
+Please bring your laptop (min. 16 GB RAM) that you can use for development. As in previous years, we have set up tables with monitors (HDMI) where you can work.
 
-09:00 Uhr: Kickoff Tag 2  
-10:00 Uhr: Session 2 inkl. Kaffeepause  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Session 3 inkl. Kaffeepause  
-17:30 Uhr: Ende Tag 2  
-18:00 Uhr: “Hack-end” inkl. Pizza  
+If you want to participate in the Plugin Tutorial process, it would be great if you could complete [“Exercise 0”](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/exercises/exercise-0.md) before you arrive so that we can ideally start directly with content task 1. If this is no longer possible, we will be happy to help you set up during the event.
 
-### Tag 3
 
-09:00 Uhr: Session 4 inkl. Kaffeepause  
-12:00 Uhr: Mittagessen in Mensa  
-13:00 Uhr: Vorbereitung Wrap-Up inkl. Kaffeepause  
-14:30 Uhr: Wrap-Up  
-16:00 Uhr: Ende der Veranstaltung  
-
-## Vorbereitung
-Diese Informationen werden rechtzeitig vor der Veranstaltung ergänzt.

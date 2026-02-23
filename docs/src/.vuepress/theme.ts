@@ -38,12 +38,8 @@ export default hopeTheme({
           text: "Operations",
           icon: "launch",
           prefix: "/operations/",
-          children: [{
-            text: "Stable version - 1.9.0",
-            link: "v1.9.0/readme.md",
-            icon: "launch"
-          }, {
-            text: "Current version - 2.0.1",
+          children: [ {
+            text: "Current Version - 2.0.2",
             link: "get-started.md",
             icon: "launch"
           }, "old-versions.md"],
@@ -54,12 +50,13 @@ export default hopeTheme({
       text: "Process Development",
       icon: "plugin",
       prefix: "/process-development/",
-      children: ["api-v1/", "api-v2/"]
+      children: ["api-v1/", "api-v2/", "linter-tool/linter-tool"],
     },
     {
       text: "DSF Development",
       icon: "info",
-      link: "/dsf-development/",
+      prefix: "/dsf-development/",
+      children: ["v2/fhir-ig", "v2/maven"],
     },
     {
       text: "Community",
@@ -130,7 +127,8 @@ export default hopeTheme({
     "/operations/old-versions": [],
     "/operations/latest/": generate_v2_latest_sidebar(),
     "/operations/next/": [],
-    "/operations/v2.0.1/": generate_v2_latest_sidebar(),
+    "/operations/v2.0.2/": generate_v2_latest_sidebar(),
+    "/operations/v2.0.1/": generate_v2_0_0_sidebar(),
     "/operations/v2.0.0/": generate_v2_0_0_sidebar(),
     "/operations/v1.9.0/": generate_v1_latest_sidebar(),
     "/operations/v1.8.0/": generate_v1_gt_eq_1_7_0_sidebar(),
@@ -156,7 +154,6 @@ export default hopeTheme({
         children: ["get-started", {
           text: "Concepts",
           icon: "info",
-          link: "concept",
           collapsible: true,
           children: [
             {
@@ -225,14 +222,7 @@ export default hopeTheme({
               ],
             },
           ],
-        }, "create", "publishing/publish-on-dsfhub", "tutorials/", "javadoc", {
-            text: "Process Plugin Dev Tools",
-            icon: "info",
-            prefix: "tooling",
-            collapsible: true,
-            children: [
-              "validator"],
-          },]
+        }, "create", "publishing/publish-on-dsfhub", "tutorials/", "javadoc", ]
       },
       {
         text: "API v2",
@@ -242,7 +232,6 @@ export default hopeTheme({
         children: ["get-started", {
           text: "Concepts",
           icon: "info",
-          link: "concept",
           collapsible: true,
           children: [
             {
@@ -311,15 +300,15 @@ export default hopeTheme({
               ],
             },
           ],
-        }, "implementation", "migration", "create", "best-practices", "testing", "publishing/publish-on-dsfhub", "tutorials/", "javadoc", {
-            text: "Process Plugin Dev Tools",
-            icon: "info",
-            prefix: "tooling",
-            collapsible: true,
-            children: [
-              "validator"],
-          },]
+        }, "implementation", "migration", "create", "best-practices", "testing", "publishing/publish-on-dsfhub", "tutorials/", "javadoc",]
       },
+      {
+        text: "Process Plugin Dev Tools",
+        icon: "info",
+        prefix: "linter-tool/",
+        children: [
+                  "linter-tool", "validation","phases", "development", "troubleshooting", "changelog"],
+          }
     ],
     "/dsf-development": [
       {

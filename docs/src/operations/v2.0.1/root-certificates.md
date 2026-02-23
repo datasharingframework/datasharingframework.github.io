@@ -13,12 +13,13 @@ Please ensure that you are using an organization-validated certificate (OV). We 
 X.509 certificates of default trusted CAs are stored as individual .pem files containing one certificate each in the docker images and can be replaced by either using docker [bind mounts](https://docs.docker.com/engine/storage/bind-mounts) or configuring appropriate environment variables with different targets.
 
 ### FHIR Reverse Proxy
-Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificateFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatefile)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestfile)).
-Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
+Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
 * [SSL_CA_CERTIFICATE_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-certificate-path)
-  Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
+  Default Value: `ca/client_ca_chains`
 * [SSL_CA_DN_REQUEST_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
-  Default Value: [ca/client_cert_issuing_cas.pem](/download/1.9.0/client_cert_issuing_cas.pem)
+  Default Value: `ca/client_issuing_cas`
+
+Use docker bind mounts to replace all default files or add additional CAs to the folders.
 
 **Note:** Default file location are relative to the docker image work directory `/usr/local/apache2`.
 **Also Note:** Using non default .pem files for the environment variables above may require also modifying the default values of the environment variables [SSL_EXPECTED_CLIENT_S_DN_C_VALUES](fhir-reverse-proxy/configuration.html#ssl-expected-client-s-dn-c-values) and [SSL_EXPECTED_CLIENT_I_DN_CN_VALUES](fhir-reverse-proxy/configuration.html#ssl-expected-client-i-dn-cn-values).
@@ -44,12 +45,13 @@ If you can't override the default configuration with bind-mounts, you can use th
   Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
 
 ### BPE Reverse Proxy
-Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificateFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatefile)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestFile](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestfile)).
-Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
+Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
 * [SSL_CA_CERTIFICATE_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-certificate-path)
-  Default Value: [ca/client_cert_ca_chains.pem](/download/1.9.0/client_cert_ca_chains.pem)
+  Default Value: `ca/client_ca_chains`
 * [SSL_CA_DN_REQUEST_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
-  Default Value: [ca/client_cert_issuing_cas.pem](/download/1.9.0/client_cert_issuing_cas.pem)
+  Default Value: `ca/client_issuing_cas`
+
+Use docker bind mounts to replace all default files or add additional CAs to the folders.
 
 **Note:** Default file location are relative to the docker image work directory `/usr/local/apache2`.
 **Also Note:** Using non default .pem files for the environment variables above may require also modifying the default values of the environment variables [SSL_EXPECTED_CLIENT_S_DN_C_VALUES](bpe-reverse-proxy/configuration.html#ssl-expected-client-s-dn-c-values) and [SSL_EXPECTED_CLIENT_I_DN_CN_VALUES](bpe-reverse-proxy/configuration.html#ssl-expected-client-i-dn-cn-values).
