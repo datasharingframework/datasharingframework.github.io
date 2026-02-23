@@ -166,7 +166,7 @@ The next slice is called `task-profile`:
 This section has almost the same structure as `message-name`. The only difference is the value for `value[x].type.code`. This means that instead of `valueString`, it requires using a `valueCanonical` element for `task-profile.value[x]`. Canonical values referring to [Task](../fhir/task.md) profiles in ActivityDefinitions have to conform to the rules outlined by the documentation on [URLs](../dsf/versions-placeholders-urls.md#urls). From the definition above, the following extension element is created and added to the [ActivityDefinition](../fhir/activitydefinition.md):
 ```xml
 <extension url="task-profile">
-    <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+    <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
 </extension>
 ```
 
@@ -187,7 +187,7 @@ This section has almost the same structure as `message-name`. The only differenc
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
     </extension>
 </ActivityDefinition>
@@ -475,7 +475,7 @@ The `requester` extension is now finished and can be added it to the [ActivityDe
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -555,7 +555,7 @@ The `recipient` will decide which DSF instance is allowed to process that messag
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -622,7 +622,7 @@ The following elements are managed by the DSF BPE:
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -696,7 +696,7 @@ All other elements can technically be omitted. Still, the following elements are
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://my.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -737,7 +737,7 @@ All other elements can technically be omitted. Still, the following elements are
     <date value="#{date}"/>
     <!-- status managed by bpe -->
     <status value="unknown"/>
-    <url value="http://dsf.dev/bpe/Process/myProcess"/>
+    <url value="http://my.org/bpe/Process/myProcess"/>
     <kind value="Task"/>
     <name value="My Process"/>
     <title value="My Title For My Process"/>
@@ -748,7 +748,7 @@ All other elements can technically be omitted. Still, the following elements are
         <name value="DSF"/>
         <telecom>
             <system value="email"/>
-            <value value="noreply@dsf.dev"/>
+            <value value="noreply@my.org"/>
         </telecom>
     </contact>
     <description value="My Process processes information"/>
