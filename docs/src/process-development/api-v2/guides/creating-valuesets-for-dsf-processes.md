@@ -16,7 +16,7 @@ In some cases, it may be necessary to create a [ValueSet](../fhir/valueset.md). 
             <code value="ALL" />
         </tag> 
     </meta>
-    <url value="http://my.org/fhir/ValueSet/my-value-set"/>    <!--dummy value-->
+    <url value="http://example.org/fhir/ValueSet/my-value-set"/>    <!--dummy value-->
     <!-- version managed by bpe -->
     <version value="#{version}" />
     <name value="My ValueSet"/>     <!--dummy value-->
@@ -31,7 +31,7 @@ In some cases, it may be necessary to create a [ValueSet](../fhir/valueset.md). 
     <immutable value="true"/>
     <compose>
         <include>
-            <system value="http://my.org/fhir/CodeSystem/my-code-system"/>     <!--dummy value-->
+            <system value="http://example.org/fhir/CodeSystem/my-code-system"/>     <!--dummy value-->
             <version value="#{version}"/>   
         </include>  
     </compose>
@@ -43,14 +43,14 @@ Dummy values should be replaced with appropriate, context-specific values. Eleme
     ...
     <compose>
         <include>
-            <system value="http://my.org/fhir/CodeSystem/my-code-system"/>
+            <system value="http://example.org/fhir/CodeSystem/my-code-system"/>
             <version value="#{version}"/>   
             <concept>
                 <code value="my-code"/>
             </concept>
         </include>  
         <include>
-            <system value="http://my.org/fhir/CodeSystem/my-other-code-system"/>
+            <system value="http://example.org/fhir/CodeSystem/my-other-code-system"/>
             <version value="#{version}"/>
             <concept>
                 <code value="my-other-code"/>

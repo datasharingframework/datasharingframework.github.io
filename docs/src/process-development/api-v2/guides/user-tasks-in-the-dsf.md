@@ -27,7 +27,7 @@ Below is a template for a [Questionnaire](https://www.hl7.org/fhir/R4/questionna
             <code value="ALL"/>
         </tag>
     </meta>
-    <url value="http://my.org/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
+    <url value="http://example.org/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
     <!-- version managed by bpe -->
     <version value="#{version}"/>
     <!-- date managed by bpe -->

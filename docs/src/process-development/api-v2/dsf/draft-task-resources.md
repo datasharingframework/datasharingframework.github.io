@@ -10,7 +10,7 @@ icon: creative
 ```xml
 <identifier>
      <system value="http://dsf.dev/sid/task-identifier" />
-     <value value="http://my.org/bpe/Process/processKey/#{version}/task-name" />
+     <value value="http://example.org/bpe/Process/processKey/#{version}/task-name" />
 </identifier>
 ```
 `processKey` should be the same one used in [URLs](versions-placeholders-urls.md#urls).  

@@ -15,7 +15,7 @@ Sometimes it is necessary to create custom [CodeSystem](../fhir/codesystem.md) r
             <code value="ALL" />    
         </tag>  
     </meta>
-    <url value="http://my.org/fhir/CodeSystem/my-code-system" />       <!--dummy value-->
+    <url value="http://example.org/fhir/CodeSystem/my-code-system" />       <!--dummy value-->
     <!-- version managed by bpe -->
     <version value="#{version}" />
     <name value="My CodeSystem" />      <!--dummy value-->

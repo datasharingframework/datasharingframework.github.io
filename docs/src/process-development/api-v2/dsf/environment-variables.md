@@ -11,7 +11,7 @@ Environment variables offer a way to make configuration data available at the st
 @Configuration
 public class MyConfiguration
 {
-	@Value("${my.org.my.value}")
+	@Value("${example.org.my.value}")
 	private String myValue;
 }
 ```
@@ -22,11 +22,11 @@ The DSF provides a feature to automatically generate documentation of environmen
 public class MyConfiguration
 {
 	@ProcessDocumentation(processNames = "myorg_MyProcess", description = "My process description", required = true, recommendation = "Foo")
-	@Value("${my.org.my.value}")
+	@Value("${example.org.my.value}")
 	private String myValue;
 }
 ```
- This requires the DSF Maven Plugin to be configured in the `pom.xml` file of the project. A configuration to generate documentation for a package `my.org.spring.config` containing all Spring configuration classes looks like this:
+ This requires the DSF Maven Plugin to be configured in the `pom.xml` file of the project. A configuration to generate documentation for a package `example.org.spring.config` containing all Spring configuration classes looks like this:
 ```xml
 <plugin>
     <groupId>dev.dsf</groupId>

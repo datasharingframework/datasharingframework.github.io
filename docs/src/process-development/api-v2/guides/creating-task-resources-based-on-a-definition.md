@@ -11,9 +11,9 @@ Like all Task resources created for process plugins, the [`task-start-dic-proces
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://my.org/fhir/StructureDefinition/my-task|1.0"/>  <!-- dummy value -->
+        <profile value="http://example.org/fhir/StructureDefinition/my-task|1.0"/>  <!-- dummy value -->
     </meta>
-    <instantiatesCanonical value="http://my.org/bpe/Process/myProcess|1.0"/>   <!-- dummy value -->
+    <instantiatesCanonical value="http://example.org/bpe/Process/myProcess|1.0"/>   <!-- dummy value -->
     <status value="draft"/>
     <intent value="order"/>
     <authoredOn value="2024-02-08T10:00:00+00:00"/>
@@ -21,7 +21,7 @@ Like all Task resources created for process plugins, the [`task-start-dic-proces
         <type value="Organization"/>
         <identifier>
             <system value="http://dsf.dev/sid/organization-identifier"/>
-            <value value="my.org" />                                      <!-- dummy value -->
+            <value value="example.org" />                                      <!-- dummy value -->
         </identifier>
     </requester>
     <restriction>
@@ -29,7 +29,7 @@ Like all Task resources created for process plugins, the [`task-start-dic-proces
             <type value="Organization"/>
             <identifier>
                 <system value="http://dsf.dev/sid/organization-identifier" />
-                <value value="my.org" />                                  <!-- dummy value -->
+                <value value="example.org" />                                  <!-- dummy value -->
             </identifier>
         </recipient>
     </restriction>

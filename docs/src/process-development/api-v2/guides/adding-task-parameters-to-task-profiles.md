@@ -71,7 +71,7 @@ Next up is the binding for `Task.input:example-input.type`. Because `Task.input.
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://my.org/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
     </differential>
@@ -95,7 +95,7 @@ Since the [discriminator](https://www.hl7.org/fhir/R4/profiling.html#discriminat
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://my.org/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -123,7 +123,7 @@ The beginning mentioned how `Task.input.type.coding.system` and `Task.input.type
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://my.org/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -133,7 +133,7 @@ The beginning mentioned how `Task.input.type.coding.system` and `Task.input.type
         <element id="Task.input:example-input.type.coding.system">
             <path value="Task.input.type.coding.system"/>
             <min value="1"/>
-            <fixedUri value="http://my.org/fhir/CodeSystem/example"/>
+            <fixedUri value="http://example.org/fhir/CodeSystem/example"/>
         </element>
         <element id="Task.input:example-input.type.coding.code">
             <path value="Task.input.type.coding.code"/>
@@ -153,7 +153,7 @@ The `type.coding.system` element references a [CodeSystem](../fhir/codesystem.md
     <input>
         <type>
             <coding>
-                <system value="http://my.org/fhir/CodeSystem/example"/>
+                <system value="http://example.org/fhir/CodeSystem/example"/>
                 <code value="example-input" />
             </coding>
         </type>
@@ -181,7 +181,7 @@ Adding a slice in a different use case will also require to reference an existin
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://my.org/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -191,7 +191,7 @@ Adding a slice in a different use case will also require to reference an existin
         <element id="Task.input:example-input.type.coding.system">
             <path value="Task.input.type.coding.system"/>
             <min value="1"/>
-            <fixedUri value="http://my.org/fhir/CodeSystem/example"/>
+            <fixedUri value="http://example.org/fhir/CodeSystem/example"/>
         </element>
         <element id="Task.input:example-input.type.coding.code">
             <path value="Task.input.type.coding.code"/>
