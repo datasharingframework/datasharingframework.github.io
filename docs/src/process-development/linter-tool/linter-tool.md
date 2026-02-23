@@ -422,7 +422,6 @@ Summary
 ```
 
 ## Architecture
-![DSF Linter Architecture](/assets/linter/architecture.svg)
 
 ### Project Structure
 
