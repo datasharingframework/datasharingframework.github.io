@@ -12,12 +12,12 @@ icon: config
 **Solution**:
 ```bash
 # Wrong - Maven project directly
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path /path/to/project --html
 
 # Correct - Build first, then lint JAR
 cd /path/to/project && mvn clean package
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
 
@@ -29,11 +29,11 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 
 ```bash
 # Windows
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path "C:\Users\Username\project\target\plugin.jar" --html
 
 # Linux/Mac
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path /home/username/project/target/plugin.jar --html
 ```
 
@@ -47,7 +47,7 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 ls ~/.m2/settings.xml
 
 # Use verbose mode to see detailed error messages
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --verbose
 
 # Check if dependencies are in the JAR
@@ -61,11 +61,11 @@ jar -tf plugin.jar | grep -i "class"
 **Solution**:
 ```bash
 # --html or --json flag must be set
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html  # ← Required
 
 # Use absolute path for report directory
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --report-path $(pwd)/reports
 
 # Check write permissions
@@ -88,7 +88,7 @@ ls -lh test.jar
 ping example.com
 
 # Then use the local file
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path test.jar --html
 ```
 
@@ -110,11 +110,11 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 **Solution**:
 ```bash
 # Increase heap size
-java -Xmx2g -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -Xmx2g -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html
 
 # For very large projects
-java -Xmx4g -Xms1g -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -Xmx4g -Xms1g -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html
 ```
 
