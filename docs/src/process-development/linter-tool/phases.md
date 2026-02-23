@@ -3,9 +3,9 @@ title: Linting Phases
 icon: config
 ---
 ### Linting Phases
-
 The linter executes in five phases:
 
+![DSF Linter Architecture](/assets/linter/architecture.svg)
 #### Phase 1: Project Setup
 
 1. **Input Validation**:
