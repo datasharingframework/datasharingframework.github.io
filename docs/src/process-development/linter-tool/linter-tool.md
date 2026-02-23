@@ -64,11 +64,11 @@ mvn clean package -X
 
 ```bash
 # Lint a local JAR file
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path your-plugin.jar --html
 
 # Lint a remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 
 # View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/index.html
@@ -93,7 +93,7 @@ cd dsf-linter
 mvn clean package
 
 # The executable JAR will be at:
-# linter-cli/target/linter-cli-0.1.1.jar
+# linter-cli/target/linter-cli-0.1.2.jar
 ```
 
 ### Distribution
@@ -102,7 +102,7 @@ The linter is distributed as a single executable JAR file that includes all depe
 
 ```bash
 # Copy to a convenient location
-cp linter-cli/target/linter-cli-0.1.1.jar ~/bin/dsf-linter.jar
+cp linter-cli/target/linter-cli-0.1.2.jar ~/bin/dsf-linter.jar
 
 # Use from anywhere
 java -jar ~/bin/dsf-linter.jar --path plugin.jar --html
@@ -154,11 +154,11 @@ plugin.jar
 
 ```bash
 # Local JAR file
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path C:\path\to\plugin.jar --html
 
 # Remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 ```
 
@@ -166,11 +166,11 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 
 ```bash
 # Multiple report formats with custom path
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --json --report-path ./reports
 
 # Verbose output (colors enabled by default, use --no-color to disable)
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --verbose
 
 # Lint Maven project (two-step process)
@@ -178,7 +178,7 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 cd /path/to/project && mvn clean package
 
 # Step 2: Lint the resulting JAR
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
 
@@ -186,16 +186,16 @@ java -jar linter-cli/target/linter-cli-0.1.1.jar \
 
 ```bash
 # GitHub Actions / GitLab CI
-FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.1.jar \
+FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --json --verbose
 
 # Jenkins (fail on errors)
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html
 # Exit code: 0 = success, 1 = errors
 
 # Don't fail build (gradual adoption)
-java -jar linter-cli/target/linter-cli-0.1.1.jar \
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
   --path plugin.jar --html --no-fail
 ```
 
