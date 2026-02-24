@@ -5,7 +5,7 @@ icon: creative
 
 ### Activities
 
-Activities are Java interfaces that represent certain BPMN elements which can/need to specify a Java class as their `Implementation` value. Implementing Activity interfaces and [registering them as Spring beans](spring-framework-integration.md) causes the DSF to execute the code provided by the implementation when the process execution reaches the corresponding flow element. The value for the `Implementation` field of BPMN elements expects the fully qualified class name:
+Activities are Java interfaces in the DSF API v2 that represent certain BPMN elements which can/need to specify a Java class as their `Implementation` value. Implementing Activity interfaces and [registering them as Spring beans](spring-framework-integration.md) causes the DSF to execute the code provided by the implementation when the process execution reaches the corresponding flow element. The value for the `Implementation` field of BPMN elements expects the fully qualified class name:
 ```
 org.package.myClass
 ```
