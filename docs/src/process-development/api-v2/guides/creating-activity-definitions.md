@@ -5,7 +5,7 @@ icon: creative
 
 ## Creating ActivityDefinitions
 
-This guide will explain how to create an ActivityDefinition based on the [dsf-activity-definition](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-activity-definition-1.0.0.xml) profile for a process plugin.
+This guide will explain how to create an ActivityDefinition based on the [dsf-activity-definition](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-activity-definition-2.0.0.xml) profile for a process plugin.
 It is divided into steps for each of the main components of ActivityDefinitions:
 1. Read Access Tag
 2. Extension: process authorization
@@ -16,7 +16,7 @@ It is divided into steps for each of the main components of ActivityDefinitions:
 
 *This guide assumes the reader knows how to translate [ElementDefinitions](https://www.hl7.org/fhir/R4/elementdefinition.html) to actual elements in a FHIR resource. If not, the guide on [creating Task resources](../guides/creating-task-resources-based-on-a-definition.md) includes explanations for this.*
 
-### 1. Read Access Tag
+### 1. Profile and Read Access Tag
 Start out with an empty [ActivityDefinition](../fhir/activitydefinition.md):
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
@@ -24,11 +24,12 @@ Start out with an empty [ActivityDefinition](../fhir/activitydefinition.md):
 </ActivityDefinition>
 ```
 
-The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/read-access-tag.md). It describes who is allowed to read this resource through the DSF FHIR server's REST API. More complex configurations of the [Read Access Tag](../dsf/read-access-tag.md) are explained in [this guide](../dsf/read-access-tag.md). For this example, everyone will be allowed to read the resource:
+The first elements in DSF FHIR resources are always the profile the resources corresponds to and the  [Read Access Tag](../dsf/read-access-tag.md). The profile usually has a [DSF base resource](https://github.com/datasharingframework/dsf/tree/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition) as its value. The [Read Access Tag](../dsf/read-access-tag.md) describes who is allowed to read this resource through the DSF FHIR server's REST API. More complex configurations of the [Read Access Tag](../dsf/read-access-tag.md) are explained in [this guide](../dsf/read-access-tag.md). For this example, everyone will be allowed to read the resource:
 
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -38,7 +39,7 @@ The first element in DSF FHIR resources is always the [Read Access Tag](../dsf/r
 ```
 
 ### 2. Extension: Process Authorization
-This part of the ActivityDefinition will tell the DSF who is allowed to request and receive messages ([Task](../fhir/task.md) resources) for BPMN process. If the plugin contains more than one BPMN process, there will have to be one [ActivityDefinition](../fhir/activitydefinition.md) for each BPMN process. It is important to note that authorization rules need to be included for **ALL** messages received in the BPMN process. This includes the messages starting the BPMN process initially. The extension containing all possible rules is found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml). Next up is adding the [extension element](http://hl7.org/fhir/R4/extensibility.html#extension) with the correct URL. The value for the URL is found in the `Extension.url` element:
+This part of the ActivityDefinition will tell the DSF who is allowed to request and receive messages ([Task](../fhir/task.md) resources) for BPMN process. If the plugin contains more than one BPMN process, there will have to be one [ActivityDefinition](../fhir/activitydefinition.md) for each BPMN process. It is important to note that authorization rules need to be included for **ALL** messages received in the BPMN process. This includes the messages starting the BPMN process initially. The extension containing all possible rules is found [here](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml). Next up is adding the [extension element](http://hl7.org/fhir/R4/extensibility.html#extension) with the correct URL. The value for the URL is found in the `Extension.url` element:
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
    ...
@@ -119,6 +120,7 @@ This section defines that there has to be exactly one extension element from the
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -164,7 +166,7 @@ The next slice is called `task-profile`:
 This section has almost the same structure as `message-name`. The only difference is the value for `value[x].type.code`. This means that instead of `valueString`, it requires using a `valueCanonical` element for `task-profile.value[x]`. Canonical values referring to [Task](../fhir/task.md) profiles in ActivityDefinitions have to conform to the rules outlined by the documentation on [URLs](../dsf/versions-placeholders-urls.md#urls). From the definition above, the following extension element is created and added to the [ActivityDefinition](../fhir/activitydefinition.md):
 ```xml
 <extension url="task-profile">
-    <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+    <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
 </extension>
 ```
 
@@ -174,6 +176,7 @@ This section has almost the same structure as `message-name`. The only differenc
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -184,7 +187,7 @@ This section has almost the same structure as `message-name`. The only differenc
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
     </extension>
 </ActivityDefinition>
@@ -211,19 +214,19 @@ The next slice is `requester`:
             <min value="1" />
             <type>
                 <code value="Coding" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|1.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|2.0.0" />
             </type>
             <binding>
                 <strength value="required" />
-                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-requester|1.0.0" />
+                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-requester|2.0.0" />
             </binding>
         </element>
      ...
@@ -237,7 +240,7 @@ Here is what they mean:
 - `local-parent-organization-role`: All local requests made from an organization having a specific role inside a specific parent organization will be allowed.
 - `remote` versions of the above rules work the same but the requester's certificate is instead required to match a thumbprint marked as a remote organization.
 - `practitioner` suffixes all work the same. They include the same rules as their prefixes but now additionally require the requester to match a certain `practitioner-role`. A list of them
-  can be found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml). This allows
+  can be found [here](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml). This allows
   for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/stable/maintain/fhir/access-control.html).
 
 There are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. Examples of all Codings from above can be found [here](../dsf/requester-and-recipient.md).
@@ -252,7 +255,7 @@ It is also good to keep in mind that any number of `requester` elements may be a
 </extension>
 ```
 
-The remaining element definitions are found in one of the profiles. This example will use the [dsf-coding-process-authorization-local-organization-practitioner](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-1.0.0.xml) profile. Since all elements listed in the [Coding definition](https://www.hl7.org/fhir/R4/datatypes.html#codesystem) are optional, only the `differential` elements from the profile are relevant:
+The remaining element definitions are found in one of the profiles. This example will use the [dsf-coding-process-authorization-local-organization-practitioner](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-2.0.0.xml) profile. Since all elements listed in the [Coding definition](https://www.hl7.org/fhir/R4/datatypes.html#codesystem) are optional, only the `differential` elements from the profile are relevant:
 <a id="coding-differential"></a>
 ```xml
 <differential>
@@ -273,7 +276,7 @@ The remaining element definitions are found in one of the profiles. This example
         <max value="1" />
         <type>
             <code value="Extension" />
-            <profile value="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|1.0.0" />
+            <profile value="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner|2.0.0" />
         </type>
     </element>
     <element id="Coding.system">
@@ -288,7 +291,7 @@ The remaining element definitions are found in one of the profiles. This example
     </element>
 </differential>
 ```
-It defines an extension called `organization-practitioner` which is identified through its url attribute. Again, the extension is only referenced, its location is in a [different file](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-1.0.0.xml). Below is its `differential` element in order to see how the extension needs to be populated:
+It defines an extension called `organization-practitioner` which is identified through its url attribute. Again, the extension is only referenced, its location is in a [different file](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-2.0.0.xml). Below is its `differential` element in order to see how the extension needs to be populated:
 ```xml
 <differential>
     <element id="Extension">
@@ -407,7 +410,7 @@ Finally, add the `practitionerRole` slice:
 </extension>
 ```
 
-There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-1.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
+There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
 
 Now add the extension as the `Coding.extension:organization-practitioner` element:
 ```xml
@@ -453,7 +456,7 @@ Look at the [differential](#coding-differential) from the Coding again. The next
     </valueCoding>
 </extension>
 ```
-The `requester` extension is now finished and can be added it to the [ActivityDefinition](../fhir/activitydefinition.md) under the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml).
+The `requester` extension is now finished and can be added it to the [ActivityDefinition](../fhir/activitydefinition.md) under the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml).
 
 <details>
 <summary>This is how the ActivityDefinition should look like so far</summary>
@@ -461,6 +464,7 @@ The `requester` extension is now finished and can be added it to the [ActivityDe
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -471,7 +475,7 @@ The `requester` extension is now finished and can be added it to the [ActivityDe
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -498,7 +502,7 @@ The `requester` extension is now finished and can be added it to the [ActivityDe
 ```
 </details>
 
-Back to looking at the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) again. The last slice for this extension is `recipient`:
+Back to looking at the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml) again. The last slice for this extension is `recipient`:
 ```xml
 <StructureDefinition xmlns="http://hl7.org/fhir">
   ...
@@ -518,13 +522,13 @@ Back to looking at the [dsf-extension-process-authorization](https://github.com/
             <min value="1" />
             <type>
                 <code value="Coding" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+                <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
             </type>
             <binding>
                 <strength value="required" />
-                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient|1.0.0" />
+                <valueSet value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient|2.0.0" />
             </binding>
         </element>
      ...
@@ -532,7 +536,7 @@ Back to looking at the [dsf-extension-process-authorization](https://github.com/
 </StructureDefinition>
 ```
 
-The `recipient` will decide which DSF instance is allowed to process that message. That is the reason why there are no Codings for `remote` or `practitioner` here. For `requester`, it was decided to only allow users with a certain role from a local organization to send this message. The message should now also only be processable by that same local organization. The right Coding for this job is the [coding-process-authorization-local-organization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-1.0.0.xml). The configuration of a local requester and local receiver is often used for the message that starts up the first BPMN process of the plugin. The process of adding the `recipient` slice is the exact same as it is for `requester`. It's possible to follow the same steps for the `requester` slice again but using a different Coding.
+The `recipient` will decide which DSF instance is allowed to process that message. That is the reason why there are no Codings for `remote` or `practitioner` here. For `requester`, it was decided to only allow users with a certain role from a local organization to send this message. The message should now also only be processable by that same local organization. The right Coding for this job is the [coding-process-authorization-local-organization](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-coding-process-authorization-local-organization-2.0.0.xml). The configuration of a local requester and local receiver is often used for the message that starts up the first BPMN process of the plugin. The process of adding the `recipient` slice is the exact same as it is for `requester`. It's possible to follow the same steps for the `requester` slice again but using a different Coding.
 
 <details>
 <summary>This is how the ActivityDefinition should look like</summary>
@@ -540,6 +544,7 @@ The `recipient` will decide which DSF instance is allowed to process that messag
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -550,7 +555,7 @@ The `recipient` will decide which DSF instance is allowed to process that messag
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -589,7 +594,7 @@ The `recipient` will decide which DSF instance is allowed to process that messag
 ```
 </details>
 
-The last element defined in the [process authorization extension](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml) is `Extension.url`. This was already added at the very beginning of the working through the extension, so there is nothing more to add.
+The last element defined in the [process authorization extension](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml) is `Extension.url`. This was already added at the very beginning of the working through the extension, so there is nothing more to add.
 
 #### 3. BPE Managed Elements
 
@@ -606,6 +611,7 @@ The following elements are managed by the DSF BPE:
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -616,7 +622,7 @@ The following elements are managed by the DSF BPE:
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -679,6 +685,7 @@ All other elements can technically be omitted. Still, the following elements are
 ```xml
 <ActivityDefinition xmlns="http://hl7.org/fhir">
     <meta>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/activity-definition" />
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag" />
             <code value="ALL" />
@@ -689,7 +696,7 @@ All other elements can technically be omitted. Still, the following elements are
             <valueString value="myMessage"/>
         </extension>
         <extension url="task-profile">
-            <valueCanonical value="http://dsf.dev/fhir/StructureDefinition/my-task|#{version}"/>
+            <valueCanonical value="http://example.org/fhir/StructureDefinition/my-task|#{version}"/>
         </extension>
         <extension url="requester">
             <valueCoding>
@@ -730,7 +737,7 @@ All other elements can technically be omitted. Still, the following elements are
     <date value="#{date}"/>
     <!-- status managed by bpe -->
     <status value="unknown"/>
-    <url value="http://dsf.dev/bpe/Process/myProcess"/>
+    <url value="http://example.org/bpe/Process/myProcess"/>
     <kind value="Task"/>
     <name value="My Process"/>
     <title value="My Title For My Process"/>
@@ -741,7 +748,7 @@ All other elements can technically be omitted. Still, the following elements are
         <name value="DSF"/>
         <telecom>
             <system value="email"/>
-            <value value="noreply@dsf.dev"/>
+            <value value="noreply@example.org"/>
         </telecom>
     </contact>
     <description value="My Process processes information"/>

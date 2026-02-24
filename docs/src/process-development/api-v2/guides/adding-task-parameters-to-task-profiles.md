@@ -1,9 +1,10 @@
 ---
-title: Adding Task Input Parameters to Task Profiles
+title: Adding Task Parameters to Task Profiles
 icon: creative
 ---
 
-## Adding Task Input Parameters to Task Profiles
+## Adding Task Parameters to Task Profiles
+This guide will demonstrate adding Input Parameters to a Task profile but can be used analogously for Output Parameters as well by replacing instances of `input` with `output`
 
 When adding a new [Input Parameter](../fhir/task.md#task-input-parameters) to a [Task](../fhir/task.md) profile,  a new slice is added to `Task.input`. [Slicing](https://www.hl7.org/fhir/R4/profiling.html#slicing) is part of [profiling](https://www.hl7.org/fhir/R4/profiling.html) in FHIR. Profiling lets you create your own FHIR definitions based on pre-existing FHIR definitions. A slicing defines constraints on element lists like `Task.input` e.g. by only allowing the elements to be of certain types. 
 For example, there might be a list of fruits in a `FruitBasket` resource. Constraining that list to only include fruits of type `Apple`, `Banana` and `Orange` would be considered [slicing](https://www.hl7.org/fhir/R4/profiling.html#slicing).  
@@ -31,7 +32,7 @@ The slicing for `Task.input` is defined in this part of the `baseDefinition`:
     <min value="1" />
 </element>
 ```
-*The resource can be found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-base-1.0.0.xml)*
+*The resource can be found [here](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-2.0.0.xml)*
 
 First look at the `discriminator` tag. Discriminators define the elements a FHIR processor needs to distinguish slices by. In this case, a processor would look at the values for `type.coding.system` and `type.coding.code` to determine which slice this element belongs to. The discriminator type `value` implies that `type.coding.system` and `type.coding.code` have to be present in all slices and need to have a fixed value. There is more information about discriminators in the [official FHIR documentation](https://www.hl7.org/fhir/R4/profiling.html#discriminator).
 
@@ -70,7 +71,7 @@ Next up is the binding for `Task.input:example-input.type`. Because `Task.input.
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://dsf.dev/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
     </differential>
@@ -94,7 +95,7 @@ Since the [discriminator](https://www.hl7.org/fhir/R4/profiling.html#discriminat
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://dsf.dev/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -122,7 +123,7 @@ The beginning mentioned how `Task.input.type.coding.system` and `Task.input.type
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://dsf.dev/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -132,7 +133,7 @@ The beginning mentioned how `Task.input.type.coding.system` and `Task.input.type
         <element id="Task.input:example-input.type.coding.system">
             <path value="Task.input.type.coding.system"/>
             <min value="1"/>
-            <fixedUri value="http://dsf.dev/fhir/CodeSystem/example"/>
+            <fixedUri value="http://example.org/fhir/CodeSystem/example"/>
         </element>
         <element id="Task.input:example-input.type.coding.code">
             <path value="Task.input.type.coding.code"/>
@@ -152,7 +153,7 @@ The `type.coding.system` element references a [CodeSystem](../fhir/codesystem.md
     <input>
         <type>
             <coding>
-                <system value="http://dsf.dev/fhir/CodeSystem/example"/>
+                <system value="http://example.org/fhir/CodeSystem/example"/>
                 <code value="example-input" />
             </coding>
         </type>
@@ -180,7 +181,7 @@ Adding a slice in a different use case will also require to reference an existin
             <path value="Task.input.type" />
             <binding>
                 <strength value="required"/>
-                <valueSet value="http://dsf.dev/fhir/ValueSet/example" />
+                <valueSet value="http://example.org/fhir/ValueSet/example" />
             </binding>
         </element>
         <element id="Task.input:example-input.type.coding">
@@ -190,7 +191,7 @@ Adding a slice in a different use case will also require to reference an existin
         <element id="Task.input:example-input.type.coding.system">
             <path value="Task.input.type.coding.system"/>
             <min value="1"/>
-            <fixedUri value="http://dsf.dev/fhir/CodeSystem/example"/>
+            <fixedUri value="http://example.org/fhir/CodeSystem/example"/>
         </element>
         <element id="Task.input:example-input.type.coding.code">
             <path value="Task.input.type.coding.code"/>

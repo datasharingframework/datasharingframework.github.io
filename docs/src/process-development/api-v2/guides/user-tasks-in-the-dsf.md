@@ -7,7 +7,7 @@ icon: creative
 
 Creating a [User Task](../bpmn/user-tasks.md) in a BPMN model causes the DSF to automatically generate a [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) resource based on the [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) specified in the [User Task's](../bpmn/user-tasks.md) `Forms` field when process execution reaches the [User Task](../bpmn/user-tasks.md). The `Forms` field must have the type `Embedded or External Task Forms`, with the `Form key` set to the URL of the [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) resource. The [Questionnaire](https://www.hl7.org/fhir/R4/questionnaire.html) resource must be placed in the `src/main/resources/fhir/Questionnaire` directory.
 
-The generated [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) can be accessed and answered by navigating to `https://your.dsf.fhir.server/fhir/QuestionnaireResponse?_sort=-_lastUpdated&status=in-progress` in the DSF FHIR server UI. After completing and submitting the [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html), the process execution will proceed to the next BPMN element following the [User Task](../bpmn/user-tasks.md). The updated [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) will then be accessible via the [Process Plugin Api's](../dsf/process-plugin-api.md) `Variables` instance by calling `getLatestReceivedQuestionnaireResponse()`.
+The generated [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) can be accessed and answered by navigating to `https://example.org/fhir/QuestionnaireResponse?_sort=-_lastUpdated&status=in-progress` in the DSF FHIR server UI. After completing and submitting the [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html), the process execution will proceed to the next BPMN element following the [User Task](../bpmn/user-tasks.md). The updated [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) will then be accessible via the [Process Plugin Api's](../dsf/process-plugin-api.md) `Variables` instance by calling `getLatestReceivedQuestionnaireResponse()`.
 
 It is also possible to register a [Task Listener](https://docs.camunda.org/manual/7.21/user-guide/process-engine/delegation-code/#task-listener) on the [User Task](../bpmn/user-tasks.md). This enables manipulation of the [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html) before it is posted to the DSF FHIR server. This can be achieved by extending the `DefaultUserTaskListener` class, which provides overrides for interacting with the [QuestionnaireResponse](https://www.hl7.org/fhir/R4/questionnaireresponse.html).
 
@@ -21,13 +21,13 @@ Below is a template for a [Questionnaire](https://www.hl7.org/fhir/R4/questionna
 ```xml
 <Questionnaire xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire|1.5.0"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire"/>
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
         </tag>
     </meta>
-    <url value="http://dsf.dev/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
+    <url value="http://example.org/fhir/Questionnaire/questionnaire-name"/>     <!-- file name should be same as the name of your Questionnaire -->
     <!-- version managed by bpe -->
     <version value="#{version}"/>
     <!-- date managed by bpe -->
