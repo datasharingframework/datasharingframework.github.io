@@ -1,0 +1,60 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/ValueSet/bpmn-message> a fhir:ValueSet ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "bpmn-message"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://dsf.dev/fhir/StructureDefinition/value-set"^^xsd:anyURI ;
+       fhir:l <http://dsf.dev/fhir/StructureDefinition/value-set>
+     ] ) ;
+     fhir:tag ( [
+       fhir:system [
+         fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ;
+         fhir:l <http://dsf.dev/fhir/CodeSystem/read-access-tag>
+       ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: ValueSet bpmn-message</b></p><a name=\"bpmn-message\"> </a><a name=\"hcbpmn-message\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-value-set.html\">ValueSet</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include all codes defined in <a href=\"CodeSystem-bpmn-message.html\"><code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code></a><span title=\"Version is explicitly stated to be 2.0.0\"> version ?2.0.0</span></li></ul></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "http://dsf.dev/fhir/ValueSet/bpmn-message"^^xsd:anyURI ;
+     fhir:l <http://dsf.dev/fhir/ValueSet/bpmn-message>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "DsfBpmnMessage"] ; # 
+  fhir:title [ fhir:v "DSF BPMN message values"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2025-11-26"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "ValueSet with standard BPMN message values for Task resources"] ; # 
+  fhir:immutable [ fhir:v true] ; # 
+  fhir:compose [
+     fhir:include ( [
+       fhir:system [
+         fhir:v "http://dsf.dev/fhir/CodeSystem/bpmn-message"^^xsd:anyURI ;
+         fhir:l <http://dsf.dev/fhir/CodeSystem/bpmn-message>
+       ] ;
+       fhir:version [ fhir:v "2.0.0" ]
+     ] )
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

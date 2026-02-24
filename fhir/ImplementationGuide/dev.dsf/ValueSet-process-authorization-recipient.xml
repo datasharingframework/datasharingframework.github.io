@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="process-authorization-recipient"/>
+  <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/value-set"/>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="ALL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ValueSet process-authorization-recipient</b></p><a name="process-authorization-recipient"> </a><a name="hcprocess-authorization-recipient"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-value-set.html">ValueSet</a></p><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><ul><li>Include these codes as defined in <a href="CodeSystem-process-authorization.html"><code>http://dsf.dev/fhir/CodeSystem/process-authorization</code></a><span title="Version is explicitly stated to be 2.0.0"> version &#x1F4CD;2.0.0</span><table class="none"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td><a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ORGANIZATION">LOCAL_ORGANIZATION</a></td><td>LOCAL_ORGANIZATION</td><td>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</td></tr><tr><td><a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ROLE">LOCAL_ROLE</a></td><td>LOCAL_ROLE</td><td>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</td></tr><tr><td><a href="CodeSystem-process-authorization.html#process-authorization-LOCAL_ALL">LOCAL_ALL</a></td><td>LOCAL_ALL</td><td>Process authorization for all local organizations</td></tr></table></li></ul></div>
+  </text>
+  <url value="http://dsf.dev/fhir/ValueSet/process-authorization-recipient"/>
+  <version value="2.0.0"/>
+  <name value="DSF_Process_Authorization_Recipient"/>
+  <title value="DSF Process Authorization Recipient"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-11-26"/>
+  <publisher value="DSF Community"/>
+  <contact>
+    <name value="DSF Community"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://dsf.dev"/>
+    </telecom>
+  </contact>
+  <description value="ValueSet with proces authorization codes for recipients"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://dsf.dev/fhir/CodeSystem/process-authorization"/>
+      <version value="2.0.0"/>
+      <concept>
+        <code value="LOCAL_ORGANIZATION"/>
+        <display value="LOCAL_ORGANIZATION"/>
+      </concept>
+      <concept>
+        <code value="LOCAL_ROLE"/>
+        <display value="LOCAL_ROLE"/>
+      </concept>
+      <concept>
+        <code value="LOCAL_ALL"/>
+        <display value="LOCAL_ALL"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
