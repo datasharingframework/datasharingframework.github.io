@@ -14,7 +14,6 @@ Maven Dependency:
 	<dependency>
 		<groupId>dev.dsf</groupId>
 		<artifactId>dsf-bpe-process-api-v2</artifactId>
-		<artifactId>dsf-bpe-process-api-v2</artifactId>
 		<version>${dsf.version}</version>
 		<scope>provided</scope>
 	</dependency>
