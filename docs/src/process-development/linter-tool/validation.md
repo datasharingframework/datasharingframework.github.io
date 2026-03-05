@@ -118,53 +118,55 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Name Validation**:
   - Task must have a non-empty name
-  - Error: `BpmnServiceTaskNameEmptyLintItem`
+  - Error: `BPMN_SERVICE_TASK_NAME_EMPTY`
 
 - **Implementation Class Validation**:
   - `camunda:class` or `camunda:delegateExpression` must be specified
-  - Error: `BpmnServiceTaskImplementationNotExistLintItem`
-  - Error: `BpmnServiceTaskImplementationClassEmptyLintItem`
+  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_NOT_EXIST`
+  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_EMPTY`
   - Implementation class must exist in the classpath
-  - Error: `BpmnServiceTaskImplementationClassNotFoundLintItem`
-  
+  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
+
 - **API Version-Specific Requirements**:
   - **V1 API**:
     - Both checks are performed separately:
       - Class must extend `dev.dsf.bpe.v1.activity.AbstractServiceDelegate`
-        - Error: `BpmnServiceTaskNotExtendingAbstractServiceDelegateLintItem` (if not extending)
+        - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_SERVICE_DELEGATE` (if not extending)
       - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-        - Error: `BpmnServiceTaskImplementationClassNotImplementingJavaDelegateLintItem` (if not implementing)
+        - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
     - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
   - **V2 API**:
     - Class must implement `dev.dsf.bpe.v2.activity.ServiceTask`
-    - Error: `BpmnServiceTaskNoInterfaceClassImplementingLintItem`
+    - Error: `BPMN_SERVICE_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
 
 ##### User Tasks
 
 - **Name Validation**:
   - Task must have a non-empty name
-  - Error: `BpmnUserTaskNameEmptyLintItem`
+  - Error: `BPMN_USER_TASK_NAME_EMPTY`
 
 - **Form Key Validation**:
   - `camunda:formKey` must be present and non-empty
-  - Error: `BpmnUserTaskFormKeyEmptyLintItem`
+  - Error: `BPMN_USER_TASK_FORM_KEY_EMPTY`
   - Must reference an external form (starting with "external:", "http://", or "https://")
-  - Error: `BpmnUserTaskFormKeyIsNotAnExternalFormLintItem`
+  - Error: `BPMN_USER_TASK_FORM_KEY_IS_NOT_AN_EXTERNAL_FORM`
   - Must reference a valid Questionnaire resource
+  - Referenced Questionnaire must exist in the plugin
+  - Error: `BPMN_USER_TASK_QUESTIONNAIRE_NOT_FOUND`
 
 - **Listener Validation**:
   - Listener classes must exist
-  - Error: `BpmnUserTaskListenerJavaClassNotFoundLintItem`
+  - Error: `BPMN_USER_TASK_LISTENER_JAVA_CLASS_NOT_FOUND`
   - Listener must have class attribute
-  - Error: `BpmnUserTaskListenerMissingClassAttributeLintItem`
-  
+  - Error: `BPMN_USER_TASK_LISTENER_MISSING_CLASS_ATTRIBUTE`
+
 - **API Version-Specific Requirements**:
   - **V1 API**:
     - Listener must extend `dev.dsf.bpe.v1.activity.DefaultUserTaskListener` OR implement `org.camunda.bpm.engine.delegate.TaskListener`
-    - Error: `BpmnUserTaskListenerNotExtendingOrImplementingRequiredClassLintItem`
+    - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
   - **V2 API**:
     - Listener must extend `dev.dsf.bpe.v2.activity.DefaultUserTaskListener` OR implement `dev.dsf.bpe.v2.activity.UserTaskListener`
-    - Error: `BpmnUserTaskListenerNotExtendingOrImplementingRequiredClassLintItem`
+    - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
 
 - **Task Listener Input Parameter Validation (V2 API only)**:
   - Validates input parameters (`camunda:inputParameter`) within task listeners for API v2
@@ -175,16 +177,16 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
     - **Severity**:
       - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
       - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
-    - Error/Warning: `BpmnPractitionerRolehasNoValueOrNullLintItem`
-    - Success: `BpmnElementLintItemSuccess` (when value is present and non-empty)
+    - Error/Warning: `BPMN_PRACTITIONER_ROLE_HAS_NO_VALUE_OR_NULL`
+    - Success: `SUCCESS` (when value is present and non-empty)
   
   - **`practitioners` Parameter**:
     - If a `practitioners` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
     - **Severity**:
       - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
       - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
-    - Error/Warning: `BpmnPractitionershasNoValueOrNullLintItem`
-    - Success: `BpmnElementLintItemSuccess` (when value is present and non-empty)
+    - Error/Warning: `BPMN_PRACTITIONERS_HAS_NO_VALUE_OR_NULL`
+    - Success: `SUCCESS` (when value is present and non-empty)
   
   - **Validation Behavior**:
     - Only validates input parameters if they are explicitly defined in the BPMN file
@@ -198,25 +200,25 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   
   - **Completeness Check**:
     - If any of the three fields (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) is set, all three must be set
-    - Error: `BpmnUserTaskListenerIncompleteTaskOutputFieldsLintItem`
+    - Error: `BPMN_USER_TASK_LISTENER_INCOMPLETE_TASK_OUTPUT_FIELDS`
     - Message: "If taskOutputSystem, taskOutputCode, or taskOutputVersion is set, all three must be set"
     - Validation is skipped if none of the fields are set
   
   - **FHIR Resource Validation**:
     - **`taskOutputSystem`**: Should reference a valid CodeSystem URL
       - Uses `FhirAuthorizationCache.containsSystem()` to check if the CodeSystem exists
-      - Error: `BpmnUserTaskListenerTaskOutputSystemInvalidFhirResourceLintItem` if CodeSystem is unknown
-      - Success: `BpmnElementLintItemSuccess` when CodeSystem is valid
+      - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_SYSTEM_INVALID_FHIR_RESOURCE` if CodeSystem is unknown
+      - Success: `SUCCESS` when CodeSystem is valid
     
     - **`taskOutputCode`**: Should be a valid code in the referenced CodeSystem
       - Uses `FhirAuthorizationCache.isUnknown()` to check if the code exists in the CodeSystem
-      - Error: `BpmnUserTaskListenerTaskOutputCodeInvalidFhirResourceLintItem` if code is unknown
-      - Success: `BpmnElementLintItemSuccess` when code is valid
+      - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_CODE_INVALID_FHIR_RESOURCE` if code is unknown
+      - Success: `SUCCESS` when code is valid
     
     - **`taskOutputVersion`**: Must contain a placeholder (e.g., `#{version}`)
       - Uses `LintingUtils.containsPlaceholder()` to check for placeholders
-      - Warning: `BpmnUserTaskListenerTaskOutputVersionNoPlaceholderLintItem` if no placeholder found
-      - Success: `BpmnElementLintItemSuccess` when placeholder is present
+      - Warning: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_VERSION_NO_PLACEHOLDER` if no placeholder found
+      - Success: `SUCCESS` when placeholder is present
   
   - **Validation Behavior**:
     - Only validates field injections if they are explicitly defined in the task listener's `extensionElements`
@@ -232,60 +234,60 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Implementation Class Validation**:
   - Implementation class must exist
-  - Error: `BpmnMessageSendTaskImplementationClassEmptyLintItem`
-  - Error: `BpmnMessageSendTaskImplementationClassNotFoundLintItem`
+  - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_EMPTY`
+  - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
   
 - **API Version-Specific Requirements**:
   - **V1 API**:
     - Both checks are performed separately:
       - Class must extend `dev.dsf.bpe.v1.activity.AbstractTaskMessageSend`
-        - Error: `BpmnSendTaskNotExtendingAbstractTaskMessageSendLintItem` (if not extending)
+        - Error: `BPMN_SEND_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_TASK_MESSAGE_SEND` (if not extending)
       - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-        - Error: `BpmnMessageSendEventImplementationClassNotImplementingJavaDelegateLintItem` (if not implementing)
+        - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
     - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
   - **V2 API**:
     - Class must implement `dev.dsf.bpe.v2.activity.MessageSendTask`
-    - Error: `BpmnSendTaskNoInterfaceClassImplementingLintItem`
+    - Error: `BPMN_SEND_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
 
 - **Field Injection Validation**:
   - Same field injections as Message Send Events are validated: `profile`, `messageName`, and `instantiatesCanonical`
   - `profile` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionProfileEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_PROFILE_EMPTY`
     - Must contain version placeholder `#{version}`
-    - Error: `BpmnFieldInjectionProfileNoVersionPlaceholderLintItem`
+    - Error: `BPMN_FIELD_INJECTION_PROFILE_NO_VERSION_PLACEHOLDER`
     - Must reference existing StructureDefinition
-    - Error: `BpmnNoStructureDefinitionFoundForMessageLintItem`
+    - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
   - `messageName` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionMessageValueEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_MESSAGE_VALUE_EMPTY`
     - Must be a string literal
-    - Error: `BpmnFieldInjectionNotStringLiteralLintItem`
+    - Error: `BPMN_FIELD_INJECTION_NOT_STRING_LITERAL`
   - `instantiatesCanonical` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionInstantiatesCanonicalEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_EMPTY`
     - Must end with version placeholder `|#{version}`
-    - Error: `BpmnFieldInjectionInstantiatesCanonicalNoVersionPlaceholderLintItem`
+    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_NO_VERSION_PLACEHOLDER`
     - Must reference existing ActivityDefinition
-    - Error: `BpmnNoActivityDefinitionFoundForMessageLintItem`
+    - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
   - Unknown field injections are reported
-    - Error: `BpmnUnknownFieldInjectionLintItem`
+    - Error: `BPMN_UNKNOWN_FIELD_INJECTION`
 
 ##### Receive Tasks
 
 - **Name Validation**:
   - Task must have a non-empty name
-  - Warning: `BpmnEventNameEmptyLintItem`
+  - Warning: `BPMN_EVENT_NAME_EMPTY`
 
 - **Message Definition Validation**:
   - Message definition must be present and have a non-empty message name
-  - Error: `BpmnMessageStartEventMessageNameEmptyLintItem`
+  - Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY`
 
 - **FHIR Resource Validation**:
   - Message name must reference an existing ActivityDefinition
-  - Error: `BpmnNoActivityDefinitionFoundForMessageLintItem`
+  - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
   - Message name must reference an existing StructureDefinition
-  - Error: `BpmnNoStructureDefinitionFoundForMessageLintItem`
+  - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
 
 #### Event Validation
 
@@ -293,90 +295,90 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Event Name Validation**:
   - Event must have a non-empty name
-  - Error: `BpmnEventNameEmptyLintItem`
-  - Error: `BpmnMessageStartEventMessageNameEmptyLintItem`
-  - Error: `BpmnMessageIntermediateCatchEventNameEmptyLintItem`
-  - Error: `BpmnMessageIntermediateCatchEventMessageNameEmptyLintItem`
-  - Error: `BpmnMessageBoundaryEventNameEmptyLintItem`
+  - Error: `BPMN_EVENT_NAME_EMPTY`
+  - Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY`
+  - Error: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_NAME_EMPTY`
+  - Error: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_MESSAGE_NAME_EMPTY`
+  - Error: `BPMN_MESSAGE_BOUNDARY_EVENT_NAME_EMPTY`
 
 - **Implementation Class Validation**:
   - For send events, implementation class must exist
-  - Error: `BpmnMessageSendEventImplementationClassEmptyLintItem`
-  - Error: `BpmnMessageSendEventImplementationClassNotFoundLintItem`
+  - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_EMPTY`
+  - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_FOUND`
   - Intermediate throw events should not have message definitions
-  - Error: `BpmnMessageIntermediateThrowEventHasMessageLintItem`
+  - Error: `BPMN_MESSAGE_INTERMEDIATE_THROW_EVENT_HAS_MESSAGE`
   
 - **API Version-Specific Requirements**:
   - **V1 API**:
     - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-    - Error: `BpmnMessageSendEventImplementationClassNotImplementingJavaDelegateLintItem`
+    - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE`
     - Throw events must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-    - Error: `BpmnEndOrIntermediateThrowEventMissingInterfaceLintItem`
+    - Error: `BPMN_END_EVENT_NO_INTERFACE_CLASS_IMPLEMENTING`
   - **V2 API**:
     - Message Intermediate Throw Events must implement `dev.dsf.bpe.v2.activity.MessageIntermediateThrowEvent`
     - Message End Events must implement `dev.dsf.bpe.v2.activity.MessageEndEvent`
-    - Error: `BpmnEndOrIntermediateThrowEventMissingInterfaceLintItem`
+    - Error: `BPMN_END_EVENT_NO_INTERFACE_CLASS_IMPLEMENTING`
 
 - **Field Injection Validation**:
   - `profile` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionProfileEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_PROFILE_EMPTY`
     - Must contain version placeholder `#{version}`
-    - Error: `BpmnFieldInjectionProfileNoVersionPlaceholderLintItem`
+    - Error: `BPMN_FIELD_INJECTION_PROFILE_NO_VERSION_PLACEHOLDER`
     - Must reference existing StructureDefinition
-    - Error: `BpmnNoStructureDefinitionFoundForMessageLintItem`
+    - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
   
   - `messageName` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionMessageValueEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_MESSAGE_VALUE_EMPTY`
     - Must be a string literal
-    - Error: `BpmnFieldInjectionNotStringLiteralLintItem`
+    - Error: `BPMN_FIELD_INJECTION_NOT_STRING_LITERAL`
   
   - `instantiatesCanonical` field injection:
     - Must be non-empty
-    - Error: `BpmnFieldInjectionInstantiatesCanonicalEmptyLintItem`
+    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_EMPTY`
     - Must end with version placeholder `|#{version}`
-    - Error: `BpmnFieldInjectionInstantiatesCanonicalNoVersionPlaceholderLintItem`
+    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_NO_VERSION_PLACEHOLDER`
     - Must reference existing ActivityDefinition
-    - Error: `BpmnNoActivityDefinitionFoundForMessageLintItem`
+    - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
 
 ##### Timer Events
 
 - **Timer Type Validation**:
   - At least one of `timeDate`, `timeCycle`, or `timeDuration` must be set
-  - Error: `BpmnFloatingElementLintItem` ("Timer type is empty")
+  - Error: `BPMN_FLOATING_ELEMENT` (`TIMER_TYPE_IS_EMPTY`)
 
 - **Fixed Date Warning**:
   - `timeDate` expressions are flagged with an informational message to verify if a fixed date is intended
-  - Info: `BpmnFloatingElementLintItem` ("Timer type is a fixed date/time (timeDate)")
+  - Info: `BPMN_FLOATING_ELEMENT` (`TIMER_TYPE_IS_A_FIXED_DATE_TIME`)
 
 - **Placeholder Validation**:
   - `timeCycle` and `timeDuration` values should contain a placeholder (e.g., `#{interval}`)
-  - Warning: `BpmnFloatingElementLintItem` ("Timer value appears fixed (no placeholder found)")
+  - Warning: `BPMN_FLOATING_ELEMENT` (`TIMER_VALUE_APPEARS_FIXED_NO_PLACEHOLDER_FOUND`)
 
 ##### Error Boundary Events
 
 - **Error Configuration Validation**:
   - Error reference must be present
   - Error code must not be empty
-  - Error: `BpmnErrorBoundaryEventErrorCodeEmptyLintItem`
+  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_EMPTY`
   - Error name must not be empty (warning)
-  - Error: `BpmnErrorBoundaryEventErrorNameEmptyLintItem`
-  - Error: `BpmnErrorBoundaryEventNameEmptyLintItem`
+  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_NAME_EMPTY`
+  - Error: `BPMN_ERROR_BOUNDARY_EVENT_NAME_EMPTY`
   - Error code variable must not be empty
-  - Error: `BpmnErrorBoundaryEventErrorCodeVariableEmptyLintItem`
+  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_VARIABLE_EMPTY`
 
 ##### Signal Events
 
 - **Signal Definition Validation**:
   - Signal end events must have a non-empty name
-  - Error: `BpmnSignalEndEventNameEmptyLintItem`
+  - Error: `BPMN_SIGNAL_END_EVENT_NAME_EMPTY`
   - Signal end events must have a signal definition
-  - Error: `BpmnSignalEndEventSignalEmptyLintItem`
+  - Error: `BPMN_SIGNAL_END_EVENT_SIGNAL_EMPTY`
   - Signal intermediate throw events must have a non-empty name
-  - Error: `BpmnSignalIntermediateThrowEventNameEmptyLintItem`
+  - Error: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_NAME_EMPTY`
   - Signal intermediate throw events must have a signal definition
-  - Error: `BpmnSignalIntermediateThrowEventSignalEmptyLintItem`
+  - Error: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_SIGNAL_EMPTY`
   - Signal definitions must be valid
   - Signal references must be correct
 
@@ -384,32 +386,38 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 
 - **Event Name Validation**:
   - Conditional Intermediate Catch Event should have a non-empty name
-  - Warning: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event name is empty")
+  - Warning: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_NAME_IS_EMPTY`)
 
 - **Variable Name Validation**:
   - `camunda:variableName` attribute must not be empty
-  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event variable name is empty")
+  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_VARIABLE_NAME_IS_EMPTY`)
 
 - **Variable Events Validation**:
   - `camunda:variableEvents` attribute must not be empty
-  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event variableEvents is empty")
+  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_VARIABLE_EVENTS_IS_EMPTY`)
 
 - **Condition Type Validation**:
   - `camunda:conditionType` must be set, or a condition expression must be provided (in which case `"expression"` is assumed)
-  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event condition type is empty")
+  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_CONDITION_TYPE_IS_EMPTY`)
 
 - **Condition Expression Validation**:
   - When condition type is `"expression"`, the condition expression must not be empty
-  - Error: `BpmnFloatingElementLintItem` ("Conditional Intermediate Catch Event condition expression is empty")
+  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_CONDITION_TYPE_IS_NOT_EXPRESSION`)
 
 #### Gateway and Flow Validation
+
+##### Flow Structure
+
+- **Message Start Event**:
+    - Message-triggered processes must have a message start event
+    - Error: `BPMN_MESSAGE_START_EVENT_NOT_FOUND`
 
 ##### Exclusive Gateways
 
 - **Sequence Flow Validation**:
   - Outgoing sequence flows must have appropriate names
   - When multiple outgoing flows exist, gateway must have a name
-  - Error: `BpmnExclusiveGatewayHasMultipleOutgoingFlowsButNameIsEmptyLintItem`
+  - Error: `BPMN_EXCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
   - Conditional expressions required when multiple paths exist
   - Default flow validation
 
@@ -418,7 +426,7 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 - **Sequence Flow Validation**:
   - Similar requirements as exclusive gateways
   - When multiple outgoing flows exist, gateway must have a name
-  - Error: `BpmnInclusiveGatewayHasMultipleOutgoingFlowsButNameIsEmptyLintItem`
+  - Error: `BPMN_INCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
   - Multiple path handling
 
 ##### Event-Based Gateways
@@ -432,7 +440,7 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 - **Naming and Conditions**:
   - Naming conventions
   - Conditional expressions for non-default flows from splitting gateways
-  - Error: `BpmnFlowElementLintItem`
+  - Error: `BPMN_FLOW_ELEMENT`
 
 #### SubProcess Validation
 
@@ -441,43 +449,43 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 - **Asynchronous Execution**:
   - `asyncBefore` must be set to `true` for proper asynchronous execution
   - Required for multi-instance subprocesses
-  - Error: `BpmnSubProcessHasMultiInstanceButIsNotAsyncBeforeTrueLintItem`
+  - Error: `BPMN_SUB_PROCESS_HAS_MULTI_INSTANCE_BUT_IS_NOT_ASYNC_BEFORE_TRUE`
 
 ##### Start/End Events in SubProcesses
 
 - **Structural Validation**:
   - Start events must be part of subprocess
-  - Error: `BpmnStartEventNotPartOfSubProcessLintItem`
+  - Error: `BPMN_START_EVENT_NOT_PART_OF_SUB_PROCESS`
   - End events must be part of subprocess
-  - Error: `BpmnEndEventNotPartOfSubProcessLintItem`
+  - Error: `BPMN_END_EVENT_NOT_PART_OF_SUB_PROCESS`
   - End events inside subprocesses should have `asyncAfter` set to `true`
-  - Error: `BpmnEndEventInsideSubProcessShouldHaveAsyncAfterTrueLintItem`
+  - Error: `BPMN_END_EVENT_INSIDE_SUB_PROCESS_SHOULD_HAVE_ASYNC_AFTER_TRUE`
 
 #### Floating Elements
 
 - **Element Placement**:
   - Elements must be properly connected
-  - Error: `BpmnFloatingElementLintItem`
+  - Error: `BPMN_FLOATING_ELEMENT`
 
 #### Execution Listeners
 
 - **Execution Listener Validation**:
   - Execution listener classes must exist in the classpath
-  - Error: `BpmnExecutionListenerClassNotFoundLintItem`
-  
+  - Error: `BPMN_EXECUTION_LISTENER_CLASS_NOT_FOUND`
+
 - **API Version-Specific Requirements**:
   - **V1 API**:
     - Execution listener classes must implement `org.camunda.bpm.engine.delegate.ExecutionListener`
-    - Error: `BpmnExecutionListenerNotImplementingRequiredInterfaceLintItem`
+    - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
   - **V2 API**:
     - Execution listener classes must implement `dev.dsf.bpe.v2.activity.ExecutionListener`
-    - Error: `BpmnExecutionListenerNotImplementingRequiredInterfaceLintItem`
+    - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
 
 #### Unknown Field Injections
 
 - **Field Injection Validation**:
   - Only known field injections are allowed
-  - Error: `BpmnUnknownFieldInjectionLintItem`
+  - Error: `BPMN_UNKNOWN_FIELD_INJECTION`
 
 ### FHIR Resource Validation
 
@@ -489,7 +497,7 @@ The linter validates FHIR resources against DSF-specific profiles and HL7 FHIR s
 
 - **Resource Parsing**:
   - FHIR resources must be valid XML or JSON
-  - Error: `UnparsableFhirResourceLintItem`
+  - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
 
 #### Task Resources
 
@@ -499,57 +507,57 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
 
 - **Profile Validation**:
   - `meta.profile` must be present and point to a DSF Task profile
-  - Error: `FhirTaskMissingProfileLintItem`
+  - Error: `FHIR_TASK_MISSING_PROFILE`
   - Profile must be loadable
-  - Error: `FhirTaskCouldNotLoadProfileLintItem`
+  - Error: `FHIR_TASK_COULD_NOT_LOAD_PROFILE`
 
 - **InstantiatesCanonical Validation**:
   - `instantiatesCanonical` must be present
-  - Error: `FhirTaskMissingInstantiatesCanonicalLintItem`
+  - Error: `FHIR_TASK_MISSING_INSTANTIATES_CANONICAL`
   - Must end with version placeholder `|#{version}`
-  - Error: `FhirTaskInstantiatesCanonicalPlaceholderLintItem`
+  - Error: `FHIR_TASK_INSTANTIATES_CANONICAL_PLACEHOLDER`
   - Must reference existing ActivityDefinition
-  - Error: `FhirTaskUnknownInstantiatesCanonicalLintItem`
+  - Error: `FHIR_TASK_UNKNOWN_INSTANTIATES_CANONICAL`
 
 ##### Fixed Elements
 
 - **Status Validation**:
   - `status` must be present
-  - Error: `FhirTaskMissingStatusLintItem`
+  - Error: `FHIR_TASK_MISSING_STATUS`
   - Must be `"draft"` for template Task instances
-  - Error: `FhirTaskStatusNotDraftLintItem`
+  - Error: `FHIR_TASK_STATUS_NOT_DRAFT`
   - Must be a valid TaskStatus value
-  - Error: `FhirTaskUnknownStatusLintItem`
+  - Error: `FHIR_TASK_UNKNOWN_STATUS`
 
 - **Intent Validation**:
   - `intent` must be `"order"`
-  - Error: `FhirTaskValueIsNotSetAsOrderLintItem`
+  - Error: `FHIR_TASK_VALUE_IS_NOT_SET_AS_ORDER`
 
 - **Requester Validation**:
   - Requester must be present
-  - Error: `FhirTaskMissingRequesterLintItem`
+  - Error: `FHIR_TASK_MISSING_REQUESTER`
   - `requester.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
-  - Error: `FhirTaskInvalidRequesterLintItem`
+  - Error: `FHIR_TASK_INVALID_REQUESTER`
   - `requester.identifier.value` must be `#{organization}` (development)
-  - Error: `FhirTaskRequesterOrganizationNoPlaceholderLintItem`
-  - Error: `FhirTaskRequesterIdNoPlaceholderLintItem`
-  - Error: `FhirTaskRequesterIdNotExistLintItem`
+  - Error: `FHIR_TASK_REQUESTER_ORGANIZATION_NO_PLACEHOLDER`
+  - Error: `FHIR_TASK_REQUESTER_ID_NO_PLACEHOLDER`
+  - Error: `FHIR_TASK_REQUESTER_ID_NOT_EXIST`
 
 - **Recipient Validation**:
   - Recipient must be present
-  - Error: `FhirTaskMissingRecipientLintItem`
+  - Error: `FHIR_TASK_MISSING_RECIPIENT`
   - `restriction.recipient.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
-  - Error: `FhirTaskInvalidRecipientLintItem`
+  - Error: `FHIR_TASK_INVALID_RECIPIENT`
   - `restriction.recipient.identifier.value` must be `#{organization}` (development)
-  - Error: `FhirTaskRecipientOrganizationNoPlaceholderLintItem`
-  - Error: `FhirTaskRecipientIdNoPlaceholderLintItem`
-  - Error: `FhirTaskRecipientIdNotExistLintItem`
+  - Error: `FHIR_TASK_RECIPIENT_ORGANIZATION_NO_PLACEHOLDER`
+  - Error: `FHIR_TASK_RECIPIENT_ID_NO_PLACEHOLDER`
+  - Error: `FHIR_TASK_RECIPIENT_ID_NOT_EXIST`
 
 ##### Development Placeholders
 
 - **Date Placeholder**:
   - `authoredOn` must contain `#{date}`
-  - Error: `FhirTaskDateNoPlaceholderLintItem`
+  - Error: `FHIR_TASK_DATE_NO_PLACEHOLDER`
 
 ##### Task Identifier Validation
 
@@ -595,44 +603,44 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
 
 - **Input Presence**:
   - `Task.input` must not be empty
-  - Error: `FhirTaskMissingInputLintItem`
+  - Error: `FHIR_TASK_MISSING_INPUT`
 
 - **Structural Validation**:
   - Each input must have `type.coding.system` and `type.coding.code`
-  - Error: `FhirTaskInputRequiredCodingSystemAndCodingCodeLintItem`
+  - Error: `FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`
   - Each input must have a `value[x]` element
-  - Error: `FhirTaskInputMissingValueLintItem`
+  - Error: `FHIR_TASK_INPUT_MISSING_VALUE`
 
 - **Duplicate Detection**:
   - No two inputs may share the same `system#code` combination
-  - Error: `FhirTaskInputDuplicateSliceLintItem`
+  - Error: `FHIR_TASK_INPUT_DUPLICATE_SLICE`
 
 - **BPMN Slice Validation**:
   - `message-name` slice: Required (min=1, max=1)
-    - Error: `FhirTaskRequiredInputWithCodeMessageNameLintItem`
+    - Error: `FHIR_TASK_REQUIRED_INPUT_WITH_CODE_MESSAGE_NAME`
   - `business-key` slice:
     - Required when status is "in-progress", "completed", or "failed"
-    - Error: `FhirTaskStatusRequiredInputBusinessKeyLintItem`
+    - Error: `FHIR_TASK_STATUS_REQUIRED_INPUT_BUSINESS_KEY`
     - Must be absent when status is "draft"
-    - Error: `FhirTaskBusinessKeyExistsLintItem`
+    - Error: `FHIR_TASK_BUSINESS_KEY_EXISTS`
     - Business key validation may be skipped in certain conditions
-    - Warning: `FhirTaskBusinessKeyCheckIsSkippedLintItem`
+    - Warning: `FHIR_TASK_BUSINESS_KEY_CHECK_IS_SKIPPED`
   - `correlation-key` slice:
     - Validated against StructureDefinition cardinality
-    - Error: `FhirTaskCorrelationExistsLintItem`
-    - Error: `FhirTaskCorrelationMissingButRequiredLintItem`
+    - Error: `FHIR_TASK_CORRELATION_EXISTS`
+    - Error: `FHIR_TASK_CORRELATION_MISSING_BUT_REQUIRED`
 
 - **Cardinality Validation**:
   - Total input count validated against base cardinality
-  - Error: `FhirTaskInputInstanceCountBelowMinLintItem`
-  - Error: `FhirTaskInputInstanceCountExceedsMaxLintItem`
+  - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_BELOW_MIN`
+  - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_EXCEEDS_MAX`
   - Slice occurrence counts validated against slice-specific cardinality
-  - Error: `FhirTaskInputSliceCountBelowSliceMinLintItem`
-  - Error: `FhirTaskInputSliceCountExceedsSliceMaxLintItem`
+  - Error: `FHIR_TASK_INPUT_SLICE_COUNT_BELOW_SLICE_MIN`
+  - Error: `FHIR_TASK_INPUT_SLICE_COUNT_EXCEEDS_SLICE_MAX`
 
 - **Terminology Validation**:
   - Code/system combinations validated against DSF CodeSystems
-  - Error: `FhirTaskUnknownCodeLintItem`
+  - Error: `FHIR_TASK_UNKNOWN_CODE`
 
 #### StructureDefinition Resources
 
@@ -642,41 +650,41 @@ StructureDefinition resources are validated against DSF-specific constraints.
 
 - **Read Access Tag**:
   - Must contain valid read-access tag
-  - Error: `FhirStructureDefinitionMissingReadAccessTagLintItem`
+  - Error: `STRUCTURE_DEFINITION_READ_ACCESS_TAG_MISSING`
 
 - **URL Validation**:
   - `url` must be present and non-empty
-  - Error: `FhirStructureDefinitionMissingUrlLintItem`
+  - Error: `STRUCTURE_DEFINITION_URL_MISSING`
 
 - **Status Validation**:
   - `status` must be `"unknown"` (DSF convention)
-  - Error: `FhirStructureDefinitionInvalidStatusLintItem`
+  - Error: `STRUCTURE_DEFINITION_INVALID_STATUS`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
   - `version` must contain exactly `#{version}`
-  - Error: `FhirStructureDefinitionVersionNoPlaceholderLintItem`
+  - Error: `STRUCTURE_DEFINITION_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
   - `date` must contain exactly `#{date}`
-  - Error: `FhirStructureDefinitionDateNoPlaceholderLintItem`
+  - Error: `STRUCTURE_DEFINITION_DATE_NO_PLACEHOLDER`
 
 ##### Structure Validation
 
 - **Differential**:
   - `differential` element must exist
-  - Error: `FhirStructureDefinitionMissingDifferentialLintItem`
+  - Error: `STRUCTURE_DEFINITION_DIFFERENTIAL_MISSING`
 
 - **Snapshot**:
   - `snapshot` element should not be present (warning)
-  - Error: `FhirStructureDefinitionSnapshotPresentLintItem`
+  - Error: `STRUCTURE_DEFINITION_SNAPSHOT_PRESENT`
 
 - **Element IDs**:
   - Every `element` must have an `@id` attribute
-  - Error: `FhirStructureDefinitionElementWithoutIdLintItem`
+  - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_MISSING`
   - Element IDs must be unique
-  - Error: `FhirStructureDefinitionDuplicateElementIdLintItem`
+  - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_DUPLICATE`
 
 ##### Slice Cardinality Validation
 
@@ -684,15 +692,15 @@ According to FHIR profiling specification §5.1.0.14:
 
 - **SHOULD Rule**:
   - Sum of all slice minimum cardinalities should be ≤ base element's minimum
-  - Error: `FhirStructureDefinitionSliceMinSumAboveBaseMinLintItem`
+  - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_ABOVE_BASE_MIN`
 
 - **MUST Rule (Min Sum)**:
   - Sum of all slice minimum cardinalities must not exceed base element's maximum
-  - Error: `FhirStructureDefinitionSliceMinSumExceedsMaxLintItem`
+  - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_EXCEEDS_MAX`
 
 - **MUST Rule (Slice Max)**:
   - No individual slice's maximum cardinality may exceed base element's maximum
-  - Error: `FhirStructureDefinitionSliceMaxExceedsBaseMaxLintItem`
+  - Error: `STRUCTURE_DEFINITION_SLICE_MAX_TOO_HIGH`
 
 #### ValueSet Resources
 
@@ -702,57 +710,57 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Read Access Tags**:
   - Must contain at least one read-access tag (ALL or LOCAL)
-  - Error: `FhirValueSetMissingReadAccessTagAllOrLocalLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_READ_ACCESS_TAG_ALL_OR_LOCAL`
   - Organization role codes must be valid
-  - Error: `FhirValueSetOrganizationRoleMissingValidCodeValueLintItem`
+  - Error: `FHIR_VALUE_SET_ORGANIZATION_ROLE_MISSING_VALID_CODE_VALUE`
 
 - **Required Elements**:
   - `url` must be present
-  - Error: `FhirValueSetMissingUrlLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_URL`
   - `name` must be present
-  - Error: `FhirValueSetMissingNameLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_NAME`
   - `title` must be present
-  - Error: `FhirValueSetMissingTitleLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_TITLE`
   - `publisher` must be present
-  - Error: `FhirValueSetMissingPublisherLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_PUBLISHER`
   - `description` must be present
-  - Error: `FhirValueSetMissingDescriptionLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_DESCRIPTION`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
   - `version` must be `#{version}`
-  - Error: `FhirValueSetVersionNoPlaceholderLintItem`
+  - Error: `FHIR_VALUE_SET_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
   - `date` must be `#{date}`
-  - Error: `FhirValueSetDateNoPlaceholderLintItem`
+  - Error: `FHIR_VALUE_SET_DATE_NO_PLACEHOLDER`
 
 - **Include Version Placeholder**:
   - `compose.include.version` must be `#{version}`
-  - Error: `FhirValueSetIncludeVersionPlaceholderLintItem`
+  - Error: `FHIR_VALUE_SET_INCLUDE_VERSION_NO_PLACEHOLDER`
 
 ##### Compose Structure Validation
 
 - **Include Elements**:
   - At least one `compose.include` required
-  - Error: `FhirValueSetMissingComposeIncludeLintItem`
+  - Error: `FHIR_VALUE_SET_MISSING_COMPOSE_INCLUDE`
   - Each include must have a `system` attribute
-  - Error: `FhirValueSetIncludeMissingSystemLintItem`
+  - Error: `FHIR_VALUE_SET_INCLUDE_MISSING_SYSTEM`
 
 - **Concept Validation**:
   - Concept codes must be non-blank
-  - Error: `FhirValueSetConceptMissingCodeLintItem`
+  - Error: `FHIR_VALUE_SET_CONCEPT_MISSING_CODE`
   - Duplicate codes detected
-  - Error: `FhirValueSetDuplicateConceptCodeLintItem`
+  - Error: `FHIR_VALUE_SET_DUPLICATE_CONCEPT_CODE`
 
 ##### Terminology Compliance
 
 - **CodeSystem Validation**:
   - CodeSystem URLs validated against DSF terminology cache
-  - Warn: `FhirValueSetUnknownCodeLintItem`
+  - Warn: `FHIR_VALUE_SET_UNKNOWN_CODE`
   - Code exists but in different CodeSystem
-  - Error: `FhirValueSetFalseUrlReferencedLintItem`
+  - Error: `FHIR_VALUE_SET_FALSE_URL_REFERENCED`
 
 #### ActivityDefinition Resources
 
@@ -760,15 +768,15 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Profile**:
   - Must have valid profile
-  - Error: `FhirActivityDefinitionMissingProfileLintItem`
+  - Error: `ACTIVITY_DEFINITION_MISSING_PROFILE`
   - Profile must not have version number
-  - Error: `FhirActivityDefinitionProfileHasVersionNumberLintItem`
+  - Error: `ACTIVITY_DEFINITION_PROFILE_NO_PLACEHOLDER`
 
 ##### URL Validation
 
 - **URL Presence**:
   - URL must be present and non-empty
-  - Error: `FhirActivityDefinitionInvalidFhirUrlLintItem`
+  - Error: `INVALID_FHIR_URL`
 
 - **URL Pattern Validation**:
   - ActivityDefinition URL must follow a specific pattern
@@ -802,21 +810,21 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Status**:
   - Status must be valid
-  - Error: `FhirActivityDefinitionInvalidFhirStatusLintItem`
+  - Error: `INVALID_FHIR_STATUS`
 
 ##### Authorization Validation
 
 - **Requester**:
   - Requester entry must be present
-  - Error: `FhirActivityDefinitionEntryMissingRequesterLintItem`
+  - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_REQUESTER`
   - Requester entry must be valid
-  - Error: `FhirActivityDefinitionEntryInvalidRequesterLintItem`
+  - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_REQUESTER`
 
 - **Recipient**:
   - Recipient entry must be present
-  - Error: `FhirActivityDefinitionEntryMissingRecipientLintItem`
+  - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_RECIPIENT`
   - Recipient entry must be valid
-  - Error: `FhirActivityDefinitionEntryInvalidRecipientLintItem`
+  - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_RECIPIENT`
 
 #### CodeSystem Resources
 
@@ -824,45 +832,45 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Read Access Tag**:
   - Must have read access tag
-  - Error: `FhirCodeSystemMissingReadAccessTagLintItem`
+  - Error: `MISSING_READ_ACCESS_TAG`
 
 - **Required Elements**:
   - Required elements must be present
-  - Error: `FhirCodeSystemMissingElementLintItem`
+  - Error: `CODE_SYSTEM_MISSING_ELEMENT`
 
 ##### URL Validation
 
 - **URL Format**:
   - URL must be valid
-  - Error: `FhirCodeSystemInvalidUrlLintItem`
+  - Error: `INVALID_FHIR_URL`
 
 ##### Status Validation
 
 - **Status**:
   - Status must be valid
-  - Error: `FhirCodeSystemInvalidStatusLintItem`
+  - Error: `CODE_SYSTEM_INVALID_STATUS`
 
 ##### Concept Validation
 
 - **Concepts**:
   - Must have at least one concept
-  - Error: `FhirCodeSystemMissingConceptLintItem`
+  - Error: `CODE_SYSTEM_MISSING_CONCEPT`
   - Concepts must have code
-  - Error: `FhirCodeSystemConceptMissingCodeLintItem`
+  - Error: `CODE_SYSTEM_CONCEPT_MISSING_CODE`
   - Concepts must have display
-  - Error: `FhirCodeSystemConceptMissingDisplayLintItem`
+  - Error: `CODE_SYSTEM_CONCEPT_MISSING_DISPLAY`
   - Duplicate codes detected
-  - Error: `FhirCodeSystemDuplicateCodeLintItem`
+  - Error: `CODE_SYSTEM_DUPLICATE_CODE`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
   - Version must be `#{version}`
-  - Error: `FhirCodeSystemVersionNoPlaceholderLintItem`
+  - Error: `CODE_SYSTEM_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
   - Date must be `#{date}`
-  - Error: `FhirCodeSystemDateNoPlaceholderLintItem`
+  - Error: `CODE_SYSTEM_DATE_NO_PLACEHOLDER`
 
 #### Questionnaire Resources
 
@@ -870,59 +878,53 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Meta Profile**:
   - Must have meta profile
-  - Error: `FhirQuestionnaireMissingMetaProfileLintItem`
+  - Error: `QUESTIONNAIRE_MISSING_META_PROFILE`
   - Meta profile must be valid
-  - Error: `FhirQuestionnaireInvalidMetaProfileLintItem`
+  - Error: `QUESTIONNAIRE_INVALID_META_PROFILE`
 
 - **Read Access Tag**:
   - Must have read access tag
-  - Error: `FhirQuestionnaireMissingReadAccessTagLintItem`
+  - Error: `QUESTIONNAIRE_MISSING_READ_ACCESS_TAG`
 
 ##### Status Validation
 
 - **Status**:
   - Status must be valid
-  - Error: `FhirQuestionnaireInvalidStatusLintItem`
+  - Error: `QUESTIONNAIRE_INVALID_STATUS`
 
 ##### Item Validation
 
 - **Items**:
   - Must have at least one item
-  - Error: `FhirQuestionnaireMissingItemLintItem`
+  - Error: `QUESTIONNAIRE_MISSING_ITEM`
   - Items must have linkId
-  - Error: `FhirQuestionnaireItemMissingAttributesLinkIdLintItem`
+  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_LINK_ID`
   - Items must have text
-  - Error: `FhirQuestionnaireItemMissingAttributesTextLintItem`
+  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TEXT`
   - Items must have type
-  - Error: `FhirQuestionnaireItemMissingAttributesTypeLintItem`
+  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TYPE`
   - Link IDs must be unique
-  - Error: `FhirQuestionnaireDuplicateLinkIdLintItem`
+  - Error: `QUESTIONNAIRE_DUPLICATE_LINK_ID`
   - Unusual link IDs detected
-  - Error: `FhirQuestionnaireUnusualLinkIdLintItem`
+  - Error: `QUESTIONNAIRE_UNUSUAL_LINK_ID`
 
 ##### Mandatory Item Validation
 
 - **Required Items**:
   - Mandatory items must be required
-  - Error: `FhirQuestionnaireMandatoryItemNotRequiredLintItem`
+  - Error: `QUESTIONNAIRE_MANDATORY_ITEM_NOT_REQUIRED`
   - Mandatory items must have valid type
-  - Error: `FhirQuestionnaireMandatoryItemInvalidTypeLintItem`
-
-##### Definition Validation
-
-- **Definition**:
-  - Definition must be valid
-  - Error: `FhirQuestionnaireDefinitionLintItem`
+  - Error: `QUESTIONNAIRE_MANDATORY_ITEM_INVALID_TYPE`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
   - Version must be `#{version}`
-  - Error: `FhirQuestionnaireVersionNoPlaceholderLintItem`
+  - Error: `QUESTIONNAIRE_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
   - Date must be `#{date}`
-  - Error: `FhirQuestionnaireDateNoPlaceholderLintItem`
+  - Error: `QUESTIONNAIRE_DATE_NO_PLACEHOLDER`
 
 #### Common FHIR Validations
 
@@ -930,29 +932,29 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 
 - **Read Access Tag**:
   - Must have read access tag
-  - Error: `FhirMissingFhirAccessTagLintItem`
+  - Error: `MISSING_FHIR_ACCESS_TAG`
   - Access tag must be valid
-  - Error: `FhirInvalidFhirAccessTagLintItem`
+  - Error: `INVALID_FHIR_ACCESS_TAG`
 
 ##### Kind Validation
 
 - **Kind**:
   - Kind must be present
-  - Error: `FhirKindIsMissingOrEmptyLintItem`
+  - Error: `INVALID_FHIR_KIND`
   - Kind must be "Task" for Task resources
-  - Error: `FhirKindNotSetAsTaskLintItem`
+  - Error: `FHIR_KIND_NOT_SET_AS_TASK`
 
 ##### Status Validation
 
 - **Status**:
   - Status must be "unknown" (DSF convention)
-  - Error: `FhirStatusIsNotSetAsUnknownLintItem`
+  - Error: `FHIR_STATUS_IS_NOT_SET_AS_UNKNOWN`
 
 ##### Extension Validation
 
 - **Process Authorization Extension**:
   - Must have process authorization extension
-  - Error: `FhirNoExtensionProcessAuthorizationFoundLintItem`
+  - Error: `NO_EXTENSION_PROCESS_AUTHORIZATION_FOUND`
 
 ### Plugin Configuration Validation
 
@@ -961,37 +963,37 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 - **Registration File**:
   - **V1 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v1.ProcessPluginDefinition`
   - **V2 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v2.ProcessPluginDefinition`
-  - Error: `PluginDefinitionMissingServiceLoaderRegistrationLintItem`
+  - Error: `PLUGIN_DEFINITION_MISSING_SERVICE_LOADER_REGISTRATION`
   - Plugin class must be loadable
-  - Error: `PluginDefinitionProcessPluginResourceNotLoadedLintItem`
+  - Error: `PLUGIN_DEFINITION_PROCESS_PLUGIN_RESOURCE_NOT_LOADED`
 
 #### Resource References
 
 - **BPMN File References**:
   - BPMN files referenced in plugin must exist
-  - Error: `PluginDefinitionBpmnFileReferencedButNotFoundLintItem`
+  - Error: `PLUGIN_DEFINITION_BPMN_FILE_NOT_FOUND`
   - BPMN files must be in expected root
-  - Error: `PluginDefinitionBpmnFileReferencedFoundOutsideExpectedRootLintItem`
+  - Error: `PLUGIN_DEFINITION_BPMN_FILE_OUTSIDE_ROOT`
   - BPMN files must be parsable
-  - Error: `PluginDefinitionUnparsableBpmnResourceLintItem`
+  - Error: `PLUGIN_DEFINITION_UNPARSABLE_BPMN_RESOURCE`
 
 - **FHIR File References**:
   - FHIR resources referenced in BPMN must exist
-  - Error: `PluginDefinitionFhirFileReferencedButNotFoundLintItem`
+  - Error: `PLUGIN_DEFINITION_FHIR_RESOURCE_NOT_FOUND`
   - FHIR resources must be in expected root
-  - Error: `PluginDefinitionFhirFileReferencedFoundOutsideExpectedRootLintItem`
+  - Error: `PLUGIN_DEFINITION_FHIR_FILE_OUTSIDE_ROOT`
   - FHIR resources must be parsable
-  - Error: `PluginDefinitionUnparsableFhirResourceLintItem`
+  - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
 
 #### Resource Presence
 
 - **BPMN Processes**:
   - At least one BPMN process must be defined
-  - Error: `PluginDefinitionNoProcessModelDefinedLintItem`
+  - Error: `PLUGIN_DEFINITION_NO_PROCESS_MODEL_DEFINED`
 
 - **FHIR Resources**:
   - At least one FHIR resource must be defined
-  - Error: `PluginDefinitionNoFhirResourcesDefinedLintItem`
+  - Error: `PLUGIN_DEFINITION_NO_FHIR_RESOURCES_DEFINED`
 
 #### Version Validation
 
