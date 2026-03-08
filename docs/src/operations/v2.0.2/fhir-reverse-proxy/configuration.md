@@ -59,7 +59,7 @@ icon: config
 
 ### SSL_CA_DN_REQUEST_FILE
 - **Required:** No
-- **Description:** File containing all signing certificates excepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from *SSL_CA_CERTIFICATE_FILE* are used; not used by default, overrides *SSL_CA_DN_REQUEST_PATH* if not empty
+- **Description:** File containing all signing certificates accepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from *SSL_CA_CERTIFICATE_FILE* are used; not used by default, overrides *SSL_CA_DN_REQUEST_PATH* if not empty
 
 
 ### SSL_CA_DN_REQUEST_PATH
@@ -67,13 +67,6 @@ icon: config
 - **Description:**  Folder with trusted client certificate issuing CAs, modifies the "Acceptable client certificate CA names" send to the client, uses all from *SSL_CA_CERTIFICATE_FILE* or *SSL_CA_CERTIFICATE_PATH* if not set or empty
 - **Recommendation:** Override default folder content via bind mount or add *.crt files to default folder via bind mount
 - **Default:** `ca/client_issuing_cas`
-
-
-### SSL_CERTIFICATE_CHAIN_FILE
-- **Required:** No
-- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via *SSL_CERTIFICATE_FILE* contains the certificate chain
-- **Recommendation:** Use docker secret file to configure
-- **Example:** `/run/secrets/ssl_certificate_chain_file.pem`
 
 
 ### SSL_CERTIFICATE_CHAIN_FILE

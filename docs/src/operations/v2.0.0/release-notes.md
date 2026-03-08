@@ -13,9 +13,9 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is the 2.0.0 major release of the DSF. DSF installations in version 1.9.0 can be upgraded to this release.
-- To Update an existing 1.x installation, please see the [1.9.0 -> 2.0.0 upgrade guide](https://dsf.dev/operations/v2.0.0/upgrade-from-1.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.0.0/install.html).
-- A list of compatible process plugins can be found in the [plugin install guide](https://dsf.dev/operations/latest/install-plugins.html).
+- To Update an existing 1.x installation, please see the [1.9.0 -> 2.0.0 upgrade guide](/operations/v2.0.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v2.0.0/install.html).
+- A list of compatible process plugins can be found in the [plugin install guide](/operations/latest/install-plugins.html).
 
 Feature Summary:
 - With the 2.0.0 release the workflow engine for the **DSF BPE Server** was migrated from *Camunda 7* to the community-driven, open-source BPMN engine [Operaton](https://operaton.org). The migration includes a byte-code rewriting layer that allows existing v1 process plugins compiled against Camunda classes to continue running without recompilation.

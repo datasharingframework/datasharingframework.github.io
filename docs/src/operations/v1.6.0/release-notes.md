@@ -12,8 +12,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 ### 1.6.0 - Improved Update Performance
 General remarks:
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older version developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
-- To Update an existing 1.x installation, please see the [1.x -> 1.6.0 Upgrade Guide](https://dsf.dev/v1.6.0/maintain/upgrade-from-1.html).
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/v1.6.0/maintain/install.html).
+- To Update an existing 1.x installation, please see the [1.x -> 1.6.0 Upgrade Guide](/operations/v1.6.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.6.0/install.html).
 - With this release, library dependencies have been updated, a number of bugs fixed and the execution of FHIR update operations for `Organization` and `OrganizationAffiliation` improved.
 
 Known Issue:

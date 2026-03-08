@@ -24,18 +24,18 @@ To enable authentication via OpenID Connect authorization code flow, set the con
 
 Optionally, back channel logout can be enabled by setting [DEV_DSF_SERVER_AUTH_OIDC_BACK_CHANNEL_LOGOUT](configuration#dev-dsf-server-auth-oidc-back-channel-logout) to `true`. The DSF BPE server accepts logout tokens at [DEV_DSF_BPE_SERVER_BASE_URL](configuration#dev-dsf-bpe-server-base-url) + `/back-channel-logout`. The path can be modified via [DEV_DSF_SERVER_AUTH_OIDC_BACK_CHANNEL_LOGOUT_PATH](configuration#dev-dsf-server-auth-oidc-back-channel-logout-path).
 
-## Additional ODIC Configuration Parameter
+## Additional OIDC Configuration Parameter
 
-A number of additional `DEV_DSF_SERVER_AUTH_OIDC ...` configuration parameter are specify on the DSF BPE server [configuration parameter page](configuration).
+A number of additional `DEV_DSF_SERVER_AUTH_OIDC ...` configuration parameters are specified on the DSF BPE server [configuration parameter page](configuration).
 
-For example the configuration parameter [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](configuration#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas) can be used to specify a PEM encoded file with trusted root certificates to be used when accessing the OpenID Connect provider. If not specify the JVM default trusted root certificates are used for this connection.
+For example the configuration parameter [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](configuration#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas) can be used to specify a PEM encoded file with trusted root certificates to be used when accessing the OpenID Connect provider. If not specified, the JVM default trusted root certificates are used for this connection.
 
 
 ## Example
 ```yaml
 services:
   app:
-    image: ghcr.io/datasharingframework/bpe:1.5.2
+    image: ghcr.io/datasharingframework/bpe:2.0.2
     # ...
     secrets:
       - keycloak_root_ca.pem

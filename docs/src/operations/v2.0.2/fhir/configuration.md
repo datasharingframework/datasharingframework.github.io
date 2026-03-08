@@ -131,7 +131,7 @@ icon: config
 - **Property:** dev.dsf.fhir.db.user.permanent.delete.username
 - **Required:** No
 - **Description:** Username to access the database from the DSF FHIR server for permanent deletes
-- **Recommendation:** Use a different user then *DEV_DSF_FHIR_DB_USER_USERNAME*
+- **Recommendation:** Use a different user than *DEV_DSF_FHIR_DB_USER_USERNAME*
 - **Default:** `fhir_server_permanent_delete_user`
 
 
@@ -185,7 +185,7 @@ icon: config
 - **Property:** dev.dsf.fhir.server.organization.identifier.value
 - **Required:** Yes
 - **Description:** Local identifier value used in the Allow-List
-- **Recommendation:** By convention: The shortest possible FQDN that resolve the homepage of the organization
+- **Recommendation:** By convention: The shortest possible FQDN that resolves to the homepage of the organization
 - **Example:** `hospital.com`
 
 
@@ -359,7 +359,7 @@ icon: config
 ### DEV_DSF_PROXY_URL
 - **Property:** dev.dsf.proxy.url
 - **Required:** No
-- **Description:** Forward (http/https) proxy url, use *DEV_DSF_BPE_PROXY_NOPROXY* to list domains that do not require a forward proxy
+- **Description:** Forward (http/https) proxy url, use *DEV_DSF_PROXY_NOPROXY* to list domains that do not require a forward proxy
 - **Example:** `http://proxy.foo:8080`
 
 
@@ -425,7 +425,7 @@ icon: config
 - **Property:** dev.dsf.server.auth.oidc.bearer.token.audience
 - **Required:** No
 - **Description:** Audience (aud) value to verify before accepting OIDC bearer tokens, uses value from `DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID` by default, set blank string e.g. `''` to disable
-- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set tor `true`
+- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set to `true`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID
@@ -514,28 +514,28 @@ icon: config
 - **Property:** dev.dsf.server.certificate
 - **Required:** No
 - **Description:** Server certificate file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_CHAIN
 - **Property:** dev.dsf.server.certificate.chain
 - **Required:** No
 - **Description:** Server certificate chain file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_KEY
 - **Property:** dev.dsf.server.certificate.key
 - **Required:** No
 - **Description:** Server certificate private key file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_KEY_PASSWORD or DEV_DSF_SERVER_CERTIFICATE_KEY_PASSWORD_FILE
 - **Property:** dev.dsf.server.certificate.key.password
 - **Required:** No
 - **Description:** Server certificate private key file password for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CONTEXT_PATH

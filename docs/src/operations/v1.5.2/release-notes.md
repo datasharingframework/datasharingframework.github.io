@@ -13,8 +13,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older version developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
 - DSF v1.5.2 is **not** compatible with DSF Ping Pong v1.0.0.0, upgrade/use the Ping Pong plugin [v1.0.1.0](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0) if your are upgrading/using this version.
-- To Update an existing 1.x installation, please see the [1.x -> 1.5.2 Upgrade Guide](https://dsf.dev/v1.5.2/maintain/upgrade-from-1.html).
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/v1.5.2/maintain/install.html).
+- To Update an existing 1.x installation, please see the [1.x -> 1.5.2 Upgrade Guide](/operations/v1.5.2/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.5.2/install.html).
 - With this maintenance release, library dependencies have been updated. The new builds of the bpe_proxy and fhir_proxy docker images are now based on Apache httpd 2.4.61 with amongst others a fix for CVE-2024-38477 mitigating potential denial-of-service attacks. 
 
 Bug Fixes:

@@ -22,7 +22,7 @@ icon: plugin
 
 
 ### Prerequisites
-- A DSF installation of version 2.0.0 or higher. An installation guide can be found [here](https://dsf.dev/operations/latest/install.html).
+- A DSF installation of version 2.0.0 or higher. An installation guide can be found [here](/operations/latest/install.html).
 
 ### Deployment
 - Add the process jar-file to the DSF BPE folder `/opt/bpe/process`: 

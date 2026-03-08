@@ -59,7 +59,7 @@ icon: config
 
 ### SSL_CA_DN_REQUEST_FILE
 - **Required:** No
-- **Description:** File containing all signing certificates excepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from *SSL_CA_CERTIFICATE_FILE* are used; not used by default, overrides *SSL_CA_DN_REQUEST_PATH* if not empty
+- **Description:** File containing all signing certificates accepted, will be used to specify the `Acceptable client certificate CA names` send to the client, during TLS handshake, sets the apache httpd parameter `SSLCADNRequestFile`; if omitted all entries from *SSL_CA_CERTIFICATE_FILE* are used; not used by default, overrides *SSL_CA_DN_REQUEST_PATH* if not empty
 
 
 ### SSL_CA_DN_REQUEST_PATH

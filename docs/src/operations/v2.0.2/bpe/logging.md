@@ -3,7 +3,7 @@ title: Logging
 icon: config
 ---
 
-The DSF BPE Server provides a **Standard Application Logger** and a dedicated **Data Logger** to help debug problems with process plugins. Both mechanisms can output there messages to standard output (stdout), standard error (stderr) and dedicated log files.
+The DSF BPE Server provides a **Standard Application Logger** and a dedicated **Data Logger** to help debug problems with process plugins. Both mechanisms can output their messages to standard output (stdout), standard error (stderr) and dedicated log files.
 
 By default the **Standard Application Logger** is configured to output with min. level `INFO` and format `TEXT_COLOR` to *stdout* as well as min. level `DEBUG` and format `TEXT_MDC` to a dedicated log file. The **Data Logger** is disabled by default and should only be used to debug problems with process plugins temporarily.
 

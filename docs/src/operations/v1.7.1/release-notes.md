@@ -13,8 +13,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older versions developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
-- To Update an existing 1.x installation, please see the [1.x -> 1.7.1 Upgrade Guide](https://dsf.dev/v1.7.1/maintain/upgrade-from-1.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/v1.7.1/maintain/install.html).
+- To Update an existing 1.x installation, please see the [1.x -> 1.7.1 Upgrade Guide](/operations/v1.7.1/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.7.1/install.html).
 - With this release, library dependencies have been updated and among others a bug fixed where the BPE did not connect the websocket on startup.
 
 Bug Fixes:

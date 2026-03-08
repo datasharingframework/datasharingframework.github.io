@@ -13,9 +13,9 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is an update for DSF 2.0.0 / 2.0.1.
-- To Update from an existing 1.x installation, please see the [1.x -> 2.0.2 Upgrade Guide](https://dsf.dev/operations/v2.0.2/upgrade-from-1.html). 
-- To Update from an existing 2.x installation, please see the [2.x -> 2.0.2 Upgrade Guide](https://dsf.dev/operations/v2.0.2/upgrade-from-2.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.0.2/install.html).
+- To Update from an existing 1.x installation, please see the [1.x -> 2.0.2 Upgrade Guide](/operations/v2.0.2/upgrade-from-1.html). 
+- To Update from an existing 2.x installation, please see the [2.x -> 2.0.2 Upgrade Guide](/operations/v2.0.2/upgrade-from-2.html). 
+- For a fresh deployment, follow the [installation instructions](/operations/v2.0.2/install.html).
 - With this release a number of bugs were fixed.
 
 Bug Fixes:

@@ -7,7 +7,7 @@ icon: guide
 
 Mondays, 14:00–14:50
 
-Location: https://dsf.dev/sprechstunde
+Location: /sprechstunde
 :::
 
 Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.

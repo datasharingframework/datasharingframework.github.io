@@ -241,7 +241,7 @@ Here is what they mean:
 - `remote` versions of the above rules work the same but the requester's certificate is instead required to match a thumbprint marked as a remote organization.
 - `practitioner` suffixes all work the same. They include the same rules as their prefixes but now additionally require the requester to match a certain `practitioner-role`. A list of them
   can be found [here](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml). This allows
-  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/stable/maintain/fhir/access-control.html).
+  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](/operations/latest/fhir/access-control.html).
 
 There are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. Examples of all Codings from above can be found [here](../dsf/requester-and-recipient.md).
 
@@ -410,7 +410,7 @@ Finally, add the `practitionerRole` slice:
 </extension>
 ```
 
-There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
+There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](/operations/latest/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
 
 Now add the extension as the `Coding.extension:organization-practitioner` element:
 ```xml
@@ -671,13 +671,13 @@ The following elements are managed by the DSF BPE:
 
 The only required elements in this set are `ActivityDefinition.url` and `ActivityDefinition.kind`. `ActivityDefinition.url` expects a certain format. This is explained in detail in the [documentation on URLs](../dsf/versions-placeholders-urls.md#urls). `ActivityDefinition.kind` must have the value `Task`.
 All other elements can technically be omitted. Still, the following elements are recommended to be populated:
-- `AcitivityDefinition.name`
-- `AcitivityDefinition.title`
-- `AcitivityDefinition.subtitle`
-- `AcitivityDefinition.experimental`
-- `AcitivityDefinition.publisher`
-- `AcitivityDefinition.contact`
-- `AcitivityDefinition.description`
+- `ActivityDefinition.name`
+- `ActivityDefinition.title`
+- `ActivityDefinition.subtitle`
+- `ActivityDefinition.experimental`
+- `ActivityDefinition.publisher`
+- `ActivityDefinition.contact`
+- `ActivityDefinition.description`
 
 <details>
 <summary>The finished ActivityDefinition should now look something like this</summary>

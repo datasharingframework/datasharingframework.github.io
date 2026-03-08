@@ -3,7 +3,7 @@ title: Trusted Certificates
 icon: safe
 ---
 
-A number of trusted certificate authorities (CAs) are included in the DSF docker images [fhir_proxy](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy), [fhir](https://github.com/datasharingframework/dsf/pkgs/container/fhir), [bpe_proxy](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy) and [bpe](https://github.com/datasharingframework/dsf/pkgs/container/bpe) by default. Root and intermediate certificates as well as the configured usage of issuing CAs as either **server**, **client** oder **server and client** CA are listed at the end.
+A number of trusted certificate authorities (CAs) are included in the DSF docker images [fhir_proxy](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy), [fhir](https://github.com/datasharingframework/dsf/pkgs/container/fhir), [bpe_proxy](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy) and [bpe](https://github.com/datasharingframework/dsf/pkgs/container/bpe) by default. Root and intermediate certificates as well as the configured usage of issuing CAs as either **server**, **client** or **server and client** CA are listed at the end.
 
 :::info
 Please ensure that you are using an organization-validated certificate (OV). We check for the presence of certain elements in the FHIR proxy. These are not set for domain-validated (DV) certificates. DV-validated certificates cannot be used in the standard setup.
@@ -84,7 +84,7 @@ Use the following environment variable to configure non default .pem files or ov
   Default Value: [ca/client_ca_chains](/download/1.9.0/client_cert_ca_chains.pem)
 * [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
   Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
-  [DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-mail-trust-server-certificate-cas)
+* [DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-mail-trust-server-certificate-cas)
   Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
   Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)

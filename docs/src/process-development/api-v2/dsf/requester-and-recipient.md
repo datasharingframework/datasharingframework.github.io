@@ -192,7 +192,7 @@ The `requester` element uses one of the following Codings:
 ```
 
 ### Recipient
-The `recipeint` element uses one of the following Codings:
+The `recipient` element uses one of the following Codings:
 ```xml
 <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
 <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />

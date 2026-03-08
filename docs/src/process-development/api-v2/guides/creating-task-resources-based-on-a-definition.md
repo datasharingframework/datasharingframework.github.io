@@ -7,7 +7,7 @@ icon: creative
 
 This short guide provides an overview of how to create [Task](../fhir/task.md) resources for use in [Starting A Process Via Task Resources](../guides/starting-a-process-via-task-resources.md). As an example, a [Task](../fhir/task.md) resource based on the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) profile is created.
 
-Like all Task resources created for process plugins, the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) is based on the [DSF's base definition for Task resources](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/StructureDefinition-task.html). This base definition specifies mandatory elements for all Tasks in the DSF. This results in the following base template for all Tasks:
+Like all Task resources created for process plugins, the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) is based on the [DSF's base definition for Task resources](/fhir/ImplementationGuide/dev.dsf/StructureDefinition-task.html). This base definition specifies mandatory elements for all Tasks in the DSF. This results in the following base template for all Tasks:
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
