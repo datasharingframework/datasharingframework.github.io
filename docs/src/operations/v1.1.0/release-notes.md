@@ -12,8 +12,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 ### 1.1.0 - UI and Other Improvements
 General remarks:
 - This is an update for the new 1.0.0 DSF and not compatible with 0.9.x and older version developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
-- To Update an existing 1.0.0 installation, please see the [1.0.0 -> 1.1.0 Upgrade Guide](https://dsf.dev/v1.1.0/maintain/upgrade-from-1.html).
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/v1.1.0/maintain/install.html).
+- To Update an existing 1.0.0 installation, please see the [1.0.0 -> 1.1.0 Upgrade Guide](/operations/v1.1.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.1.0/install.html).
 
 Features:
 - Changes to the DSF FHIR server user interface (UI): While instantiating Task resources via the UI, input elements with cardinality 0..* or 1..* can now be added/removed dynamically. Placeholder attributes of input elements can be copied into the value attribute using a button. The user interface now supports dark and light themes selected based on operating system preferences or user selection. New UIs have been added for Task and QuestionnaireResponse search-bundle results.

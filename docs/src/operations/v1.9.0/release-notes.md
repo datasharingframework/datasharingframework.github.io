@@ -13,13 +13,13 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older versions developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
-- To Update an existing 1.x installation, please see the [1.8.0 -> 1.9.0 Upgrade Guide](https://dsf.dev/operations/v1.9.0/upgrade-from-1.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v1.9.0/install.html).
+- To Update an existing 1.x installation, please see the [1.8.0 -> 1.9.0 Upgrade Guide](/operations/v1.9.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.9.0/install.html).
 - With this release library dependencies have been updated.
 - The integrated camunda engine of the DSF BPE server was upgraded to version 7.24, requiring a small change to the database schema of the DSF BPE.
 
 Features:
-- The HARICA Client Authentication RSA and ECC Issuing CAs have been added to default accepted client issuing CAs. Visit dsf.dev for a full list of [default root and issuing CA](https://dsf.dev/operations/v1.9.0/root-certificates.html).
+- The HARICA Client Authentication RSA and ECC Issuing CAs have been added to default accepted client issuing CAs. Visit dsf.dev for a full list of [default root and issuing CA](/operations/v1.9.0/root-certificates.html).
 - The Apache httpd based reverse proxy docker images **fhir_proxy** and **bpe_proxy** now execute as non root users. The **fhir_proxy** container executes with uid/gid `4101`, the **bpe_proxy** container with uid/gid `4202`.
 
 Docker containers for this release can be access via the GitHub Docker registry - ghcr.io:

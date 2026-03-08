@@ -13,15 +13,15 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older version developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
 - DSF v1.5.0 is **not** compatible with DSF Ping Pong v1.0.0.0, upgrade/use the Ping Pong plugin [v1.0.1.0](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0) if your are upgrading/using this version.
-- To Update an existing 1.x installation, please see the [1.x -> 1.5.0 Upgrade Guide](https://dsf.dev/v1.5.0/maintain/upgrade-from-1.html).
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/v1.5.0/maintain/install.html).
+- To Update an existing 1.x installation, please see the [1.x -> 1.5.0 Upgrade Guide](/operations/v1.5.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.5.0/install.html).
 - GitHub's [CodeQL](https://codeql.github.com) scanner was added to the suite of tools we used to regularly scan the repository for security vulnerabilities, inefficiencies and other bugs in Java and JavaScript code.
 - Community guidelines including feature, issue and pull-request templates as well as security information and contribution guidelines have been added to the repository.
 
 Features:
 - Debug logging of DB queries, webservice request headers and the current (authenticated) user are now disabled by default and can be activated using config options.
 - To improve the maintainability and robustness of the HTML generation code base, the DSF user interface is now generated using the [Thymeleaf](https://www.thymeleaf.org) templating engine.
-- A visual indicator to differentiate between **dev**elopment, **test** and **prod**uction environments can now be configured using the [DEV_DSF_FHIR_SERVER_UI_THEME](https://dsf.dev/stable/maintain/fhir/configuration.html#dev-dsf-fhir-server-ui-theme) and [DEV_DSF_BPE_SERVER_UI_THEME](https://dsf.dev/stable/maintain/fhir/configuration.html#dev-dsf-bpe-server-ui-theme) environment variables. Additionally, the look and feel of the user interface can now be customized via CSS overrides.
+- A visual indicator to differentiate between **dev**elopment, **test** and **prod**uction environments can now be configured using the [DEV_DSF_FHIR_SERVER_UI_THEME](/stable/maintain/fhir/configuration.html#dev-dsf-fhir-server-ui-theme) and [DEV_DSF_BPE_SERVER_UI_THEME](/stable/maintain/fhir/configuration.html#dev-dsf-bpe-server-ui-theme) environment variables. Additionally, the look and feel of the user interface can now be customized via CSS overrides.
 - To show deployed processes and their BPMN diagrams as well as active process instances a user interface (UI) was added to the DSF BPE server application. The BPE UI is in _beta_ state and may change significantly in future releases.
 - A database migration script has been added to cleanup old orphaned entries in the `read_access` table of the DSF FHIR database. In order to remove future corresponding entries from the `read_access` table ,if resources are permanently deleted, `BEFORE DELETE` database triggers have been added to resource tables.
 - Questionnaire resources can now have optional items for BPMN user-tasks. The UI for displaying Task and QuestionnaireReponse Resources has been improved and now supports data-absent-reason extensions to create inputs without default values.

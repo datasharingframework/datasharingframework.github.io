@@ -17,7 +17,7 @@ We are thrilled to announce that Version 2 of the Data Sharing Framework is fina
 
 ## Deployment Advice
 
-* **DSF Upgrade Guide**: [v1.9.0 → v2.0.1](https://dsf.dev/operations/v2.0.1/upgrade-from-1.html)
+* **DSF Upgrade Guide**: [v1.9.0 → v2.0.1](/operations/v2.0.1/upgrade-from-1.html)
 * **Ping-Pong Plugin**:
   * v2.0.0.2 → [Release notes](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v2.0.0.2)
   * Can be deployed **in parallel** with v1.0.1.0 → [Release notes](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0)
@@ -26,7 +26,7 @@ We are thrilled to announce that Version 2 of the Data Sharing Framework is fina
 * **Data Sharing Process Plugin**:
   * As already announced please deploy **v1.1.0.0** on your **test & production infrastructure** also on DSF v1.9.0. → [Release notes](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/tag/v1.1.0.0)
 * For DSF v2.0.0 you can generally find tested and recommended plugin versions here:
-  → [Plugin Installation Guide](https://dsf.dev/operations/v2.0.0/install-plugins.html)
+  → [Plugin Installation Guide](/operations/v2.0.0/install-plugins.html)
 
 
 ## Hackathon announcement
@@ -44,6 +44,6 @@ MII production infrastructure: Following the migration Hackathon on January 20, 
 ## If you need assistance
 
 * Ask questions via **[Zulip channel](https://mii.zulipchat.com/#narrow/channel/392426-Data-Sharing-Framework-.28DSF.29)**
-* Join our [consultation hours](https://dsf.dev/community/consultation-hours)
+* Join our [consultation hours](/community/consultation-hours)
 
 

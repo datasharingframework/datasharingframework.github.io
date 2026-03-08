@@ -13,8 +13,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is an update for the 1.x DSF and not compatible with 0.9.x and older versions developed at [highmed/highmed-dsf](https://github.com/highmed/highmed-dsf).
-- To Update an existing 1.x installation, please see the [1.7.1 -> 1.8.0 Upgrade Guide](https://dsf.dev/operations/v1.8.0/upgrade-from-1.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v1.8.0/install.html).
+- To Update an existing 1.x installation, please see the [1.7.1 -> 1.8.0 Upgrade Guide](/operations/v1.8.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v1.8.0/install.html).
 - With this release, library dependencies have been updated and small bugs in the UI of the DSF FHIR have been fixed.
 - The integrated camunda engine of the DSF BPE server was upgraded to version 7.23, requiring a small change to the database schema of the DSF BPE and thus making this the 1.8.0 and not a 1.7.2 release.
 

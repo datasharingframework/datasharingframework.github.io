@@ -45,7 +45,7 @@ The third edition of the **DSF Community Spring School 2026** took place **Febru
 **[Read more](posts/2026-01-21-spring-school-2026.md)**
 
 👉 **Read more about the program and agenda here:**
-[Spring School](https://dsf.dev/spring-school)
+[Spring School](/spring-school)
 
 :::
 
