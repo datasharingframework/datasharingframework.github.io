@@ -15,7 +15,7 @@ The [Network University Medicine](https://www.netzwerk-universitaetsmedizin.de/)
 As part of the *[CODEX | COVID-19 Data Exchange Platform](https://www.netzwerk-universitaetsmedizin.de/projekte/codex#c599)* project, a nationwide, uniform, privacy-compliant infrastructure for storing and providing COVID-19 research datasets was established. Since 2022, the work continues within the project [NUM RDP](https://www.netzwerk-universitaetsmedizin.de/projekte/num-rdp). All 36 university hospitals have installed the DSF to share Covid-19 research data.
 
 ### The Data Transfer Process
-The [Data Transfer Process](https://github.com/num-codex/codex-processes-ap1) is used in NUM CODEX to send data from a Data Integration Center (DIC), via the Gecco Transfer Hub (GTH), to the Central Research Repository (CRR). The infrastructure and communincation messages on which the process is based can be seen in the following figure. All organizations use the Data Sharing Framework (DSF) for deployment and execution of the process. 
+The [Data Transfer Process](https://github.com/num-codex/codex-processes-ap1) is used in NUM CODEX to send data from a Data Integration Center (DIC), via the Gecco Transfer Hub (GTH), to the Central Research Repository (CRR). The infrastructure and communication messages on which the process is based can be seen in the following figure. All organizations use the Data Sharing Framework (DSF) for deployment and execution of the process. 
 
 ![](/photos/learnmore/projects/ap1.png)
 

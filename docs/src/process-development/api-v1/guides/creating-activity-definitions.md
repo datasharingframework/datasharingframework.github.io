@@ -665,13 +665,13 @@ The following elements are managed by the DSF BPE:
 
 The only required elements in this set are `ActivityDefinition.url` and `ActivityDefinition.kind`. `ActivityDefinition.url` expects a certain format. This is explained in detail in the [documentation on URLs](../dsf/versions-placeholders-urls.md#urls). `ActivityDefinition.kind` must have the value `Task`.
 All other elements can technically be omitted. Still, the following elements are recommended to be populated:
-- `AcitivityDefinition.name`
-- `AcitivityDefinition.title`
-- `AcitivityDefinition.subtitle`
-- `AcitivityDefinition.experimental`
-- `AcitivityDefinition.publisher`
-- `AcitivityDefinition.contact`
-- `AcitivityDefinition.description`
+- `ActivityDefinition.name`
+- `ActivityDefinition.title`
+- `ActivityDefinition.subtitle`
+- `ActivityDefinition.experimental`
+- `ActivityDefinition.publisher`
+- `ActivityDefinition.contact`
+- `ActivityDefinition.description`
 
 <details>
 <summary>The finished ActivityDefinition should now look something like this</summary>

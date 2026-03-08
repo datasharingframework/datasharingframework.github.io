@@ -22,7 +22,7 @@ The listing below shows a minimal configuration to enable access for a specific 
             dsf-role:
               - ADMIN
 ```
-The list of user roles above contains a single rule-entry `example_read_only_role`, matching the user via a client certificate SHA-512 thumprint and assigning three DSF roles. Any string can be used as the name for the rule-enty.
+The list of user roles above contains a single rule-entry `example_read_only_role`, matching the user via a client certificate SHA-512 thumbprint and assigning the DSF role `ADMIN`. Any string can be used as the name for the rule-entry.
 
 ::: tip Certificate Thumbprints
 SHA-512 certificate thumbprints in HEX form `[a-f0-9]{128}` can be calculated using:
@@ -62,7 +62,7 @@ DSF roles specified via the `dsf-role` property define general access to the use
 
 #### practitioner-role
 
-The BPE server currently does not support any practionier-roles.
+The BPE server currently does not support any practitioner-roles.
 
 
 ## Examples

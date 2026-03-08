@@ -11,7 +11,7 @@ tagline: A performant, secure, and innovative framework that enables biomedical 
 features:
   - title: Introduction
     icon: info
-    details: Introduction to the DSF and informations about Use-Cases/Projects. 
+    details: Introduction to the DSF and information about Use-Cases/Projects.
     link: /explore/concepts/introduction
 
   - title: Get Started 
@@ -31,7 +31,7 @@ features:
 
 
 ---
----
+
 # Data Sharing Framework
 The **Data Sharing Framework (DSF)** is a concept for a secure middleware to distribute data sharing processes based on the BPMN 2.0 and FHIR R4 standards. The DSF is used to support biomedical research with routine data, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed organizations. Every participating site runs a FHIR endpoint accessible by other sites and a business process engine in the local secured network. The process engines execute BPMN processes in order to coordinate local and remote steps necessary to enable cross-site data sharing or feasibility analysis. This includes access to local data repositories, use-and-access-committee decision support, consent filtering, and privacy preserving record-linkage and pseudonymization. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organizational boundaries. The secure communication infrastructure is funded by the German Federal Ministry of Research, Technology and Space within the Medical Informatics structure as *[DSF Community](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)*. 
 
@@ -40,11 +40,11 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 ## [News](/news/)
 
-::: info **DSF Spring School 2026 - Registrations are now open!**
-Get ready for the third edition of the **DSF Community Spring School 2026**, happening **February 24–26 at Heilbronn University**! Dive into a immersive, hand-on experience and connect with the DSF Community. Sign up now, save the date, and be part of it!
+::: info **DSF Spring School 2026 - Recap**
+The third edition of the **DSF Community Spring School 2026** took place **February 24–26 at Heilbronn University**! It was an immersive, hands-on experience with the DSF Community.
 **[Read more](posts/2026-01-21-spring-school-2026.md)**
 
-👉 **Read more about the program, agenda, and registration here:**
+👉 **Read more about the program and agenda here:**
 [Spring School](https://dsf.dev/spring-school)
 
 :::

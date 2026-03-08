@@ -5,7 +5,7 @@ icon: creative
 
 ## Draft Task Resources
 
-[Task](../fhir/task.md) resources with status `draft` are used to create the DSF FHIR server's functionality of starting processes via its web interface. They are stored in the `.../src/main/resources/fhir/Task` subdirectory of a project. Compared to regular [Task](../fhir/task.md) resources used to start BPMN processes, this type of [Task](../fhir/task.md) resource requires the status `draft` instead the usual `requested`. It also replaces the value for `authoredOn` with the placeholder `#{date}`, the values of organization identifiers with the placeholder `#{organization}` and all instances of version numbers with `#{version}`. Additionally, it requires setting the `Task.identifier` element. It should look something like this:
+[Task](../fhir/task.md) resources with status `draft` are used to create the DSF FHIR server's functionality of starting processes via its web interface. They are stored in the `.../src/main/resources/fhir/Task` subdirectory of a project. Compared to regular [Task](../fhir/task.md) resources used to start BPMN processes, this type of [Task](../fhir/task.md) resource requires the status `draft` instead of the usual `requested`. It also replaces the value for `authoredOn` with the placeholder `#{date}`, the values of organization identifiers with the placeholder `#{organization}` and all instances of version numbers with `#{version}`. Additionally, it requires setting the `Task.identifier` element. It should look something like this:
 
 ```xml
 <identifier>

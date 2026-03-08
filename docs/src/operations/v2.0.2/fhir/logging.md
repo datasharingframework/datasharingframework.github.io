@@ -3,7 +3,7 @@ title: Logging
 icon: config
 ---
 
-The DSF FHIR Server provides a **Standard Application Logger** and a dedicated **Audit Logger** for compliance-relevant access events. Both mechanisms can output there messages to standard output (stdout), standard error (stderr) and dedicated log files.
+The DSF FHIR Server provides a **Standard Application Logger** and a dedicated **Audit Logger** for compliance-relevant access events. Both mechanisms can output their messages to standard output (stdout), standard error (stderr) and dedicated log files.
 
 By default the **Standard Application Logger** is configured to output with min. level `INFO` and format `TEXT_COLOR` to *stdout* as well as min. level `DEBUG` and format `TEXT_MDC` to a dedicated log file. In addition the **Audit Logger** is enabled by default to log with format `TEXT_MDC` to a dedicated log file.
 

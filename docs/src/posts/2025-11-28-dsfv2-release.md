@@ -2,7 +2,7 @@
 title: "🚀 DSF 2 Released!"
 date: 2025-11-28
 type: "news"
-excerpt: "We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the test infrastructure! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details check the release notes on Github!."
+excerpt: "We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the test infrastructure! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details check the release notes on GitHub!"
 article: true
 category: 
   - News
@@ -44,6 +44,6 @@ MII production infrastructure: Following the migration Hackathon on January 20, 
 ## If you need assistance
 
 * Ask questions via **[Zulip channel](https://mii.zulipchat.com/#narrow/channel/392426-Data-Sharing-Framework-.28DSF.29)**
-* Join our [consultation hours](https://dsf.dev/community/consultationhours)
+* Join our [consultation hours](https://dsf.dev/community/consultation-hours)
 
 

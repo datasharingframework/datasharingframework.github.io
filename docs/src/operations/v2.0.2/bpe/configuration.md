@@ -60,7 +60,7 @@ icon: config
 - **Property:** dev.dsf.bpe.db.user.engine.username
 - **Required:** No
 - **Description:** Username to access the database from the DSF BPE server workflow engine
-- **Recommendation:** Use a different user then in *DEV_DSF_BPE_DB_USER_USERNAME*
+- **Recommendation:** Use a different user than in *DEV_DSF_BPE_DB_USER_USERNAME*
 - **Default:** `bpe_server_engine_user`
 
 
@@ -362,7 +362,7 @@ icon: config
 ### DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY
 - **Property:** dev.dsf.bpe.mail.client.certificate.private.key
 - **Required:** No
-- **Description:** Private key corresponging to the SMTP server client certificate as PEM encoded file. Use DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD* or *DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE* if private key is encrypted. Requires SMTP over TLS to be enabled via *DEV_DSF_BPE_MAIL_USESMTPS*
+- **Description:** Private key corresponding to the SMTP server client certificate as PEM encoded file. Use DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD* or *DEV_DSF_BPE_MAIL_CLIENT_CERTIFICATE_PRIVATE_KEY_PASSWORD_FILE* if private key is encrypted. Requires SMTP over TLS to be enabled via *DEV_DSF_BPE_MAIL_USESMTPS*
 - **Recommendation:** Use docker secret file to configure
 - **Example:** `/run/secrets/smtp_server_client_certificate_private_key.pem`
 
@@ -450,7 +450,7 @@ icon: config
 ### DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD or DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD_FILE
 - **Property:** dev.dsf.bpe.mail.smime.p12Keystore.password
 - **Required:** No
-- **Description:** Password to decrypt the PKCS12 encoded S/MIMIE certificate file
+- **Description:** Password to decrypt the PKCS12 encoded S/MIME certificate file
 - **Recommendation:** Use docker secret file to configure using *DEV_DSF_BPE_MAIL_SMIME_P12KEYSTORE_PASSWORD_FILE*
 - **Example:** `/run/secrets/smime_certificate.p12.password`
 
@@ -581,7 +581,7 @@ icon: config
 - **Property:** dev.dsf.bpe.process.plugin.directory
 - **Required:** No
 - **Description:** Directory containing the DSF BPE process plugins for deployment on startup of the DSF BPE server
-- **Recommendation:** Change only if you don't use the provided directory structure from the installation guide or made changes to tit
+- **Recommendation:** Change only if you don't use the provided directory structure from the installation guide or made changes to it
 - **Default:** `process`
 
 
@@ -837,7 +837,7 @@ icon: config
 - **Property:** dev.dsf.server.auth.oidc.bearer.token.audience
 - **Required:** No
 - **Description:** Audience (aud) value to verify before accepting OIDC bearer tokens, uses value from `DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID` by default, set blank string e.g. `''` to disable
-- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set tor `true`
+- **Recommendation:** Requires *DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_REALM_BASE_URL* to be specified and *DEV_DSF_SERVER_AUTH_OIDC_BEARER_TOKEN* set to `true`
 
 
 ### DEV_DSF_SERVER_AUTH_OIDC_CLIENT_ID
@@ -926,28 +926,28 @@ icon: config
 - **Property:** dev.dsf.server.certificate
 - **Required:** No
 - **Description:** Server certificate file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_CHAIN
 - **Property:** dev.dsf.server.certificate.chain
 - **Required:** No
 - **Description:** Server certificate chain file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_KEY
 - **Property:** dev.dsf.server.certificate.key
 - **Required:** No
 - **Description:** Server certificate private key file for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CERTIFICATE_KEY_PASSWORD or DEV_DSF_SERVER_CERTIFICATE_KEY_PASSWORD_FILE
 - **Property:** dev.dsf.server.certificate.key.password
 - **Required:** No
 - **Description:** Server certificate private key file password for testing
-- **Recommendation:** Only specify For testing when terminating TLS in jetty server
+- **Recommendation:** Only specify for testing when terminating TLS in jetty server
 
 
 ### DEV_DSF_SERVER_CONTEXT_PATH

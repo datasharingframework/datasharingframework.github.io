@@ -2,7 +2,7 @@
 title: Basics and Standards
 icon: study
 ---
-Here you can find some basic information about interoperability and the standards were using within the DSF before we go into details about the architecture. Here we only describe how the standards (FHIR and BPMN) are used within the DSF. If you want to gain a deeper knowledge of the standards, we recommend visiting these websites: [HL7 FHIR](https://www.hl7.org/fhir/) and [BPMN](https://www.bpmn.org/) 
+Here you can find some basic information about interoperability and the standards we're using within the DSF before we go into details about the architecture. Here we only describe how the standards (FHIR and BPMN) are used within the DSF. If you want to gain a deeper knowledge of the standards, we recommend visiting these websites: [HL7 FHIR](https://www.hl7.org/fhir/) and [BPMN](https://www.bpmn.org/) 
 
 ## Interoperability 
 Interoperability is the ability of different systems to work together as seamlessly as possible. We can divide interoperability into four levels. 

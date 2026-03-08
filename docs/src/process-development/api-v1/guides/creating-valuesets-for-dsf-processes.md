@@ -58,7 +58,7 @@ Dummy values should be replaced with appropriate, context-specific values. Eleme
     </compose>
 </ValueSet>
 ```
-When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
+When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/ValueSet` of the Java project.
 
 ## Related Topics
 [CodeSystem](../fhir/codesystem.md), [Creating CodeSystems for DSF processes](creating-codesystems-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)
