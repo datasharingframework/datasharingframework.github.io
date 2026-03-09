@@ -357,8 +357,6 @@ function downloadJson() {
 }
 
 .json-output {
-  background: var(--code-bg-color, #282c34);
-  color: var(--code-text-color, #abb2bf);
   padding: 1rem;
   border-radius: 6px;
   overflow-x: auto;
