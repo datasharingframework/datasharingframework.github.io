@@ -206,7 +206,7 @@ function downloadJson() {
 .thumbprint-row input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid var(--border-color, #ddd);
+  border: 1px solid var(--vp-c-border, #ddd);
   border-radius: 4px;
   font-size: 0.9rem;
   box-sizing: border-box;
@@ -263,7 +263,7 @@ function downloadJson() {
 .member-card {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  border: 1px solid var(--border-color, #ddd);
+  border: 1px solid var(--vp-c-border, #ddd);
   border-radius: 6px;
 }
 
@@ -358,6 +358,7 @@ function downloadJson() {
 .json-output {
   padding: 1rem;
   border-radius: 6px;
+  border: 1px solid var(--vp-c-border);
   overflow-x: auto;
   font-size: 0.8rem;
   max-height: 600px;
@@ -374,13 +375,11 @@ function downloadJson() {
   display: block;
   margin-top: 0.25rem;
   font-size: 0.8rem;
-  color: var(--text-color-lighter, #888);
 }
 
 .field-hint code {
   font-size: 0.8rem;
   padding: 0.1rem 0.3rem;
-  background: var(--bg-color-secondary, #eee);
   border-radius: 3px;
 }
 </style>
