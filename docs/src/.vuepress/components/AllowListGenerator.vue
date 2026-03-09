@@ -177,7 +177,6 @@ function downloadJson() {
 
 <style scoped>
 .allow-list-generator {
-  max-width: 900px;
   margin-top: 50px;
 }
 
