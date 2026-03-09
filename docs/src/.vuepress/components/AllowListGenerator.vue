@@ -178,21 +178,18 @@ function downloadJson() {
 <style scoped>
 .allow-list-generator {
   max-width: 900px;
+  margin-top: 50px;
 }
 
 .section {
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  border: 1px solid var(--border-color, #e2e8f0);
-  border-radius: 8px;
-  background: var(--bg-color-secondary, #f8fafc);
 }
 
 .section h3 {
   margin-top: 0;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--theme-color, #3eaf7c);
+  border-bottom: 2px solid var(--vp-c-accent, #3eaf7c);
 }
 
 .form-group {
@@ -269,7 +266,6 @@ function downloadJson() {
   padding: 1rem;
   border: 1px solid var(--border-color, #ddd);
   border-radius: 6px;
-  background: var(--bg-color, #fff);
 }
 
 .member-header {
@@ -280,8 +276,7 @@ function downloadJson() {
 }
 
 .btn-primary {
-  background: var(--theme-color, #3eaf7c);
-  color: #fff;
+  background: var(--vp-c-accent-soft, #f5f5f5);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -290,13 +285,12 @@ function downloadJson() {
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  color: var(--vp-c-accent, #3eaf7c);
 }
 
 .btn-secondary {
-  background: var(--bg-color, #fff);
-  color: var(--text-color, #333);
-  border: 1px solid var(--border-color, #ddd);
+  background: var(--vp-c-accent-soft, #f5f5f5);
+  border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -304,37 +298,35 @@ function downloadJson() {
 }
 
 .btn-secondary:hover {
-  background: var(--bg-color-secondary, #f5f5f5);
+  color: var(--vp-c-accent, #3eaf7c);
 }
 
 .btn-add {
-  background: none;
-  border: 1px dashed var(--border-color, #ccc);
+  background: var(--vp-c-accent-soft, #f5f5f5);
   padding: 0.3rem 0.8rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
-  color: var(--text-color-lighter, #666);
+  border: none;
 }
 
 .btn-add:hover {
-  border-color: var(--theme-color, #3eaf7c);
-  color: var(--theme-color, #3eaf7c);
+  color: var(--vp-c-accent, #3eaf7c);
 }
 
 .btn-remove {
-  background: none;
-  border: 1px solid var(--border-color, #ddd);
+  border: none;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  color: #e53e3e;
+  color: var(--caution-c-text,#e53e3e);
   font-size: 0.8rem;
   flex-shrink: 0;
+  background: var(--caution-c-soft);
 }
 
 .btn-remove:hover {
-  background: #fed7d7;
+  background: var(--caution-c-accent);
 }
 
 .button-row {
@@ -345,8 +337,7 @@ function downloadJson() {
 }
 
 .validation-errors {
-  background: #fff5f5;
-  border: 1px solid #fc8181;
+  background: var(--caution-c-soft);
   border-radius: 4px;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
@@ -354,12 +345,12 @@ function downloadJson() {
 
 .validation-errors p {
   margin: 0.25rem 0;
-  color: #c53030;
+  color: var(--caution-c-text,#e53e3e);
   font-size: 0.85rem;
 }
 
 .copy-success {
-  color: var(--theme-color, #3eaf7c);
+  color: var(--vp-c-accent, #3eaf7c);
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
