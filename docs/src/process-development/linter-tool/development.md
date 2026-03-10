@@ -4,7 +4,7 @@ icon: code
 ---
 ### Requirements
 
-- **Java**: 17 or higher (Java 25+ required for API Version 2 validation)
+- **Java**: Java 25
 - **Maven**: 3.6 or higher
 - **IDE**: IntelliJ IDEA, Eclipse, or VS Code (optional)
 
