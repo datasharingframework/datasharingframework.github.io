@@ -1,0 +1,101 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/CodeSystem/practitioner-role> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "practitioner-role"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://dsf.dev/fhir/StructureDefinition/code-system"^^xsd:anyURI ;
+       fhir:l <http://dsf.dev/fhir/StructureDefinition/code-system>
+     ] ) ;
+     fhir:tag ( [
+       fhir:system [
+         fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ;
+         fhir:l <http://dsf.dev/fhir/CodeSystem/read-access-tag>
+       ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem practitioner-role</b></p><a name=\"practitioner-role\"> </a><a name=\"hcpractitioner-role\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-code-system.html\">CodeSystem</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/practitioner-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC_USER<a name=\"practitioner-role-UAC_USER\"> </a></td><td>Use-and-Access Committee User</td></tr><tr><td style=\"white-space:nowrap\">COS_USER<a name=\"practitioner-role-COS_USER\"> </a></td><td>Coordinating Site User</td></tr><tr><td style=\"white-space:nowrap\">CRR_USER<a name=\"practitioner-role-CRR_USER\"> </a></td><td>Central Research Repository User</td></tr><tr><td style=\"white-space:nowrap\">DIC_USER<a name=\"practitioner-role-DIC_USER\"> </a></td><td>Data Integration Center User</td></tr><tr><td style=\"white-space:nowrap\">DMS_USER<a name=\"practitioner-role-DMS_USER\"> </a></td><td>Data Management Site User</td></tr><tr><td style=\"white-space:nowrap\">DTS_USER<a name=\"practitioner-role-DTS_USER\"> </a></td><td>Data Transfer Site User</td></tr><tr><td style=\"white-space:nowrap\">HRP_USER<a name=\"practitioner-role-HRP_USER\"> </a></td><td>Health Research Platform User</td></tr><tr><td style=\"white-space:nowrap\">TTP_USER<a name=\"practitioner-role-TTP_USER\"> </a></td><td>Trusted Third Party User</td></tr><tr><td style=\"white-space:nowrap\">AMS_USER<a name=\"practitioner-role-AMS_USER\"> </a></td><td>Allowlist Management Site User</td></tr><tr><td style=\"white-space:nowrap\">ASP_USER<a name=\"practitioner-role-ASP_USER\"> </a></td><td>Analysis Service Provider User</td></tr><tr><td style=\"white-space:nowrap\">SPR_USER<a name=\"practitioner-role-SPR_USER\"> </a></td><td>Service Provider Registry User</td></tr><tr><td style=\"white-space:nowrap\">TSP_USER<a name=\"practitioner-role-TSP_USER\"> </a></td><td>Terminology Service Provider User</td></tr><tr><td style=\"white-space:nowrap\">PPH_USER<a name=\"practitioner-role-PPH_USER\"> </a></td><td>Process Plugin Hub User</td></tr><tr><td style=\"white-space:nowrap\">BIO_USER<a name=\"practitioner-role-BIO_USER\"> </a></td><td>Biobank User</td></tr><tr><td style=\"white-space:nowrap\">DSF_ADMIN<a name=\"practitioner-role-DSF_ADMIN\"> </a></td><td>DSF Administrator</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "http://dsf.dev/fhir/CodeSystem/practitioner-role"^^xsd:anyURI ;
+     fhir:l <http://dsf.dev/fhir/CodeSystem/practitioner-role>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "DSF_Practitioner_Role"] ; # 
+  fhir:title [ fhir:v "DSF Practitioner Role"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2025-11-26"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CodeSystem with DSF practitioner roles"] ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:hierarchyMeaning [ fhir:v "grouped-by"] ; # 
+  fhir:versionNeeded [ fhir:v false] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "15"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "UAC_USER" ] ;
+     fhir:display [ fhir:v "Use-and-Access Committee User" ]
+  ] [
+     fhir:code [ fhir:v "COS_USER" ] ;
+     fhir:display [ fhir:v "Coordinating Site User" ]
+  ] [
+     fhir:code [ fhir:v "CRR_USER" ] ;
+     fhir:display [ fhir:v "Central Research Repository User" ]
+  ] [
+     fhir:code [ fhir:v "DIC_USER" ] ;
+     fhir:display [ fhir:v "Data Integration Center User" ]
+  ] [
+     fhir:code [ fhir:v "DMS_USER" ] ;
+     fhir:display [ fhir:v "Data Management Site User" ]
+  ] [
+     fhir:code [ fhir:v "DTS_USER" ] ;
+     fhir:display [ fhir:v "Data Transfer Site User" ]
+  ] [
+     fhir:code [ fhir:v "HRP_USER" ] ;
+     fhir:display [ fhir:v "Health Research Platform User" ]
+  ] [
+     fhir:code [ fhir:v "TTP_USER" ] ;
+     fhir:display [ fhir:v "Trusted Third Party User" ]
+  ] [
+     fhir:code [ fhir:v "AMS_USER" ] ;
+     fhir:display [ fhir:v "Allowlist Management Site User" ]
+  ] [
+     fhir:code [ fhir:v "ASP_USER" ] ;
+     fhir:display [ fhir:v "Analysis Service Provider User" ]
+  ] [
+     fhir:code [ fhir:v "SPR_USER" ] ;
+     fhir:display [ fhir:v "Service Provider Registry User" ]
+  ] [
+     fhir:code [ fhir:v "TSP_USER" ] ;
+     fhir:display [ fhir:v "Terminology Service Provider User" ]
+  ] [
+     fhir:code [ fhir:v "PPH_USER" ] ;
+     fhir:display [ fhir:v "Process Plugin Hub User" ]
+  ] [
+     fhir:code [ fhir:v "BIO_USER" ] ;
+     fhir:display [ fhir:v "Biobank User" ]
+  ] [
+     fhir:code [ fhir:v "DSF_ADMIN" ] ;
+     fhir:display [ fhir:v "DSF Administrator" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

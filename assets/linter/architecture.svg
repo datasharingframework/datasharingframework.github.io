@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 740" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3F8999"/>
+    </marker>
+  </defs>
+
+  <!-- White background -->
+  <rect width="920" height="740" fill="white"/>
+
+  <!-- Title -->
+  <text x="460" y="44" text-anchor="middle" font-size="22" font-weight="bold" fill="#326F95">DSF Linter Architecture</text>
+
+  <!-- ======================== -->
+  <!-- Phase 1 -->
+  <!-- ======================== -->
+  <text x="30" y="108" font-size="13" fill="#326F95">1</text>
+  <rect x="42" y="68" width="200" height="72" rx="6" fill="#326F95"/>
+  <text x="142" y="97" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Phase 1: Project Setup</text>
+  <text x="142" y="118" text-anchor="middle" font-size="11" fill="white">ProjectSetupHandler</text>
+
+  <!-- Arrow Phase 1 → Phase 2 -->
+  <line x1="142" y1="140" x2="142" y2="170" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ======================== -->
+  <!-- Phase 2 -->
+  <!-- ======================== -->
+  <text x="30" y="220" font-size="13" fill="#326F95">2</text>
+  <rect x="42" y="175" width="200" height="72" rx="6" fill="#326F95"/>
+  <text x="142" y="205" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Phase 2: Discovery</text>
+  <text x="142" y="225" text-anchor="middle" font-size="11" fill="white">ResourceDiscoveryService</text>
+
+  <!-- Arrow Phase 2 → Phase 3 (diagonal) -->
+  <line x1="242" y1="211" x2="296" y2="176" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ======================== -->
+  <!-- Phase 3 -->
+  <!-- ======================== -->
+  <text x="287" y="86" font-size="13" fill="#326F95">3</text>
+  <rect x="298" y="65" width="335" height="225" rx="6" fill="#326F95"/>
+  <text x="465" y="91" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Phase 3: Linting</text>
+
+  <!-- BPMN Linting Service -->
+  <rect x="313" y="100" width="305" height="37" rx="3" fill="white"/>
+  <text x="465" y="123" text-anchor="middle" font-size="11" fill="#326F95">BPMN Linting Service</text>
+
+  <!-- FHIR Linting Service -->
+  <rect x="313" y="145" width="305" height="37" rx="3" fill="white"/>
+  <text x="465" y="168" text-anchor="middle" font-size="11" fill="#326F95">FHIR Linting Service</text>
+
+  <!-- Plugin Linting -->
+  <rect x="313" y="190" width="144" height="37" rx="3" fill="white"/>
+  <text x="385" y="213" text-anchor="middle" font-size="11" fill="#326F95">Plugin Linting</text>
+
+  <!-- Leftover Detector -->
+  <rect x="474" y="190" width="144" height="37" rx="3" fill="white"/>
+  <text x="546" y="213" text-anchor="middle" font-size="11" fill="#326F95">Leftover Detector</text>
+
+  <!-- Arrow Phase 3 → Phase 4 -->
+  <line x1="465" y1="290" x2="465" y2="316" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ======================== -->
+  <!-- Phase 4 -->
+  <!-- ======================== -->
+  <text x="193" y="398" font-size="13" fill="#326F95">4</text>
+  <rect x="205" y="320" width="425" height="155" rx="6" fill="#326F95"/>
+  <text x="417" y="347" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Phase 4: Report Generation</text>
+
+  <!-- HTML Reports -->
+  <rect x="218" y="357" width="192" height="37" rx="3" fill="white"/>
+  <text x="314" y="380" text-anchor="middle" font-size="11" fill="#326F95">HTML Reports</text>
+
+  <!-- JSON Reports -->
+  <rect x="420" y="357" width="198" height="37" rx="3" fill="white"/>
+  <text x="519" y="380" text-anchor="middle" font-size="11" fill="#326F95">JSON Reports</text>
+
+  <!-- Console Output -->
+  <rect x="218" y="403" width="400" height="37" rx="3" fill="white"/>
+  <text x="418" y="426" text-anchor="middle" font-size="11" fill="#326F95">Console Output (LintConsolePrinter)</text>
+
+  <!-- Arrow Phase 4 → Phase 5 -->
+  <line x1="630" y1="397" x2="660" y2="397" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ======================== -->
+  <!-- Phase 5 -->
+  <!-- ======================== -->
+  <text x="650" y="348" font-size="13" fill="#326F95">5</text>
+  <rect x="664" y="320" width="210" height="155" rx="6" fill="#3F8999"/>
+  <text x="769" y="360" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Phase 5: Summary</text>
+  <text x="769" y="386" text-anchor="middle" font-size="12" fill="white">Results &amp; Statistics</text>
+  <text x="769" y="408" text-anchor="middle" font-size="12" fill="white">Execution Time</text>
+
+  <!-- ================================ -->
+  <!-- Supporting Components -->
+  <!-- ================================ -->
+  <text x="42" y="497" font-size="11" fill="#777">Supporting Components:</text>
+
+  <!-- ClassLoader Management -->
+  <rect x="42" y="505" width="218" height="58" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="151" y="526" text-anchor="middle" font-size="11" fill="#326F95">ClassLoader Management</text>
+  <text x="151" y="546" text-anchor="middle" font-size="10" fill="#555">ProjectClassLoaderFactory</text>
+
+  <!-- Orchestration -->
+  <rect x="283" y="505" width="218" height="58" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="392" y="526" text-anchor="middle" font-size="11" fill="#326F95">Orchestration</text>
+  <text x="392" y="546" text-anchor="middle" font-size="10" fill="#555">PluginLintingOrchestrator</text>
+
+  <!-- Output Management -->
+  <rect x="524" y="505" width="218" height="58" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="633" y="526" text-anchor="middle" font-size="11" fill="#326F95">Output Management</text>
+  <text x="633" y="546" text-anchor="middle" font-size="10" fill="#555">LintingOutput &amp; LintItems</text>
+
+  <!-- ================================ -->
+  <!-- Flow Diagram -->
+  <!-- ================================ -->
+
+  <!-- Input -->
+  <rect x="42" y="584" width="168" height="70" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="126" y="604" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">Input</text>
+  <text x="53" y="621" font-size="10" fill="#555">&#8226; Extracted JAR</text>
+  <text x="53" y="638" font-size="10" fill="#555">&#8226; Configuration</text>
+
+  <!-- Arrow Input → Processing -->
+  <line x1="210" y1="619" x2="233" y2="619" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Processing -->
+  <rect x="233" y="584" width="168" height="70" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="317" y="604" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">Processing</text>
+  <text x="243" y="621" font-size="10" fill="#555">&#8226; Multi-Plugin Support</text>
+  <text x="243" y="638" font-size="10" fill="#555">&#8226; API v1 &amp; v2</text>
+
+  <!-- Arrow Processing → Output -->
+  <line x1="401" y1="619" x2="424" y2="619" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Output -->
+  <rect x="424" y="584" width="168" height="70" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="508" y="604" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">Output</text>
+  <text x="434" y="621" font-size="10" fill="#555">&#8226; HTML/JSON Reports</text>
+  <text x="434" y="638" font-size="10" fill="#555">&#8226; Success Status</text>
+
+  <!-- Arrow Output → Validation -->
+  <line x1="592" y1="619" x2="615" y2="619" stroke="#3F8999" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Validation -->
+  <rect x="615" y="584" width="168" height="70" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="699" y="604" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">Validation</text>
+  <text x="625" y="621" font-size="10" fill="#555">&#8226; ~99 BPMN Checks</text>
+  <text x="625" y="638" font-size="10" fill="#555">&#8226; ~118 FHIR Checks</text>
+
+  <!-- ================================ -->
+  <!-- Key Features -->
+  <!-- ================================ -->
+  <text x="42" y="676" font-size="11" font-weight="bold" fill="#555">Key Features:</text>
+  <text x="42" y="694" font-size="10" fill="#3F8999">&#10003; Supports single &amp; multi-plugin projects</text>
+  <text x="42" y="710" font-size="10" fill="#3F8999">&#10003; Isolated ClassLoader per project</text>
+  <text x="440" y="694" font-size="10" fill="#3F8999">&#10003; Comprehensive validation (BPMN, FHIR, Plugins)</text>
+  <text x="440" y="710" font-size="10" fill="#3F8999">&#10003; Leftover resource detection</text>
+</svg>
