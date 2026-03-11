@@ -40,9 +40,9 @@ export default hopeTheme({
           prefix: "/operations/",
           children: [ {
             text: "Current Version - 2.0.2",
-            link: "get-started.md",
+            link: "get-started",
             icon: "launch"
-          }, "old-versions.md"],
+          }, "old-versions"],
         },
       ],
     },
@@ -96,7 +96,7 @@ export default hopeTheme({
         icon: "info",
         prefix: "explore/",
         link: "explore/",
-        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"],
+        children: ["concepts/introduction", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"],
       },
       {
         text: "Security Disclosure Policy",

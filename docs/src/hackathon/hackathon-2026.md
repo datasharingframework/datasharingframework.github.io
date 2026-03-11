@@ -29,7 +29,7 @@ Im Rahmen des Hackathons stellen wir das neue DSF-2-Release vor. Ziel der Verans
 ### Praktische Arbeiten
 Am Hackathon sollen die DSF Test- und Produktivinstanzen auf die aktuelle DSF 2.0.x Version aktualisiert, die aktuellen Versionen der Prozessplugins installiert und falls notwendig veraltete Konfiguration nachgezogen werden.
 
- #### DSF
+#### DSF
 [Installation](/operations/latest/install.html) oder [Update](/operations/latest/upgrade-from-1.html). Beim Update von älteren Versionen als 1.9.0 bitte unbedingt auf die jeweils oben auf der Seite referenzierten älteren Update-Hinweise achten.
 
 #### Prozessplugins
