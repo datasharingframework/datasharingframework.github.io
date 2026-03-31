@@ -1,0 +1,137 @@
+# Data Sharing Framework (DSF)
+
+> The Data Sharing Framework (DSF) is a secure middleware for distributing data sharing processes based on BPMN 2.0 and FHIR R4 standards. It enables biomedical researchers to extract, merge, pseudonymize, and share data across organizational boundaries. Funded by the German Federal Ministry of Research, Technology and Space within the Medical Informatics Initiative (MII). Website: https://dsf.dev
+
+## Core Concepts
+
+- [Introduction](https://dsf.dev/explore/concepts/introduction.html): Overview of the DSF, the Medical Informatics Initiative, and Data Integration Centers
+- [Basics](https://dsf.dev/explore/concepts/basics.html): Fundamental concepts of the DSF architecture
+- [Architecture](https://dsf.dev/explore/concepts/architecture.html): Technical architecture of the DSF including FHIR endpoints and business process engines
+- [Security](https://dsf.dev/explore/concepts/security.html): Security model and concepts used by the DSF
+- [Allow List](https://dsf.dev/explore/concepts/allow-list.html): How the DSF manages trusted organizations via allow lists
+- [Process Plugins](https://dsf.dev/explore/concepts/process-plugins.html): How process plugins extend the DSF with new data sharing processes
+- [Network Setup](https://dsf.dev/explore/concepts/network-setup.html): How to set up a DSF network
+
+## Use Cases
+
+- [Feasibility](https://dsf.dev/explore/use-cases/feasibility.html): Feasibility queries across multiple sites
+- [NUM (Network University Medicine)](https://dsf.dev/explore/use-cases/num.html): Use in the German Network University Medicine
+- [Internal MII Data Sharing](https://dsf.dev/explore/use-cases/internal-mii-data-sharing.html): Data sharing within the Medical Informatics Initiative
+
+## Operations (Latest)
+
+- [Get Started](https://dsf.dev/operations/get-started.html): Getting started with DSF operations
+- [Installation Guide](https://dsf.dev/operations/latest/install.html): Step-by-step installation of the latest DSF release
+- [Release Notes](https://dsf.dev/operations/latest/release-notes.html): What's new in the latest DSF release
+- [FHIR Server Configuration](https://dsf.dev/operations/latest/fhir/configuration.html): Configuration options for the FHIR server component
+- [BPE Configuration](https://dsf.dev/operations/latest/bpe/configuration.html): Configuration options for the Business Process Engine
+- [FHIR Reverse Proxy](https://dsf.dev/operations/latest/fhir-reverse-proxy/configuration.html): Reverse proxy configuration for the FHIR endpoint
+- [BPE Reverse Proxy](https://dsf.dev/operations/latest/bpe-reverse-proxy/configuration.html): Reverse proxy configuration for the BPE
+- [Allow List Management](https://dsf.dev/operations/latest/allowList-mgm.html): Managing the allow list of trusted organizations
+- [Process Plugin Deployment](https://dsf.dev/operations/process-plugin-deployment.html): How to deploy process plugins
+- [Passwords and Secrets](https://dsf.dev/operations/latest/passwords-secrets.html): Managing passwords and secrets
+- [Root Certificates](https://dsf.dev/operations/latest/root-certificates.html): Certificate management
+- [Upgrade from DSF v1](https://dsf.dev/operations/latest/upgrade-from-1.html): Migration guide from DSF v1 to v2
+- [Upgrade within DSF v2](https://dsf.dev/operations/latest/upgrade-from-2.html): Upgrading between DSF v2.x versions
+- [OIDC Configuration (FHIR)](https://dsf.dev/operations/latest/fhir/oidc.html): OpenID Connect setup for FHIR server
+- [OIDC Configuration (BPE)](https://dsf.dev/operations/latest/bpe/oidc.html): OpenID Connect setup for BPE
+- [Access Control (FHIR)](https://dsf.dev/operations/latest/fhir/access-control.html): Access control for the FHIR server
+- [Access Control (BPE)](https://dsf.dev/operations/latest/bpe/access-control.html): Access control for the Business Process Engine
+
+## Troubleshooting
+
+- [Common HTTP Status Codes](https://dsf.dev/operations/troubleshooting/common-http-status-codes.html): Common HTTP errors and solutions
+- [Connection Refused](https://dsf.dev/operations/troubleshooting/connection-refused.html): Troubleshooting connection refused errors
+- [Connection Timeout](https://dsf.dev/operations/troubleshooting/connection-timeout.html): Troubleshooting connection timeouts
+- [Read Timeout](https://dsf.dev/operations/troubleshooting/read-timeout.html): Troubleshooting read timeouts
+- [SSL Issues](https://dsf.dev/operations/troubleshooting/ssl.html): Troubleshooting SSL/TLS certificate problems
+- [Unknown Host](https://dsf.dev/operations/troubleshooting/unknown-host.html): Troubleshooting DNS resolution issues
+
+## Process Plugin Development (API v2 - Current)
+
+- [Concept](https://dsf.dev/process-development/api-v2/concept.html): Process plugin concept and design
+- [Get Started](https://dsf.dev/process-development/api-v2/get-started.html): Getting started with process plugin development
+- [Create a Process Plugin](https://dsf.dev/process-development/api-v2/create.html): Step-by-step guide to creating a process plugin
+- [Implementation](https://dsf.dev/process-development/api-v2/implementation.html): Implementation details
+- [Testing](https://dsf.dev/process-development/api-v2/testing.html): Testing process plugins
+- [Best Practices](https://dsf.dev/process-development/api-v2/best-practices.html): Best practices for process plugin development
+- [Migration from API v1](https://dsf.dev/process-development/api-v2/migration.html): Migrating process plugins from API v1 to v2
+- [Javadoc](https://dsf.dev/process-development/api-v2/javadoc.html): Java API reference
+- [Publishing on DSF Hub](https://dsf.dev/process-development/api-v2/publishing/publish-on-dsfhub.html): How to publish process plugins
+
+### BPMN in DSF
+
+- [BPMN Overview](https://dsf.dev/process-development/api-v2/bpmn/): BPMN 2.0 elements supported by the DSF
+- [Service Tasks](https://dsf.dev/process-development/api-v2/bpmn/service-tasks.html): Using service tasks in DSF processes
+- [User Tasks](https://dsf.dev/process-development/api-v2/bpmn/user-tasks.html): User tasks for human interaction
+- [Messaging](https://dsf.dev/process-development/api-v2/bpmn/messaging.html): Cross-site messaging via BPMN
+- [Gateways](https://dsf.dev/process-development/api-v2/bpmn/gateways.html): BPMN gateways for process flow control
+- [Conditions](https://dsf.dev/process-development/api-v2/bpmn/conditions.html): Conditional flow in BPMN processes
+- [Execution Listeners](https://dsf.dev/process-development/api-v2/bpmn/execution-listeners.html): Execution listeners for process events
+- [Timer Events](https://dsf.dev/process-development/api-v2/bpmn/timer-intermediate-catching-events.html): Timer-based events
+
+### FHIR Resources
+
+- [FHIR Overview](https://dsf.dev/process-development/api-v2/fhir/): FHIR R4 resources used by DSF process plugins
+- [Task Resource](https://dsf.dev/process-development/api-v2/fhir/task.html): The FHIR Task resource in DSF
+- [ActivityDefinition](https://dsf.dev/process-development/api-v2/fhir/activitydefinition.html): Defining activities with FHIR ActivityDefinition
+- [CodeSystem](https://dsf.dev/process-development/api-v2/fhir/codesystem.html): Custom CodeSystems for DSF processes
+- [ValueSet](https://dsf.dev/process-development/api-v2/fhir/valueset.html): ValueSets in DSF processes
+- [Questionnaire](https://dsf.dev/process-development/api-v2/fhir/questionnaire-and-questionnaireresponse.html): Questionnaire and QuestionnaireResponse resources
+
+### DSF Internals
+
+- [Process Plugin API](https://dsf.dev/process-development/api-v2/dsf/process-plugin-api.html): The DSF Process Plugin API
+- [Process Plugin Definition](https://dsf.dev/process-development/api-v2/dsf/process-plugin-definition.html): Defining a process plugin
+- [BPMN Process Execution](https://dsf.dev/process-development/api-v2/dsf/bpmn-process-execution.html): How the DSF executes BPMN processes
+- [BPMN Process Variables](https://dsf.dev/process-development/api-v2/dsf/bpmn-process-variables.html): Available process variables
+- [Message Correlation](https://dsf.dev/process-development/api-v2/dsf/message-correlation.html): How messages are correlated between sites
+- [Spring Framework Integration](https://dsf.dev/process-development/api-v2/dsf/spring-framework-integration.html): Spring integration details
+
+### Developer Guides
+
+- [Starting a Process](https://dsf.dev/process-development/api-v2/guides/starting-a-process-via-task-resources.html): How to start a DSF process
+- [Accessing Process Variables](https://dsf.dev/process-development/api-v2/guides/accessing-bpmn-process-variables.html): Working with BPMN process variables
+- [Accessing Task Resources](https://dsf.dev/process-development/api-v2/guides/accessing-task-resources-during-execution.html): Accessing FHIR Task resources during execution
+- [Creating Activity Definitions](https://dsf.dev/process-development/api-v2/guides/creating-activity-definitions.html): Guide to creating ActivityDefinitions
+- [Creating CodeSystems](https://dsf.dev/process-development/api-v2/guides/creating-codesystems-for-dsf-processes.html): Guide to creating CodeSystems
+- [Creating ValueSets](https://dsf.dev/process-development/api-v2/guides/creating-valuesets-for-dsf-processes.html): Guide to creating ValueSets
+- [Creating Task Resources](https://dsf.dev/process-development/api-v2/guides/creating-task-resources-based-on-a-definition.html): Creating Task resources
+- [Read Access Tags](https://dsf.dev/process-development/api-v2/guides/configuring-read-access-tags.html): Configuring read access tags
+- [Task Parameters](https://dsf.dev/process-development/api-v2/guides/adding-task-parameters-to-task-profiles.html): Adding parameters to Task profiles
+- [User Tasks](https://dsf.dev/process-development/api-v2/guides/user-tasks-in-the-dsf.html): Implementing user tasks
+- [Managing Messages](https://dsf.dev/process-development/api-v2/guides/managing-mutiple-incoming-messages-and-missing-messages.html): Handling multiple and missing messages
+
+## Linter Tool
+
+- [Linter Tool](https://dsf.dev/process-development/linter-tool/linter-tool.html): Process plugin validation tool
+- [Validation Rules](https://dsf.dev/process-development/linter-tool/validation.html): Validation rules and checks
+- [Phases](https://dsf.dev/process-development/linter-tool/phases.html): Linter validation phases
+- [Troubleshooting](https://dsf.dev/process-development/linter-tool/troubleshooting.html): Linter troubleshooting
+
+## DSF Development
+
+- [FHIR Implementation Guide](https://dsf.dev/dsf-development/v2/fhir-ig.html): DSF FHIR Implementation Guide
+- [Maven Build](https://dsf.dev/dsf-development/v2/maven.html): Building the DSF with Maven
+
+## Community
+
+- [Team](https://dsf.dev/community/team.html): The team behind the DSF
+- [Communication](https://dsf.dev/community/communication.html): How to reach the DSF community
+- [Ecosystem](https://dsf.dev/community/ecosystem.html): Partner organizations and ecosystem
+- [Contributing Code](https://dsf.dev/community/contribute/code.html): How to contribute code
+- [Contributing Documentation](https://dsf.dev/community/contribute/documentation.html): How to contribute documentation
+- [Consultation Hours](https://dsf.dev/community/consultation-hours.html): Regular consultation hours for DSF users
+
+## Additional Resources
+
+- [Publications](https://dsf.dev/explore/publications.html): Research publications about and using the DSF
+- [Awards](https://dsf.dev/explore/awards.html): Awards received by the DSF project
+- [Security Policy](https://dsf.dev/security/): Security disclosure policy
+- [GitHub Repository](https://github.com/datasharingframework/dsf): Source code of the DSF
+
+## Optional
+
+- [Process Plugin Development API v1](https://dsf.dev/process-development/api-v1/): Legacy API v1 documentation (superseded by API v2)
+- [Old DSF Versions](https://dsf.dev/operations/old-versions.html): Documentation for older DSF versions (v1.x)
+- [News](https://dsf.dev/news/): News and blog posts about the DSF
