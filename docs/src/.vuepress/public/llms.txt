@@ -1,6 +1,6 @@
 # Data Sharing Framework (DSF)
 
-> The Data Sharing Framework (DSF) is a secure middleware for distributing data sharing processes based on BPMN 2.0 and FHIR R4 standards. It enables biomedical researchers to extract, merge, pseudonymize, and share data across organizational boundaries. Funded by the German Federal Ministry of Research, Technology and Space within the Medical Informatics Initiative (MII). Latest version: DSF 2.0.2. Website: https://dsf.dev
+> The Data Sharing Framework (DSF) is a secure middleware for distributing data sharing processes based on BPMN 2.0 and FHIR R4 standards. It enables biomedical researchers to extract, merge, pseudonymize, and share data across organizational boundaries. Funded by the German Federal Ministry of Research, Technology and Space within the Medical Informatics Initiative (MII). Website: https://dsf.dev
 
 ## Core Concepts
 
@@ -18,11 +18,11 @@
 - [NUM (Network University Medicine)](https://dsf.dev/explore/use-cases/num.html): Use in the German Network University Medicine
 - [Internal MII Data Sharing](https://dsf.dev/explore/use-cases/internal-mii-data-sharing.html): Data sharing within the Medical Informatics Initiative
 
-## Operations (v2.0.2 - Latest)
+## Operations (Latest)
 
 - [Get Started](https://dsf.dev/operations/get-started.html): Getting started with DSF operations
-- [Installation Guide](https://dsf.dev/operations/latest/install.html): Step-by-step installation of DSF v2.0.2
-- [Release Notes](https://dsf.dev/operations/latest/release-notes.html): What's new in DSF v2.0.2
+- [Installation Guide](https://dsf.dev/operations/latest/install.html): Step-by-step installation of the latest DSF release
+- [Release Notes](https://dsf.dev/operations/latest/release-notes.html): What's new in the latest DSF release
 - [FHIR Server Configuration](https://dsf.dev/operations/latest/fhir/configuration.html): Configuration options for the FHIR server component
 - [BPE Configuration](https://dsf.dev/operations/latest/bpe/configuration.html): Configuration options for the Business Process Engine
 - [FHIR Reverse Proxy](https://dsf.dev/operations/latest/fhir-reverse-proxy/configuration.html): Reverse proxy configuration for the FHIR endpoint
