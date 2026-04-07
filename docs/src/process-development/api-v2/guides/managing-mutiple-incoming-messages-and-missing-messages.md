@@ -19,4 +19,4 @@ An [Event Based Gateway](../bpmn/gateways.md#event-based-gateway) can be used to
 
 
 ## Related Topics
-[Gateways](../bpmn/gateways.md), [Message Correlation](../dsf/message-correlation.md), [Message Delegates](../dsf/message-delegates.md)
+[Gateways](../bpmn/gateways.md), [Message Correlation](../dsf/message-correlation.md), [Message Activities](../dsf/message-activities.md)

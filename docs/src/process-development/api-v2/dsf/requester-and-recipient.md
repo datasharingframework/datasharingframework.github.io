@@ -5,20 +5,20 @@ icon: creative
 
 ## Requester and Recipient Elements
 
-Below is a set of examples for each Coding used by `requester` and `recipient` elements from the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-1.0.0.xml). CodeSystems referenced in the examples can be found [here](https://github.com/datasharingframework/dsf/tree/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem). This collection aims to provide a reference point when creating [ActivityDefinitions](../fhir/activitydefinition.md).
+Below is a set of examples for each Coding used by `requester` and `recipient` elements from the [dsf-extension-process-authorization](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml). CodeSystems referenced in the examples can be found [here](https://github.com/datasharingframework/dsf/tree/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem). This collection aims to provide a reference point when creating [ActivityDefinitions](../fhir/activitydefinition.md).
 
 ### Requester
 The `requester` element uses one of the following Codings:
 ```xml
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|1.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all-practitioner|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization-practitioner|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role-practitioner|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-all|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-organization|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-remote-parent-organization-role|2.0.0" />
 ```
 
 #### Local All
@@ -194,9 +194,9 @@ The `requester` element uses one of the following Codings:
 ### Recipient
 The `recipeint` element uses one of the following Codings:
 ```xml
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|1.0.0" />
-<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|1.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
+<profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-parent-organization-role|2.0.0" />
 ```
 
 #### Local All

@@ -73,4 +73,4 @@ public class TutorialConfig
 ```
 
 ## Related Topics
-[Environment Variables](environment-variables.md), [Message Delegates](message-delegates.md), [Service Delegates](service-delegates.md)
+[Activities](activities.md), [Environment Variables](environment-variables.md)
