@@ -13,4 +13,4 @@ title: MII Data Sharing explained
 ## References
 
 - https://github.com/medizininformatik-initiative/mii-process-data-sharing/wiki/Process-Data-Sharing-Start-v1.0.x.x#dic-prepare-kds-fhir-store-before-answering-a-manual-user-task 
-- https://dsf.dev/sprechstunde
+- [Consultations hours](/community/consultation-hours)

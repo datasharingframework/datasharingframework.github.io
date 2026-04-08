@@ -3,11 +3,6 @@ title: Hackathon
 icon: guide
 ---
 
-<meta http-equiv="refresh" content="5;url=https://audimax.heiconf.uni-heidelberg.de/326g-u27k-feyk-wzxm">
-
-You will be redirected to the conference in 5 seconds. [Stay on details page](./hackathon-2026.md)
-
-
 The [English version](#hackathon-on-the-20-01-2026-english-version) is available below.
 
 ::: tip Beitritt
@@ -46,7 +41,7 @@ Falls Sie Fragen zum Hackathon oder zum neuen DSF Release haben, melden Sie sich
 ## Hackathon on the 20.01.2026 (English Version)
 ::: tip Joint Technical Consultation of the DSF Community and FDPG+
 Mondays, 14:00–14:50
-Location: https://dsf.dev/sprechstunde
+Location: [Consulation-hours](/community/consultation-hours)
 :::
 
 During the hackathon, we will present the new DSF 2 release. The aim of the event is to support sites in migrating to the new version, with a particular focus on the MII production environment.

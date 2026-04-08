@@ -56,7 +56,7 @@ On **January 20**, 2026 we hosted the **DSF Community Hackathon**, bringing toge
 ---
 
 **🚀 DSF 2 Released!**
-We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment on the **test infrastructure**! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
+We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
 [Read more](posts/2025-11-28-dsfv2-release)
 
 ---

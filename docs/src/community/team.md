@@ -14,7 +14,6 @@ The funded project team includes:
 - Jan Böhringer • [GitHub](https://github.com/jaboehri)
 - Mathias Rühle • [GitHub](https://github.com/EmteZogaf)
 - Mohamad Khalil Malla • [GitHub](https://github.com/khalilmalla95)
-- Paul Maibach • [GitHub](https://github.com/javarum)
 - Sylvester Baidoo-A.
 - Tom Holler • [GitHub](https://github.com/H99-code)
 - Serap Aydin • [GitHub](https://github.com/seay28)
@@ -24,6 +23,7 @@ We thank additional contributors, including:
 - Simon Mödinger • [GitHub](https://github.com/simonmoedinger)
 - Christoph Zilske • [GitHub](https://github.com/ZilskeC)
 - Amir Kannout
+- Paul Maibach • [GitHub](https://github.com/javarum)
 
 ## Funded Partners
 
@@ -48,7 +48,7 @@ The [LIFE Institute](https://www.uniklinikum-leipzig.de/einrichtungen/life/) of 
 
 ![BMFTR Logo =228x158](/photos/learnmore/funding/bmftr.png) 
 
- The DSF Community connects the DSF competencies of the entire [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/de/start) so that new use cases, in particular from Module 3 or the [Network University Medicine (NUM)](https://www.netzwerk-universitaetsmedizin.de/), are better supported in creating the respective DSF plugins. In the context of Module 2b, the DSF Community contributes to the further development of the common digital infrastructure of the MII together with the [FDPG+](https://forschen-fuer-gesundheit.de/) and [TRANSIT](https://www.gesundheitsforschung-bmbf.de/de/transit-medizininformatik-struktur-data-management-unit-16148.php) projects. [BMBF](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)
+ The DSF Community connects the DSF competencies of the entire [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/de/start) so that new use cases, in particular from Module 3 or the [Network University Medicine (NUM)](https://www.netzwerk-universitaetsmedizin.de/), are better supported in creating the respective DSF plugins. In the context of Module 2b, the DSF Community contributes to the further development of the common digital infrastructure of the MII together with the [FDPG+](https://forschen-fuer-gesundheit.de/) and [TRANSIT](https://www.gesundheitsforschung-bmbf.de/de/transit-medizininformatik-struktur-data-management-unit-16148.php) projects. [BMFTR](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)
 
  Heilbronn University (HHN) focuses on the connecting of DSF related topics and competencies in the MII with the community management. The quality assurance of new DSF plugins and further development of the application and core components aim at a scalable, stable and secure operation of the DSF (Funding code: 01ZZ2307A).
 

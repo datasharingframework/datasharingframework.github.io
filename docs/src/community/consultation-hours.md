@@ -7,8 +7,6 @@ icon: guide
 
 Mondays, 14:00–14:50
 
-Location: /sprechstunde
+Location: Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
 :::
-
-Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
 

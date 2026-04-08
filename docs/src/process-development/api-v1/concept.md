@@ -43,6 +43,6 @@ icon: info
 - [Creating CodeSystems for DSF Processes](guides/creating-codesystems-for-dsf-processes.md)
 - [Creating Task Resources Based on a Definition](guides/creating-task-resources-based-on-a-definition.md)
 - [Creating ValueSets for DSF Processes](guides/creating-valuesets-for-dsf-processes.md)
-- [Managing Multiple Incoming Messages and Missing Messages](guides/managing-mutiple-incoming-messages-and-missing-messages.md)
+- [Managing Multiple Incoming Messages and Missing Messages](guides/managing-multiple-incoming-messages-and-missing-messages.md)
 - [Setting Targets for Message Events](guides/setting-targets-for-message-events.md)
 - [Starting a Process via Task Resources](guides/starting-a-process-via-task-resources.md)

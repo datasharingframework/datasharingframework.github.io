@@ -12,5 +12,5 @@ icon: creative
 - [Creating CodeSystems for DSF Processes](creating-codesystems-for-dsf-processes.md)
 - [Creating Task Resources Based on a Definition](creating-task-resources-based-on-a-definition.md)
 - [Creating ValueSets for DSF Processes](creating-valuesets-for-dsf-processes.md)
-- [Managing Multiple Incoming Messages and Missing Messages](managing-mutiple-incoming-messages-and-missing-messages.md)
+- [Managing Multiple Incoming Messages and Missing Messages](managing-multiple-incoming-messages-and-missing-messages.md)
 - [Starting a Process via Task Resources](starting-a-process-via-task-resources.md)

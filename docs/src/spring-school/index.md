@@ -26,10 +26,6 @@ We will put up signs at the main entrance of the university.
 
 The DSF Community Spring School offers an excellent opportunity to gain new knowledge, exchange ideas with like-minded people, and work together on the further development of the Data Sharing Framework and the overarching processes of the MII.
 
-:::tip
-Please register until 15. February under: <https://eveeno.com/dsf-spring-school-2026>
-:::
-
 If you have any questions, please contact us at [dsf-gecko@hs-heilbronn.de](mailto:dsf-gecko@hs-heilbronn.de). Further information and an agenda can be found below. We look forward to working with you on relevant topics at our Spring School.
 
 \*Included are: lunch, drinks, and snacks for 3 days, and dinner on day 2.
