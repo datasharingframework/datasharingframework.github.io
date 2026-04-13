@@ -39,7 +39,7 @@ export default hopeTheme({
           icon: "launch",
           prefix: "/operations/",
           children: [ {
-            text: "Current Version - 2.0.2",
+            text: "Current Version - 2.1.0",
             link: "get-started.md",
             icon: "launch"
           }, "old-versions.md"],
@@ -127,7 +127,8 @@ export default hopeTheme({
     "/operations/old-versions": [],
     "/operations/latest/": generate_v2_latest_sidebar(),
     "/operations/next/": [],
-    "/operations/v2.0.2/": generate_v2_latest_sidebar(),
+    "/operations/v2.1.0/": generate_v2_latest_sidebar(),
+    "/operations/v2.0.2/": generate_v2_0_0_sidebar(),
     "/operations/v2.0.1/": generate_v2_0_0_sidebar(),
     "/operations/v2.0.0/": generate_v2_0_0_sidebar(),
     "/operations/v1.9.0/": generate_v1_latest_sidebar(),
