@@ -1,5 +1,5 @@
 ---
-title: Install DSF 2.1.0
+title: Install DSF {{release.tag}}
 icon: install
 ---
 
@@ -85,8 +85,8 @@ Here is a quick overview of the expected network setup.
     Download and unpack the prepared DSF FHIR server config files and folder structure:
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_fhir_2_1_0.tar.gz
-    sudo tar --same-owner -zxvf dsf_fhir_2_1_0.tar.gz
+    wget https://dsf.dev/download/dsf_fhir_{{release.tagUnderscored}}.tar.gz
+    sudo tar --same-owner -zxvf dsf_fhir_{{release.tagUnderscored}}.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/fhir` assuming you changed into the `/opt` directory._
 
@@ -160,8 +160,8 @@ Here is a quick overview of the expected network setup.
     Download and extract prepared DSF BPE server config files and folder structure:  
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_bpe_2_1_0.tar.gz
-    sudo tar --same-owner -zxvf dsf_bpe_2_1_0.tar.gz
+    wget https://dsf.dev/download/dsf_bpe_{{release.tagUnderscored}}.tar.gz
+    sudo tar --same-owner -zxvf dsf_bpe_{{release.tagUnderscored}}.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/bpe` assuming you changed into the `/opt` directory._
 

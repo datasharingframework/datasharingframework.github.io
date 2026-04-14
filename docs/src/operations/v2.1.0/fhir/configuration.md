@@ -189,13 +189,6 @@ icon: config
 - **Example:** `hospital.com`
 
 
-### DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT
-- **Property:** dev.dsf.fhir.server.organization.thumbprint
-- **Required:** No
-- **Description:** The SHA-512 thumbprint of the local organization client certificate; will be calculated on startup based on the client certificate specified via *DEV_DSF_FHIR_CLIENT_CERTIFICATE*
-- **Recommendation:** Do not specify this variable when using the same client certificate for the FHIR and BPE server; the thumbprint can be calculated via `certtool --fingerprint --hash=sha512 --infile=client_certificate.pem`
-
-
 ### DEV_DSF_FHIR_SERVER_PAGE_COUNT
 - **Property:** dev.dsf.fhir.server.page.count
 - **Required:** No
@@ -221,125 +214,6 @@ icon: config
 - **Property:** dev.dsf.fhir.server.ui.theme
 - **Required:** No
 - **Description:** UI theme parameter, adds a color indicator to the ui to distinguish `dev`, `test` and `prod` environments if configured; supported values: `dev`, `test` and `prod`
-
-
-### DEV_DSF_LOG_AUDIT_CONSOLE_ERR_ENABLED
-- **Property:** dev.dsf.log.audit.console.err.enabled
-- **Required:** No
-- **Description:** Set to `true` to enable console err output of the audit logger
-- **Default:** `false`
-
-
-### DEV_DSF_LOG_AUDIT_CONSOLE_ERR_STYLE
-- **Property:** dev.dsf.log.audit.console.err.style
-- **Required:** No
-- **Description:** Audit logger console err style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
-- **Default:** `STYLE_TEXT`
-
-
-### DEV_DSF_LOG_AUDIT_CONSOLE_OUT_ENABLED
-- **Property:** dev.dsf.log.audit.console.out.enabled
-- **Required:** No
-- **Description:** Set to `true` to enable console out output of the audit logger
-- **Default:** `false`
-
-
-### DEV_DSF_LOG_AUDIT_CONSOLE_OUT_STYLE
-- **Property:** dev.dsf.log.audit.console.out.style
-- **Required:** No
-- **Description:** Audit logger console out style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
-- **Default:** `STYLE_TEXT`
-
-
-### DEV_DSF_LOG_AUDIT_FILE_ENABLED
-- **Property:** dev.dsf.log.audit.file.enabled
-- **Required:** No
-- **Description:** Set to `false` to disable log file output of the audit logger
-- **Default:** `true`
-
-
-### DEV_DSF_LOG_AUDIT_FILE_STYLE
-- **Property:** dev.dsf.log.audit.file.style
-- **Required:** No
-- **Description:** Audit logger file style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
-- **Default:** `TEXT_MDC`
-
-
-### DEV_DSF_LOG_CONFIG
-- **Property:** dev.dsf.log.config
-- **Required:** No
-- **Description:** Location of a log4j configuration xml file; if file is readable, overrides configuration specified via *DEV_DSF_LOG_...* parameters
-- **Default:** `conf/log4j2.xml`
-
-
-### DEV_DSF_LOG_CONSOLE_ERR_ENABLED
-- **Property:** dev.dsf.log.console.err.enabled
-- **Required:** No
-- **Description:** Set to `true` to enable console err output of the standard logger
-- **Default:** `false`
-
-
-### DEV_DSF_LOG_CONSOLE_ERR_LEVEL
-- **Property:** dev.dsf.log.console.err.level
-- **Required:** No
-- **Description:** Standard logger console err output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
-- **Default:** `INFO`
-
-
-### DEV_DSF_LOG_CONSOLE_ERR_STYLE
-- **Property:** dev.dsf.log.console.err.style
-- **Required:** No
-- **Description:** Standard logger console err output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`, `TEXT_COLOR_MDC`, `TEXT_COLOR`
-- **Default:** `TEXT_COLOR`
-
-
-### DEV_DSF_LOG_CONSOLE_OUT_ENABLED
-- **Property:** dev.dsf.log.console.out.enabled
-- **Required:** No
-- **Description:** Set to `false` to disable console out output of the standard logger
-- **Default:** `true`
-
-
-### DEV_DSF_LOG_CONSOLE_OUT_LEVEL
-- **Property:** dev.dsf.log.console.out.level
-- **Required:** No
-- **Description:** Standard logger console out output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
-- **Default:** `INFO`
-
-
-### DEV_DSF_LOG_CONSOLE_OUT_STYLE
-- **Property:** dev.dsf.log.console.out.style
-- **Required:** No
-- **Description:** Standard logger console out output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`, `TEXT_COLOR_MDC`, `TEXT_COLOR`
-- **Default:** `TEXT_COLOR`
-
-
-### DEV_DSF_LOG_FILE_ENABLED
-- **Property:** dev.dsf.log.file.enabled
-- **Required:** No
-- **Description:** Set to `false` to disable log file output of the standard logger
-- **Default:** `true`
-
-
-### DEV_DSF_LOG_FILE_LEVEL
-- **Property:** dev.dsf.log.file.level
-- **Required:** No
-- **Description:** Standard logger log file output level, one of: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`
-- **Default:** `DEBUG`
-
-
-### DEV_DSF_LOG_FILE_STYLE
-- **Property:** dev.dsf.log.file.style
-- **Required:** No
-- **Description:** Standard logger log file output style, one of: `JSON_ECS`, `JSON_GCP`, `JSON_GELF`, `JSON_LOGSTASH`, `TEXT_MDC`, `TEXT`
-- **Default:** `TEXT_MDC`
-
-
-### DEV_DSF_LOG_MIN_LEVEL_LOGGERS
-- **Property:** dev.dsf.log.min.level.loggers
-- **Required:** No
-- **Description:** List of logger names that are enabled to produce log output with the minimal configured log level from `DEV_DSF_LOG_CONSOLE_OUT_LEVEL`, `DEV_DSF_LOG_CONSOLE_ERR_LEVEL` and `DEV_DSF_LOG_FILE_LEVEL`
-- **Default:** `dev.dsf`
 
 
 ### DEV_DSF_PROXY_NOPROXY
@@ -440,6 +314,20 @@ icon: config
 - **Description:** OIDC provider client_secret, must be specified if *DEV_DSF_SERVER_AUTH_OIDC_AUTHORIZATION_CODE_FLOW* is enabled
 
 
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CACHE_TIMEOUT_CONFIGURATION_RESOURCE
+- **Property:** dev.dsf.server.auth.oidc.provider.client.cache.timeout.configuration.resource
+- **Required:** No
+- **Description:** OIDC provider client cache timeout of the 'openid-configuration' discovery resource
+- **Default:** `PT1H`
+
+
+### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CACHE_TIMEOUT_JWKS_RESOURCE
+- **Property:** dev.dsf.server.auth.oidc.provider.client.cache.timeout.jwks.resource
+- **Required:** No
+- **Description:** OIDC provider client cache timeout of the jwks resource
+- **Default:** `PT1H`
+
+
 ### DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_CERTIFICATE
 - **Property:** dev.dsf.server.auth.oidc.provider.client.certificate
 - **Required:** No
@@ -499,6 +387,13 @@ icon: config
 - **Required:** No
 - **Description:** OIDC provider realm base url
 - **Example:** `https://keycloak.test.com:8443/realms/example-realm-name`
+
+
+### DEV_DSF_SERVER_AUTH_OIDC_SESSION_TIMEOUT
+- **Property:** dev.dsf.server.auth.oidc.session.timeout
+- **Required:** No
+- **Description:** Maximum inactivity period after which the server session for OIDC logins is invalidated; the access token may expire earlier, resulting in earlier session invalidation
+- **Default:** `PT30M`
 
 
 ### DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS

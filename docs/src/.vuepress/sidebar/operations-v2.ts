@@ -4,7 +4,7 @@ export function generate_v2_latest_sidebar() {
 		icon: "tool",
 		link: "./",
 	},
-		"release-notes", "install", "upgrade-from-2", "upgrade-from-1", "allowList-mgm", "root-certificates", "passwords-secrets", "image-verification", {
+		"release-notes", "install", "upgrade-from-2", "upgrade-from-1", "allowList-mgm", "root-certificates", "passwords-secrets", "image-verification", "hardening-measures", {
 		text: "FHIR Reverse Proxy",
 		icon: "module",
 		prefix: "fhir-reverse-proxy/",

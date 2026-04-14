@@ -8,10 +8,10 @@
       Verify the signature before using the image in production:
     </p>
     <pre><code>cosign verify \
-  ghcr.io/datasharingframework/{{ image }}:{{ tag }}@sha256:{{ digestDisplay }} \
+  ghcr.io/datasharingframework/{{ image }}:{{ resolvedTag }}@sha256:{{ digestDisplay }} \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"</code></pre>
-    <p v-if="!digest">
+    <p v-if="!resolvedDigest">
       Replace <code>&lt;digest&gt;</code> with the immutable digest of the image
       you intend to deploy. See
       <a :href="guide">How to Verify Image Signatures</a>
@@ -24,18 +24,32 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    image: { type: String, required: true },
-    tag: { type: String, default: '2.1.0' },
-    digest: { type: String, default: '' },
-    guide: { type: String, default: '../image-verification' }
-  },
-  computed: {
-    digestDisplay() {
-      return this.digest ? this.digest.replace(/^sha256:/, '') : '<digest>';
-    }
-  }
-}
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { getReleaseFromPath } from '../data/releases';
+
+const props = defineProps<{
+  image: string;
+  tag?: string;
+  digest?: string;
+  guide?: string;
+}>();
+
+const route = useRoute();
+
+const release = computed(() => getReleaseFromPath(route.path));
+
+const resolvedTag = computed(() => props.tag ?? release.value?.tag ?? '<tag>');
+
+const resolvedDigest = computed(() => {
+  if (props.digest) return props.digest.replace(/^sha256:/, '');
+  const fromData = release.value?.images[props.image as keyof NonNullable<typeof release.value>['images']]?.digest;
+  if (fromData && fromData !== 'sha256:TODO') return fromData.replace(/^sha256:/, '');
+  return '';
+});
+
+const digestDisplay = computed(() => resolvedDigest.value || '<digest>');
+
+const guide = computed(() => props.guide ?? '../image-verification');
 </script>
