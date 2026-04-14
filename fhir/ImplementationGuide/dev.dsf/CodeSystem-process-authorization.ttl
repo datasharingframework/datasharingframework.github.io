@@ -1,0 +1,92 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/CodeSystem/process-authorization> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "process-authorization"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://dsf.dev/fhir/StructureDefinition/code-system"^^xsd:anyURI ;
+       fhir:l <http://dsf.dev/fhir/StructureDefinition/code-system>
+     ] ) ;
+     fhir:tag ( [
+       fhir:system [
+         fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ;
+         fhir:l <http://dsf.dev/fhir/CodeSystem/read-access-tag>
+       ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem process-authorization</b></p><a name=\"process-authorization\"> </a><a name=\"hcprocess-authorization\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-code-system.html\">CodeSystem</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/process-authorization</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ORGANIZATION<a name=\"process-authorization-LOCAL_ORGANIZATION\"> </a></td><td>Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ORGANIZATION_PRACTITIONER<a name=\"process-authorization-LOCAL_ORGANIZATION_PRACTITIONER\"> </a></td><td>Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner</td></tr><tr><td style=\"white-space:nowrap\">REMOTE_ORGANIZATION<a name=\"process-authorization-REMOTE_ORGANIZATION\"> </a></td><td>Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization</td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ROLE<a name=\"process-authorization-LOCAL_ROLE\"> </a></td><td>Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ROLE_PRACTITIONER<a name=\"process-authorization-LOCAL_ROLE_PRACTITIONER\"> </a></td><td>Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner</td></tr><tr><td style=\"white-space:nowrap\">REMOTE_ROLE<a name=\"process-authorization-REMOTE_ROLE\"> </a></td><td>Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role</td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ALL<a name=\"process-authorization-LOCAL_ALL\"> </a></td><td>Process authorization for all local organizations</td></tr><tr><td style=\"white-space:nowrap\">LOCAL_ALL_PRACTITIONER<a name=\"process-authorization-LOCAL_ALL_PRACTITIONER\"> </a></td><td>Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner</td></tr><tr><td style=\"white-space:nowrap\">REMOTE_ALL<a name=\"process-authorization-REMOTE_ALL\"> </a></td><td>Process authorization for all remote organizations</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "http://dsf.dev/fhir/CodeSystem/process-authorization"^^xsd:anyURI ;
+     fhir:l <http://dsf.dev/fhir/CodeSystem/process-authorization>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "DSF_Process_Authorization"] ; # 
+  fhir:title [ fhir:v "DSF Process Authorization"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2025-11-26"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CodeSystem with proces authorization codes"] ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:hierarchyMeaning [ fhir:v "grouped-by"] ; # 
+  fhir:versionNeeded [ fhir:v false] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "9"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "LOCAL_ORGANIZATION" ] ;
+     fhir:display [ fhir:v "LOCAL_ORGANIZATION" ] ;
+     fhir:definition [ fhir:v "Process authorization for a local organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization" ]
+  ] [
+     fhir:code [ fhir:v "LOCAL_ORGANIZATION_PRACTITIONER" ] ;
+     fhir:display [ fhir:v "LOCAL_ORGANIZATION_PRACTITIONER" ] ;
+     fhir:definition [ fhir:v "Process authorization for local users with a specific practitioner role in an organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization-practitioner" ]
+  ] [
+     fhir:code [ fhir:v "REMOTE_ORGANIZATION" ] ;
+     fhir:display [ fhir:v "REMOTE_ORGANIZATION" ] ;
+     fhir:definition [ fhir:v "Process authorization for a remote organization specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-organization" ]
+  ] [
+     fhir:code [ fhir:v "LOCAL_ROLE" ] ;
+     fhir:display [ fhir:v "LOCAL_ROLE" ] ;
+     fhir:definition [ fhir:v "Process authorization for a local parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role" ]
+  ] [
+     fhir:code [ fhir:v "LOCAL_ROLE_PRACTITIONER" ] ;
+     fhir:display [ fhir:v "LOCAL_ROLE_PRACTITIONER" ] ;
+     fhir:definition [ fhir:v "Process authorization for local users with a specific practitioner role in a parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role-practitioner" ]
+  ] [
+     fhir:code [ fhir:v "REMOTE_ROLE" ] ;
+     fhir:display [ fhir:v "REMOTE_ROLE" ] ;
+     fhir:definition [ fhir:v "Process authorization for a remote parent organization member with a role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-parent-organization-role" ]
+  ] [
+     fhir:code [ fhir:v "LOCAL_ALL" ] ;
+     fhir:display [ fhir:v "LOCAL_ALL" ] ;
+     fhir:definition [ fhir:v "Process authorization for all local organizations" ]
+  ] [
+     fhir:code [ fhir:v "LOCAL_ALL_PRACTITIONER" ] ;
+     fhir:display [ fhir:v "LOCAL_ALL_PRACTITIONER" ] ;
+     fhir:definition [ fhir:v "Process authorization for all local users with a specific practitioner role specified via extension http://dsf.dev/fhir/StructureDefinition/extension-process-authorization-practitioner" ]
+  ] [
+     fhir:code [ fhir:v "REMOTE_ALL" ] ;
+     fhir:display [ fhir:v "REMOTE_ALL" ] ;
+     fhir:definition [ fhir:v "Process authorization for all remote organizations" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
