@@ -16,8 +16,10 @@ X.509 certificates of default trusted CAs are stored as individual .pem files co
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
 * [SSL_CA_CERTIFICATE_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-certificate-path)
   Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [SSL_CA_DN_REQUEST_PATH](fhir-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
   Default Value: `ca/client_issuing_cas`
+  Default Folder Content: [client_issuing_cas.zip](/download/2.1.0/client_issuing_cas.zip)
 
 Use docker bind mounts to replace all default files or add additional CAs to the folders.
 
@@ -38,18 +40,23 @@ See the [BPE Server configuration](#bpe-server) for an example.
 
 If you can't override the default configuration with bind-mounts, you can use the following environment variables to configure non default .pem file directories or .pem file:
 * [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: [ca/client_ca_chains](/download/1.9.0/client_cert_ca_chains.pem)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-fhir-client-trust-server-certificate-cas)
-  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
-  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 
 ### BPE Reverse Proxy
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
 * [SSL_CA_CERTIFICATE_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-certificate-path)
   Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [SSL_CA_DN_REQUEST_PATH](bpe-reverse-proxy/configuration.html#ssl-ca-dn-request-path)
   Default Value: `ca/client_issuing_cas`
+  Default Folder Content: [client_issuing_cas.zip](/download/2.1.0/client_issuing_cas.zip)
 
 Use docker bind mounts to replace all default files or add additional CAs to the folders.
 
@@ -81,13 +88,17 @@ services:
 
 Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
 * [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: [ca/client_ca_chains](/download/1.9.0/client_cert_ca_chains.pem)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
-  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
   [DEV_DSF_BPE_MAIL_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-mail-trust-server-certificate-cas)
-  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
-  Default Value: [ca/server_root_cas](/download/1.9.0/server_cert_root_cas.pem)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 
 ## List of Default Trusted Certificate Authorities
 If not mentioned explicitly, issuing CAs listed will sign X.509 certificates with [Extended Key Usage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) entries `TLS WWW server authentication` and `TLS WWW client authentication`.
