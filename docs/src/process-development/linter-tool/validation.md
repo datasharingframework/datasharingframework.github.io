@@ -112,6 +112,28 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - The process engine only deploys and executes processes marked as executable
   - Non-executable processes are typically used for documentation or as templates
 
+##### Process Version Tag Validation
+
+- **Requirement**:
+  - Process must define `camunda:versionTag`
+  - Expected placeholder value in DSF process plugins: `#{version}`
+  - Error: `BPMN_PROCESS_VERSION_TAG_MISSING_OR_EMPTY` (missing, empty/blank, or literal `"null"`)
+  - Warning: `BPMN_PROCESS_VERSION_TAG_NO_PLACEHOLDER` (present but without `#{version}`)
+  - Success: `SUCCESS` when `camunda:versionTag` contains `#{version}`
+
+- **Valid Example**:
+  - ✅ `<process id="example_process" isExecutable="true" camunda:versionTag="#{version}">`
+
+- **Error Examples**:
+  - ❌ `<process id="example_process" isExecutable="true">` (missing `camunda:versionTag`)
+  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="">` (empty value)
+  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="null">` (literal `null`)
+
+- **Warning Examples**:
+  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="1.0.0">`
+  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="some-fixed-version">`
+
+
 #### Task Validation
 
 ##### Service Tasks
