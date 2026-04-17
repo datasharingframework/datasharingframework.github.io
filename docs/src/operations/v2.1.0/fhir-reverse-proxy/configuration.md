@@ -76,13 +76,6 @@ icon: config
 - **Example:** `/run/secrets/ssl_certificate_chain_file.pem`
 
 
-### SSL_CERTIFICATE_CHAIN_FILE
-- **Required:** No
-- **Description:** Certificate chain file, PEM encoded, must contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate), sets the apache httpd parameter `SSLCertificateChainFile`; can be omitted if either no chain is needed (self signed server certificate) or the file specified via *SSL_CERTIFICATE_FILE* contains the certificate chain
-- **Recommendation:** Use docker secret file to configure
-- **Example:** `/run/secrets/ssl_certificate_chain_file.pem`
-
-
 ### SSL_CERTIFICATE_FILE
 - **Required:** Yes
 - **Description:** Server certificate file, PEM encoded, sets the apache httpd parameter `SSLCertificateFile`, may contain all certificates between the server certificate and the root ca certificate (excluding the root ca certificate). Omit *SSL_CERTIFICATE_CHAIN_FILE* if chain included
