@@ -58,4 +58,3 @@ Issues closed:
 - Add community guidelines [#152](https://github.com/datasharingframework/dsf/issues/152)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jbellmann](https://github.com/jbellmann), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

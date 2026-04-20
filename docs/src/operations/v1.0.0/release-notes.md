@@ -75,4 +75,3 @@ Issues closed:
 - Migrate to dsf.dev Namespace [#1](https://github.com/datasharingframework/dsf/issues/1)
 
 This release contains contributions from [@schwzr](https://github.com/schwzr), [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
-

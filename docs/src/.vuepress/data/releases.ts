@@ -26,6 +26,38 @@ export const releases: Record<string, Release> = {
   },
 };
 
+// --- Version registry (single source of truth) ---
+// Sidebar keys reference generator functions by name; mapped in theme.ts.
+// Ordered newest-first.
+export type SidebarKey = 'v2_latest' | 'v2_0_0' | 'v1_latest' | 'v1_gte_1_7' | 'v1_gte_1_5' | 'v1_gte_1_0';
+
+export interface VersionEntry {
+  tag: string;
+  sidebar: SidebarKey;
+}
+
+export const allVersions: VersionEntry[] = [
+  { tag: '2.1.0', sidebar: 'v2_latest' },
+  { tag: '2.0.2', sidebar: 'v2_0_0' },
+  { tag: '2.0.1', sidebar: 'v2_0_0' },
+  { tag: '2.0.0', sidebar: 'v2_0_0' },
+  { tag: '1.9.0', sidebar: 'v1_latest' },
+  { tag: '1.8.0', sidebar: 'v1_gte_1_7' },
+  { tag: '1.7.1', sidebar: 'v1_gte_1_7' },
+  { tag: '1.7.0', sidebar: 'v1_gte_1_7' },
+  { tag: '1.6.0', sidebar: 'v1_gte_1_5' },
+  { tag: '1.5.2', sidebar: 'v1_gte_1_5' },
+  { tag: '1.5.1', sidebar: 'v1_gte_1_5' },
+  { tag: '1.5.0', sidebar: 'v1_gte_1_5' },
+  { tag: '1.4.0', sidebar: 'v1_gte_1_0' },
+  { tag: '1.3.2', sidebar: 'v1_gte_1_0' },
+  { tag: '1.3.1', sidebar: 'v1_gte_1_0' },
+  { tag: '1.3.0', sidebar: 'v1_gte_1_0' },
+  { tag: '1.2.0', sidebar: 'v1_gte_1_0' },
+  { tag: '1.1.0', sidebar: 'v1_gte_1_0' },
+  { tag: '1.0.0', sidebar: 'v1_gte_1_0' },
+];
+
 export const latestVersion = '2.1.0';
 
 export function getReleaseFromPath(path: string): Release | undefined {

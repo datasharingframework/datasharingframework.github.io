@@ -35,4 +35,3 @@ Issues closed:
 - Use UUID generator instead of database id generator [#139](https://github.com/datasharingframework/dsf/issues/139)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@wetret](https://github.com/wetret), [@schwzr](https://github.com/schwzr) and [@hhund](https://github.com/hhund).
-

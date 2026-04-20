@@ -50,4 +50,3 @@ Issues closed:
 - Unsafe 3DES Cipher Suite in FHIR Proxy [#117](https://github.com/datasharingframework/dsf/issues/117)
 
 This release contains contributions from [@wetret](https://github.com/wetret), [@schwzr](https://github.com/schwzr) and [@hhund](https://github.com/hhund).
-
