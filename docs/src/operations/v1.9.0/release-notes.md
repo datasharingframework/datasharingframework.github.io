@@ -35,4 +35,3 @@ Issues closed:
 - Support for running the proxy containers as non-root by default [#352](https://github.com/datasharingframework/dsf/issues/352)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri) and [@schwzr](https://github.com/schwzr).
-

@@ -113,4 +113,3 @@ Issues closed:
 - Improve DefaultUserTaskListener [#78](https://github.com/datasharingframework/dsf/issues/78)
 
 This release contains contributions from [@alexanderkiel](https://github.com/alexanderkiel), [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@MadMax93](https://github.com/MadMax93), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

@@ -68,4 +68,3 @@ Issues closed:
 - Property dev.dsf.bpe.fhir.client.connections.config.default.enable.debug.logging Used for Unrelated Configuration Values [#411](https://github.com/datasharingframework/dsf/issues/411)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

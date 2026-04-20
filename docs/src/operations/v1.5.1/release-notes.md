@@ -41,4 +41,3 @@ Issues closed:
 - FHIR Server GUI: Fix recipient in Task view [#189](https://github.com/datasharingframework/dsf/issues/189)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-
