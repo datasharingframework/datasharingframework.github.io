@@ -660,9 +660,34 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
   - Error: `FHIR_TASK_INPUT_SLICE_COUNT_BELOW_SLICE_MIN`
   - Error: `FHIR_TASK_INPUT_SLICE_COUNT_EXCEEDS_SLICE_MAX`
 
-- **Terminology Validation**:
-  - Code/system combinations validated against DSF CodeSystems
-  - Error: `FHIR_TASK_UNKNOWN_CODE`
+  - **Terminology Validation**:
+    - Generic coding validation (outside `Task.input.type.coding`) checks code/system pairs against known DSF CodeSystems
+    - Error: `FHIR_TASK_UNKNOWN_CODE`
+
+- **Task.input.type.coding Terminology Validation (binding-driven)**:
+    - Validation for `Task.input.type.coding` is performed in three strict, ordered checks:
+        1. **Known CodeSystem check**:
+            - `Task.input.type.coding.system` must be a known CodeSystem URI
+            - Error: `FHIR_TASK_INPUT_CODING_SYSTEM_UNKNOWN`
+            - If this check fails, subsequent checks for that input are skipped
+        2. **Binding context check**:
+            - The system must be allowed by the slice-specific binding context from the referenced `StructureDefinition`
+            - Resolution order:
+                - `fixedUri` on `Task.input:sliceName.type.coding.system` (exact match required)
+                - `binding.valueSet` on `Task.input:sliceName.type` (fallback: `...type.coding`) and membership in `ValueSet.compose.include.system`
+            - Error: `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+            - If this check fails, code validation for that input is skipped
+        3. **Code-in-system check**:
+            - `Task.input.type.coding.code` must exist in the specified CodeSystem
+            - Error: `FHIR_TASK_INPUT_CODING_CODE_UNKNOWN_FOR_SYSTEM`
+
+- **Binding Resolution Notes**:
+    - ValueSet checks are strict and context-aware; no permissive fallback to unrelated ValueSets is used
+    - If a slice declares `binding.valueSet` but the ValueSet is not loaded into the cache, validation fails explicitly with:
+      `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+    - If no resolvable binding context exists for a slice (`fixedUri` and `binding.valueSet` both missing), validation fails explicitly with:
+      `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+    - Inputs already failing structural checks (`FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`) are not re-reported by terminology checks
 
 #### StructureDefinition Resources
 
