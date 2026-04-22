@@ -1105,6 +1105,59 @@ ValueSet resources are validated against the DSF ValueSet base profile.
   - `dsf-bpe/dsf-bpe-process-api-v2/src/main/java/dev/dsf/bpe/v2/ProcessPluginDefinition.java`
   - The `getResourceVersion()` method extracts the resource version from the plugin version
 
+#### Spring Configuration Registration
+
+In the DSF runtime, the Camunda engine does not instantiate Java delegate or
+listener classes directly. Spring creates those instances via `@Bean` methods
+declared in `@Configuration` classes. For those beans to be available to the
+BPE at runtime, the corresponding `@Configuration` classes must be explicitly
+returned by `ProcessPluginDefinition#getSpringConfigurations()`. Forgetting
+to add a `@Bean` for a BPMN-referenced class typically surfaces as a
+`BeanCreationException` or `ClassNotFoundException` only at deployment time.
+
+- **Every BPMN-referenced class must be provided as a `@Bean`**:
+    - The linter collects every `camunda:class` reference used by
+      `serviceTask`, `sendTask`, `messageEventDefinition`,
+      `camunda:executionListener` and `camunda:taskListener` elements in the
+      plugin's BPMN files (List 1).
+    - The linter calls `getSpringConfigurations()` to get the registered
+      `@Configuration` classes and inspects the return types of their
+      `@Bean` methods (List 2).
+    - For every class in List 1, the linter checks whether it is provided
+      as a `@Bean` (exact type or supertype) in any `@Configuration` from
+      List 2.
+    - If a BPMN-referenced class has **no matching `@Bean`** in any
+      registered configuration, this is reported as an error.
+    - Error: `PLUGIN_DEFINITION_SPRING_CONFIGURATION_MISSING`
+    - Success: `SUCCESS` when all BPMN delegate/listener references are
+      covered by a `@Bean` in a registered `@Configuration`, or when no
+      BPMN delegate/listener references exist.
+
+- **Code Example**:
+  ```java
+  @Override
+  public List<Class<?>> getSpringConfigurations() {
+      return List.of(DataSharingConfig.class, DataSharingVariablesConfig.class);
+  }
+  ```
+  ```java
+  @Configuration
+  public class DataSharingConfig {
+
+      // Every class referenced via camunda:class in the BPMN must have
+      // a corresponding @Bean here (or in another registered @Configuration).
+      @Bean
+      public SelectDicTargets selectDicTargets() {
+          return new SelectDicTargets(api);
+      }
+
+      @Bean
+      public SelectDmsTarget selectDmsTarget() {
+          return new SelectDmsTarget(api);
+      }
+  }
+  ```
+
 #### Leftover Resource Detection
 
 The linter performs project-level analysis to identify unreferenced resources:
