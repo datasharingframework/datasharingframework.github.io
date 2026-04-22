@@ -689,6 +689,23 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
       `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
     - Inputs already failing structural checks (`FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`) are not re-reported by terminology checks
 
+- **Task.input Fixed Constraint Validation (`fixedUri` / `fixedCode`)**:
+    - Validates actual `Task.input.type.coding.system` and `Task.input.type.coding.code` pairs against fixed constraints declared in the referenced `StructureDefinition` slices
+    - Validation direction is **Task → StructureDefinition** (actual instance values are checked against allowed fixed pairs)
+    - **System mismatch for existing code**:
+        - If a Task input code exists in SD constraints, but with a different system
+        - Error: `FHIR_TASK_INPUT_FIXED_URI_MISMATCH`
+    - **Code mismatch for existing system**:
+        - If a Task input system exists in SD constraints, but with a different code
+        - Error: `FHIR_TASK_INPUT_FIXED_CODE_MISMATCH`
+    - **Pair not allowed by SD constraints**:
+        - If a non-BPMN Task input `(system, code)` pair is not defined by any SD `fixedUri/fixedCode` constraint
+        - Error: `FHIR_TASK_INPUT_PAIR_NOT_ALLOWED_BY_SD`
+    - **Validation Behavior**:
+        - Check runs only when profile can be resolved and fixed constraints are extractable from the referenced `StructureDefinition`
+        - BPMN message inputs (`http://dsf.dev/fhir/CodeSystem/bpmn-message`) are excluded from this specific pair-not-allowed check because they are validated in dedicated Task input rules
+
+
 #### StructureDefinition Resources
 
 StructureDefinition resources are validated against DSF-specific constraints.
@@ -748,6 +765,24 @@ According to FHIR profiling specification §5.1.0.14:
 - **MUST Rule (Slice Max)**:
   - No individual slice's maximum cardinality may exceed base element's maximum
   - Error: `STRUCTURE_DEFINITION_SLICE_MAX_TOO_HIGH`
+
+##### Binding and Fixed Coding Validation
+- **`binding.valueSet` Reference Validation**:
+    - Checks whether `binding.valueSet` URLs in differential elements can be resolved to a known ValueSet in project resources
+    - For unresolved references with `strength="required"`:
+        - Warning: `STRUCTURE_DEFINITION_BINDING_VALUESET_UNRESOLVED`
+    - For unresolved references with non-required strengths (`extensible`, `preferred`, `example`):
+        - Info: `STRUCTURE_DEFINITION_BINDING_VALUESET_UNRESOLVED_NON_REQUIRED`
+    - Success: `SUCCESS` when the referenced ValueSet is resolvable
+- **`fixedUri` / `fixedCode` Validation Against CodeSystems**:
+    - For differential elements using `fixedUri` on `*.system`, verifies that the referenced CodeSystem exists in project terminology cache
+    - If referenced CodeSystem is unknown:
+        - Info: `STRUCTURE_DEFINITION_FIXED_URI_CODESYSTEM_NOT_FOUND`
+        - Note: `fixedCode` validation is skipped for this path when CodeSystem is unknown
+    - If `fixedCode` is present and the CodeSystem is known, verifies that the code exists in that CodeSystem
+        - Error: `STRUCTURE_DEFINITION_FIXED_CODE_NOT_IN_CODESYSTEM`
+    - Success: `SUCCESS` when `fixedUri` resolves (and `fixedCode`, if present, is valid)
+
 
 #### ValueSet Resources
 
