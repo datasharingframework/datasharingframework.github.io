@@ -1157,7 +1157,47 @@ to add a `@Bean` for a BPMN-referenced class typically surfaces as a
       }
   }
   ```
+#### Spring Bean Scope (`SpringConfigurationLinter`)
 
+In Camunda and the Data Sharing Framework (DSF), Spring beans that act as delegates, execution listeners, or task listeners should usually be configured with **prototype** scope (`SCOPE_PROTOTYPE`). If the `@Scope` annotation is omitted, Spring defaults to **singleton**. That can be acceptable for strictly stateless classes; as soon as someone adds mutable instance state, the risk of race conditions and hard-to-debug concurrency bugs rises sharply—often only visible under load.
+
+After a BPMN-referenced class is **covered** by a `@Bean` in a registered `@Configuration` (see [Spring Configuration Registration](#spring-configuration-registration)), the linter inspects the covering `@Bean` method for `@Scope` and the referenced implementation class for **mutable** instance fields (not `static`, not `final`). Emitted rules:
+
+   - **Success** – `SPRING_BEAN_SCOPE_PROTOTYPE`: `@Scope` is **prototype** (e.g. `ConfigurableBeanFactory.SCOPE_PROTOTYPE` or `@Scope("prototype")`). No further scope items for that reference in this pass.
+   - **Error** – `SPRING_BEAN_SCOPE_MUTABLE_SINGLETON`: The bean is **effectively singleton** (missing `@Scope` *or* explicit non-prototype scope such as `singleton`) **and** the referenced class has **mutable** instance fields. Emitted **once** per reference before the following warnings.
+   - **Warning** – `SPRING_BEAN_SCOPE_MISSING`: The covering `@Bean` has **no** `@Scope` (Spring’s default is singleton, which is risky for Camunda hooks unless the implementation is provably stateless).
+   - **Warning** – `SPRING_BEAN_SCOPE_SINGLETON_EXPLICIT`: `@Scope` is **explicitly** set to a **non-prototype** value (typically `singleton`); the developer should verify that the delegate or listener is safe to share across process instances.
+
+  **Why this matters:** The rule stays aligned with DSF wiring (only configurations from `getSpringConfigurations()`) and surfaces dangerous combinations—singleton or default-singleton scope plus mutable instance state—before they appear in production.
+
+  **Example scenarios**
+
+   *Missing `@Scope` → warning (and error if the delegate/listener class has mutable instance fields)*
+
+  ```java
+  @Bean
+  // Missing @Scope annotation
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+      return new SetCorrelationKeyListener(api);
+  }
+  ```
+
+  *Explicit singleton → warning (and error if mutable instance fields exist)*
+  ```java
+  @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // or @Scope("singleton")
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+  return new SetCorrelationKeyListener(api);
+  }
+  ```
+  *Prototype (recommended) → success*
+  ```java 
+  @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // or @Scope("prototype")
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+  return new SetCorrelationKeyListener(api);
+  }
+  ```
 #### Leftover Resource Detection
 
 The linter performs project-level analysis to identify unreferenced resources:
