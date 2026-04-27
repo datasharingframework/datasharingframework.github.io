@@ -18,4 +18,5 @@ icon: creative
 - [Read Access Tag](read-access-tag.md)
 - [Requester and Recipient](requester-and-recipient.md)
 - [Spring Framework Integration](spring-framework-integration.md)
+- [Understanding the Process Authorization Extension](./understanding-the-process-authorization-extension.md)
 - [Versions, Placeholders and URLs](versions-placeholders-urls.md)
