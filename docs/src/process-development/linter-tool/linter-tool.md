@@ -13,9 +13,10 @@ A comprehensive linting tool for DSF (Data Sharing Framework) process plugins. V
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [CLI Options](#cli-options)
-6. [Report Generation](#report-generation)
-7. [Architecture](#architecture)
-8. [API Reference](#api-reference)
+6. [Exclusion Rules](#exclusion-rules)
+7. [Report Generation](#report-generation)
+8. [Architecture](#architecture)
+9. [API Reference](#api-reference)
 
 ## Overview
 
@@ -36,6 +37,7 @@ The DSF Linter is a static analysis tool designed to validate DSF process plugin
 - ✅ CI/CD integration ready
 - ✅ Comprehensive error reporting with severity levels
 - ✅ Extensible architecture for custom validation rules
+- ✅ Configurable exclusion rules to suppress known or accepted findings
 
 ### What is DSF?
 
@@ -210,6 +212,7 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 | `--verbose` | `-v` | Enable verbose logging output | No |
 | `--no-color` | | Disable colored console output (default: enabled) | No |
 | `--no-fail` | | Exit with code 0 even if linter errors are found | No |
+| `--exclusions <file>` | | Path to a JSON file containing exclusion rules. If omitted, `dsf-linter-exclusions.json` in the project root is used automatically. | No |
 | `--help` | `-h` | Display help message | No |
 | `--version` | | Display version information | No |
 
@@ -229,6 +232,71 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 | 0 | Success (no errors, or `--no-fail` was used) |
 | 1 | Failure (errors found, or fatal error occurred) |
 
+
+## Exclusion Rules
+
+The exclusion feature allows you to suppress specific lint findings from reports and optionally from the exit status. This is useful for accepting known issues, ignoring findings in legacy files, or gradually rolling out stricter linting rules.
+
+### Configuration File
+
+Exclusion rules are defined in a JSON file. By default the linter looks for `dsf-linter-exclusions.json` in the project root. A custom path can be passed with `--exclusions <file>`.
+
+```json
+{
+  "affectsExitStatus": false,
+  "rules": [
+    { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
+    { "severity": "WARNING", "file": "update-allow-list.bpmn" },
+    { "messageContains": "optional field" }
+  ]
+}
+```
+
+### Top-Level Fields
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `affectsExitStatus` | `boolean` | `false` | When `false`, excluded items are fully suppressed — they do not contribute to error/warning counts or the exit code. When `true`, items are hidden from reports but still count toward the exit status. |
+| `rules` | `array` | `[]` | List of exclusion rules. An item is excluded if it matches **any** rule. |
+
+### Rule Fields
+
+All fields within a single rule are **AND-combined** — all specified criteria must match for the item to be suppressed. Multiple rules are **OR-combined**.
+
+| Field | Match Semantics | Example |
+|-------|-----------------|---------|
+| `type` | Exact, case-insensitive match against the lint item's `LintingType` name | `"BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING"` |
+| `severity` | Exact, case-insensitive match against `LinterSeverity` name | `"WARNING"` |
+| `file` | Case-insensitive **substring** match against the item's file name | `"update-allow-list.bpmn"` |
+| `messageContains` | Case-insensitive **substring** match against the item's message | `"optional field"` |
+
+Each rule must have **at least one** non-blank field. An empty rule is rejected.
+
+### Examples
+
+```json
+{
+  "affectsExitStatus": false,
+  "rules": [
+    { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
+
+    { "severity": "WARNING", "file": "legacy-process.bpmn" },
+
+    { "messageContains": "optional field" },
+
+    { "type": "FHIR_ACTIVITY_DEFINITION_VERSION_MISSING", "file": "ActivityDefinition" }
+  ]
+}
+```
+
+### Using Exclusions in CI/CD
+
+```bash
+# Pass an explicit exclusion file
+java -jar linter-cli/target/linter-cli-0.1.2.jar \
+  --path plugin.jar --html --exclusions ci-exclusions.json
+
+```
 
 ## Report Generation
 
@@ -263,57 +331,57 @@ The HTML report provides a comprehensive, human-readable view of all linting res
 The summary page includes:
 
 - **Header**:
-  - DSF Linter version
-  - Execution timestamp
-  - Project path
+    - DSF Linter version
+    - Execution timestamp
+    - Project path
 
 - **Overall Statistics**:
-  - Total number of plugins
-  - Total errors
-  - Total warnings
-  - Execution time
+    - Total number of plugins
+    - Total errors
+    - Total warnings
+    - Execution time
 
 - **Plugin Summary Table**:
-  - Plugin name
-  - API version
-  - Error count
-  - Warning count
-  - Link to detailed report
+    - Plugin name
+    - API version
+    - Error count
+    - Warning count
+    - Link to detailed report
 
 - **Leftover Resource Summary**:
-  - Unreferenced BPMN files
-  - Unreferenced FHIR resources
+    - Unreferenced BPMN files
+    - Unreferenced FHIR resources
 
 #### Plugin Report (`plugin-name.html`)
 
 Each plugin has a detailed report page containing:
 
 - **Plugin Metadata**:
-  - Plugin name
-  - Plugin class name
-  - API version (v1 or v2)
+    - Plugin name
+    - Plugin class name
+    - API version (v1 or v2)
 
 - **BPMN Validation Results**:
-  - List of all BPMN files
-  - Errors and warnings per file
-  - Detailed error messages with file and line references
+    - List of all BPMN files
+    - Errors and warnings per file
+    - Detailed error messages with file and line references
 
 - **FHIR Validation Results**:
-  - List of all FHIR resources by type
-  - Errors and warnings per resource
-  - Detailed error messages with element paths
+    - List of all FHIR resources by type
+    - Errors and warnings per resource
+    - Detailed error messages with element paths
 
 - **Plugin Configuration Results**:
-  - ServiceLoader registration status
-  - Resource reference validation results
+    - ServiceLoader registration status
+    - Resource reference validation results
 
 - **Leftover Resource Analysis**:
-  - Unreferenced BPMN files
-  - Unreferenced FHIR resources
+    - Unreferenced BPMN files
+    - Unreferenced FHIR resources
 
 - **Severity Indicators**:
-  - Color-coded severity levels (ERROR, WARNING, INFO, SUCCESS)
-  - Expandable/collapsible sections
+    - Color-coded severity levels (ERROR, WARNING, INFO, SUCCESS)
+    - Expandable/collapsible sections
 
 ### JSON Report
 
@@ -452,6 +520,11 @@ dsf-linter/
 │   │   │   ├── ApiVersionUnknownException.java
 │   │   │   ├── MissingServiceRegistrationException.java
 │   │   │   └── ResourceLinterException.java
+│   │   ├── exclusion/                        # Exclusion rule engine
+│   │   │   ├── ExclusionConfig.java
+│   │   │   ├── ExclusionConfigLoader.java
+│   │   │   ├── ExclusionFilter.java
+│   │   │   └── ExclusionRule.java
 │   │   ├── fhir/                             # FHIR parsing & validation
 │   │   │   ├── FhirResourceLinter.java
 │   │   │   ├── FhirFileLinter.java
@@ -590,6 +663,8 @@ dsf-linter/
 | `InputResolver` | Resolves and downloads remote JAR files |
 | `BpmnModelLinter` | Validates BPMN model structure and elements |
 | `FhirResourceLinter` | Validates FHIR resources using pluggable linters |
+| `ExclusionConfigLoader` | Loads `dsf-linter-exclusions.json` (auto-discovery or explicit path) |
+| `ExclusionFilter` | Applies exclusion rules to suppress matching lint items |
 
 ### Design Patterns
 
@@ -634,12 +709,15 @@ DsfLinter.Config config = new DsfLinter.Config(
     generateHtmlReport,
     generateJsonReport,
     failOnErrors,
+    exclusionConfig,   // null = no exclusions
     logger
 );
 
 DsfLinter linter = new DsfLinter(config);
 DsfLinter.OverallLinterResult result = linter.lint();
 ```
+
+A backward-compatible constructor without `exclusionConfig` is also available (sets exclusions to `null`).
 
 #### `DsfLinter.Config`
 
@@ -651,6 +729,7 @@ Configuration record for the linter.
 - `boolean generateHtmlReport`: Whether to generate HTML report
 - `boolean generateJsonReport`: Whether to generate JSON report
 - `boolean failOnErrors`: Whether to fail on errors
+- `ExclusionConfig exclusionConfig`: Optional exclusion configuration; `null` disables exclusions
 - `Logger logger`: Logger instance
 
 #### `DsfLinter.OverallLinterResult`
@@ -804,4 +883,80 @@ Discovers plugins and resources.
 **Methods**:
 ```java
 DiscoveryResult discover(ProjectContext context)
+```
+
+### Exclusion API
+
+#### `ExclusionConfigLoader`
+
+Loads an `ExclusionConfig` from a JSON file.
+
+**Constructor**:
+```java
+ExclusionConfigLoader()
+```
+
+**Methods**:
+```java
+// Auto-discover dsf-linter-exclusions.json in the project root
+Optional<ExclusionConfig> loadFromProjectRoot(Path projectRoot) throws IOException
+
+// Load from an explicit file path
+ExclusionConfig load(Path configFile) throws IOException
+```
+
+**Constant**:
+```java
+String DEFAULT_FILENAME = "dsf-linter-exclusions.json"
+```
+
+#### `ExclusionFilter`
+
+Applies exclusion rules against lint items.
+
+**Constructor**:
+```java
+ExclusionFilter(ExclusionConfig config)
+```
+
+**Methods**:
+```java
+// Returns true if the item is suppressed by at least one rule
+boolean isExcluded(AbstractLintItem item)
+
+// Returns only items that are NOT excluded
+List<AbstractLintItem> filter(List<AbstractLintItem> items)
+
+// Returns only items that ARE excluded
+List<AbstractLintItem> getExcluded(List<AbstractLintItem> items)
+```
+
+#### `ExclusionConfig`
+
+Top-level configuration loaded from `dsf-linter-exclusions.json`.
+
+**Fields**:
+- `List<ExclusionRule> rules`: Ordered list of exclusion rules
+- `boolean affectsExitStatus`: When `true`, suppressed items still count toward exit status
+
+**Key Methods**:
+```java
+boolean hasRules()            // true if at least one valid rule exists
+boolean isAffectsExitStatus() // getter for affectsExitStatus
+List<ExclusionRule> getRules() // unmodifiable view of rules
+```
+
+#### `ExclusionRule`
+
+A single exclusion rule with AND-combined criteria.
+
+**Fields**:
+- `String type`: Exact match against `LintingType.name()` (case-insensitive)
+- `String severity`: Exact match against `LinterSeverity.name()` (case-insensitive)
+- `String file`: Substring match against the item's file name (case-insensitive)
+- `String messageContains`: Substring match against the item's message (case-insensitive)
+
+**Key Methods**:
+```java
+boolean isValid() // true if at least one field is non-blank
 ```
