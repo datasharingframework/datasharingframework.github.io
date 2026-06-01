@@ -21,7 +21,7 @@ Below is a template for a [Questionnaire](https://www.hl7.org/fhir/R4/questionna
 ```xml
 <Questionnaire xmlns="http://hl7.org/fhir">
     <meta>
-        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire"/>
+        <profile value="http://dsf.dev/fhir/StructureDefinition/questionnaire|2.0.0"/>
         <tag>
             <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
             <code value="ALL"/>
