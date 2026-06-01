@@ -61,9 +61,9 @@ export default hopeTheme({
           prefix: "/operations/",
           children: [ {
             text: `Current Version - ${latestVersion}`,
-            link: "get-started.md",
+            link: "get-started",
             icon: "launch"
-          }, "old-versions.md"],
+          }, "old-versions"],
         },
       ],
     },
@@ -117,7 +117,7 @@ export default hopeTheme({
         icon: "info",
         prefix: "explore/",
         link: "explore/",
-        children: ["concepts/introduction.md", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"],
+        children: ["concepts/introduction", "concepts/basics", "concepts/architecture", "concepts/security", "concepts/allow-list", "concepts/process-plugins"],
       },
       {
         text: "Security Disclosure Policy",
@@ -217,7 +217,7 @@ export default hopeTheme({
                 "creating-codesystems-for-dsf-processes",
                 "creating-task-resources-based-on-a-definition",
                 "creating-valuesets-for-dsf-processes",
-                "managing-mutiple-incoming-messages-and-missing-messages",
+                "managing-multiple-incoming-messages-and-missing-messages",
                 "setting-targets-for-message-events",
                 "starting-a-process-via-task-resources",
                 "user-tasks-in-the-dsf",
@@ -296,7 +296,7 @@ export default hopeTheme({
                 "creating-codesystems-for-dsf-processes",
                 "creating-task-resources-based-on-a-definition",
                 "creating-valuesets-for-dsf-processes",
-                "managing-mutiple-incoming-messages-and-missing-messages",
+                "managing-multiple-incoming-messages-and-missing-messages",
                 "starting-a-process-via-task-resources",
                 "user-tasks-in-the-dsf",
               ],

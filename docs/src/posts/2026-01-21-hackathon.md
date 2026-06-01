@@ -11,7 +11,7 @@ tags:
   - Hackathon
   - Events
 ---
-The **DSF Community Hackathon**, held on **January 20, 2026**, focused on supporting organisations that run the DSF in adopting the new [**DSF 2.0.1**](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release. The event kicked off with presentations by Hauke Hund on DSF 2.0 and API 2.0, the Ping Pong plugin by Jan Böhringer, followed by further support sessions and announcements e.g. for the [**Spring School 2026**](https://dsf.dev/spring-school/).
+The **DSF Community Hackathon**, held on **January 20, 2026**, focused on supporting organisations that run the DSF in adopting the new [**DSF 2.0.1**](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release. The event kicked off with presentations by Hauke Hund on DSF 2.0 and API 2.0, the Ping Pong plugin by Jan Böhringer, followed by further support sessions and announcements e.g. for the [**Spring School 2026**](/spring-school/).
 
 The event attracted **over 60 participants**, who actively took part in the online hackathon. The event provided direct, hands-on assistance for migrating existing setups to the newest DSF version and updating the required MII process plugins. 
 

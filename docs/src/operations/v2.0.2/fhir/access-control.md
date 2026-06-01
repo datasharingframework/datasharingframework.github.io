@@ -5,7 +5,7 @@ icon: config
 
 ## Overview
 
-The DSF FHIR server implements a subset of the FHIR R4 [REST API](http://hl7.org/fhir/R4/http.html). When accessing the API with a web browser a limited graphical user interface is shown. Without any additional configuration the API and user interface is only accessible with the X.509 client certificate configured for the organization via the client certificate configuration parameter  [DEV_DSF_FHIR_CLIENT_CERTIFICATE](configuration##dev-dsf-fhir-client-certificate) or the manual override option [DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT](configuration#dev-dsf-fhir-server-organization-thumbprint).
+The DSF FHIR server implements a subset of the FHIR R4 [REST API](http://hl7.org/fhir/R4/http.html). When accessing the API with a web browser a limited graphical user interface is shown. Without any additional configuration the API and user interface is only accessible with the X.509 client certificate configured for the organization via the client certificate configuration parameter  [DEV_DSF_FHIR_CLIENT_CERTIFICATE](configuration#dev-dsf-fhir-client-certificate) or the manual override option [DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT](configuration#dev-dsf-fhir-server-organization-thumbprint).
 
 ::: tip OpenID Connect
 To enable OpenID Connect authentication of local user, see the DSF FHIR server OpenID Connect [configuration page](oidc).
@@ -27,7 +27,7 @@ The listing below shows a minimal configuration to enable read access for all re
 
 The list of user roles above contains a single rule-entry `example_read_only_role`, matching the user via a client certificate SHA-512 thumbprint and assigning three DSF roles. Any string can be used as the name for the rule-entry.
 
-With DSF 2, you can now restrict the granted priviledges to specific resource types. If you want to restrict the rule-entry `example_read_only_role` to Organization resources, you can specify the resource type per dsf-role ("action"):
+With DSF 2, you can now restrict the granted privileges to specific resource types. If you want to restrict the rule-entry `example_read_only_role` to Organization resources, you can specify the resource type per dsf-role ("action"):
 
 ```yaml
       DEV_DSF_FHIR_SERVER_ROLECONFIG: |
@@ -79,7 +79,7 @@ DSF roles specified via the `dsf-role` property define general access to the RES
 #### practitioner-role
 
 In order to allow users to start processes, the property `practitioner-role` can be used to assign codes from FHIR [CodeSystem](http://hl7.org/fhir/R4/codesystem.html) resources. Codes are specified in the form `system-url|code`.
-If the uses has a code specified here that match with a `requester` extension within the process plugin's [ActivityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) resource, the user can start the process if he also has the `dsf-role` `CREATE`.
+If the user has a code specified here that matches with a `requester` extension within the process plugin's [ActivityDefinition](http://hl7.org/fhir/R4/activitydefinition.html) resource, the user can start the process if he also has the `dsf-role` `CREATE`.
 
 Process plugins can define and use their own code-systems. However, the DSF specifies a standard set of practitioner roles within the CodeSystem `http://dsf.dev/fhir/CodeSystem/practitioner-role`:
 

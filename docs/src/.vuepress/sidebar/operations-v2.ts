@@ -94,11 +94,13 @@ export function generate_v2_0_0_sidebar() {
 		"release-notes", "install", "upgrade-from-1", "allowList-mgm", "root-certificates", "passwords-secrets", {
 		text: "FHIR Reverse Proxy",
 		icon: "module",
+		prefix: "fhir-reverse-proxy/",
+		link: "fhir-reverse-proxy/",
 		children: [
 			{
 				icon: "config",
 				text: "Configuration",
-				link: "fhir-reverse-proxy/configuration",
+				link: "configuration",
 			}
 		]
 	},
@@ -127,11 +129,13 @@ export function generate_v2_0_0_sidebar() {
 	}, {
 		text: "BPE Reverse Proxy",
 		icon: "module",
+		prefix: "bpe-reverse-proxy/",
+		link: "bpe-reverse-proxy/",
 		children: [
 			{
 				icon: "config",
 				text: "Configuration",
-				link: "bpe-reverse-proxy/configuration",
+				link: "configuration",
 			}
 		]
 	}, {

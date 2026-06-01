@@ -7,7 +7,7 @@ icon: config
 To our knowledge, as of January 2026 no process plugins have been released into production compatible with this plugin API v2 feature.
 :::
 
-AS part of the process plugin API v2 the DSF BPE Server provides a standardized way for plugins to use FHIR (data) server client connections configured for the entire BPE server. Connections are configured using YAML and specified via the environment variable [`DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG`](configuration.html#dev-dsf-bpe-fhir-client-connections-config). The value for this environment variable is specified as YAML using the block scalar |.
+As part of the process plugin API v2 the DSF BPE Server provides a standardized way for plugins to use FHIR (data) server client connections configured for the entire BPE server. Connections are configured using YAML and specified via the environment variable [`DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG`](configuration.html#dev-dsf-bpe-fhir-client-connections-config). The value for this environment variable is specified as YAML using the block scalar |.
 
 The listing below shows a minimal configuration:
 

@@ -31,7 +31,7 @@ The slicing for `Task.input` is defined in this part of the `baseDefinition`:
     <min value="1" />
 </element>
 ```
-*The resource can be found [here](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-base-1.0.0.xml)*
+*The resource can be found [here](https://github.com/datasharingframework/dsf/blob/release/1.9.0/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-base-1.0.0.xml)*
 
 First look at the `discriminator` tag. Discriminators define the elements a FHIR processor needs to distinguish slices by. In this case, a processor would look at the values for `type.coding.system` and `type.coding.code` to determine which slice this element belongs to. The discriminator type `value` implies that `type.coding.system` and `type.coding.code` have to be present in all slices and need to have a fixed value. There is more information about discriminators in the [official FHIR documentation](https://www.hl7.org/fhir/R4/profiling.html#discriminator).
 
@@ -163,7 +163,7 @@ The `type.coding.system` element references a [CodeSystem](../fhir/codesystem.md
 
 Adding a slice in a different use case will also require to reference an existing [CodeSystem](../fhir/codesystem.md) resource or create a new one to reference. A guide on how to create them can be found [here](../guides/creating-codesystems-for-dsf-processes.md).
 
-`Task.input.value[x]` is the actual value submitted when using the Input Parameter. They may be any of [these](https://www.hl7.org/fhir/R4/datatypes.html#open) data types. This is because `Type.input.value[x]` refers to `*` instead of any particular type in its [definition](https://www.hl7.org/fhir/R4/task-definitions.html#Task.input.value_x_). In this case, let it be an `integer` type`:
+`Task.input.value[x]` is the actual value submitted when using the Input Parameter. They may be any of [these](https://www.hl7.org/fhir/R4/datatypes.html#open) data types. This is because `Task.input.value[x]` refers to `*` instead of any particular type in its [definition](https://www.hl7.org/fhir/R4/task-definitions.html#Task.input.value_x_). In this case, let it be an `integer` type`:
 
 ```xml
 <StructureDefinition xmlns="http://hl7.org/fhir">
