@@ -8,6 +8,7 @@
     "docs:build": "vuepress build src",
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
+    "docs:generate-llms": "npx tsx src/.vuepress/scripts/generate-llms.ts",
     "docs:update-package": "npx vp-update",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -21,6 +22,7 @@
     "katex": "0.16.28",
     "sass-embedded": "1.97.3",
     "sass-loader": "16.0.7",
+    "tsx": "4.22.4",
     "vitest": "4.0.18",
     "vue": "3.5.28",
     "vuepress": "2.0.0-rc.26",

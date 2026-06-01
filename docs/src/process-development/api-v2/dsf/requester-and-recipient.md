@@ -251,4 +251,4 @@ The `recipeint` element uses one of the following Codings:
 
 
 ## Related Topics
-[ActivityDefinition](../fhir/activitydefinition.md)
+[ActivityDefinition](../fhir/activitydefinition.md), [Understanding the Process Authorization Extension](./understanding-the-process-authorization-extension.md)

@@ -757,4 +757,4 @@ All other elements can technically be omitted. Still, the following elements are
 </details>
 
 ## Related Topics
-[ActivityDefinition](../fhir/activitydefinition.md), [Creating CodeSystems for DSF Processes](creating-codesystems-for-dsf-processes.md), [Creating ValueSets for DSF Processes](creating-valuesets-for-dsf-processes.md), [Task](../fhir/task.md)
+[ActivityDefinition](../fhir/activitydefinition.md), [Creating CodeSystems for DSF Processes](creating-codesystems-for-dsf-processes.md), [Creating ValueSets for DSF Processes](creating-valuesets-for-dsf-processes.md), [Requester and Recipient Examples](../dsf/requester-and-recipient.md), [Task](../fhir/task.md), [Understanding the Process Authorization Extension](../dsf/understanding-the-process-authorization-extension.md)
