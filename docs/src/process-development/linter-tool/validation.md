@@ -112,6 +112,28 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   - The process engine only deploys and executes processes marked as executable
   - Non-executable processes are typically used for documentation or as templates
 
+##### Process Version Tag Validation
+
+- **Requirement**:
+  - Process must define `camunda:versionTag`
+  - Expected placeholder value in DSF process plugins: `#{version}`
+  - Error: `BPMN_PROCESS_VERSION_TAG_MISSING_OR_EMPTY` (missing, empty/blank, or literal `"null"`)
+  - Warning: `BPMN_PROCESS_VERSION_TAG_NO_PLACEHOLDER` (present but without `#{version}`)
+  - Success: `SUCCESS` when `camunda:versionTag` contains `#{version}`
+
+- **Valid Example**:
+  - ✅ `<process id="example_process" isExecutable="true" camunda:versionTag="#{version}">`
+
+- **Error Examples**:
+  - ❌ `<process id="example_process" isExecutable="true">` (missing `camunda:versionTag`)
+  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="">` (empty value)
+  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="null">` (literal `null`)
+
+- **Warning Examples**:
+  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="1.0.0">`
+  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="some-fixed-version">`
+
+
 #### Task Validation
 
 ##### Service Tasks
@@ -638,9 +660,51 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
   - Error: `FHIR_TASK_INPUT_SLICE_COUNT_BELOW_SLICE_MIN`
   - Error: `FHIR_TASK_INPUT_SLICE_COUNT_EXCEEDS_SLICE_MAX`
 
-- **Terminology Validation**:
-  - Code/system combinations validated against DSF CodeSystems
-  - Error: `FHIR_TASK_UNKNOWN_CODE`
+  - **Terminology Validation**:
+    - Generic coding validation (outside `Task.input.type.coding`) checks code/system pairs against known DSF CodeSystems
+    - Error: `FHIR_TASK_UNKNOWN_CODE`
+
+- **Task.input.type.coding Terminology Validation (binding-driven)**:
+    - Validation for `Task.input.type.coding` is performed in three strict, ordered checks:
+        1. **Known CodeSystem check**:
+            - `Task.input.type.coding.system` must be a known CodeSystem URI
+            - Error: `FHIR_TASK_INPUT_CODING_SYSTEM_UNKNOWN`
+            - If this check fails, subsequent checks for that input are skipped
+        2. **Binding context check**:
+            - The system must be allowed by the slice-specific binding context from the referenced `StructureDefinition`
+            - Resolution order:
+                - `fixedUri` on `Task.input:sliceName.type.coding.system` (exact match required)
+                - `binding.valueSet` on `Task.input:sliceName.type` (fallback: `...type.coding`) and membership in `ValueSet.compose.include.system`
+            - Error: `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+            - If this check fails, code validation for that input is skipped
+        3. **Code-in-system check**:
+            - `Task.input.type.coding.code` must exist in the specified CodeSystem
+            - Error: `FHIR_TASK_INPUT_CODING_CODE_UNKNOWN_FOR_SYSTEM`
+
+- **Binding Resolution Notes**:
+    - ValueSet checks are strict and context-aware; no permissive fallback to unrelated ValueSets is used
+    - If a slice declares `binding.valueSet` but the ValueSet is not loaded into the cache, validation fails explicitly with:
+      `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+    - If no resolvable binding context exists for a slice (`fixedUri` and `binding.valueSet` both missing), validation fails explicitly with:
+      `FHIR_TASK_INPUT_CODING_SYSTEM_NOT_IN_VALUE_SET`
+    - Inputs already failing structural checks (`FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`) are not re-reported by terminology checks
+
+- **Task.input Fixed Constraint Validation (`fixedUri` / `fixedCode`)**:
+    - Validates actual `Task.input.type.coding.system` and `Task.input.type.coding.code` pairs against fixed constraints declared in the referenced `StructureDefinition` slices
+    - Validation direction is **Task → StructureDefinition** (actual instance values are checked against allowed fixed pairs)
+    - **System mismatch for existing code**:
+        - If a Task input code exists in SD constraints, but with a different system
+        - Error: `FHIR_TASK_INPUT_FIXED_URI_MISMATCH`
+    - **Code mismatch for existing system**:
+        - If a Task input system exists in SD constraints, but with a different code
+        - Error: `FHIR_TASK_INPUT_FIXED_CODE_MISMATCH`
+    - **Pair not allowed by SD constraints**:
+        - If a non-BPMN Task input `(system, code)` pair is not defined by any SD `fixedUri/fixedCode` constraint
+        - Error: `FHIR_TASK_INPUT_PAIR_NOT_ALLOWED_BY_SD`
+    - **Validation Behavior**:
+        - Check runs only when profile can be resolved and fixed constraints are extractable from the referenced `StructureDefinition`
+        - BPMN message inputs (`http://dsf.dev/fhir/CodeSystem/bpmn-message`) are excluded from this specific pair-not-allowed check because they are validated in dedicated Task input rules
+
 
 #### StructureDefinition Resources
 
@@ -701,6 +765,24 @@ According to FHIR profiling specification §5.1.0.14:
 - **MUST Rule (Slice Max)**:
   - No individual slice's maximum cardinality may exceed base element's maximum
   - Error: `STRUCTURE_DEFINITION_SLICE_MAX_TOO_HIGH`
+
+##### Binding and Fixed Coding Validation
+- **`binding.valueSet` Reference Validation**:
+    - Checks whether `binding.valueSet` URLs in differential elements can be resolved to a known ValueSet in project resources
+    - For unresolved references with `strength="required"`:
+        - Warning: `STRUCTURE_DEFINITION_BINDING_VALUESET_UNRESOLVED`
+    - For unresolved references with non-required strengths (`extensible`, `preferred`, `example`):
+        - Info: `STRUCTURE_DEFINITION_BINDING_VALUESET_UNRESOLVED_NON_REQUIRED`
+    - Success: `SUCCESS` when the referenced ValueSet is resolvable
+- **`fixedUri` / `fixedCode` Validation Against CodeSystems**:
+    - For differential elements using `fixedUri` on `*.system`, verifies that the referenced CodeSystem exists in project terminology cache
+    - If referenced CodeSystem is unknown:
+        - Info: `STRUCTURE_DEFINITION_FIXED_URI_CODESYSTEM_NOT_FOUND`
+        - Note: `fixedCode` validation is skipped for this path when CodeSystem is unknown
+    - If `fixedCode` is present and the CodeSystem is known, verifies that the code exists in that CodeSystem
+        - Error: `STRUCTURE_DEFINITION_FIXED_CODE_NOT_IN_CODESYSTEM`
+    - Success: `SUCCESS` when `fixedUri` resolves (and `fixedCode`, if present, is valid)
+
 
 #### ValueSet Resources
 
@@ -1023,6 +1105,99 @@ ValueSet resources are validated against the DSF ValueSet base profile.
   - `dsf-bpe/dsf-bpe-process-api-v2/src/main/java/dev/dsf/bpe/v2/ProcessPluginDefinition.java`
   - The `getResourceVersion()` method extracts the resource version from the plugin version
 
+#### Spring Configuration Registration
+
+In the DSF runtime, the Camunda engine does not instantiate Java delegate or
+listener classes directly. Spring creates those instances via `@Bean` methods
+declared in `@Configuration` classes. For those beans to be available to the
+BPE at runtime, the corresponding `@Configuration` classes must be explicitly
+returned by `ProcessPluginDefinition#getSpringConfigurations()`. Forgetting
+to add a `@Bean` for a BPMN-referenced class typically surfaces as a
+`BeanCreationException` or `ClassNotFoundException` only at deployment time.
+
+- **Every BPMN-referenced class must be provided as a `@Bean`**:
+    - The linter collects every `camunda:class` reference used by
+      `serviceTask`, `sendTask`, `messageEventDefinition`,
+      `camunda:executionListener` and `camunda:taskListener` elements in the
+      plugin's BPMN files (List 1).
+    - The linter calls `getSpringConfigurations()` to get the registered
+      `@Configuration` classes and inspects the return types of their
+      `@Bean` methods (List 2).
+    - For every class in List 1, the linter checks whether it is provided
+      as a `@Bean` (exact type or supertype) in any `@Configuration` from
+      List 2.
+    - If a BPMN-referenced class has **no matching `@Bean`** in any
+      registered configuration, this is reported as an error.
+    - Error: `PLUGIN_DEFINITION_SPRING_CONFIGURATION_MISSING`
+    - Success: `SUCCESS` when all BPMN delegate/listener references are
+      covered by a `@Bean` in a registered `@Configuration`, or when no
+      BPMN delegate/listener references exist.
+
+- **Code Example**:
+  ```java
+  @Override
+  public List<Class<?>> getSpringConfigurations() {
+      return List.of(DataSharingConfig.class, DataSharingVariablesConfig.class);
+  }
+  ```
+  ```java
+  @Configuration
+  public class DataSharingConfig {
+
+      // Every class referenced via camunda:class in the BPMN must have
+      // a corresponding @Bean here (or in another registered @Configuration).
+      @Bean
+      public SelectDicTargets selectDicTargets() {
+          return new SelectDicTargets(api);
+      }
+
+      @Bean
+      public SelectDmsTarget selectDmsTarget() {
+          return new SelectDmsTarget(api);
+      }
+  }
+  ```
+#### Spring Bean Scope (`SpringConfigurationLinter`)
+
+In Camunda and the Data Sharing Framework (DSF), Spring beans that act as delegates, execution listeners, or task listeners should usually be configured with **prototype** scope (`SCOPE_PROTOTYPE`). If the `@Scope` annotation is omitted, Spring defaults to **singleton**. That can be acceptable for strictly stateless classes; as soon as someone adds mutable instance state, the risk of race conditions and hard-to-debug concurrency bugs rises sharply—often only visible under load.
+
+After a BPMN-referenced class is **covered** by a `@Bean` in a registered `@Configuration` (see [Spring Configuration Registration](#spring-configuration-registration)), the linter inspects the covering `@Bean` method for `@Scope` and the referenced implementation class for **mutable** instance fields (not `static`, not `final`). Emitted rules:
+
+   - **Success** – `SPRING_BEAN_SCOPE_PROTOTYPE`: `@Scope` is **prototype** (e.g. `ConfigurableBeanFactory.SCOPE_PROTOTYPE` or `@Scope("prototype")`). No further scope items for that reference in this pass.
+   - **Error** – `SPRING_BEAN_SCOPE_MUTABLE_SINGLETON`: The bean is **effectively singleton** (missing `@Scope` *or* explicit non-prototype scope such as `singleton`) **and** the referenced class has **mutable** instance fields. Emitted **once** per reference before the following warnings.
+   - **Warning** – `SPRING_BEAN_SCOPE_MISSING`: The covering `@Bean` has **no** `@Scope` (Spring’s default is singleton, which is risky for Camunda hooks unless the implementation is provably stateless).
+   - **Warning** – `SPRING_BEAN_SCOPE_SINGLETON_EXPLICIT`: `@Scope` is **explicitly** set to a **non-prototype** value (typically `singleton`); the developer should verify that the delegate or listener is safe to share across process instances.
+
+  **Why this matters:** The rule stays aligned with DSF wiring (only configurations from `getSpringConfigurations()`) and surfaces dangerous combinations—singleton or default-singleton scope plus mutable instance state—before they appear in production.
+
+  **Example scenarios**
+
+   *Missing `@Scope` → warning (and error if the delegate/listener class has mutable instance fields)*
+
+  ```java
+  @Bean
+  // Missing @Scope annotation
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+      return new SetCorrelationKeyListener(api);
+  }
+  ```
+
+  *Explicit singleton → warning (and error if mutable instance fields exist)*
+  ```java
+  @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // or @Scope("singleton")
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+  return new SetCorrelationKeyListener(api);
+  }
+  ```
+  *Prototype (recommended) → success*
+  ```java 
+  @Bean
+  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // or @Scope("prototype")
+  public SetCorrelationKeyListener setCorrelationKeyListener() {
+  return new SetCorrelationKeyListener(api);
+  }
+  ```
 #### Leftover Resource Detection
 
 The linter performs project-level analysis to identify unreferenced resources:
