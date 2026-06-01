@@ -11,13 +11,13 @@ The [German Federal Ministry of Research, Technology and Space](https://www.bmft
 
 ![MII =300x150](/photos/learnmore/funding/mii.png)
 
-The **Data Sharing Framework (DSF)** was developed within the HiGHmed consortium of the Medical Informatics Initiative and is now funded as an independent project by the German Federal Ministry of Research, Technology and Space within the Medical Informatics structure as *[DSF Community](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)*. 
+The **Data Sharing Framework (DSF)** was developed within the HiGHmed consortium of the Medical Informatics Initiative and is now funded as an independent project by the German Federal Ministry of Research, Technology and Space within the Medical Informatics structure as *[DSF Community](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)*. 
 
 The DSF is a concept for a secure middleware to distribute data sharing processes, aiming to extract, merge, pseudonymize and provide data stored in multiple distributed DICs. A researcher can use the DSF for example to submit feasibility queries to several DICs and thus has the opportunity to obtain sufficient data from different locations for his or her research. By using international standards such as FHIR and BPMN 2.0, the problem of heterogeneous data models, primary systems, architectures and federated legislation between DICs can be solved. The aim is to enable secure and syntactically-, semantically- and process-interoperable data exchange across organisational boundaries.
 
 ![DSF concept](/photos/info/introduction/dsf-concept.png)
 
-The DSF is a secure communication infrastructure, that (1) scales with communication relationships, (2) orchestrates processes and instances, (3) separates execution logic from program code, (4) enables automated and user-centeric process steps ​(5) and can be used for heterogeny structures.
+The DSF is a secure communication infrastructure, that (1) scales with communication relationships, (2) orchestrates processes and instances, (3) separates execution logic from program code, (4) enables automated and user-centric process steps ​(5) and can be used for heterogeneous structures.
 
 ![Federated data exchange between distributed DICs (CRP=Central Research Portal, DMU=Data Management Unit) =500x320](/photos/info/introduction/dic-structure.png)
 
@@ -26,7 +26,7 @@ The DSF is a secure communication infrastructure, that (1) scales with communic
 ## Basics
 Source: https://dsf.dev/explore/concepts/basics.html
 
-Here you can find some basic information about interoperability and the standards were using within the DSF before we go into details about the architecture. Here we only describe how the standards (FHIR and BPMN) are used within the DSF. If you want to gain a deeper knowledge of the standards, we recommend visiting these websites: [HL7 FHIR](https://www.hl7.org/fhir/) and [BPMN](https://www.bpmn.org/) 
+Here you can find some basic information about interoperability and the standards we're using within the DSF before we go into details about the architecture. Here we only describe how the standards (FHIR and BPMN) are used within the DSF. If you want to gain a deeper knowledge of the standards, we recommend visiting these websites: [HL7 FHIR](https://www.hl7.org/fhir/) and [BPMN](https://www.bpmn.org/) 
 
 ## Interoperability 
 Interoperability is the ability of different systems to work together as seamlessly as possible. We can divide interoperability into four levels. 
@@ -108,7 +108,7 @@ You can find more information about the network setup [here](/explore/concepts/n
 ## Security
 Source: https://dsf.dev/explore/concepts/security.html
 
-## Basics Security
+## Security Basics
 The open-source Data Sharing Framework is EU-GDPR compliant and meets the highest security standards by design. DSF FHIR servers only accept certain FHIR resources from internal systems/administrators (e.g. tasks, binary resources...). In addition, the communication partners are defined via Allow Lists. This means that an organisation can only communicate with organisations that are included in the allow list of approved organisations of the participating organisations. More information about allow lists can be found in the [next chapter](allow-list).
 For transport encryption, the TLS protocol is used. Secure Web Socket (WSS) connections provide security for the connection between the DSF FHIR server (DMZ) and the BPE (internal network). In addition, the DSF is being actively developed and there is an excellent community, both of which guarantee fast security patches.
 
@@ -117,7 +117,7 @@ For transport encryption, the TLS protocol is used. Secure Web Socket (WSS) conn
 ![Certificates](/photos/info/security/certificates-dark.svg#dark)
 
 ## Authentication 
-Authentication of organizations within the DSF is handled by the use of X.509 client and server certificates. The DSF supports a configurable whitelist of  certificate authorities. All participating organizations are entered in a distributed and synchronized allow-list of valid organizations and certificates.
+Authentication of organizations within the DSF is handled by the use of X.509 client and server certificates. The DSF supports a configurable allow list of certificate authorities. All participating organizations are entered in a distributed and synchronized allow-list of valid organizations and certificates.
 
 A webserver certificate is needed to run the FHIR endpoint and a 802.1X client certificate is used to authenticate against other organizations endpoints and as a server certificate for the business process engine.
 
@@ -132,9 +132,9 @@ Source: https://dsf.dev/explore/concepts/allow-list.html
 The main objective is to allow only authorized organizations to do what "we" allow them to do (e.g. query data).
 First, we need a list of organizations that we trust. Secondly, we need a way to ensure that the other party is a member of the parent organization. Thirdly, a list of actions we want to allow the organization to perform is needed. An organization can have different roles in different use cases. 
 
-The Allow List consists of Organization-, Endpoint- and OrganisationAffiliation- resources. With these resources the allow list defines communication partners and and parent organizations like research consortia and groups as well as the roles of each organization. Each DSF FHIR server stores their own allow list. To make sure that processes can be executed, parties must allow access via their allow list.
+The Allow List consists of Organization-, Endpoint- and OrganisationAffiliation- resources. With these resources the allow list defines communication partners and parent organizations like research consortia and groups as well as the roles of each organization. Each DSF FHIR server stores their own allow list. To make sure that processes can be executed, parties must allow access via their allow list.
 
-## Allow List Managment
+## Allow List Management
 [Here](/operations/latest/allowList-mgm.md) you can read all the information if you want to create or update an Allow List.
 
 If you have the need for allowlist management feel free to contact us via <a href="mailto:dsf-gecko@hs-heilbronn.de"> E-Mail (dsf-gecko@hs-heilbronn.de)</a> and we will take care of your request as soon as possible.
@@ -205,26 +205,26 @@ blablabla
 ## Network Setup
 Source: https://dsf.dev/explore/concepts/network-setup.html
 
-The Data Sharing Framework consists of two components: A FHIR Endpoint Server used to except Task resources and provide resources for download by other organizations and a Business Process Engine Server run internal and not accessible by other organization to execute and coordinate processes.
+The Data Sharing Framework consists of two components: A FHIR Endpoint Server used to accept Task resources and provide resources for download by other organizations and a Business Process Engine Server run internal and not accessible by other organization to execute and coordinate processes.
 
-![Network Setup Diagramm](/photos/guideline/generalInformation/highmed_dsf_network_setup.svg)
+![Network Setup Diagram](/photos/guideline/generalInformation/highmed_dsf_network_setup.svg)
 
-- FHIR Reverse Proxy: The FHIR Reverse Proxy is used to terminate incoming https connections to the FHIR App Server. The Reverse Proxy needs to be accessible on port 443 from the internet. Incoming https connection will be delegate as http on a docker internal network to the FHIR App Server.
+- FHIR Reverse Proxy: The FHIR Reverse Proxy is used to terminate incoming https connections to the FHIR App Server. The Reverse Proxy needs to be accessible on port 443 from the internet. Incoming https connection will be delegated as http on a docker internal network to the FHIR App Server.
 - FHIR App Server: The FHIR App Server is used as a FHIR Endpoint for incoming Task resources and providing resources for download by other organizations. In order to validate incoming FHIR resources the server will communicate with FHIR Servers at other organizations. Access to resources and authorization for creating or updating resources is granted based on the content of the resource and/or based on the client (identified by its client certificate) being part of an allow list. JDBC connections to the FHIR DB Server
 - FHIR DB Server: PostgreSQL database for the FHIR App Server.
-- BPE App Server: The BPE App Server is executing BPMN 2.0 business processes with the included business process engine. Automatic BPMN service tasks are used for example to check resource, access the PDP- and MPI-servers as well as the MDAT repository. The calculation of record linkage bit vectors (Record Bloom Filters) is also performed using an automatic service task. As of version 0.3.0 the BPE server does not provide any webservices for modifying an server resources.
+- BPE App Server: The BPE App Server is executing BPMN 2.0 business processes with the included business process engine. Automatic BPMN service tasks are used for example to check resource, access the PDP- and MPI-servers as well as the MDAT repository. The calculation of record linkage bit vectors (Record Bloom Filters) is also performed using an automatic service task. The BPE server does not provide any webservices for modifying server resources.
 - BPE DB Server: PostgreSQL database for the BPE App Server.
 - PDP: IHE Policy Decision Point for deciding on patient consent.
 - MDAT Repo: Repository (e.g. openEHR) for storing medical data (MDAT).
-- MPI: IHE Master Patient Index for storing identifying patient date (IDAT) e.g. first name, last name, date of birth.
+- MPI: IHE Master Patient Index for storing identifying patient data (IDAT) e.g. first name, last name, date of birth.
 - Cohort Browser: Example for a system to trigger patient cohort size estimations across multiple organizations.
 
-More information on Client- and Server-Certificates are available on the dedicated wiki page: [Authentication: Client/Server Certificates](Authentication)
+More information on Client- and Server-Certificates can be found in the [Security](security) section.
 
 ## Additional Reverse Proxy in external DMZ
 In some organizations an additional reverse proxy in an external DMZ is needed. This can be accomplished by using for example nginx or haproxy as a TCP-Proxy. Example configurations routing traffic using SNI can be found below. Configuring an additional reverse proxy to terminate the incoming TLS connection early is not recommended.
 
-![Network Setup Diagramm](/photos/guideline/generalInformation/highmed_dsf_network_setup_ext_dmz.svg)
+![Network Setup Diagram](/photos/guideline/generalInformation/highmed_dsf_network_setup_ext_dmz.svg)
 <!--
 **nginx**
 ```
@@ -282,7 +282,7 @@ The use cases are being reworked and are currently a work in progress. Please ch
 :::
 
 ## Overview 
-Funded by the German Federal Ministry of Research and Education, 25 [sites](https://forschen-fuer-gesundheit.de/en/locations/) have installed the DSF to execute the [Feasibility](https://github.com/medizininformatik-initiative/feasibility-dsf-process/) process. To perform feasibility queries, a researcher can register and query data on the [FDPG (Forschungsdaten Portal für Gesundheit - Research Data Portal)](https://www.forschen-fuer-gesundheit.de/) website. Basic data of hospitalizations of over 8 million patients with over 40 million diagnoses and much more such as laboratory values or drug prescriptions are available. After a successful query, the data is made available in standardized FHIR format. Further information can be found in the [flyer](https://www.medizininformatik-initiative.de/sites/default/files/2023-05/20230509_TMF_Faltflyer_A4_digital.pdf).
+Funded by the [German Federal Ministry of Research, Technology and Space](https://www.bmftr.bund.de/), 25 [sites](https://forschen-fuer-gesundheit.de/en/locations/) have installed the DSF to execute the [Feasibility](https://github.com/medizininformatik-initiative/feasibility-dsf-process/) process. To perform feasibility queries, a researcher can register and query data on the [FDPG (Forschungsdaten Portal für Gesundheit - Research Data Portal)](https://www.forschen-fuer-gesundheit.de/) website. Basic data of hospitalizations of over 8 million patients with over 40 million diagnoses and much more such as laboratory values or drug prescriptions are available. After a successful query, the data is made available in standardized FHIR format. Further information can be found in the [flyer](https://www.medizininformatik-initiative.de/sites/default/files/2023-05/20230509_TMF_Faltflyer_A4_digital.pdf).
 
 ## The Feasibility Process
 Medical routine data holds great promise for advancing research, yet its integration into a research context poses significant challenges. To address this, Medical Data Integration Centers have been established, by the medical informatics initiative to consolidate data from primary information systems into a central repository. However, relying on data from only one organization is rarely sufficient to answer complex research questions, so merging data across institutional boundaries is necessary.
@@ -314,7 +314,7 @@ The [Network University Medicine](https://www.netzwerk-universitaetsmedizin.de/)
 As part of the *[CODEX | COVID-19 Data Exchange Platform](https://www.netzwerk-universitaetsmedizin.de/projekte/codex#c599)* project, a nationwide, uniform, privacy-compliant infrastructure for storing and providing COVID-19 research datasets was established. Since 2022, the work continues within the project [NUM RDP](https://www.netzwerk-universitaetsmedizin.de/projekte/num-rdp). All 36 university hospitals have installed the DSF to share Covid-19 research data.
 
 ### The Data Transfer Process
-The [Data Transfer Process](https://github.com/num-codex/codex-processes-ap1) is used in NUM CODEX to send data from a Data Integration Center (DIC), via the Gecco Transfer Hub (GTH), to the Central Research Repository (CRR). The infrastructure and communincation messages on which the process is based can be seen in the following figure. All organizations use the Data Sharing Framework (DSF) for deployment and execution of the process. 
+The [Data Transfer Process](https://github.com/num-codex/codex-processes-ap1) is used in NUM CODEX to send data from a Data Integration Center (DIC), via the Gecco Transfer Hub (GTH), to the Central Research Repository (CRR). The infrastructure and communication messages on which the process is based can be seen in the following figure. All organizations use the Data Sharing Framework (DSF) for deployment and execution of the process. 
 
 ![](/photos/learnmore/projects/ap1.png)
 
@@ -336,7 +336,7 @@ Source: https://dsf.dev/explore/use-cases/internal-mii-data-sharing.html
 ## References
 
 - https://github.com/medizininformatik-initiative/mii-process-data-sharing/wiki/Process-Data-Sharing-Start-v1.0.x.x#dic-prepare-kds-fhir-store-before-answering-a-manual-user-task 
-- https://dsf.dev/sprechstunde
+- [Consultations hours](/community/consultation-hours)
 
 ---
 
@@ -3784,7 +3784,7 @@ Source: https://dsf.dev/process-development/api-v2/concept.html
 - [Creating CodeSystems for DSF Processes](guides/creating-codesystems-for-dsf-processes.md)
 - [Creating Task Resources Based on a Definition](guides/creating-task-resources-based-on-a-definition.md)
 - [Creating ValueSets for DSF Processes](guides/creating-valuesets-for-dsf-processes.md)
-- [Managing Multiple Incoming Messages and Missing Messages](guides/managing-mutiple-incoming-messages-and-missing-messages.md)
+- [Managing Multiple Incoming Messages and Missing Messages](guides/managing-multiple-incoming-messages-and-missing-messages.md)
 - [Starting a Process via Task Resources](guides/starting-a-process-via-task-resources.md)
 
 ---
@@ -3797,6 +3797,24 @@ Source: https://dsf.dev/process-development/api-v2/get-started.html
 ::: warning Work in progress
 
 This site is work in progress, please come back later.
+:::
+
+## Concepts
+For an overview of key concepts related to Process Plugin development, please refer to [this page](concept.md)
+
+## Tutorials
+Our collection of tutorials is designed to help you get started and deepen your understanding of Process Plugin development.
+
+Explore the tutorials below to begin your journey into Process Plugin development:
+- [Tutorial Overview](./tutorials/README.md)
+- The [DSF Process Plugin Tutorial](https://github.com/datasharingframework/dsf-process-tutorial)
+- The [hello world plugin](https://github.com/datasharingframework/dsf-process-hello-world)
+- The [ping pong plugin](https://github.com/datasharingframework/dsf-process-ping-pong)
+- The [update allowlist plugin](https://github.com/datasharingframework/dsf-process-allow-list)
+
+
+::: tip Important Note
+If you have any questions or encounter any issues, please do not hesitate to contact us during our designated consulting hours. You can find the details [here](../../community/consultation-hours)
 :::
 
 ---
@@ -3868,16 +3886,21 @@ Source: https://dsf.dev/process-development/api-v2/javadoc.html
 ## Publishing on DSF Hub
 Source: https://dsf.dev/process-development/api-v2/publishing/publish-on-dsfhub.html
 
-::: tip Marketplace for process plugins
+## DSF Hub
+The Data Sharing Framework (DSF) Process Plugin Hub is a web application designed for searching and discovering DSF process plugins. This application is being developed as part of the DSF Community project. It provides users with a centralized platform to explore, evaluate, and utilize various process plugins within the DSF ecosystem, enhancing collaboration and efficiency across different domains.
+
+::: info Marketplace for process plugins
 To view already published Process Plugins, visit the [DSF Hub](https://hub.dsf.dev).
 :::
 
 ## How to publish a project on DSF hub
 
-::: warning Work in progress
+To add a new process plugins to the DSF hub you are required to email dsf-gecko@hs-heilbronn.de with the following information:
+- name of the plugin
+- a contact person
+- the URL to the GitHub repository
 
-This site is work in progress, please come back later.
-:::
+We look forward to your contributions!
 
 ---
 
@@ -3885,7 +3908,7 @@ This site is work in progress, please come back later.
 Source: https://dsf.dev/process-development/api-v2/bpmn/
 
 ## Introduction
-The DSF uses BPMN 2.0 to model processes. Specifically, the [Camunda 7](https://docs.camunda.org/manual/7.21/) dialect from the [Camunda Modeler](https://camunda.com/de/download/modeler/). Modeling processes for the DSF requires this modeler or any other modeler which is able to produce the correct Camunda dialect.
+The DSF uses BPMN 2.0 to model processes. Specifically, the [Camunda 7](https://docs.camunda.org/manual/7.21/) dialect from the [Camunda Modeler](https://camunda.com/de/download/modeler/). Modeling processes for the DSF requires this modeler or any other modeler which is able to produce the correct Operaton / Camunda 7 dialect.
 
 ## Details
 - [Conditions](conditions.md)
@@ -4001,7 +4024,7 @@ A [Timer Intermediate Catching Event](https://docs.operaton.org/docs/documentati
 Source: https://dsf.dev/process-development/api-v2/fhir/
 
 ## Introduction
-The DSF uses a variety of [FHIR resources](https://dsf.dev/intro/info/basics.html#why-are-we-using-fhir-and-bpmn). The DSF uses XML as the format for FHIR resources. The most important resources for plugin development are [ActivityDefinitions](activitydefinition.md), [CodeSystems](codesystem.md), [Tasks](task.md) and [ValueSets](valueset.md). There is also a catalog of DSF-specific FHIR resources including CodeSystems, ValueSets and Extensions. They can be found in the official [DSF GitHub repository](https://github.com/datasharingframework/dsf/tree/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir).
+The DSF uses a variety of [FHIR resources](/explore/concepts/basics.html#why-are-we-using-fhir-and-bpmn). The DSF uses XML as the format for FHIR resources. The most important resources for plugin development are [ActivityDefinitions](activitydefinition.md), [CodeSystems](codesystem.md), [Tasks](task.md) and [ValueSets](valueset.md). There is also a catalog of DSF-specific FHIR resources including CodeSystems, ValueSets and Extensions. They can be found in the official [DSF GitHub repository](https://github.com/datasharingframework/dsf/tree/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir).
 
 ## Details
 - [ActivityDefinition](activitydefinition.md)
@@ -4017,7 +4040,7 @@ Source: https://dsf.dev/process-development/api-v2/fhir/task.html
 
 ## Task
 
-The [FHIR Task](https://www.hl7.org/fhir/R4/task.html) resource enables the DSF's distributed communication. Whenever a BPMN process instance communicates with a different process instance, the DSF will create a Task resource based on parameters set in the BPMN model and during execution. It will then automatically send the Task resource to the recipient to start or continue whatever process the Task resource referred to. All Task resources used in the DSF derive from the [DSF Task base definition](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-2.0.0.xml). This profile includes a splicing for `Task.input` with three additional [Input Parameters](task.md#task-input-parameters):
+The [FHIR Task](https://www.hl7.org/fhir/R4/task.html) resource enables the DSF's distributed communication. Whenever a BPMN process instance communicates with a different process instance, the DSF will create a Task resource based on parameters set in the BPMN model and during execution. It will then automatically send the Task resource to the recipient to start or continue whatever process the Task resource referred to. All Task resources used in the DSF derive from the [DSF Task base definition](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-2.0.0.xml). This profile includes a slicing for `Task.input` with three additional [Input Parameters](task.md#task-input-parameters):
 - `message-name`
 - `business-key`
 - `correlation-key`
@@ -4026,7 +4049,7 @@ When creating a process plugin, it is usually necessary to create new profiles b
 
 ### Task Input Parameters
 
-Task Input Parameters allow adding additional information to [Task](task.md#task) resources before they are starting a process. For example, if a particular process requires an additional string value, one would add a slice to the Task profile in the same way the [DSF Task base definition](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-2.0.0.xml) adds slices to the original [FHIR Task](https://www.hl7.org/fhir/R4/task.html) resource in the `message-name` slice. It is import to know that this also requires creating a [CodeSystem](codesystem.md) and including it in a [ValueSet](valueset.md) to be able to use it in the Task resource.
+Task Input Parameters allow adding additional information to [Task](task.md#task) resources before they are starting a process. For example, if a particular process requires an additional string value, one would add a slice to the Task profile in the same way the [DSF Task base definition](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/StructureDefinition/dsf-task-2.0.0.xml) adds slices to the original [FHIR Task](https://www.hl7.org/fhir/R4/task.html) resource in the `message-name` slice. It is important to know that this also requires creating a [CodeSystem](codesystem.md) and including it in a [ValueSet](valueset.md) to be able to use it in the Task resource.
 
 ### Task Output Parameter
 Task Output Parameters function the same way as Input Parameters but are used to add information when a process has finished executing. This is usually used to display the result of the executed process. If the process fails because an uncaught exception is thrown, the DSF will update a Task to status `failed` and include the exception as an Output Parameter.
@@ -4326,10 +4349,10 @@ Source: https://dsf.dev/process-development/api-v2/guides/accessing-bpmn-process
 
 ## Accessing BPMN Process Variables
 
-Access to retrieve data from or store data in the [BPMN process variables](../dsf/bpmn-process-variables.md) can be acquired via the `Variables` class. An instance is usually available when overriding/implementing methods in [Activities](../dsf/activities.md). If an instance is missing in a place where it should be accessible, please [let us know](https://dsf.dev/community/contribute/).
+Access to retrieve data from or store data in the [BPMN process variables](../dsf/bpmn-process-variables.md) can be acquired via the `Variables` class. An instance is usually available when overriding/implementing methods in [Activities](../dsf/activities.md). If an instance is missing in a place where it should be accessible, please [let us know](/community/contribute/).
 
 The `Variables` class provides lots of utility methods to read or write certain types
-of [BPMN process variables](../dsf/bpmn-process-variables.md). If the methods provided by the `Variables` class are insufficient to solve a problem, we would like to learn in what way the current API of the `Variables` class is limiting. Again, please [let us know](https://dsf.dev/community/contribute/).
+of [BPMN process variables](../dsf/bpmn-process-variables.md). If the methods provided by the `Variables` class are insufficient to solve a problem, we would like to learn in what way the current API of the `Variables` class is limiting. Again, please [let us know](/community/contribute/).
 
 ## Related Topics
 [BPMN Process Variables](../dsf/bpmn-process-variables.md), [Activities](../dsf/activities.md)
@@ -4623,7 +4646,7 @@ Here is what they mean:
 - `remote` versions of the above rules work the same but the requester's certificate is instead required to match a thumbprint marked as a remote organization.
 - `practitioner` suffixes all work the same. They include the same rules as their prefixes but now additionally require the requester to match a certain `practitioner-role`. A list of them
   can be found [here](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml). This allows
-  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](https://dsf.dev/stable/maintain/fhir/access-control.html).
+  for more granularity when defining authorization rules within an organization and can be integrated into local user management via [OpenID Connect](/operations/latest/fhir/access-control.html).
 
 There are no `practitioner` versions of `remote` authorization rules. From the perspective of the receiving DSF instance, remote requests are always issued by an organization. They do not hold any information about the local user management of the requesting organization. Examples of all Codings from above can be found [here](../dsf/requester-and-recipient.md).
 
@@ -4792,7 +4815,7 @@ Finally, add the `practitionerRole` slice:
 </extension>
 ```
 
-There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](https://dsf.dev/stable/maintain/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
+There is no `binding` element specified for `practitionerRole.value[x]`. This is intentional. The example used a code from the [dsf-practitioner-role](https://github.com/datasharingframework/dsf/blob/release/2.0.2/dsf-fhir/dsf-fhir-validation/src/main/resources/fhir/CodeSystem/dsf-practitioner-role-2.0.0.xml) CodeSystem. This CodeSystem includes a standard set of codes which are often sufficient for DSF use cases. Other/new CodeSystems if may be added if these codes do not apply for a given use case. The code set here can be used in the [DSF role config](/operations/latest/fhir/access-control.html) to allow certain users with this `practitioner-role` to send requests.
 
 Now add the extension as the `Coding.extension:organization-practitioner` element:
 ```xml
@@ -5053,13 +5076,13 @@ The following elements are managed by the DSF BPE:
 
 The only required elements in this set are `ActivityDefinition.url` and `ActivityDefinition.kind`. `ActivityDefinition.url` expects a certain format. This is explained in detail in the [documentation on URLs](../dsf/versions-placeholders-urls.md#urls). `ActivityDefinition.kind` must have the value `Task`.
 All other elements can technically be omitted. Still, the following elements are recommended to be populated:
-- `AcitivityDefinition.name`
-- `AcitivityDefinition.title`
-- `AcitivityDefinition.subtitle`
-- `AcitivityDefinition.experimental`
-- `AcitivityDefinition.publisher`
-- `AcitivityDefinition.contact`
-- `AcitivityDefinition.description`
+- `ActivityDefinition.name`
+- `ActivityDefinition.title`
+- `ActivityDefinition.subtitle`
+- `ActivityDefinition.experimental`
+- `ActivityDefinition.publisher`
+- `ActivityDefinition.contact`
+- `ActivityDefinition.description`
 
 <details>
 <summary>The finished ActivityDefinition should now look something like this</summary>
@@ -5249,7 +5272,7 @@ Dummy values should be replaced with appropriate, context-specific values. Eleme
     </compose>
 </ValueSet>
 ```
-When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/CodeSystem` of the Java project.
+When building a plugin, the [ValueSet](../fhir/valueset.md) is expected to be in `src/main/resources/fhir/ValueSet` of the Java project.
 
 ## Related Topics
 [CodeSystem](../fhir/codesystem.md), [Creating CodeSystems for DSF processes](creating-codesystems-for-dsf-processes.md), [ValueSet](../fhir/valueset.md)
@@ -5263,7 +5286,7 @@ Source: https://dsf.dev/process-development/api-v2/guides/creating-task-resource
 
 This short guide provides an overview of how to create [Task](../fhir/task.md) resources for use in [Starting A Process Via Task Resources](../guides/starting-a-process-via-task-resources.md). As an example, a [Task](../fhir/task.md) resource based on the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) profile is created.
 
-Like all Task resources created for process plugins, the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) is based on the [DSF's base definition for Task resources](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/StructureDefinition-task.html). This base definition specifies mandatory elements for all Tasks in the DSF. This results in the following base template for all Tasks:
+Like all Task resources created for process plugins, the [`task-start-dic-process.xml`](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/tutorial-process/src/main/resources/fhir/StructureDefinition/task-start-dic-process.xml) is based on the [DSF's base definition for Task resources](/fhir/ImplementationGuide/dev.dsf/StructureDefinition-task.html). This base definition specifies mandatory elements for all Tasks in the DSF. This results in the following base template for all Tasks:
 ```xml
 <Task xmlns="http://hl7.org/fhir">
     <meta>
@@ -5512,9 +5535,9 @@ That is why the first element to be added to `meta.tag` is an `extension` elemen
 ```xml
 <meta>
     <tag>
-        <extenion>
-         
-        </extenion>
+        <extension>
+
+        </extension>
         <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
         <code value="ROLE"/> 
     </tag>
@@ -5947,7 +5970,7 @@ The `type.coding.system` element references a [CodeSystem](../fhir/codesystem.md
 
 Adding a slice in a different use case will also require to reference an existing [CodeSystem](../fhir/codesystem.md) resource or create a new one to reference. A guide on how to create them can be found [here](../guides/creating-codesystems-for-dsf-processes.md).
 
-`Task.input.value[x]` is the actual value submitted when using the Input Parameter. They may be any of [these](https://www.hl7.org/fhir/R4/datatypes.html#open) data types. This is because `Type.input.value[x]` refers to `*` instead of any particular type in its [definition](https://www.hl7.org/fhir/R4/task-definitions.html#Task.input.value_x_). In this case, let it be an `integer` type`:
+`Task.input.value[x]` is the actual value submitted when using the Input Parameter. They may be any of [these](https://www.hl7.org/fhir/R4/datatypes.html#open) data types. This is because `Task.input.value[x]` refers to `*` instead of any particular type in its [definition](https://www.hl7.org/fhir/R4/task-definitions.html#Task.input.value_x_). In this case, let it be an `integer` type`:
 
 ```xml
 <StructureDefinition xmlns="http://hl7.org/fhir">
@@ -6062,29 +6085,6 @@ Below is a template for a [Questionnaire](https://www.hl7.org/fhir/R4/questionna
 
 ## Related Topics
 [Questionnaire and QuestionnaireResponse](../fhir/questionnaire-and-questionnaireresponse.md)
-
----
-
-## Managing Messages
-Source: https://dsf.dev/process-development/api-v2/guides/managing-mutiple-incoming-messages-and-missing-messages.html
-
-## Managing Multiple Incoming Messages and Missing Messages
-
-If an already running process instance is waiting for a message from another organization, the corresponding FHIR [Task](../fhir/task.md) may never arrive. Either because the other organization decides to never send the message or because some technical problem prohibits the [Task](../fhir/task.md) resource from being posted to the DSF FHIR server. This would result in stale process instances that never finish.
-
-At the same time, it might also be expected to receive one out of a number of different message types at once.
-
-An [Event Based Gateway](../bpmn/gateways.md#event-based-gateway) can be used to solve both problems by adding it to the process waiting for a response and then either handling a [Task](../fhir/task.md) resource with the response and finish the process in a success state or triggering a [Timer Intermediate Catching Event](../bpmn/timer-intermediate-catching-events.md) after a defined wait period and finish the process in an error state. The following BPMN collaboration diagram shows how the process at the first organization would look like if we wanted to react to multiple different messages or missing messages:
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/photos/developer-documentation/event_based_gateway_inverted.svg">
-  <source media="(prefers-color-scheme: light)" srcset="/photos/developer-documentation/event_based_gateway.svg">
-  <img alt="BPMN collaboration diagram with an Event Based Gateway" src="/photos/developer-documentation/event_based_gateway.svg">
-</picture>
-
-
-## Related Topics
-[Gateways](../bpmn/gateways.md), [Message Correlation](../dsf/message-correlation.md), [Message Activities](../dsf/message-activities.md)
 
 ---
 
@@ -8388,7 +8388,6 @@ The funded project team includes:
 - Jan Böhringer • [GitHub](https://github.com/jaboehri)
 - Mathias Rühle • [GitHub](https://github.com/EmteZogaf)
 - Mohamad Khalil Malla • [GitHub](https://github.com/khalilmalla95)
-- Paul Maibach • [GitHub](https://github.com/javarum)
 - Sylvester Baidoo-A.
 - Tom Holler • [GitHub](https://github.com/H99-code)
 - Serap Aydin • [GitHub](https://github.com/seay28)
@@ -8398,6 +8397,7 @@ We thank additional contributors, including:
 - Simon Mödinger • [GitHub](https://github.com/simonmoedinger)
 - Christoph Zilske • [GitHub](https://github.com/ZilskeC)
 - Amir Kannout
+- Paul Maibach • [GitHub](https://github.com/javarum)
 
 ## Funded Partners
 
@@ -8422,11 +8422,11 @@ The [LIFE Institute](https://www.uniklinikum-leipzig.de/einrichtungen/life/) of 
 
 ![BMFTR Logo =228x158](/photos/learnmore/funding/bmftr.png) 
 
- The DSF Community connects the DSF competencies of the entire [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/de/start) so that new use cases, in particular from Module 3 or the [Network University Medicine (NUM)](https://www.netzwerk-universitaetsmedizin.de/), are better supported in creating the respective DSF plugins. In the context of Module 2b, the DSF Community contributes to the further development of the common digital infrastructure of the MII together with the [FDPG+](https://forschen-fuer-gesundheit.de/) and [TRANSIT](https://www.gesundheitsforschung-bmbf.de/de/transit-medizininformatik-struktur-data-management-unit-16148.php) projects. [BMBF](https://www.gesundheitsforschung-bmbf.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)
+ The DSF Community connects the DSF competencies of the entire [Medical Informatics Initiative (MII)](https://www.medizininformatik-initiative.de/de/start) so that new use cases, in particular from Module 3 or the [Network University Medicine (NUM)](https://www.netzwerk-universitaetsmedizin.de/), are better supported in creating the respective DSF plugins. In the context of Module 2b, the DSF Community contributes to the further development of the common digital infrastructure of the MII together with the [FDPG+](https://forschen-fuer-gesundheit.de/) and [TRANSIT](https://www.gesundheitsforschung-bmbf.de/de/transit-medizininformatik-struktur-data-management-unit-16148.php) projects. [BMFTR](https://www.gesundheitsforschung-bmftr.de/de/dsf-medizininformatik-struktur-data-sharing-framework-community-16133.php)
 
  Heilbronn University (HHN) focuses on the connecting of DSF related topics and competencies in the MII with the community management. The quality assurance of new DSF plugins and further development of the application and core components aim at a scalable, stable and secure operation of the DSF (Funding code: 01ZZ2307A).
 
- Heidelberg University is focusing on the further development of the DSF core components as well as the rollout of the DSF plugins, in particular also from the perspective of a data integration center in consultation with the FDGP+ and TRANSIT projects (Funding code: 01ZZ2307B).
+ Heidelberg University is focusing on the further development of the DSF core components as well as the rollout of the DSF plugins, in particular also from the perspective of a data integration center in consultation with the FDPG+ and TRANSIT projects (Funding code: 01ZZ2307B).
 
  The University of Leipzig will further develop and adapt the DSF plugin for the Research Data Portal for Health FDPG according to specifications resulting from the FDPG+ project and enable Data Integration Centers (DIC) to operate the FDPG plugin (Funding code: 01ZZ2307C).
 
@@ -8623,10 +8623,8 @@ Source: https://dsf.dev/community/consultation-hours.html
 
 Mondays, 14:00–14:50
 
-Location: https://dsf.dev/sprechstunde
+Location: Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
 :::
-
-Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
 
 ---
 
@@ -8733,14 +8731,25 @@ If you have any questions about this policy or security of the Data Sharing Fram
 ## Process Plugin Development API v1
 Source: https://dsf.dev/process-development/api-v1/
 
+The Process Development section helps users develop process plugins, which enable the execution of virtually any use case within the DSF. This guide provides information about API v1. If you want to create or migrate process plugins, please refer to [API v2](../api-v2/get-started.md).
+
+For foundational knowledge, see the Concepts section: [Process Plugin](../../explore/concepts/process-plugins.md)
+
 ## Overview 
 - [About API1](description)
-- [Implementation Guide](implementation)
+- [Concepts](concept)
+- [Tutorial](tutorials/)
+- [Java Doc](javadoc)
 
 ---
 
 ## Old DSF Versions
 Source: https://dsf.dev/operations/old-versions.html
+
+This section provides an overview of all released versions of the Data Sharing Framework (DSF). It serves as a reference for accessing previous releases, including their documentation and configuration details.
+::: info
+It is recommended to use the latest available version of the DSF.
+:::
 
 <OldVersions />
 
@@ -10676,7 +10685,7 @@ org.package.myClass
 `ServiceTask` is the interface to be implemented for a class set as the Java implementation for Service Tasks.
 
 ### UserTaskListener
-`ServiceTask` is the interface to be implemented for a class set as the Java implementation for Service Tasks's Task Listener. Task Listeners have properties that separate them from [Execution Listeners](../bpmn/execution-listeners.md). More on Task Listeners in the guide on [User Tasks in the DSF](../guides/user-tasks-in-the-dsf.md)
+`UserTaskListener` is the interface to be implemented for a class set as the Java implementation for Service Tasks's Task Listener. Task Listeners have properties that separate them from [Execution Listeners](../bpmn/execution-listeners.md). More on Task Listeners in the guide on [User Tasks in the DSF](../guides/user-tasks-in-the-dsf.md)
 
 ---
 
@@ -10685,7 +10694,7 @@ Source: https://dsf.dev/process-development/api-v2/dsf/draft-task-resources.html
 
 ## Draft Task Resources
 
-[Task](../fhir/task.md) resources with status `draft` are used to create the DSF FHIR server's functionality of starting processes via its web interface. They are stored in the `.../src/main/resources/fhir/Task` subdirectory of a project. Compared to regular [Task](../fhir/task.md) resources used to start BPMN processes, this type of [Task](../fhir/task.md) resource requires the status `draft` instead the usual `requested`. It also replaces the value for `authoredOn` with the placeholder `#{date}`, the values of organization identifiers with the placeholder `#{organization}` and all instances of version numbers with `#{version}`. Additionally, it requires setting the `Task.identifier` element. It should look something like this:
+[Task](../fhir/task.md) resources with status `draft` are used to create the DSF FHIR server's functionality of starting processes via its web interface. They are stored in the `.../src/main/resources/fhir/Task` subdirectory of a project. Compared to regular [Task](../fhir/task.md) resources used to start BPMN processes, this type of [Task](../fhir/task.md) resource requires the status `draft` instead of the usual `requested`. It also replaces the value for `authoredOn` with the placeholder `#{date}`, the values of organization identifiers with the placeholder `#{organization}` and all instances of version numbers with `#{version}`. Additionally, it requires setting the `Task.identifier` element. It should look something like this:
 
 ```xml
 <identifier>
@@ -10791,13 +10800,13 @@ After modelling communication using [BPMN message elements](../bpmn/messaging.md
 Source: https://dsf.dev/process-development/api-v2/dsf/organization-identifiers.html
 
 ## Organization Identifiers
-DSF FHIR server instances can configure an `organization identifier`. It uniquely identifies the organization the DSF FHIR server instance belongs to for its [Allow-List mechanism](https://dsf.dev/intro/info/allowList.html). It is set as an [environment variable](https://dsf.dev/stable/maintain/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). A GET request to `https://example.org/fhir/Organization` will return a list of all organizations for the DSF FHIR server instance running under `example.org`. The results will also include the `organization identifier` of each organization.  
+DSF FHIR server instances can configure an `organization identifier`. It uniquely identifies the organization the DSF FHIR server instance belongs to for its [Allow-List mechanism](/explore/concepts/allow-list). It is set as an [environment variable](/operations/latest/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). A GET request to `https://example.org/fhir/Organization` will return a list of all organizations for the DSF FHIR server instance running under `example.org`. The results will also include the `organization identifier` of each organization.  
 
 ### Organization Identifiers in Task Resources
 [Task](../fhir/task.md) resources require a reference to an organization via its identifier as the `Task.requester` and `Task.restriction.recipient` elements. The exact values for these elements depend on the [ActivityDefinition](../fhir/activitydefinition.md) the [Task](../fhir/task.md) resource should conform to. As a general rule, the identifier of your own organization should be used as the `Task.requester` and `Task.restriction.recipient` elements for [Task](../fhir/task.md) resources which initially start processes. All other cases depend on the context of the message being sent during process execution. An easy way to generalize this in [Draft Task Resources](draft-task-resources.md) is to use the `#{organization}` [placeholder](versions-placeholders-urls.md#placeholders).
 
 ## Related Topics
-[Allow-List](https://dsf.dev/intro/info/allowList.html), [ActivityDefinition](../fhir/activitydefinition.md), [Environment Variables](environment-variables.md), [Requester and Recipient](requester-and-recipient.md), [Task](../fhir/task.md)
+[Allow-List](/explore/concepts/allow-list), [ActivityDefinition](../fhir/activitydefinition.md), [Environment Variables](environment-variables.md), [Requester and Recipient](requester-and-recipient.md), [Task](../fhir/task.md)
 
 ---
 
@@ -10806,7 +10815,7 @@ Source: https://dsf.dev/process-development/api-v2/dsf/read-access-tag.html
 
 ## Read Access Tag
 
-Axiomatically, nobody is allowed to write FHIR resources (except [Task](../fhir/task.md)) to the DSF FHIR server unless it is the organization running the instance, which is [configurable](https://dsf.dev/operations/latest/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). By default, the same applies to reading FHIR resources (again except [Task](../fhir/task.md)). But since the DSF is often used to offer medical data in form of FHIR resources, other organizations should be allowed to read some of the resources on the DSF FHIR server. The `Resource.meta.tag` element is used define access rules for all FHIR resources in the DSF, with the exception of [Task](../fhir/task.md) resources. For example, allowing read access for all organizations would use the following `system` and `code` in your FHIR resource:
+Axiomatically, nobody is allowed to write FHIR resources (except [Task](../fhir/task.md)) to the DSF FHIR server unless it is the organization running the instance, which is [configurable](/operations/latest/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). By default, the same applies to reading FHIR resources (again except [Task](../fhir/task.md)). But since the DSF is often used to offer medical data in form of FHIR resources, other organizations should be allowed to read some of the resources on the DSF FHIR server. The `Resource.meta.tag` element is used define access rules for all FHIR resources in the DSF, with the exception of [Task](../fhir/task.md) resources. For example, allowing read access for all organizations would use the following `system` and `code` in your FHIR resource:
 
 ```xml
 <meta>
@@ -11019,7 +11028,7 @@ The `requester` element uses one of the following Codings:
 ```
 
 ### Recipient
-The `recipeint` element uses one of the following Codings:
+The `recipient` element uses one of the following Codings:
 ```xml
 <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-all|2.0.0" />
 <profile value="http://dsf.dev/fhir/StructureDefinition/coding-process-authorization-local-organization|2.0.0" />
@@ -11181,7 +11190,7 @@ This site is work in progress, please come back later.
 ## Maven Central and Resources
 Source: https://dsf.dev/process-development/api-v2/tooling/maven.html
 
-## Maven Central and Ressources
+## Maven Central and Resources
 
 ::: warning Work in progress
 
