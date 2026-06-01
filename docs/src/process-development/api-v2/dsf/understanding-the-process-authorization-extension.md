@@ -3,7 +3,7 @@ title: Understanding the Process Authorization Extension
 icon: creative
 ---
 
-The authorization rules live inside a `<extension url="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization">` block in the `ActivityDefinition`. Before you make changes, read through the annotated structure below so you know exactly what each line does and where to make your edits later.
+The authorization rules live inside a `<extension url="http://dsf.dev/fhir/StructureDefinition/extension-process-authorization">` block in the `ActivityDefinition`. 
 
 ```xml
 <!-- The outermost container for one complete authorization rule block.
@@ -26,11 +26,11 @@ The authorization rules live inside a `<extension url="http://dsf.dev/fhir/Struc
          valueCoding selects a rule from the DSF authorization CodeSystem.    -->
     <extension url="requester">
         <valueCoding>
-            <!-- The CodeSystem (dictionary) that defines the available rules.
+            <!-- The CodeSystem that defines the available roles.
                  Always this fixed DSF URL. -->
             <system value="http://dsf.dev/fhir/CodeSystem/process-authorization" />
 
-            <!-- Which rule from that dictionary?
+            <!-- Which role from that CodeSystem?
                  LOCAL_ALL           = any local client (certificate or OIDC user)
                  LOCAL_ROLE          = any local client with a specific OIDC practitioner role
                  LOCAL_ORGANIZATION  = one specific local organization  (needs nested extension)
@@ -51,7 +51,7 @@ The authorization rules live inside a `<extension url="http://dsf.dev/fhir/Struc
 </extension>
 ```
 
-When you need to restrict access to a **specific organization** or a **specific OIDC role**, add a nested `<extension>` inside `<valueCoding>` to narrow the rule further:
+When access needs to be restricted to a **specific organization** or a **specific OIDC role**, a nested `<extension>` inside `<valueCoding>` has to be added to narrow the rule further:
 
 ```xml
 <!-- Example: only a specific remote organization may send -->
@@ -89,7 +89,7 @@ When you need to restrict access to a **specific organization** or a **specific 
 </extension>
 ```
 
-> **Reading tip:** Think of the outer `<code>` as the *category* of the rule (e.g. "a local client with a specific role") and the inner `<extension>` as the *precise value* within that category (e.g. "the role `DSF_ADMIN`"). You always need both together.
+> **Reading tip:** The outer `<code>` can be thought of as the *category* of the rule (e.g. "a local client with a specific role") and the inner `<extension>` as the *precise value* within that category (e.g. "the role `DSF_ADMIN`"). Both are needed together.
 
 ## Related Topics
 [ActivityDefinition](../fhir/activitydefinition.md), [Creating ActivityDefinitions](../guides/creating-activity-definitions.md), [Requester and Recipient Examples](./requester-and-recipient.md)
