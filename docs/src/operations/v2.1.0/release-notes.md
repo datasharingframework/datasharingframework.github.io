@@ -30,6 +30,7 @@ Feature Summary:
 - The DSF FHIR server front-end was improved to display the `Binary` resource content inline. This feature is enabled for `Binary` resources with content-types: `text/html` and `text/plain`.
 - The performance of allow-list and other bundle executions was improved by modifying the database schema and optimizing the FHIR server code base. A new `current` column was added to resource tables together with a number of new database indexes. A "not found" cache was added for metadata resources to reduce unnecessary database calls.
 - Other security improvements were implemented and are detailed in the [DSF 2.1.0 hardening measures](https://dsf.dev/operations/v2.1.0/hardening-measures.html) document.
+- Starting with this release our docker images are cryptographically signed. Take a look at the [Verify Image Signatures](https://dsf.dev/operations/latest/image-verification.html) document for details.
 
 Docker images for this release can be accessed via the GitHub Docker registry - ghcr.io:
 * **bpe**: [ghcr.io/datasharingframework/bpe:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/bpe/796016761?tag=2.1.0)  
@@ -78,4 +79,3 @@ Issues closed:
 - ClientConfig in DsfClientJersey overwrites Authentication Features [#432](https://github.com/datasharingframework/dsf/issues/432)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

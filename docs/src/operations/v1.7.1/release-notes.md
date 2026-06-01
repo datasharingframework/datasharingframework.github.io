@@ -35,4 +35,3 @@ Issues closed:
 - Modify Documentation Generator to Support SECRET_FILE Environment Variables [#265](https://github.com/datasharingframework/dsf/issues/265)
 
 This release contains contributions from [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

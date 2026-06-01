@@ -42,4 +42,3 @@ Issues closed:
 - Start New Development Cycle [#245](https://github.com/datasharingframework/dsf/issues/245) 
 
 This release contains contributions from [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

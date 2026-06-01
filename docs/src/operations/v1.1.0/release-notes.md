@@ -51,4 +51,3 @@ Issues closed:
 - Improve Task HTML view [#56](https://github.com/datasharingframework/dsf/issues/56)
 
 This release contains contributions from [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
-

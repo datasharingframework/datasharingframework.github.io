@@ -51,4 +51,3 @@ Issues closed:
 - Make FHIR proxy server context path customizable [#85](https://github.com/datasharingframework/dsf/issues/85)
 
 This release contains contributions from [@wetret](https://github.com/wetret) and [@hhund](https://github.com/hhund).
-

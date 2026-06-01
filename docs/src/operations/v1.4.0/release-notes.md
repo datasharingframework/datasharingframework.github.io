@@ -56,4 +56,3 @@ Issues closed:
 - Treat RC releases similar to SNAPSHOT releases [#131](https://github.com/datasharingframework/dsf/issues/131)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
-

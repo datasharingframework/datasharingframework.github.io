@@ -57,4 +57,3 @@ Issues closed:
 - DSF Fails to Start with Certain ECC Client Certificates [#405](https://github.com/datasharingframework/dsf/issues/405)
 
 This release contains contributions from [@hhund](https://github.com/hhund) and [@schwzr](https://github.com/schwzr).
-
