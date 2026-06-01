@@ -31,6 +31,8 @@
 - [Process Plugin Deployment](https://dsf.dev/operations/process-plugin-deployment.html): How to deploy process plugins
 - [Passwords and Secrets](https://dsf.dev/operations/latest/passwords-secrets.html): Managing passwords and secrets
 - [Root Certificates](https://dsf.dev/operations/latest/root-certificates.html): Certificate management
+- [Image Verification](https://dsf.dev/operations/latest/image-verification.html): Verifying the authenticity and integrity of DSF container images
+- [Hardening Measures](https://dsf.dev/operations/latest/hardening-measures.html): Recommended hardening measures for a production deployment
 - [Upgrade from DSF v1](https://dsf.dev/operations/latest/upgrade-from-1.html): Migration guide from DSF v1 to v2
 - [Upgrade within DSF v2](https://dsf.dev/operations/latest/upgrade-from-2.html): Upgrading between DSF v2.x versions
 - [OIDC Configuration (FHIR)](https://dsf.dev/operations/latest/fhir/oidc.html): OpenID Connect setup for FHIR server
