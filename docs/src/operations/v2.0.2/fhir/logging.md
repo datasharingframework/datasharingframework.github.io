@@ -3,7 +3,7 @@ title: Logging
 icon: config
 ---
 
-The DSF FHIR Server provides a **Standard Application Logger** and a dedicated **Audit Logger** for compliance-relevant access events. Both mechanisms can output there messages to standard output (stdout), standard error (stderr) and dedicated log files.
+The DSF FHIR Server provides a **Standard Application Logger** and a dedicated **Audit Logger** for compliance-relevant access events. Both mechanisms can output their messages to standard output (stdout), standard error (stderr) and dedicated log files.
 
 By default the **Standard Application Logger** is configured to output with min. level `INFO` and format `TEXT_COLOR` to *stdout* as well as min. level `DEBUG` and format `TEXT_MDC` to a dedicated log file. In addition the **Audit Logger** is enabled by default to log with format `TEXT_MDC` to a dedicated log file.
 
@@ -29,7 +29,7 @@ Multiple styles are supported for the **Standard Application Logger** file, *std
 @tab TEXT
 
 ```text :no-line-numbers
-2026-01-13 15:57:57,567 [main] INFO  dev.dsf.common.buildinfo.BuildInfoReaderImpl - Artifact: dsf-fhir-server-jetty, version: 2.0.1, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685
+2026-01-13 15:57:57,567 [main] INFO  dev.dsf.common.buildinfo.BuildInfoReaderImpl - Artifact: dsf-fhir-server-jetty, version: 2.0.2, build: 2025-11-26T20:24:47+01:00, branch: main, commit: 77ac1d45a35fae8666d531953572ab6c51a58685
 2026-01-13 16:03:28,524 [main] ERROR org.springframework.web.context.ContextLoader - Context initialization failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'activityDefinitionAuthorizationRule' defined in dev.dsf.fhir.spring.config.AuthorizationConfig: Failed to instantiate [dev.dsf.fhir.authorization.AuthorizationRule]: Factory method 'activityDefinitionAuthorizationRule' threw exception with message: Error creating bean with name 'referenceResolver' defined in dev.dsf.fhir.spring.config.ReferenceConfig: Failed to instantiate [dev.dsf.fhir.service.ReferenceResolver]: Factory method 'referenceResolver' threw exception with message: Error creating bean with name 'clientProvider' defined in dev.dsf.fhir.spring.config.ClientConfig: Failed to instantiate [dev.dsf.fhir.client.ClientProvider]: Factory method 'clientProvider' threw exception with message: java.io.IOException: org.bouncycastle.pkcs.PKCSException: unable to read encrypted data: Error finalising cipher
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)

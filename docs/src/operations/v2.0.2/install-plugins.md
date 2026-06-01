@@ -5,7 +5,7 @@ icon: plugin
 
 
 ## **Overview**
-- You can find an overview of compatable process plugins below (last updated 2026-01-19).
+- You can find an overview of compatible process plugins below (last updated 2026-01-19).
 
 
 | Process Plugin | released for test | released for production |
@@ -18,11 +18,11 @@ icon: plugin
 | [MII Process Data Sharing](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases) | [v1.1.0.0](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/tag/v1.1.0.0) | [v1.1.0.0](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/tag/v1.1.0.0) |
 | [NUM Dashboard Report](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases) [Note](#num-dashboard-report-on-dsf-2) | [v1.1.0.0](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases/tag/v1.1.0.0) | [v1.1.0.0](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases/tag/v1.1.0.0) |
 
-- Deploying the process plugin to the DSF involves copy the process jar-file and configuring environment variable for the business process engine (BPE).
+- Deploying the process plugin to the DSF involves copying the process jar-file and configuring environment variable for the business process engine (BPE).
 
 
 ### Prerequisites
-- A DSF installation of version 2.0.0 or higher. An installation guide can be found [here](https://dsf.dev/operations/latest/install.html).
+- A DSF installation of version 2.0.0 or higher. An installation guide can be found [here](/operations/latest/install.html).
 
 ### Deployment
 - Add the process jar-file to the DSF BPE folder `/opt/bpe/process`: 
@@ -51,7 +51,7 @@ sudo chown root:bpe mii-process-data-sharing-1.1.0.0.jar
 
 
 ### NUM Dashboard Report on DSF 2
-The NUM Dashboard Report Plugin is now fully compabile with DSF 2.0.2 and above. If you implemented the workaround for DSF 2.0.1 and below, you can remove it:
+The NUM Dashboard Report Plugin is now fully compatible with DSF 2.0.2 and above. If you implemented the workaround for DSF 2.0.1 and below, you can remove it:
 
 
 1. Remove the file with the name `api-v1-allowed-bpe-classes.list`

@@ -20,7 +20,7 @@ After much anticipation, the DSF team participated at the FHIR DevDays 2025. The
 
 ### Community Talk: Fostering Research with FHIR and BPMN
 
-On the last day of the conference, Hauke Hund presented lesson learned from the DSF in his talk “Fostering Research: Real-World Data Sharing and Process Orchestration with FHIR and BPMN”. In this session, Hauke shared valuable lessons learned from the implementation, rollout, and maintenance of different DSF networks. The talk illustrated how combining **FHIR** with Business Process Model and Notation (**BPMN** 2.0) enables secure, automated, scalable sharing of real-world research data across institutional boundaries.
+On the last day of the conference, Hauke Hund presented lessons learned from the DSF in his talk “Fostering Research: Real-World Data Sharing and Process Orchestration with FHIR and BPMN”. In this session, Hauke shared valuable lessons learned from the implementation, rollout, and maintenance of different DSF networks. The talk illustrated how combining **FHIR** with Business Process Model and Notation (**BPMN** 2.0) enables secure, automated, scalable sharing of real-world research data across institutional boundaries.
 
 **Slides from this talk can be viewed here: [Fostering Research with FHIR and BPMN](/assets/presentations/250606_HaukeHund_DataSharingFramework_fsh.pdf)**
 
@@ -29,7 +29,7 @@ On the last day of the conference, Hauke Hund presented lesson learned from the 
 
 On Thursday, we hosted a spontaneous deep-dive session on FHIR and terminology validation, which proved to be a great success, sparking lively discussions and active engagement among participants. With over 70 registrations and 35 attendees, the session underscored the significance of this topic within the FHIR community.
 
-The session explored how terminology validation can be integrated into current workflows and it shed light on common challenges and limitations of existing FHIR validators. The dicsussion also included ideas for future improvements and their potential for wider adoption of FHIR validation tools.
+The session explored how terminology validation can be integrated into current workflows and it shed light on common challenges and limitations of existing FHIR validators. The discussion also included ideas for future improvements and their potential for wider adoption of FHIR validation tools.
 
 This session served as a valuable preparation for the upcoming MII validation workshop. **If you're interested, you can find more information here in german:  [FHIR Validation Workshop](https://www.tmf-ev.de/news/fhir-validierungs-workshop-bei-der-tmf)**
 

@@ -3,7 +3,7 @@ name: docs
 on:
   # trigger build on every PR phase
   pull_request:
-    types: [opened, reopened, review_requested]
+    types: [opened, synchronize, reopened, review_requested]
   # trigger deployment manually
   workflow_dispatch:
 

@@ -3,12 +3,13 @@ title: DSF 2.0.2
 icon: guide
 ---
 
-Data Sharing Framework 2.x is the new upcoming release of the Data Sharing Framework.
+Data Sharing Framework 2.x is the current major release of the Data Sharing Framework.
 
 
 # System Administrators
 
 - [Install DSF 2.0.2](install)
+- [Upgrade from DSF 2.0.1](upgrade-from-2)
 - [Upgrade from DSF 1.9.0](upgrade-from-1)
 
 

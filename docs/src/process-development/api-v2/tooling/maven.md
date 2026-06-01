@@ -1,9 +1,9 @@
 ---
-title: Maven Central and Ressources
+title: Maven Central and Resources
 icon: share
 ---
 
-## Maven Central and Ressources
+## Maven Central and Resources
 
 ::: warning Work in progress
 

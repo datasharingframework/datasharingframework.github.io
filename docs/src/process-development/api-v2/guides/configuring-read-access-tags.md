@@ -146,9 +146,9 @@ That is why the first element to be added to `meta.tag` is an `extension` elemen
 ```xml
 <meta>
     <tag>
-        <extenion>
-         
-        </extenion>
+        <extension>
+
+        </extension>
         <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
         <code value="ROLE"/> 
     </tag>

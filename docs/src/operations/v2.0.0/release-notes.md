@@ -13,13 +13,13 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is the 2.0.0 major release of the DSF. DSF installations in version 1.9.0 can be upgraded to this release.
-- To Update an existing 1.x installation, please see the [1.9.0 -> 2.0.0 upgrade guide](https://dsf.dev/operations/v2.0.0/upgrade-from-1.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.0.0/install.html).
-- A list of compatible process plugins can be found in the [plugin install guide](https://dsf.dev/operations/latest/install-plugins.html).
+- To Update an existing 1.x installation, please see the [1.9.0 -> 2.0.0 upgrade guide](/operations/v2.0.0/upgrade-from-1.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v2.0.0/install.html).
+- A list of compatible process plugins can be found in the [plugin install guide](/operations/latest/install-plugins.html).
 
 Feature Summary:
 - With the 2.0.0 release the workflow engine for the **DSF BPE Server** was migrated from *Camunda 7* to the community-driven, open-source BPMN engine [Operaton](https://operaton.org). The migration includes a byte-code rewriting layer that allows existing v1 process plugins compiled against Camunda classes to continue running without recompilation.
-- The release includes a new **Process Plugin API v2**, offering cleaner abstractions, new services and expanded metadata. The API introduces foundational support for FHIR validation services (planned to be fully activated in a future release) and provides utilities such as data encryption, compression and new logging facilities. Using the new FHIR server connections API, credentials for local FHIR data servers can be shared between process plugins, with password, mTLS and OIDC based authentication supported.
+- The release includes a new **Process Plugin API v2**, offering cleaner abstractions, new services and expanded metadata. The API introduces foundational support for FHIR validation services (planned to be fully activated in 2.1) and provides utilities such as data encryption, compression and new logging facilities. Using the new FHIR server connections API, credentials for local FHIR data servers can be shared between process plugins, with password, mTLS and OIDC based authentication supported.
  - Default FHIR profiles for all supported resources have been created for version 2.0.0 on the **DSF FHIR Server**, with automated data-migration to ensure compliance for existing installations. The authorization system now supports fine-grained, resource-specific roles and enhanced practitioner-based access control for `Task` and `QuestionnaireResponse` resources. Internal optimizations improve performance for `Binary` resources with a new size limit of resources constraint by PostgreSQL's 4TB limit of *Large Objects* (limits of forwarding- and reverse-proxies for uploads may be smaller).
  - Finally, the **user experience** has been modernized with a more responsive layout and a new statistics panels on the FHIR server visible to administrators. Extensive configuration cleanup and unified logging controls simplify administration across both the BPE and FHIR servers.
  - The DSF 2.0.0 code-base was upgraded to Java 25 and uses latest versions of Jetty and HAPI. A new [dsf-maven-plugin](https://repo1.maven.org/maven2/dev/dsf/dsf-maven-plugin/2.0.0-RC2) was created to automate build steps and help process plugins developers in generating configuration documentation and docker-compose based DSF development setups.
@@ -113,3 +113,4 @@ Issues closed:
 - Improve DefaultUserTaskListener [#78](https://github.com/datasharingframework/dsf/issues/78)
 
 This release contains contributions from [@alexanderkiel](https://github.com/alexanderkiel), [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@MadMax93](https://github.com/MadMax93), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
+

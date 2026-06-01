@@ -5,7 +5,7 @@ icon: creative
 
 ## Read Access Tag
 
-Axiomatically, nobody is allowed to write FHIR resources (except [Task](../fhir/task.md)) to the DSF FHIR server unless it is the organization running the instance, which is [configurable](https://dsf.dev/operations/latest/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). By default, the same applies to reading FHIR resources (again except [Task](../fhir/task.md)). But since the DSF is often used to offer medical data in form of FHIR resources, other organizations should be allowed to read some of the resources on the DSF FHIR server. The `Resource.meta.tag` element is used define access rules for all FHIR resources in the DSF, with the exception of [Task](../fhir/task.md) resources. For example, allowing read access for all organizations would use the following `system` and `code` in your FHIR resource:
+Axiomatically, nobody is allowed to write FHIR resources (except [Task](../fhir/task.md)) to the DSF FHIR server unless it is the organization running the instance, which is [configurable](/operations/latest/fhir/configuration.html#dev-dsf-fhir-server-organization-identifier-value). By default, the same applies to reading FHIR resources (again except [Task](../fhir/task.md)). But since the DSF is often used to offer medical data in form of FHIR resources, other organizations should be allowed to read some of the resources on the DSF FHIR server. The `Resource.meta.tag` element is used define access rules for all FHIR resources in the DSF, with the exception of [Task](../fhir/task.md) resources. For example, allowing read access for all organizations would use the following `system` and `code` in your FHIR resource:
 
 ```xml
 <meta>

@@ -34,4 +34,4 @@ org.package.myClass
 `ServiceTask` is the interface to be implemented for a class set as the Java implementation for Service Tasks.
 
 ### UserTaskListener
-`ServiceTask` is the interface to be implemented for a class set as the Java implementation for Service Tasks's Task Listener. Task Listeners have properties that separate them from [Execution Listeners](../bpmn/execution-listeners.md). More on Task Listeners in the guide on [User Tasks in the DSF](../guides/user-tasks-in-the-dsf.md)
+`UserTaskListener` is the interface to be implemented for a class set as the Java implementation for Service Tasks's Task Listener. Task Listeners have properties that separate them from [Execution Listeners](../bpmn/execution-listeners.md). More on Task Listeners in the guide on [User Tasks in the DSF](../guides/user-tasks-in-the-dsf.md)
