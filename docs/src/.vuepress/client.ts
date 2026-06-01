@@ -4,12 +4,14 @@ import { Layout as ParentLayout } from "vuepress-theme-hope/client";
 import Layout from './layouts/PageLayout.vue'
 import NotFoundLayout from './layouts/NotFoundLayout.vue'
 import BlogLayout from './layouts/BlogLayout.vue';
+import AllowListGenerator from './components/AllowListGenerator.vue';
 
 import OldVersions from './components/OldVersions.vue';
 
 export default defineClientConfig({
     enhance({ app }) {
     app.component('OldVersions', OldVersions);
+    app.component('AllowListGenerator', AllowListGenerator);
   },
   layouts: {
     ParentLayout,
