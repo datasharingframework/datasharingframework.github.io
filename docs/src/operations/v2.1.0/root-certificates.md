@@ -39,15 +39,15 @@ You can add an additional certificate authority (e.g., your hospital CA) for
 See the [BPE Server configuration](#bpe-server) for an example.
 
 If you can't override the default configuration with bind-mounts, you can use the following environment variables to configure non default .pem file directories or .pem file:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: `ca/client_ca_chains`
-  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-fhir-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 
 ### BPE Reverse Proxy
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
@@ -87,9 +87,9 @@ services:
 ```
 
 Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: `ca/client_ca_chains`
-  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
+* [DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-connections-config-default-trust-server-certificate-cas)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
@@ -99,6 +99,9 @@ Use the following environment variable to configure non default .pem files or ov
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 
 ## List of Default Trusted Certificate Authorities
 If not mentioned explicitly, issuing CAs listed will sign X.509 certificates with [Extended Key Usage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) entries `TLS WWW server authentication` and `TLS WWW client authentication`.
