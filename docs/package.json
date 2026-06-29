@@ -20,7 +20,7 @@
     "@vuepress/plugin-markdown-tab": "2.0.0-rc.121",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.121",
     "katex": "0.16.28",
-    "sass-embedded": "1.97.3",
+    "sass-embedded": "1.100.0",
     "sass-loader": "16.0.7",
     "tsx": "4.22.4",
     "vitest": "4.0.18",
