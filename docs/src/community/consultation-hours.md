@@ -7,6 +7,6 @@ icon: guide
 
 Mondays, 14:00–14:50
 
-Location: Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
+Location: Click [here](https://teams.microsoft.com/meet/37149424036333?p=XkMpMQzOqEbyp7J7G4) to join the consultation hour.
 :::
 
