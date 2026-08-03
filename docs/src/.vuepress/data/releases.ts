@@ -24,12 +24,22 @@ export const releases: Record<string, Release> = {
       bpe_proxy:  { digest: 'sha256:c67da4a1720ea75a383764db2bf25619fe70f57773b1069029f5b49588eb1ecc' },
     },
   },
+  '2.1.1': {
+    tag: '2.1.1',
+    previousTag: '2.1.0',
+    images: {
+      fhir:       { digest: 'sha256:TODO' },
+      fhir_proxy: { digest: 'sha256:TODO' },
+      bpe:        { digest: 'sha256:TODO' },
+      bpe_proxy:  { digest: 'sha256:TODO' },
+    },
+  },
 };
 
 // --- Version registry (single source of truth) ---
 // Sidebar keys reference generator functions by name; mapped in theme.ts.
 // Ordered newest-first.
-export type SidebarKey = 'v2_latest' | 'v2_0_0' | 'v1_latest' | 'v1_gte_1_7' | 'v1_gte_1_5' | 'v1_gte_1_0';
+export type SidebarKey = 'v2_latest' | 'v2_1_0' | 'v2_0_0' | 'v1_latest' | 'v1_gte_1_7' | 'v1_gte_1_5' | 'v1_gte_1_0';
 
 export interface VersionEntry {
   tag: string;
@@ -37,7 +47,8 @@ export interface VersionEntry {
 }
 
 export const allVersions: VersionEntry[] = [
-  { tag: '2.1.0', sidebar: 'v2_latest' },
+  { tag: '2.1.1', sidebar: 'v2_latest' },
+  { tag: '2.1.0', sidebar: 'v2_1_0' },
   { tag: '2.0.2', sidebar: 'v2_0_0' },
   { tag: '2.0.1', sidebar: 'v2_0_0' },
   { tag: '2.0.0', sidebar: 'v2_0_0' },
@@ -58,7 +69,7 @@ export const allVersions: VersionEntry[] = [
   { tag: '1.0.0', sidebar: 'v1_gte_1_0' },
 ];
 
-export const latestVersion = '2.1.0';
+export const latestVersion = '2.1.1';
 
 export function getReleaseFromPath(path: string): Release | undefined {
   const versionMatch = path.match(/(?:^|\/)operations\/v(\d+\.\d+\.\d+)\//);

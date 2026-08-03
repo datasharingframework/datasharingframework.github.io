@@ -1,11 +1,12 @@
 import { slimsearchPlugin } from "@vuepress/plugin-slimsearch";
 import { hopeTheme } from "vuepress-theme-hope";
 import { generate_v1_latest_sidebar, generate_v1_gt_eq_1_7_0_sidebar, generate_v1_gt_eq_1_5_0_sidebar, generate_v1_gt_eq_1_0_0_sidebar } from "./sidebar/operations-v1";
-import { generate_v2_0_0_sidebar, generate_v2_latest_sidebar } from "./sidebar/operations-v2";
+import { generate_v2_0_0_sidebar, generate_v2_1_0_sidebar, generate_v2_latest_sidebar } from "./sidebar/operations-v2";
 import { allVersions, latestVersion, type SidebarKey } from "./data/releases";
 
 const sidebarGenerators: Record<SidebarKey, () => any[]> = {
   v2_latest: generate_v2_latest_sidebar,
+  v2_1_0: generate_v2_1_0_sidebar,
   v2_0_0: generate_v2_0_0_sidebar,
   v1_latest: generate_v1_latest_sidebar,
   v1_gte_1_7: generate_v1_gt_eq_1_7_0_sidebar,
