@@ -13,8 +13,8 @@ You can access all release notes on our [GitHub](https://github.com/datasharingf
 General remarks:
 
 - This is a feature update for DSF 2.x with security and performance improvements.
-- To Update from an existing 2.x installation, please see the [2.x -> 2.1.0 Upgrade Guide](https://dsf.dev/operations/v2.1.0/upgrade-from-2.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.1.0/install.html).
+- To Update from an existing 2.x installation, please see the [2.x -> 2.1.0 Upgrade Guide](/operations/v2.1.0/upgrade-from-2.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v2.1.0/install.html).
 
 Security Advisories:
 - Missing Session Timeout for OIDC Sessions: [GHSA-gj7p-595x-qwf5](https://github.com/datasharingframework/dsf/security/advisories/GHSA-gj7p-595x-qwf5)
@@ -23,14 +23,14 @@ Security Advisories:
 Bug Fixes:
 - In previous versions starting processes via the FHIR server front-end failed, if `Task` resources used input parameter codes (`Task.input.type`) that were substrings of other input parameter codes ([#442](https://github.com/datasharingframework/dsf/issues/442)). The front-end code was fixed to handle these edge-cases.
 - Process instances started with DSF 1.x failed to continue on DSF 2.x ([#438](https://github.com/datasharingframework/dsf/issues/438)). Fallback code was added to correctly read the old DSF 1.x Task process variables.
-- A configuration error in the `DsfClient` used by v2 process plugins via the [FHIR client connections API](https://dsf.dev/operations/v2.1.0/bpe/fhir-client-connections.html) resulted in bearer tokens and basic authentication credentials not being send ([#432](https://github.com/datasharingframework/dsf/issues/432)). The feature registration order was fixed to send authentication credentials in the `DsfClient` implementation.
+- A configuration error in the `DsfClient` used by v2 process plugins via the [FHIR client connections API](/operations/v2.1.0/bpe/fhir-client-connections.html) resulted in bearer tokens and basic authentication credentials not being send ([#432](https://github.com/datasharingframework/dsf/issues/432)). The feature registration order was fixed to send authentication credentials in the `DsfClient` implementation.
 
 Feature Summary:
 - An identifier constraint rule was added to the `Task` base profile http://dsf.dev/fhir/StructureDefinition/task for resources with status `draft`. The constraint adds a rule to the base profile that was previously only enforced via the [TaskAuthorizationRule](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-server/src/main/java/dev/dsf/fhir/authorization/TaskAuthorizationRule.java#L357).
 - The DSF FHIR server front-end was improved to display the `Binary` resource content inline. This feature is enabled for `Binary` resources with content-types: `text/html` and `text/plain`.
 - The performance of allow-list and other bundle executions was improved by modifying the database schema and optimizing the FHIR server code base. A new `current` column was added to resource tables together with a number of new database indexes. A "not found" cache was added for metadata resources to reduce unnecessary database calls.
-- Other security improvements were implemented and are detailed in the [DSF 2.1.0 hardening measures](https://dsf.dev/operations/v2.1.0/hardening-measures.html) document.
-- Starting with this release our docker images are cryptographically signed. Take a look at the [Verify Image Signatures](https://dsf.dev/operations/latest/image-verification.html) document for details.
+- Other security improvements were implemented and are detailed in the [DSF 2.1.0 hardening measures](/operations/v2.1.0/hardening-measures.html) document.
+- Starting with this release our docker images are cryptographically signed. Take a look at the [Verify Image Signatures](/operations/latest/image-verification.html) document for details.
 
 Docker images for this release can be accessed via the GitHub Docker registry - ghcr.io:
 * **bpe**: [ghcr.io/datasharingframework/bpe:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/bpe/796016761?tag=2.1.0)  

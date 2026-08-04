@@ -97,7 +97,7 @@ function main() {
   if (existsSync(fetchScript)) {
     console.log('Fetching release notes...');
     try {
-      execSync(`npx tsx "${fetchScript}"`, { stdio: 'inherit' });
+      execSync(`npx tsx "${fetchScript}" ${newVersion}`, { stdio: 'inherit' });
     } catch {
       console.log('(Release notes fetch had warnings — may not exist on GitHub yet)');
     }
