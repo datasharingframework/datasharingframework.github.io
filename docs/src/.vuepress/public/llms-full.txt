@@ -432,8 +432,8 @@ Here is a quick overview of the expected network setup.
     Download and unpack the prepared DSF FHIR server config files and folder structure:
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_fhir_2_1_0.tar.gz
-    sudo tar --same-owner -zxvf dsf_fhir_2_1_0.tar.gz
+    wget https://dsf.dev/download/dsf_fhir_2_1_1.tar.gz
+    sudo tar --same-owner -zxvf dsf_fhir_2_1_1.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/fhir` assuming you changed into the `/opt` directory._
 
@@ -507,8 +507,8 @@ Here is a quick overview of the expected network setup.
     Download and extract prepared DSF BPE server config files and folder structure:  
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_bpe_2_1_0.tar.gz
-    sudo tar --same-owner -zxvf dsf_bpe_2_1_0.tar.gz
+    wget https://dsf.dev/download/dsf_bpe_2_1_1.tar.gz
+    sudo tar --same-owner -zxvf dsf_bpe_2_1_1.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/bpe` assuming you changed into the `/opt` directory._
 
@@ -579,51 +579,47 @@ Have you found an error or is something unclear to you? Then please feel free to
 ## Release Notes
 Source: https://dsf.dev/operations/latest/release-notes.html
 
-## [Release Notes for v2.1.0](https://github.com/datasharingframework/dsf/releases/tag/v2.1.0)
+## [Release Notes for v2.1.1](https://github.com/datasharingframework/dsf/releases/tag/v2.1.1)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
 :::
 
-### 2.1.0 - Security and Performance
+### 2.1.1 - Security and Maintenance Release
 General remarks:
 
-- This is a feature update for DSF 2.x with security and performance improvements.
-- To Update from an existing 2.x installation, please see the [2.x -> 2.1.0 Upgrade Guide](https://dsf.dev/operations/v2.1.0/upgrade-from-2.html). 
-- For a fresh deployment, follow the [installation instructions](https://dsf.dev/operations/v2.1.0/install.html).
+- This is a maintenance update for DSF 2.x with security improvements.
+- To Update from an existing 2.x installation, please see the [2.x -> 2.1.1 Upgrade Guide](/operations/v2.1.1/upgrade-from-2.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v2.1.1/install.html).
 
 Security Advisories:
-- Missing Session Timeout for OIDC Sessions: [GHSA-gj7p-595x-qwf5](https://github.com/datasharingframework/dsf/security/advisories/GHSA-gj7p-595x-qwf5)
-- Inverted Time Comparison in OIDC JWKS and Token Cache: [GHSA-xmj9-7625-f634](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xmj9-7625-f634)
+
+- Unbounded Memory Usage During Large File Decryption: [GHSA-xfv4-vhh2-m2j8](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xfv4-vhh2-m2j8)
+- Authorization Bypass Allows Authenticated Users to Access StructureDefinition Snapshots: [GHSA-xw2h-2xx5-j86q](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xw2h-2xx5-j86q)
+- Authorization Check Partially Rendered Ineffective for Conditional Updates: [GHSA-448w-h27c-w53m](https://github.com/datasharingframework/dsf/security/advisories/GHSA-448w-h27c-w53m)
 
 Bug Fixes:
-- In previous versions starting processes via the FHIR server front-end failed, if `Task` resources used input parameter codes (`Task.input.type`) that were substrings of other input parameter codes ([#442](https://github.com/datasharingframework/dsf/issues/442)). The front-end code was fixed to handle these edge-cases.
-- Process instances started with DSF 1.x failed to continue on DSF 2.x ([#438](https://github.com/datasharingframework/dsf/issues/438)). Fallback code was added to correctly read the old DSF 1.x Task process variables.
-- A configuration error in the `DsfClient` used by v2 process plugins via the [FHIR client connections API](https://dsf.dev/operations/v2.1.0/bpe/fhir-client-connections.html) resulted in bearer tokens and basic authentication credentials not being send ([#432](https://github.com/datasharingframework/dsf/issues/432)). The feature registration order was fixed to send authentication credentials in the `DsfClient` implementation.
-
-Feature Summary:
-- An identifier constraint rule was added to the `Task` base profile http://dsf.dev/fhir/StructureDefinition/task for resources with status `draft`. The constraint adds a rule to the base profile that was previously only enforced via the [TaskAuthorizationRule](https://github.com/datasharingframework/dsf/blob/main/dsf-fhir/dsf-fhir-server/src/main/java/dev/dsf/fhir/authorization/TaskAuthorizationRule.java#L357).
-- The DSF FHIR server front-end was improved to display the `Binary` resource content inline. This feature is enabled for `Binary` resources with content-types: `text/html` and `text/plain`.
-- The performance of allow-list and other bundle executions was improved by modifying the database schema and optimizing the FHIR server code base. A new `current` column was added to resource tables together with a number of new database indexes. A "not found" cache was added for metadata resources to reduce unnecessary database calls.
-- Other security improvements were implemented and are detailed in the [DSF 2.1.0 hardening measures](https://dsf.dev/operations/v2.1.0/hardening-measures.html) document.
-- Starting with this release our docker images are cryptographically signed. Take a look at the [Verify Image Signatures](https://dsf.dev/operations/latest/image-verification.html) document for details.
+- Error handling code in the BPE process plugin API v2 `MessageSendTaskDelegate` class was fixed, to allow for correct handling of Error Boundary Events on Send Tasks. [#509](https://github.com/datasharingframework/dsf/issues/509)
+- An encoding error in the BPE client connections OIDC provider client was corrected, the fixed implementation now follows [Section 2.3.1 of RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) correctly and allows`client-id` values to include colon characters. [#529](https://github.com/datasharingframework/dsf/issues/529)
+- An incorrectly thrown `NullPointerException ` was fixed in the BPE process plugin API v2 `Variables#setJsonVariable` method, when called with a `null` value. [#535](https://github.com/datasharingframework/dsf/issues/535)
+- Input fields of the FHIR server UI for draft Task resources are now correctly repopulated with already entered values, in case session expiration is only detected during upload of the Task to the FHIR server. [#547](https://github.com/datasharingframework/dsf/issues/547)
 
 Docker images for this release can be accessed via the GitHub Docker registry - ghcr.io:
-* **bpe**: [ghcr.io/datasharingframework/bpe:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/bpe/796016761?tag=2.1.0)  
-  Digest: sha256:3ee7ef0ac201fc3776273fbfc2569bdc4edf724a2bb9f1b4a889eb7e13ff4049
-* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy/796013677?tag=2.1.0)  
-    Digest: sha256:c67da4a1720ea75a383764db2bf25619fe70f57773b1069029f5b49588eb1ecc
-* **fhir**: [ghcr.io/datasharingframework/fhir:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/fhir/796016727?tag=2.1.0)  
-  Digest: sha256:71599af143f0262a7265aa2bc4ea5a9660f11de6248a053e060b5667070203fd
-* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.1.0](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy/796013880?tag=2.1.0)  
-  Digest: sha256:9f11a3580c970314532f5951808be6fe72f1de7d53348e625d2dd0c95bcf1d96
+* **bpe**: [ghcr.io/datasharingframework/bpe:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/bpe/1096774441?tag=2.1.1)  
+  Digest: `sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513`
+* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy/1096766410?tag=2.1.1)  
+    Digest: `sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285`
+* **fhir**: [ghcr.io/datasharingframework/fhir:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/fhir/1096772162?tag=2.1.1)  
+  Digest: `sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3`
+* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy/1096765684?tag=2.1.1)  
+  Digest: `sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36`
 
 Process Plugin API v1 on Maven Central:
 ```xml
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v1</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
 </dependency>
 ```
 Process Plugin API v2 on Maven Central:
@@ -631,7 +627,7 @@ Process Plugin API v2 on Maven Central:
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v2</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
 </dependency>
 ```
 DSF Maven Plugin on Maven Central:
@@ -639,20 +635,16 @@ DSF Maven Plugin on Maven Central:
 <plugin>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-maven-plugin</artifactId>
-    <version>2.1.0</version>
+    <version>2.1.1</version>
 </plugin>
 ```
 
 Issues closed:
-- Security Improvements / Defense-in-Depth [#453](https://github.com/datasharingframework/dsf/issues/453)
-- Upgrade Dependencies [#448](https://github.com/datasharingframework/dsf/issues/448)
-- Improve Allow-List Bundle Execution Performance [#443](https://github.com/datasharingframework/dsf/issues/443)
-- Form.js builds invalid Task resource when submitting form [#442](https://github.com/datasharingframework/dsf/issues/442)
-- Add Identifier Constraint to Task Profile [#440](https://github.com/datasharingframework/dsf/issues/440)
-- Process Instances from DSF 1.x Fail to Continue on DSF 2.x [#438](https://github.com/datasharingframework/dsf/issues/438)
-- Start New Development Cycle [#435](https://github.com/datasharingframework/dsf/issues/435)
-- Automate Docker Image Builds and Maven Central Deploys [#434](https://github.com/datasharingframework/dsf/issues/434)
-- ClientConfig in DsfClientJersey overwrites Authentication Features [#432](https://github.com/datasharingframework/dsf/issues/432)
+- Backport Bugfixes to 2.1.1 [#560](https://github.com/datasharingframework/dsf/issues/560)
+- Task Input Autofill After Session Timeout Not Working [#547](https://github.com/datasharingframework/dsf/issues/547)
+- NullPointerException when using setJsonVariable with null value [#535](https://github.com/datasharingframework/dsf/issues/535)
+- OIDC identity provider receives wrong client-id for client-id containing colon [#529](https://github.com/datasharingframework/dsf/issues/529)
+- MessageSendTaskDelegate does not throw BPMN Error if ExceptionToErrorBoundaryEventTranslationErrorHandler is used [#509](https://github.com/datasharingframework/dsf/issues/509)
 
 This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
 
@@ -2566,15 +2558,15 @@ You can add an additional certificate authority (e.g., your hospital CA) for
 See the [BPE Server configuration](#bpe-server) for an example.
 
 If you can't override the default configuration with bind-mounts, you can use the following environment variables to configure non default .pem file directories or .pem file:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: `ca/client_ca_chains`
-  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 * [DEV_DSF_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-fhir-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](fhir/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 
 ### BPE Reverse Proxy
 Defaults are configured for the list of issuing, intermediate and root CAs used for validating client certificates (Apache httpd mod_ssl configuration option [SSLCACertificatePath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcacertificatepath)) as well as the CA Certificates for defining acceptable CA names (option [SSLCADNRequestPath](https://httpd.apache.org/docs/2.4/mod/mod_ssl.html#sslcadnrequestpath)). The default values of the following environment variables point to folders containing .pem files with one file per trusted CA:
@@ -2614,9 +2606,9 @@ services:
 ```
 
 Use the following environment variable to configure non default .pem files or override the existing files using docker bind mounts:
-* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
-  Default Value: `ca/client_ca_chains`
-  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
+* [DEV_DSF_BPE_FHIR_CLIENT_CONNECTIONS_CONFIG_DEFAULT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-connections-config-default-trust-server-certificate-cas)
+  Default Value: `ca/server_root_cas`
+  Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
 * [DEV_DSF_BPE_FHIR_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-bpe-fhir-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
@@ -2626,6 +2618,9 @@ Use the following environment variable to configure non default .pem files or ov
 * [DEV_DSF_SERVER_AUTH_OIDC_PROVIDER_CLIENT_TRUST_SERVER_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-oidc-provider-client-trust-server-certificate-cas)
   Default Value: `ca/server_root_cas`
   Default Folder Content: [server_root_cas.zip](/download/2.1.0/server_root_cas.zip)
+* [DEV_DSF_SERVER_AUTH_TRUST_CLIENT_CERTIFICATE_CAS](bpe/configuration.html#dev-dsf-server-auth-trust-client-certificate-cas)
+  Default Value: `ca/client_ca_chains`
+  Default Folder Content: [client_ca_chains.zip](/download/2.1.0/client_ca_chains.zip)
 
 ## List of Default Trusted Certificate Authorities
 If not mentioned explicitly, issuing CAs listed will sign X.509 certificates with [Extended Key Usage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12) entries `TLS WWW server authentication` and `TLS WWW client authentication`.
@@ -2790,7 +2785,7 @@ Source: https://dsf.dev/operations/latest/image-verification.html
 
 # How to Verify Image Signatures
 
-Starting with DSF 2.1.0, all official Docker images published to [ghcr.io/datasharingframework](https://github.com/orgs/datasharingframework/packages) are signed using [Cosign](https://docs.sigstore.dev/cosign/overview/) with [keyless signing](https://docs.sigstore.dev/cosign/signing/overview/) backed by GitHub's OIDC identity provider. Each image additionally has a CycloneDX SBOM attached to the registry, which is signed the same way.
+Starting with DSF 2.1.1, all official Docker images published to [ghcr.io/datasharingframework](https://github.com/orgs/datasharingframework/packages) are signed using [Cosign](https://docs.sigstore.dev/cosign/overview/) with [keyless signing](https://docs.sigstore.dev/cosign/signing/overview/) backed by GitHub's OIDC identity provider. Each image additionally has a CycloneDX SBOM attached to the registry, which is signed the same way.
 
 Verifying signatures before pulling images into production is strongly recommended. It ensures that the image was built and published by the official DSF GitHub Actions release workflow and has not been tampered with.
 
@@ -2805,7 +2800,7 @@ Verifying signatures before pulling images into production is strongly recommend
   ```
 
 ::: warning Always pin the digest
-Verifying by tag alone (`:2.1.0`) is not sufficient — tags can be reassigned. Always include the immutable `@sha256:<digest>` in the verification command and in your production `docker-compose.yml`.
+Verifying by tag alone (`:2.1.1`) is not sufficient — tags can be reassigned. Always include the immutable `@sha256:<digest>` in the verification command and in your production `docker-compose.yml`.
 :::
 
 ## Verify the Image Signature
@@ -2820,7 +2815,7 @@ The commands below are pre-filled with the correct image tag for this release. R
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir:2.1.0@sha256:71599af143f0262a7265aa2bc4ea5a9660f11de6248a053e060b5667070203fd \
+  ghcr.io/datasharingframework/fhir:2.1.1@sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2831,7 +2826,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir_proxy:2.1.0@sha256:9f11a3580c970314532f5951808be6fe72f1de7d53348e625d2dd0c95bcf1d96 \
+  ghcr.io/datasharingframework/fhir_proxy:2.1.1@sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2842,7 +2837,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe:2.1.0@sha256:3ee7ef0ac201fc3776273fbfc2569bdc4edf724a2bb9f1b4a889eb7e13ff4049 \
+  ghcr.io/datasharingframework/bpe:2.1.1@sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2853,7 +2848,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe_proxy:2.1.0@sha256:c67da4a1720ea75a383764db2bf25619fe70f57773b1069029f5b49588eb1ecc \
+  ghcr.io/datasharingframework/bpe_proxy:2.1.1@sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2865,7 +2860,7 @@ Each image has a signed CycloneDX SBOM attached. Substitute `<image>` with one o
 ```bash
 cosign verify-attestation \
   --type cyclonedx \
-  ghcr.io/datasharingframework/<image>:2.1.0@sha256:<digest> \
+  ghcr.io/datasharingframework/<image>:2.1.1@sha256:<digest> \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2875,7 +2870,7 @@ To extract the SBOM payload for further processing (e.g. dependency or vulnerabi
 ```bash
 cosign download attestation \
   --predicate-type https://cyclonedx.org/bom \
-  ghcr.io/datasharingframework/<image>:2.1.0@sha256:<digest> \
+  ghcr.io/datasharingframework/<image>:2.1.1@sha256:<digest> \
   | jq -r .payload | base64 -d | jq .predicate > sbom.cdx.json
 ```
 
@@ -2893,106 +2888,92 @@ cosign download attestation \
 
 ---
 
-## Hardening Measures
-Source: https://dsf.dev/operations/latest/hardening-measures.html
+## Security Advisories
+Source: https://dsf.dev/operations/latest/security-advisories.html
 
-# Defense-in-Depth Hardening Measures
+# Security Advisories
 
-For DSF 2.1.0 we performed a number of IT security hardening measures. The following changes follow security best practices. They reduce risk for non-standard deployments, protect against future code changes that could introduce new attack paths, and align with common security audit expectations.
+The following security advisories have been published as part of the 2.1.1 release.
 
-Each entry describes the change and why we consider it not exploitable in the standard DSF deployment model.
+## Unbounded Memory Usage During Large File Decryption
+CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xfv4-vhh2-m2j8)
+CVSS Score: Moderate, 6.0 / 10
+CVSS: 4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N
 
-## Deployment Context
+### Affected Components
+- DSF BPE Server
 
-The standard DSF deployment uses:
+### Summary
+API v2 process plugins using the included encryption/decryption service can create large files for transfer between DSF instances. An attacker can trigger unbounded memory usage by supplying a sufficiently large encrypted file for decryption, potentially causing the JVM of the DSF BPE to exhaust the available heap memory and resulting in a denial of service.
 
-- **Apache2 reverse proxy** with `mod_ssl` performing TLS termination and client certificate validation (`SSLVerifyClient require`, DN checks against trusted CA list)
-- **Docker containers** with network isolation (frontend / backend / inter-service networks)
-- **Jetty application** on internal port 8080, not directly reachable from outside
-- **Status port** on `127.0.0.1:10000` (localhost only), separate Jetty connector
-- **Configuration** via Docker environment variables / secrets, only admin-writable
-- **PostgreSQL** not exposed to host, only accessible from the application container
+### Impact
+The API v2 process plugin encryption/decryption service uses a hybrid cryptosystem with AES-GCM as the symmetric encryption algorithm. Plaintext is encrypted as a single chunk, resulting in unbounded memory consumption during GCM tag verification while decrypting. The unbound memory consumption within the DSF BPE can exhaust the available heap memory, causing the process engine to stop. To our knowledge, no API v2 process plugins using this feature are currently in public circulation.
 
-The assessments below consider this standard deployment. Non-standard deployments (e.g., Jetty directly exposed, no reverse proxy) may have different risk profiles.
+### Fix (commit [a696810​](https://github.com/datasharingframework/dsf/commit/a696810))
+A limit of 250 MiB for the max allowed plain-text length in the dev.dsf.bpe.v2.service.CryptoService.Kem encrypt and decrypt methods was added.
 
-## Improved XML Transformer Configuration
 
-Disabled external entity resolution and enabled secure processing on `TransformerFactory` instances in `ProcessService`, `ThymeleafTemplateServiceImpl`, and `BundleGenerator`. We consider this not exploitable because although external organizations and authorized users can create FHIR resources (e.g., Tasks), the content never reaches the TransformerFactory as raw XML. The data path is: user input is parsed by HAPI FHIR into a Java object model (stripping any XML-level constructs like DOCTYPE/ENTITY declarations), stored as JSONB in PostgreSQL, and then re-serialized to well-formed XML by HAPI's serializer when displayed. The TransformerFactory only pretty-prints HAPI's serialized output, where all text content is properly XML-escaped. `BundleGenerator` is a Maven build-time tool, not a runtime component. Hardening against CWE-611 (XXE).
+## Authorization Bypass Allows Authenticated Users to Access StructureDefinition Snapshots
+CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xw2h-2xx5-j86q)
+CVSS Score: Moderate, 5.3 / 10
+CVSS: 4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N
 
-Commit: [`b89c512dc`](https://github.com/datasharingframework/dsf/commit/b89c512dc)
+### Affected Components
+- DSF FHIR Server
 
-## Database Username/Group Validation
+### Summary
+Authenticated users can access [StructureDefinition](https://hl7.org/fhir/R4/structuredefinition.html) snapshots via the [$snapshot](https://hl7.org/fhir/R4/structuredefinition-operation-snapshot.html) operation regardless of read-access configuration.
 
-Added regex validation (`^[a-zA-Z_][a-zA-Z0-9_$]{0,62}$`) for PostgreSQL identifier config parameters used in DDL statements. We consider this not exploitable because these values come exclusively from admin-managed config files and Docker environment variables — an attacker with write access to these already has full system control. Hardening against CWE-89.
+### Impact
+[StructureDefinition](https://hl7.org/fhir/R4/structuredefinition.html) resources and their snapshots are typically configured to be readable by all authenticated users. However, setting a read-access tag to a subset of organizations or the local organization only has no effect on access via the [$snapshot](https://hl7.org/fhir/R4/structuredefinition-operation-snapshot.html) operation. Thus, a DSF FHIR Server may leak metadata that is intended to remain private to the organization.
 
-Commit: [`7e2de0ed8`](https://github.com/datasharingframework/dsf/commit/7e2de0ed8)
+### Fix (commit [d29e157​](https://github.com/datasharingframework/dsf/commit/d29e157))
+Added missing read authorization rule checks.
 
-## HTTPS Enforcement for OIDC Endpoints
 
-Added explicit check that OIDC token and JWKS endpoints use HTTPS. We consider this not exploitable because a compromised OIDC provider can already issue arbitrary tokens directly, making HTTP interception redundant. In the MITM scenario (legitimate provider, network attacker), the provider URL is admin-configured as HTTPS and legitimate providers always return HTTPS endpoints in their discovery documents. In both cases, obtained tokens are constrained by the admin-managed `roleConfig` — no privilege escalation beyond configured roles is possible. Hardening against CWE-918 / CWE-319.
+## Authorization Check Partially Rendered Ineffective for Conditional Updates
+CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-448w-h27c-w53m)
+CVSS Score: Moderate, 5.1 / 10
+CVSS: 4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:L/VI:L/VA:L/SC:N/SI:L/SA:N
 
-Commit: [`bdeddf308`](https://github.com/datasharingframework/dsf/commit/bdeddf308)
+### Affected Components
+- DSF FHIR Server
 
-## JWKS Minimum Key Size and `use=sig` Filtering
+### Summary
+Authenticated local organization and practitioner users with [UPDATE](https://dsf.dev/operations/v2.1.1/fhir/access-control.html) role can bypass update authorization rules via conditional updates. The vulnerability can not be exploited by remote users.
 
-Added 2048-bit minimum RSA key length and `use=sig` check for JWKS keys used in JWT verification. We consider this not exploitable because no mainstream OIDC provider (Keycloak, etc.) publishes RSA keys below 2048 bits. Even if an attacker could forge tokens via weak keys, privileges are constrained by the admin-managed `roleConfig` — the same limitation as with a compromised OIDC provider. Hardening against CWE-326 / CWE-347.
+### Impact
+Authorization, integrity, and uniqueness rules can be bypassed via conditional updates of individual resources. This allows authenticated local organization and practitioner users with [UPDATE](https://dsf.dev/operations/v2.1.1/fhir/access-control.html) role to change the state of existing FHIR resources to some illegal values. Examples:
 
-Commit: [`31c2e974d`](https://github.com/datasharingframework/dsf/commit/31c2e974d)
+The `requester` organization of a `Task` resource can be changed to a new value, if the status of the updated Task resource is `in-progress`.
+The `thumbprint` and `identifier` of an `Organization` resource could be changed to new values, a change that usually requires deleting an `Organization` resource and creating a new one.
+Updates to resources guarded by [read-access tags](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/readaccess.html) (e.g. `Organization`) still need to comply with the create rules for new resources, thereby mitigating the impact of this vulnerability.
 
-## Removed Access Token Claim Logging
+### Fix (commit [22743e1​​](https://github.com/datasharingframework/dsf/commit/22743e1))
+Fixed new resource being compared against itself when executing authorization rules for conditional updates.
 
-Removed DEBUG-level logging of token claims (groups, roles) in `AbstractIdentityProvider` and `BearerTokenAuthenticator`. We consider this not exploitable because DEBUG logging is disabled in production by default, and the logged data (group memberships, roles) is operational metadata — not secrets like passwords or signing keys. Hardening against CWE-532.
 
-Commit: [`cc0bb71ef`](https://github.com/datasharingframework/dsf/commit/cc0bb71ef)
 
-## Session Cookie Security Attributes
+### Affected Components
+- DSF FHIR Server
 
-Added `Secure`, `HttpOnly`, and `SameSite=LAX` flags to session cookies. We consider this not exploitable because TLS is terminated at the Apache HTTP Server reverse proxy (clients only communicate over HTTPS), the `HttpOnly` flag is only relevant if an XSS vulnerability exists (none is exploitable, see `th:utext` below), and `SameSite` has limited impact since primary authentication uses mTLS, not cookies. Hardening against CWE-614 / CWE-1004.
+### Summary
+Authenticated local organization and practitioner users with UPDATE role can bypass update authorization rules via conditional updates. The vulnerability can not be exploited by remote users.
 
-Commit: [`5cc00611b`](https://github.com/datasharingframework/dsf/commit/5cc00611b)
+### Impact
+Authorization, integrity and uniqueness rules can be bypassed via conditional updates of single resources. This allows authenticated local organization and practitioner users with UPDATE roles to change the state of existing FHIR resources to some illegal values. Examples:
 
-## JSON Serialization in JSONB Query Parameters
+ - The `requester` organization of a `Task` resource could be changed to a new value, if the status of the new version of the Task resource is `in-progress`.
+ - The `thumbprint` and `identifier` of an `Organization` resource could be changed to new values, a change that usually requires deleting an `Organization` resource and creating a new one.
 
-Replaced string concatenation with Jackson `ObjectMapper` serialization for JSONB query parameters in all DAO classes and search filters. We consider this not exploitable because user-controlled values are bound via `PreparedStatement.setString()`, which transmits query template and parameter values separately to PostgreSQL — the parameter value is never parsed as SQL and there is no way to inject `JOIN`, `UNION`, or subqueries. Within the JSONB domain, the identity filter (access control) operates as a separate `AND` condition with server-side parameters that cannot be influenced by search parameter manipulation, the `@>` containment operator becomes more restrictive with additional injected elements (not less), and result sets are always a subset of authorized resources — no enumeration of unauthorized data is possible. Hardening against CWE-89.
-
-Commit: [`37c0282c6`](https://github.com/datasharingframework/dsf/commit/37c0282c6)
-
-## Client Certificate Expiration Check
-
-Added explicit certificate expiration check and changed auth type from `"RSA"` to `"UNKNOWN"` in `ClientCertificateAuthenticator`. We consider this not exploitable because the Apache HTTP Server reverse proxy performs TLS termination with `SSLVerifyClient require` and validates certificate expiration, chain trust, and revocation before requests reach Jetty. The Jetty-level check is a redundant second validation. Hardening against CWE-295 / CWE-324.
-
-Commit: [`c6d369828`](https://github.com/datasharingframework/dsf/commit/c6d369828)
-
-## Safe YAML Deserialization
-
-Replaced `new Yaml()` with `new Yaml(new SafeConstructor(new LoaderOptions()))` in `RoleConfigReader`. We consider this not exploitable because the YAML content comes exclusively from admin-managed config files (`config.properties`) and Docker environment variables — an attacker with write access to these can already execute arbitrary code through simpler means. Hardening against CWE-502.
-
-Commit: [`e0b6cf00a`](https://github.com/datasharingframework/dsf/commit/e0b6cf00a)
-
-## Thymeleaf `th:utext` Replaced with `th:text`
-
-Replaced `th:utext` (unescaped HTML output) with `th:text` / `th:each` for page headings built from URL segments. We consider this not exploitable because the old code applied `HtmlUtils.htmlEscape()` to all user inputs before concatenation — this escapes `& < > " '`, preventing tag injection (`<` `>` escaped to `&lt;` `&gt;`) and attribute breakout (`"` escaped to `&quot;`, which per HTML spec does not terminate double-quoted attributes). The fix makes XSS structurally impossible and removes reliance on manual escaping — a future developer could have forgotten the `htmlEscape()` call when adding new URL segments. Hardening against CWE-79.
-
-Commit: [`58edc26c5`](https://github.com/datasharingframework/dsf/commit/58edc26c5)
-
-## Error Message Removed from Status Endpoint
-
-Removed database exception messages from the status endpoint error response body. We consider this not exploitable because the status endpoint runs on a separate Jetty connector (port 10000, bound to `127.0.0.1` only) with role-based access control (`STATUS_PORT_ROLE`) — it is not reachable through the Apache HTTP Server reverse proxy or from outside the Docker container. Hardening against CWE-209.
-
-Commit: [`5103d0e9d`](https://github.com/datasharingframework/dsf/commit/5103d0e9d)
-
-## Content Security Policy and Binary Inline Display
-
-Introduced a new inline display mode for `Binary` resources with a strict CSP (`script-src 'none'`), a media type policy, and `ContentTypeSanitizer`. We consider this not a vulnerability fix because the old code served all `Binary` resources with `Content-Disposition: attachment` (forced download, never rendered in browser), so the old `unsafe-inline` CSP was never reachable. This commit implements a new feature with secure defaults. Hardening against CWE-1021.
-
-Commit: [`454c1197b`](https://github.com/datasharingframework/dsf/commit/454c1197b)
+Updates of resources guarded by [read access tags](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/readaccess.html) (e.g. `Organization`) still need to comply with the create rules for new resources, thus mitigating the impact of this vulnerability.
 
 ---
 
 ## Upgrade from DSF v1
 Source: https://dsf.dev/operations/latest/upgrade-from-1.html
 
-Upgrading the DSF from 1.9.0 to 2.1.0 involves modifying the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 1.9.0 to 2.1.1 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.9.0 first
 When upgrading from DSF version < 1.9.0 it is important to migrate to [DSF 1.9.0 first](../v1.9.0/upgrade-from-1).
@@ -3017,20 +2998,20 @@ DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter val
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/fhir` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.0_upgrade`
+    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.1_upgrade`
 
-2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.0.
+2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.1.
 ```diff
  version: '3.8'
  services:
    proxy:
 -    image: ghcr.io/datasharingframework/fhir_proxy:1.9.0
-+    image: ghcr.io/datasharingframework/fhir_proxy:2.1.0
++    image: ghcr.io/datasharingframework/fhir_proxy:2.1.1
      restart: on-failure
 ...
    app:
 -    image: ghcr.io/datasharingframework/fhir:1.9.0
-+    image: ghcr.io/datasharingframework/fhir:2.1.0
++    image: ghcr.io/datasharingframework/fhir:2.1.1
      restart: on-failure
 ...
      environment:
@@ -3050,15 +3031,15 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
 ## Modify DSF BPE Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/bpe` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.0_upgrade`
+    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.1_upgrade`
 
-2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.0.
+2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.1.
 ```diff
  version: '3.8'
  services:
    app:
 -    image: ghcr.io/datasharingframework/bpe:1.9.0
-+    image: ghcr.io/datasharingframework/bpe:2.1.0
++    image: ghcr.io/datasharingframework/bpe:2.1.1
      restart: on-failure
 ...
      environment:
@@ -3075,12 +3056,12 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
     ```
 
 5. Verify your upgrade:
-    * Verify the DSF FHIR server is running in version 2.1.0. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.1.0, [...]`
+    * Verify the DSF FHIR server is running in version 2.1.1. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.1.1, [...]`
     * Verify the DSF FHIR server started without errors
     * Verify the DSF FHIR server is accessible via https, for example by browsing to https://your-dsf-endpoint.de/fhir/ (authentication with your client-certificate)
-    * Verify the DSF BPE server is running in version 2.1.0. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.1.0, [...]`
+    * Verify the DSF BPE server is running in version 2.1.1. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.1.1, [...]`
     * Verify the DSF BPE server started without errors
     * Verify your install with a ping/pong test  
 
@@ -3207,8 +3188,7 @@ Once you have ensured that DSF is working successfully with the new database, yo
 ## Upgrade within DSF v2
 Source: https://dsf.dev/operations/latest/upgrade-from-2.html
 
-Upgrading the DSF from 2.0.2 to 2.1.0 involves modifying the image versions in the docker-compose.yml files and recreating the containers. 
-
+Upgrading the DSF from 2.1.0 to 2.1.1 involves modifying the image versions in the docker-compose.yml files and recreating the containers. 
 
 DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter validation rules in DSF 2 we strongly recommend using the latest compatible plugin versions. Updates within the same major and minor version (e.g., from 1.2.3.4 to 1.2.9.9) are generally safe. An overview of the recommended MII/NUM versions can be found [here](./install-plugins.md).
 
@@ -3217,26 +3197,22 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/fhir` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.0_upgrade`
+    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.1_upgrade`
 
-2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.0.
+2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.1.
 ```diff
- version: '3.8'
  services:
    proxy:
--    image: ghcr.io/datasharingframework/fhir_proxy:2.0.2
-+    image: ghcr.io/datasharingframework/fhir_proxy:2.1.0
+-    image: ghcr.io/datasharingframework/fhir_proxy:2.1.0
++    image: ghcr.io/datasharingframework/fhir_proxy:2.1.1
      restart: on-failure
 ...
    app:
--    image: ghcr.io/datasharingframework/fhir:2.0.2
-+    image: ghcr.io/datasharingframework/fhir:2.1.0
+-    image: ghcr.io/datasharingframework/fhir:2.1.0
++    image: ghcr.io/datasharingframework/fhir:2.1.1
      restart: on-failure
 ...
-
 ```
-
-
 
 3. Upgrade the DSF FHIR containers  
     From `/opt/fhir` execute  
@@ -3247,19 +3223,16 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
 ## Modify DSF BPE Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/bpe` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.0_upgrade`
+    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.1_upgrade`
 
-2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.0.
+2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.1.
 ```diff
- version: '3.8'
  services:
    app:
--    image: ghcr.io/datasharingframework/bpe:2.0.2
-+    image: ghcr.io/datasharingframework/bpe:2.1.0
+-    image: ghcr.io/datasharingframework/bpe:2.1.0
++    image: ghcr.io/datasharingframework/bpe:2.1.1
      restart: on-failure
 ...
-
- 
 ```
 
 3. Upgrade the DSF BPE containers  
@@ -3269,12 +3242,12 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
     ```
 
 5. Verify your upgrade:
-    * Verify the DSF FHIR server is running in version 2.1.0. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.1.0, [...]`
+    * Verify the DSF FHIR server is running in version 2.1.1. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-fhir-server-jetty, version: 2.1.1, [...]`
     * Verify the DSF FHIR server started without errors
     * Verify the DSF FHIR server is accessible via https, for example by browsing to https://your-dsf-endpoint.de/fhir/ (authentication with your client-certificate)
-    * Verify the DSF BPE server is running in version 2.1.0. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.1.0, [...]`
+    * Verify the DSF BPE server is running in version 2.1.1. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-bpe-server-jetty, version: 2.1.1, [...]`
     * Verify the DSF BPE server started without errors
     * Verify your install with a ping/pong test
 
@@ -8623,7 +8596,7 @@ Source: https://dsf.dev/community/consultation-hours.html
 
 Mondays, 14:00–14:50
 
-Location: Click [here](https://lecture.senfcall.de/sim-ock-1vk-l8o) to join the consultation hour.
+Location: Click [here](https://teams.microsoft.com/meet/37149424036333?p=XkMpMQzOqEbyp7J7G4) to join the consultation hour.
 :::
 
 ---
@@ -8840,12 +8813,12 @@ Data Sharing Framework 2.x is the new upcoming release of the Data Sharing Frame
 
 # System Administrators
 
-- [Install DSF 2.1.0](install)
+- [Install DSF 2.1.1](install)
 - [Upgrade from DSF 1.9.0](upgrade-from-1)
 
 
 ## New features
-- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.0)
+- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.1)
 
 <!--
 This breaks the page with a 
@@ -8866,7 +8839,7 @@ The **DSF BPE Reverse Proxy** is an Apache HTTP Server based front for the [BPE 
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/bpe_proxy`](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy)
-- Tag for this release: `2.1.0`
+- Tag for this release: `2.1.1`
 
 ## Verify Image Signature
 
@@ -8874,7 +8847,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe_proxy:2.1.0@sha256:c67da4a1720ea75a383764db2bf25619fe70f57773b1069029f5b49588eb1ecc \
+  ghcr.io/datasharingframework/bpe_proxy:2.1.1@sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -8896,7 +8869,7 @@ The **DSF Business Process Engine (BPE)** executes the BPMN 2.0 workflows that d
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/bpe`](https://github.com/datasharingframework/dsf/pkgs/container/bpe)
-- Tag for this release: `2.1.0`
+- Tag for this release: `2.1.1`
 
 ## Verify Image Signature
 
@@ -8904,7 +8877,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe:2.1.0@sha256:3ee7ef0ac201fc3776273fbfc2569bdc4edf724a2bb9f1b4a889eb7e13ff4049 \
+  ghcr.io/datasharingframework/bpe:2.1.1@sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -9807,7 +9780,7 @@ The **DSF FHIR Reverse Proxy** is the externally reachable Apache HTTP Server ba
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/fhir_proxy`](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy)
-- Tag for this release: `2.1.0`
+- Tag for this release: `2.1.1`
 
 ## Verify Image Signature
 
@@ -9815,7 +9788,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir_proxy:2.1.0@sha256:9f11a3580c970314532f5951808be6fe72f1de7d53348e625d2dd0c95bcf1d96 \
+  ghcr.io/datasharingframework/fhir_proxy:2.1.1@sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -9832,12 +9805,12 @@ Source: https://dsf.dev/operations/latest/fhir/
 
 ## Purpose
 
-The **DSF FHIR Server** exposes the HL7® FHIR® R4 REST API that other DSF instances communicate with. It stores and serves the resources required to coordinate distributed business processes — such as `Task`, `ActivityDefinition`, `Organization`, `Endpoint`, and project-specific data resources — and enforces access control on every interaction. Together with the [FHIR Reverse Proxy](../fhir-reverse-proxy/) it forms the externally reachable component of a DSF instance.
+The **DSF FHIR Server** exposes the HL7 FHIR R4 REST API that other DSF instances communicate with. It stores and serves the resources required to coordinate distributed business processes — such as `Task`, `ActivityDefinition`, `Organization`, `Endpoint`, and project-specific data resources — and enforces access control on every interaction. Together with the [FHIR Reverse Proxy](../fhir-reverse-proxy/) it forms the externally reachable component of a DSF instance.
 
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/fhir`](https://github.com/datasharingframework/dsf/pkgs/container/fhir)
-- Tag for this release: `2.1.0`
+- Tag for this release: `2.1.1`
 
 ## Verify Image Signature
 
@@ -9845,7 +9818,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir:2.1.0@sha256:71599af143f0262a7265aa2bc4ea5a9660f11de6248a053e060b5667070203fd \
+  ghcr.io/datasharingframework/fhir:2.1.1@sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -10577,7 +10550,7 @@ Source: https://dsf.dev/operations/latest/install-plugins.html
 | [Ping-Pong](https://github.com/datasharingframework/dsf-process-ping-pong/releases) | [v1.0.1.0](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0) & [v2.0.0.2](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v2.0.0.2) | [v1.0.1.0](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v1.0.1.0) & [v2.0.0.2](https://github.com/datasharingframework/dsf-process-ping-pong/releases/tag/v2.0.0.2) |
 | [Allow-List](https://github.com/datasharingframework/dsf-process-allow-list/releases) | [v1.0.0.1](https://github.com/datasharingframework/dsf-process-allow-list/releases/tag/v1.0.0.1) | [v1.0.0.1](https://github.com/datasharingframework/dsf-process-allow-list/releases/tag/v1.0.0.1) |
 | [MII Process Feasibility](https://github.com/medizininformatik-initiative/mii-process-feasibility/releases) | [v1.0.0.11](https://github.com/medizininformatik-initiative/mii-process-feasibility/releases/tag/v1.0.0.11) | [v1.0.0.11](https://github.com/medizininformatik-initiative/mii-process-feasibility/releases/tag/v1.0.0.11) |
-| [MII Process Report](https://github.com/medizininformatik-initiative/mii-process-report/releases) | [v1.2.0.1](https://github.com/medizininformatik-initiative/mii-process-report/releases/tag/v1.2.0.1) | [v1.2.0.1](https://github.com/medizininformatik-initiative/mii-process-report/releases/tag/v1.2.0.1) |
+| [MII Process Report](https://github.com/medizininformatik-initiative/mii-process-report/releases) | [v2.0.0.0](https://github.com/medizininformatik-initiative/mii-process-report/releases/tag/v2.0.0.0) | [v2.0.0.0](https://github.com/medizininformatik-initiative/mii-process-report/releases/tag/v2.0.0.0) |
 | [MII Process Data Transfer](https://github.com/medizininformatik-initiative/mii-process-data-transfer/releases) | [v1.1.0.1](https://github.com/medizininformatik-initiative/mii-process-data-transfer/releases/tag/v1.1.0.1) | [v1.1.0.1](https://github.com/medizininformatik-initiative/mii-process-data-transfer/releases/tag/v1.1.0.1) |
 | [MII Process Data Sharing](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases) | [v1.1.0.0](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/tag/v1.1.0.0) | [v1.1.0.0](https://github.com/medizininformatik-initiative/mii-process-data-sharing/releases/tag/v1.1.0.0) |
 | [NUM Dashboard Report](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases) [Note](#num-dashboard-report-on-dsf-2) | [v1.1.0.0](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases/tag/v1.1.0.0) | [v1.1.0.0](https://github.com/medizininformatik-initiative/dsf-plugin-numdashboard/releases/tag/v1.1.0.0) |
