@@ -158,9 +158,9 @@ export const sections: LlmsSection[] = [
         "description": "Verifying the authenticity and integrity of DSF container images"
       },
       {
-        "title": "Hardening Measures",
-        "link": "operations/latest/hardening-measures.html",
-        "description": "Recommended hardening measures for a production deployment"
+        "title": "Security Advisories",
+        "link": "operations/latest/security-advisories.html",
+        "description": "Security advisories published with the latest release"
       },
       {
         "title": "Upgrade from DSF v1",

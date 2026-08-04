@@ -1,4 +1,4 @@
-name: docs
+name: docs deploy
 
 on:
   # trigger deployment on every push to main branch
@@ -7,37 +7,52 @@ on:
   # trigger deployment manually
   workflow_dispatch:
 
+# only push to gh-pages, no other token permissions needed
+permissions:
+  contents: write
+
+# never deploy two builds at the same time, but do not cancel a running deployment
+concurrency:
+  group: gh-pages
+  cancel-in-progress: false
+
 jobs:
   docs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # fetch all commits to get last updated time or other git log info
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           # choose node.js version to use
           node-version: 24
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
 
       - name: Install dependencies
         run: cd docs && npm ci
 
       - name: Build VuePress site
-        run: cd docs && NODE_OPTIONS=--max_old_space_size=5120 npm run docs:build
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: cd docs && npm run docs:build
 
       # please check out the docs of the workflow for more details
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@df5cc2bfa78282ded844b354faee141f06b41865 # v4.2.0
+        uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
         with:
           # deploy to gh-pages branch
           target_branch: gh-pages
           # deploy the default output dir of VuePress
           build_dir: docs/src/.vuepress/dist
+          # the site is pre-built, skip Jekyll processing by adding .nojekyll
+          jekyll: false
         env:
           # @see https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

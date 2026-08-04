@@ -4,7 +4,94 @@ export function generate_v2_latest_sidebar() {
 		icon: "tool",
 		link: "./",
 	},
-		"release-notes", "install", "upgrade-from-2", "upgrade-from-1", "allowList-mgm", "allowlist-generator", "root-certificates", "passwords-secrets", "image-verification", "hardening-measures", {
+		"release-notes", "install", "upgrade-from-2", "upgrade-from-1", "allowList-mgm", "allowlist-generator", "root-certificates", "passwords-secrets", "image-verification", "security-advisories", {
+		text: "FHIR Reverse Proxy",
+		icon: "module",
+		prefix: "fhir-reverse-proxy/",
+		link: "fhir-reverse-proxy/",
+		children: [
+			{
+				icon: "config",
+				text: "Configuration",
+				link: "configuration",
+			}
+		]
+	},
+	{
+		text: "FHIR Server",
+		icon: "module",
+		prefix: "fhir/",
+		link: "fhir/",
+		children: [{
+			icon: "config",
+			text: "Configuration",
+			link: "configuration"
+		}, {
+			icon: "config",
+			text: "Access Control",
+			link: "access-control"
+		}, {
+			icon: "config",
+			text: "OpenID Connect",
+			link: "oidc"
+		}, {
+			icon: "config",
+			text: "Logging",
+			link: "logging"
+		}]
+	}, {
+		text: "BPE Reverse Proxy",
+		icon: "module",
+		prefix: "bpe-reverse-proxy/",
+		link: "bpe-reverse-proxy/",
+		children: [
+			{
+				icon: "config",
+				text: "Configuration",
+				link: "configuration",
+			}
+		]
+	}, {
+		text: "BPE Server",
+		icon: "module",
+		prefix: "bpe/",
+		link: "bpe/",
+		children: [{
+			icon: "config",
+			text: "Configuration",
+			link: "configuration"
+		}, {
+			icon: "config",
+			text: "Access Control",
+			link: "access-control"
+		}, {
+			icon: "config",
+			text: "OpenID Connect",
+			link: "oidc"
+		}, {
+			icon: "config",
+			text: "Logging",
+			link: "logging"
+		}, {
+			icon: "config",
+			text: "FHIR Client Connections",
+			link: "fhir-client-connections"
+		}]
+	},
+	{
+		text: "Install Plugins",
+		icon: "plugin",
+		link: "install-plugins"
+	}]
+}
+
+export function generate_v2_1_0_sidebar() {
+	return [{
+		text: "Get Started",
+		icon: "tool",
+		link: "./",
+	},
+		"release-notes", "install", "upgrade-from-2", "upgrade-from-1", "allowList-mgm", "allowlist-generator", "root-certificates", "passwords-secrets", "image-verification", "security-advisories", "hardening-measures", {
 		text: "FHIR Reverse Proxy",
 		icon: "module",
 		prefix: "fhir-reverse-proxy/",
