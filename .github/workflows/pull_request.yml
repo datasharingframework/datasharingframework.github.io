@@ -1,27 +1,43 @@
-name: docs
+name: docs build
 
 on:
   # trigger build on every PR phase
   pull_request:
     types: [opened, synchronize, reopened, review_requested]
-  # trigger deployment manually
+  # trigger build manually
   workflow_dispatch:
+
+# read-only, this workflow only builds the site
+permissions:
+  contents: read
+
+# a new push to the same PR makes the running build obsolete
+concurrency:
+  group: docs-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   docs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           # choose node.js version to use
           node-version: 24
+          cache: npm
+          cache-dependency-path: docs/package-lock.json
 
       - name: Install dependencies
         run: cd docs && npm ci
 
+      - name: Run tests
+        run: cd docs && npm test
+
       - name: Build VuePress site
-        run: cd docs && NODE_OPTIONS=--max_old_space_size=5120 npm run docs:build
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
+        run: cd docs && npm run docs:build
