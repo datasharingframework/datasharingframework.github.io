@@ -3,7 +3,7 @@
 
 ## Get started
 ### Requirements
-- install [Node.js](https://nodejs.org/en)
+- install [Node.js 24](https://nodejs.org/en)
 - GitHub: [https://github.com/datasharingframework/datasharingframework.github.io](https://github.com/datasharingframework/datasharingframework.github.io)
 
 ### Move into docs folder
