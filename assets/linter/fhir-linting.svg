@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3F8999"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="580" fill="white"/>
+
+  <!-- Title -->
+  <text x="480" y="34" text-anchor="middle" font-size="21" font-weight="bold" fill="#326F95">FHIR Linting Overview</text>
+
+  <!-- ===== SERVICE PIPELINE ===== -->
+
+  <!-- Input -->
+  <rect x="20" y="50" width="145" height="62" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="92" y="73" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">Input</text>
+  <text x="92" y="89" text-anchor="middle" font-size="10" fill="#555">FHIR Files (XML / JSON)</text>
+  <text x="92" y="104" text-anchor="middle" font-size="10" fill="#555">Plugin Context</text>
+  <line x1="165" y1="81" x2="183" y2="81" stroke="#3F8999" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- FhirLintingService -->
+  <rect x="183" y="50" width="182" height="62" rx="5" fill="#326F95"/>
+  <text x="274" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="white">FhirLintingService</text>
+  <text x="274" y="95" text-anchor="middle" font-size="10" fill="white">extends AbstractResourceLintingService</text>
+  <line x1="365" y1="81" x2="383" y2="81" stroke="#3F8999" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- FhirResourceLinter -->
+  <rect x="383" y="50" width="182" height="62" rx="5" fill="#326F95"/>
+  <text x="474" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="white">FhirResourceLinter</text>
+  <text x="474" y="95" text-anchor="middle" font-size="10" fill="white">ServiceLoader - pluggable linters</text>
+  <line x1="565" y1="81" x2="583" y2="81" stroke="#3F8999" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- FhirFileLinter -->
+  <rect x="583" y="50" width="170" height="62" rx="5" fill="#3F8999"/>
+  <text x="668" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="white">FhirFileLinter</text>
+  <text x="668" y="95" text-anchor="middle" font-size="10" fill="white">Parses &amp; dispatches by type</text>
+
+  <!-- Connector: FhirFileLinter to resource linters -->
+  <line x1="668" y1="112" x2="668" y2="127" stroke="#3F8999" stroke-width="1.5"/>
+  <line x1="480" y1="127" x2="668" y2="127" stroke="#3F8999" stroke-width="1.5"/>
+  <line x1="480" y1="127" x2="480" y2="153" stroke="#3F8999" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="491" y="143" font-size="10" fill="#999" font-style="italic">Dispatches to resource linter:</text>
+
+  <!-- ===== ROW 1: 3 Resource linters (y=156, h=130, w=285, gap=15) ===== -->
+  <!-- x: 37, 337, 637 -->
+
+  <!-- FhirActivityDefinitionLinter -->
+  <rect x="37" y="156" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="179" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirActivityDefinitionLinter</text>
+  <text x="179" y="188" text-anchor="middle" font-size="9" fill="#3F8999">~7 checks</text>
+  <line x1="37" y1="194" x2="322" y2="194" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="47" y="209" font-size="10" fill="#555">&#8226; URL pattern validation</text>
+  <text x="47" y="224" font-size="10" fill="#555">&#8226; Status, kind, profile</text>
+  <text x="47" y="239" font-size="10" fill="#555">&#8226; Read-access tag</text>
+  <text x="47" y="254" font-size="10" fill="#555">&#8226; Process-authorization extension</text>
+  <text x="47" y="269" font-size="10" fill="#555">&#8226; Date &amp; version format</text>
+
+  <!-- FhirTaskLinter -->
+  <rect x="337" y="156" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="479" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirTaskLinter</text>
+  <text x="479" y="188" text-anchor="middle" font-size="9" fill="#3F8999">~38 checks</text>
+  <line x1="337" y1="194" x2="622" y2="194" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="347" y="209" font-size="10" fill="#555">&#8226; Profile &amp; meta validation</text>
+  <text x="347" y="224" font-size="10" fill="#555">&#8226; Status, intent, identifiers (fixed)</text>
+  <text x="347" y="239" font-size="10" fill="#555">&#8226; Task.input slice validation</text>
+  <text x="347" y="254" font-size="10" fill="#555">&#8226; Cardinality enforcement</text>
+  <text x="347" y="269" font-size="10" fill="#555">&#8226; Terminology &amp; authorization refs</text>
+
+  <!-- FhirStructureDefinitionLinter -->
+  <rect x="637" y="156" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="779" y="175" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirStructureDefinitionLinter</text>
+  <text x="779" y="188" text-anchor="middle" font-size="9" fill="#3F8999">~11 checks</text>
+  <line x1="637" y1="194" x2="922" y2="194" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="647" y="209" font-size="10" fill="#555">&#8226; URL, version, date</text>
+  <text x="647" y="224" font-size="10" fill="#555">&#8226; Snapshot / differential</text>
+  <text x="647" y="239" font-size="10" fill="#555">&#8226; Element ID validation</text>
+  <text x="647" y="254" font-size="10" fill="#555">&#8226; Slice cardinality</text>
+
+  <!-- ===== ROW 2: 3 Resource linters (y=300, h=130, w=285, gap=15) ===== -->
+  <!-- x: 37, 337, 637 -->
+
+  <!-- FhirValueSetLinter -->
+  <rect x="37" y="300" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="179" y="319" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirValueSetLinter</text>
+  <text x="179" y="332" text-anchor="middle" font-size="9" fill="#3F8999">~17 checks</text>
+  <line x1="37" y1="338" x2="322" y2="338" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="47" y="353" font-size="10" fill="#555">&#8226; URL, name, publisher</text>
+  <text x="47" y="368" font-size="10" fill="#555">&#8226; Compose / include validation</text>
+  <text x="47" y="383" font-size="10" fill="#555">&#8226; Concept code validation</text>
+  <text x="47" y="398" font-size="10" fill="#555">&#8226; Read-access tag</text>
+
+  <!-- FhirCodeSystemLinter -->
+  <rect x="337" y="300" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="479" y="319" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirCodeSystemLinter</text>
+  <text x="479" y="332" text-anchor="middle" font-size="9" fill="#3F8999">~8 checks</text>
+  <line x1="337" y1="338" x2="622" y2="338" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="347" y="353" font-size="10" fill="#555">&#8226; Code &amp; display validation</text>
+  <text x="347" y="368" font-size="10" fill="#555">&#8226; Version &amp; date format</text>
+  <text x="347" y="383" font-size="10" fill="#555">&#8226; Element concept validation</text>
+
+  <!-- FhirQuestionnaireLinter -->
+  <rect x="637" y="300" width="285" height="130" rx="5" fill="white" stroke="#54AEA0" stroke-width="1.5"/>
+  <text x="779" y="319" text-anchor="middle" font-size="11" font-weight="bold" fill="#326F95">FhirQuestionnaireLinter</text>
+  <text x="779" y="332" text-anchor="middle" font-size="9" fill="#3F8999">~11 checks</text>
+  <line x1="637" y1="338" x2="922" y2="338" stroke="#54AEA0" stroke-width="0.8"/>
+  <text x="647" y="353" font-size="10" fill="#555">&#8226; Meta profile validation</text>
+  <text x="647" y="368" font-size="10" fill="#555">&#8226; Read-access tag</text>
+  <text x="647" y="383" font-size="10" fill="#555">&#8226; Item linkId, type, text</text>
+  <text x="647" y="398" font-size="10" fill="#555">&#8226; Mandatory item validation</text>
+
+  <!-- Arrow to LintingResult -->
+  <line x1="480" y1="430" x2="480" y2="451" stroke="#3F8999" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- LintingResult -->
+  <rect x="175" y="453" width="610" height="50" rx="5" fill="#3F8999"/>
+  <text x="480" y="473" text-anchor="middle" font-size="13" font-weight="bold" fill="white">LintingResult</text>
+  <text x="480" y="492" text-anchor="middle" font-size="11" fill="white">FhirElementLintItem | ~118 Checks | ERROR | WARN | INFO | SUCCESS</text>
+
+  <!-- ===== SHARED UTILITIES ===== -->
+  <text x="20" y="521" font-size="11" fill="#777">Shared Utilities:</text>
+
+  <!-- 4 boxes: w=180, gap=15, total=765, margin=97 -->
+  <!-- x: 97, 292, 487, 682 -->
+
+  <rect x="97" y="527" width="180" height="48" rx="4" fill="white" stroke="#63C7A6" stroke-width="1.5"/>
+  <text x="187" y="546" text-anchor="middle" font-size="11" fill="#326F95">FhirAuthorizationCache</text>
+  <text x="187" y="563" text-anchor="middle" font-size="10" fill="#555">Terminology code caching</text>
+
+  <rect x="292" y="527" width="180" height="48" rx="4" fill="white" stroke="#63C7A6" stroke-width="1.5"/>
+  <text x="382" y="546" text-anchor="middle" font-size="11" fill="#326F95">FhirResourceLocator</text>
+  <text x="382" y="563" text-anchor="middle" font-size="10" fill="#555">Locates ActivityDef, Task, SD</text>
+
+  <rect x="487" y="527" width="180" height="48" rx="4" fill="white" stroke="#63C7A6" stroke-width="1.5"/>
+  <text x="577" y="546" text-anchor="middle" font-size="11" fill="#326F95">FhirResourceParser</text>
+  <text x="577" y="563" text-anchor="middle" font-size="10" fill="#555">Parses XML / JSON resources</text>
+
+  <rect x="682" y="527" width="180" height="48" rx="4" fill="white" stroke="#63C7A6" stroke-width="1.5"/>
+  <text x="772" y="546" text-anchor="middle" font-size="11" fill="#326F95">AbstractFhirInstanceLinter</text>
+  <text x="772" y="563" text-anchor="middle" font-size="10" fill="#555">Base class, XPath utilities</text>
+</svg>

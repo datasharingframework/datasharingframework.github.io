@@ -1,0 +1,1 @@
+var e=`/photos/news/springschool2026.png`;export{e as t};

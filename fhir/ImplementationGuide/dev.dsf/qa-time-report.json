@@ -1,0 +1,3642 @@
+{
+  "date" : "Wed, 26 Nov, 2025 16:56:02 +0100",
+  "doco" : "For each file: start is seconds after start activity occurred. Length = milliseconds activity took",
+  "files" : [
+    {
+      "name" : "/fsh-generated/resources/ImplementationGuide-dev.dsf.json",
+      "size" : 12001,
+      "processes" : [
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 13,
+          "length" : 5
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 40
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 3194
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 88
+        },
+        {
+          "activity" : "generate2",
+          "start" : 30,
+          "length" : 128
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 6
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/CodeSystem/dsf-bpmn-message-2.0.0.xml",
+      "size" : 2199,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 17
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 30
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 12
+        },
+        {
+          "activity" : "generate2",
+          "start" : 30,
+          "length" : 270
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/CodeSystem/dsf-organization-role-2.0.0.xml",
+      "size" : 2856,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 13
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 9
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 15
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 9
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 34
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/CodeSystem/dsf-practitioner-role-2.0.0.xml",
+      "size" : 3050,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 16
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 10
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 21
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/CodeSystem/dsf-process-authorization-2.0.0.xml",
+      "size" : 4132,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 13
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 24
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 13
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 20
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/CodeSystem/dsf-read-access-tag-2.0.0.xml",
+      "size" : 2289,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 11
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "load-configure",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 8
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 15
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/NamingSystem/dsf-endpoint.xml",
+      "size" : 1592,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 12
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 11
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 86
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 10
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 10
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/NamingSystem/dsf-organization.xml",
+      "size" : 1614,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 10
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 9
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 7
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 6
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/NamingSystem/dsf-practitioner.xml",
+      "size" : 1392,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 12
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 7
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 5
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/NamingSystem/dsf-task.xml",
+      "size" : 1572,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 10
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 9
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-activity-definition-2.0.0.xml",
+      "size" : 3009,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 12
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 78
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 13,
+          "length" : 16
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 635
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 141
+        },
+        {
+          "activity" : "generate2",
+          "start" : 31,
+          "length" : 918
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 1328
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 7
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-binary-2.0.0.xml",
+      "size" : 7599,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 14
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 23
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 10
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 126
+        },
+        {
+          "activity" : "generate1",
+          "start" : 23,
+          "length" : 174
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 228
+        },
+        {
+          "activity" : "generate2",
+          "start" : 40,
+          "length" : 143
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 8
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-bundle-2.0.0.xml",
+      "size" : 1671,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 22
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 8
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 62
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 100
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 179
+        },
+        {
+          "activity" : "generate2",
+          "start" : 40,
+          "length" : 154
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 6
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-code-system-2.0.0.xml",
+      "size" : 2038,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 32
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 84
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 133
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 277
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 175
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 6
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-2.0.0.xml",
+      "size" : 1873,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 10
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 103
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 32
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 61
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 27
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 2
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-all-practitioner-2.0.0.xml",
+      "size" : 2579,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 24
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 17
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 37
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 204
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 32
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-2.0.0.xml",
+      "size" : 2564,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 17
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 36
+        },
+        {
+          "activity" : "generate2",
+          "start" : 32,
+          "length" : 135
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 28
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-organization-practitioner-2.0.0.xml",
+      "size" : 2654,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 10
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 14
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 26
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 36
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 190
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 27
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 16
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-2.0.0.xml",
+      "size" : 2608,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 16
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 37
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 79
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 27
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 6
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-local-parent-organization-role-practitioner-2.0.0.xml",
+      "size" : 2698,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 17
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 42
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 109
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 28
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 6
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-all-2.0.0.xml",
+      "size" : 1877,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 15
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 35
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 58
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 27
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-organization-2.0.0.xml",
+      "size" : 2568,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 15
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 36
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 73
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 26
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-coding-process-authorization-remote-parent-organization-role-2.0.0.xml",
+      "size" : 2612,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 9
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 16
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 48
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 67
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 28
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-document-reference-2.0.0.xml",
+      "size" : 1750,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 23
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 62
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 116
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 221
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 128
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 5
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-endpoint-2.0.0.xml",
+      "size" : 6149,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 52
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 11
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 93
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 169
+        },
+        {
+          "activity" : "generate2",
+          "start" : 33,
+          "length" : 277
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 134
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 7
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-certificate-thumbprint-2.0.0.xml",
+      "size" : 2378,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 20
+        },
+        {
+          "activity" : "validate",
+          "start" : 15,
+          "length" : 2020
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 26
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 55
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 20
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-check-logical-reference-2.0.0.xml",
+      "size" : 2252,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 17,
+          "length" : 21
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 24
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 59
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 21
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-2.0.0.xml",
+      "size" : 6319,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 23
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 17,
+          "length" : 62
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 24,
+          "length" : 89
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 224
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 95
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 8
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-2.0.0.xml",
+      "size" : 2480,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 11
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 17,
+          "length" : 32
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 43
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 116
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 35
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-organization-practitioner-2.0.0.xml",
+      "size" : 4449,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 11
+        },
+        {
+          "activity" : "loadDepInfo",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 68
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 94
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 98
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 60
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-2.0.0.xml",
+      "size" : 4341,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 12
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 73
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 90
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 140
+        },
+        {
+          "activity" : "generate2",
+          "start" : 41,
+          "length" : 58
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-parent-organization-role-practitioner-2.0.0.xml",
+      "size" : 5450,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 6
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 68
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 113
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 127
+        },
+        {
+          "activity" : "generate2",
+          "start" : 34,
+          "length" : 131
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 77
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 9
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-process-authorization-practitioner-2.0.0.xml",
+      "size" : 2551,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 9
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 19
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 41
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 60
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 27
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-questionnaire-authorization-2.0.0.xml",
+      "size" : 4387,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 14
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 53
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 92
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 116
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 57
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-read-access-organization-2.0.0.xml",
+      "size" : 2318,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 8
+        },
+        {
+          "activity" : "load-configure",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 66
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 40
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 66
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 37
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-extension-read-access-parent-organization-role-2.0.0.xml",
+      "size" : 4179,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 12,
+          "length" : 11
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 65
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 4
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 92
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 111
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 78
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-group-2.0.0.xml",
+      "size" : 1664,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 16
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 45
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 71
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 198
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 70
+        },
+        {
+          "activity" : "makeDependencies",
+          "start" : 47,
+          "length" : 1
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-healthcare-service-2.0.0.xml",
+      "size" : 1750,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 27
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 57
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 8
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 92
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 156
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 102
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-library-2.0.0.xml",
+      "size" : 1678,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 17
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 43
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 79
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 105
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 87
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 10
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-location-2.0.0.xml",
+      "size" : 1685,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 17
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 45
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 4
+        },
+        {
+          "activity" : "generate1",
+          "start" : 25,
+          "length" : 152
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 147
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 80
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-measure-2.0.0.xml",
+      "size" : 1678,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 51
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 79
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 7
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 144
+        },
+        {
+          "activity" : "generate2",
+          "start" : 35,
+          "length" : 273
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 173
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 10
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-measure-report-2.0.0.xml",
+      "size" : 1722,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 18
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 59
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 102
+        },
+        {
+          "activity" : "generate2",
+          "start" : 36,
+          "length" : 242
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 108
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-meta-2.0.0.xml",
+      "size" : 7228,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 12
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 8
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 56
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 128
+        },
+        {
+          "activity" : "generate2",
+          "start" : 36,
+          "length" : 162
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 82
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 7
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-naming-system-2.0.0.xml",
+      "size" : 1945,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 15
+        },
+        {
+          "activity" : "checkR4R4B",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 30
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 69
+        },
+        {
+          "activity" : "generate2",
+          "start" : 36,
+          "length" : 121
+        },
+        {
+          "activity" : "generate2",
+          "start" : 42,
+          "length" : 65
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-organization-2.0.0.xml",
+      "size" : 3908,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 15
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 17
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 46
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 111
+        },
+        {
+          "activity" : "generate2",
+          "start" : 36,
+          "length" : 153
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 95
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 11
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-organization-affiliation-2.0.0.xml",
+      "size" : 4198,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 18
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 48
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 132
+        },
+        {
+          "activity" : "generate2",
+          "start" : 36,
+          "length" : 232
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 110
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 12
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-organization-parent-2.0.0.xml",
+      "size" : 2851,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 16
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 18,
+          "length" : 95
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 89
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 163
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 73
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 4
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-patient-2.0.0.xml",
+      "size" : 1678,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 66
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 47
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 133
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 169
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 96
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-practitioner-2.0.0.xml",
+      "size" : 1713,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 16
+        },
+        {
+          "activity" : "scan",
+          "start" : 13,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 26
+        },
+        {
+          "activity" : "generate1",
+          "start" : 26,
+          "length" : 92
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 106
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 68
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 5
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-practitioner-role-2.0.0.xml",
+      "size" : 1743,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 15
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 32
+        },
+        {
+          "activity" : "generate1",
+          "start" : 27,
+          "length" : 75
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 103
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 75
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 2
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-provenance-2.0.0.xml",
+      "size" : 1699,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 14
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 28
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 34
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 27,
+          "length" : 76
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 117
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 73
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-questionnaire-2.0.0.xml",
+      "size" : 8759,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 5
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 100
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 20
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 189
+        },
+        {
+          "activity" : "checkConformanceResources",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 27,
+          "length" : 436
+        },
+        {
+          "activity" : "generate2",
+          "start" : 37,
+          "length" : 367
+        },
+        {
+          "activity" : "generate2",
+          "start" : 43,
+          "length" : 366
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 31
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 3
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-questionnaire-response-2.0.0.xml",
+      "size" : 11050,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 7
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 41
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 15
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 100
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 27,
+          "length" : 284
+        },
+        {
+          "activity" : "generate2",
+          "start" : 38,
+          "length" : 211
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 185
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 14
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-research-study-2.0.0.xml",
+      "size" : 1722,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 16
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 41
+        },
+        {
+          "activity" : "generate1",
+          "start" : 27,
+          "length" : 84
+        },
+        {
+          "activity" : "generate2",
+          "start" : 38,
+          "length" : 113
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 65
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 3
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-structure-definition-2.0.0.xml",
+      "size" : 2155,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 19
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 53
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 125
+        },
+        {
+          "activity" : "generate2",
+          "start" : 38,
+          "length" : 145
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 93
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-subscription-2.0.0.xml",
+      "size" : 2331,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 12
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 25
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 66
+        },
+        {
+          "activity" : "generate2",
+          "start" : 38,
+          "length" : 112
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 40
+        },
+        {
+          "activity" : "generateExampleZip",
+          "start" : 53,
+          "length" : 1
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 7
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-task-2.0.0.xml",
+      "size" : 11708,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 6
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 63
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 20
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 225
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 416
+        },
+        {
+          "activity" : "generate2",
+          "start" : 38,
+          "length" : 328
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 227
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 12
+        },
+        {
+          "activity" : "scanProfilesForR5",
+          "start" : 71,
+          "length" : 1
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 2
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/StructureDefinition/dsf-value-set-2.0.0.xml",
+      "size" : 2012,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateSnapshots",
+          "start" : 13,
+          "length" : 35
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 12
+        },
+        {
+          "activity" : "validate",
+          "start" : 19,
+          "length" : 131
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 173
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 139
+        },
+        {
+          "activity" : "generate2",
+          "start" : 44,
+          "length" : 129
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 11
+        },
+        {
+          "activity" : "scanExamplesForR5",
+          "start" : 71,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/Subscription/dsf-bpmn-questionnaire-response-subscription.xml",
+      "size" : 1248,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 5
+        },
+        {
+          "activity" : "validate",
+          "start" : 23,
+          "length" : 11
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 10
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/Subscription/dsf-bpmn-task-subscription.xml",
+      "size" : 1213,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 1
+        },
+        {
+          "activity" : "validate",
+          "start" : 23,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 4
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-bpmn-message-2.0.0.xml",
+      "size" : 1515,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 25
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 13
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 5
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 50
+        },
+        {
+          "activity" : "generateValidationPack",
+          "start" : 54,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-organization-role-2.0.0.xml",
+      "size" : 1552,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 4
+        },
+        {
+          "activity" : "scanForUsageStats",
+          "start" : 23,
+          "length" : 1
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 5
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 22
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-practitioner-role-2.0.0.xml",
+      "size" : 1552,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 1
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 2
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 6
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 21
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-process-authorization-recipient-2.0.0.xml",
+      "size" : 1921,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 6
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 7
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 7
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 22
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-process-authorization-requester-2.0.0.xml",
+      "size" : 2669,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 4
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 1
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 10
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 18
+        }
+      ]
+    },
+    {
+      "name" : "input/dsf-resources/ValueSet/dsf-read-access-tag-2.0.0.xml",
+      "size" : 1494,
+      "processes" : [
+        {
+          "activity" : "loadResources",
+          "start" : 12,
+          "length" : 3
+        },
+        {
+          "activity" : "load",
+          "start" : 12,
+          "length" : 2
+        },
+        {
+          "activity" : "generateNarratives",
+          "start" : 14,
+          "length" : 2
+        },
+        {
+          "activity" : "validate",
+          "start" : 14,
+          "length" : 3
+        },
+        {
+          "activity" : "generate1",
+          "start" : 28,
+          "length" : 5
+        },
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 16
+        }
+      ]
+    },
+    {
+      "name" : "/fsh-generated/includes/fsh-link-references.md",
+      "size" : 4856
+    },
+    {
+      "name" : "/fsh-generated/includes/menu.xml",
+      "size" : 1849
+    },
+    {
+      "name" : "/input/pagecontent/activitydefinition.md",
+      "size" : 1115
+    },
+    {
+      "name" : "/input/pagecontent/allowlist.md",
+      "size" : 2233,
+      "processes" : [
+        {
+          "activity" : "generate2",
+          "start" : 39,
+          "length" : 1
+        }
+      ]
+    },
+    {
+      "name" : "/input/pagecontent/index.md",
+      "size" : 1203
+    },
+    {
+      "name" : "/input/pagecontent/auth.md",
+      "size" : 169
+    },
+    {
+      "name" : "/input/pagecontent/task.md",
+      "size" : 2659
+    },
+    {
+      "name" : "/input/pagecontent/questionnaire.md",
+      "size" : 235
+    },
+    {
+      "name" : "/input/pagecontent/readaccess.md",
+      "size" : 1391
+    },
+    {
+      "name" : "/template/config",
+      "size" : 0
+    },
+    {
+      "name" : "/template/config/_config.yml",
+      "size" : 140
+    },
+    {
+      "name" : "/temp/pages/_includes/artifacts.xml",
+      "size" : 22958
+    }
+  ]
+}
