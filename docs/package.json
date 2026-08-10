@@ -24,7 +24,7 @@
     "sass-loader": "16.0.8",
     "tsx": "4.23.5",
     "vitest": "4.1.10",
-    "vue": "^3.5.40",
+    "vue": "^3.5.41",
     "vuepress": "2.0.0-rc.30",
     "vuepress-theme-hope": "2.0.0-rc.107"
   },
