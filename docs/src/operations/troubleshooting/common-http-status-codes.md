@@ -11,6 +11,9 @@ This HTTP status code may be encountered in different ways in the context of the
 - Process plugin is not installed at FHIR server where the Task resource was posted
 - Client certificate of the FHIR server where the Task resource was posted is invalid e.g. because it is expired
 
+# 407 Proxy Authentication Required
+A proxy server between the requester and receiver denied the request because of invalid authentication credentials for the proxy.
+
 # 413 Content Too Large
 This HTTP status code is a result of trying to upload a resource that is too large for the server to handle. This might be due to a misconfiguration of the DSF FHIR server's reverse proxy not allowing this much data to be uploaded.
 
@@ -19,6 +22,10 @@ This HTTP status may be a result of a connection timeout if a forward proxy is u
 
 # 502 Bad Gateway
 This HTTP status code is usually the response of a proxy because the upstream server sent an invalid response.
+
+# 503 Service Unavailable
+This HTTP status code might be the result of the target server being temporarily unavailable e.g. because of maintenance.
+Some (forward) proxies might also respond with this status when they cannot establish a connection to the target server.
 
 # 504 Gateway Timeout
 This HTTP status code is usually the response of a proxy because the upstream server did not send a response in time.
