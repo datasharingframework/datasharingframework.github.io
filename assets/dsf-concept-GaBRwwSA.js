@@ -1,0 +1,1 @@
+var e=`/photos/info/introduction/dsf-concept.png`;export{e as t};

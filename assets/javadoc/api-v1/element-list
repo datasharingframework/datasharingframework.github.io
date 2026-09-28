@@ -1,0 +1,12 @@
+dev.dsf.bpe.v1
+dev.dsf.bpe.v1.activity
+dev.dsf.bpe.v1.config
+dev.dsf.bpe.v1.constants
+dev.dsf.bpe.v1.documentation
+dev.dsf.bpe.v1.service
+dev.dsf.bpe.v1.variables
+dev.dsf.common.auth
+dev.dsf.common.auth.conf
+dev.dsf.fhir.authorization.process
+dev.dsf.fhir.authorization.read
+dev.dsf.fhir.client

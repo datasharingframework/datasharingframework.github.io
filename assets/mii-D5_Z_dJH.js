@@ -1,0 +1,1 @@
+var e=`/photos/learnmore/funding/mii.png`;export{e as t};

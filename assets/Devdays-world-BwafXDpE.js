@@ -1,0 +1,1 @@
+var e=`/photos/news/Devdays-world.png`;export{e as t};

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="bpmn-message"/>
+  <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/code-system"/>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="ALL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: CodeSystem bpmn-message</b></p><a name="bpmn-message"> </a><a name="hcbpmn-message"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-code-system.html">CodeSystem</a></p><p style="margin-bottom: 0px">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/bpmn-message</code> defines the following codes in a Grouped By hierarchy:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">message-name<a name="bpmn-message-message-name"> </a></td><td>Message Name</td><td>BPMN 2.0 message event name</td></tr><tr><td style="white-space:nowrap">business-key<a name="bpmn-message-business-key"> </a></td><td>Business Key</td><td>Workflow engine business key used to identify process instances</td></tr><tr><td style="white-space:nowrap">correlation-key<a name="bpmn-message-correlation-key"> </a></td><td>Correlation Key</td><td>DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets</td></tr><tr><td style="white-space:nowrap">error<a name="bpmn-message-error"> </a></td><td>Error</td><td>Explaining why this task failed</td></tr></table></div>
+  </text>
+  <url value="http://dsf.dev/fhir/CodeSystem/bpmn-message"/>
+  <version value="2.0.0"/>
+  <name value="DsfBpmnMessage"/>
+  <title value="DSF BPMN message values"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-11-26"/>
+  <publisher value="DSF Community"/>
+  <contact>
+    <name value="DSF Community"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://dsf.dev"/>
+    </telecom>
+  </contact>
+  <description value="CodeSystem with standard BPMN message values for Task resources"/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="grouped-by"/>
+  <versionNeeded value="false"/>
+  <content value="complete"/>
+  <count value="4"/>
+  <concept>
+    <code value="message-name"/>
+    <display value="Message Name"/>
+    <definition value="BPMN 2.0 message event name"/>
+  </concept>
+  <concept>
+    <code value="business-key"/>
+    <display value="Business Key"/>
+    <definition value="Workflow engine business key used to identify process instances"/>
+  </concept>
+  <concept>
+    <code value="correlation-key"/>
+    <display value="Correlation Key"/>
+    <definition value="DSF BPE correlation key used to identify multi-instance instances used for messaging multiple targets"/>
+  </concept>
+  <concept>
+    <code value="error"/>
+    <display value="Error"/>
+    <definition value="Explaining why this task failed"/>
+  </concept>
+</CodeSystem>

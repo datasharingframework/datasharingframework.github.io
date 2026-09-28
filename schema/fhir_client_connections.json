@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "properties": {
+      "base-url": {
+        "title": "FHIR server base URL",
+        "type": "string"
+      },
+      "connect-timeout": {
+        "type": "string",
+        "format": "duration",
+        "pattern": "^P(([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.?[0-9]+)?S)?))?$"
+      },
+      "read-timeout": {
+        "type": "string",
+        "format": "duration",
+        "pattern": "^P(([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.?[0-9]+)?S)?))?$"
+      },
+      "enable-debug-logging": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string",
+            "enum": ["y", "Y", "yes", "Yes", "YES", "n", "N", "no", "No", "NO", "on", "On", "ON", "off", "Off", "OFF"]
+          }
+        ]
+      },
+      "test-connection-on-startup": {
+        "anyOf": [
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "string",
+            "enum": ["y", "Y", "yes", "Yes", "YES", "n", "N", "no", "No", "NO", "on", "On", "ON", "off", "Off", "OFF"]
+          }
+        ]
+      },
+      "trusted-root-certificates-file": {
+        "type": "string"
+      },
+      "basic-auth": {
+        "title": "Basic authentication",
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string"
+          },
+          "password-file": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "username"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "password"
+            ],
+            "not": {
+              "required": [
+                "password-file"
+              ]
+            }
+          },
+          {
+            "required": [
+              "password-file"
+            ],
+            "not": {
+              "required": [
+                "password"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      },
+      "bearer-auth": {
+        "title": "Bearer token authentication",
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          },
+          "token-file": {
+            "type": "string"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "token"
+            ],
+            "not": {
+              "required": [
+                "token-file"
+              ]
+            }
+          },
+          {
+            "required": [
+              "token-file"
+            ],
+            "not": {
+              "required": [
+                "token"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      },
+      "cert-auth": {
+        "title": "Client certificate authentication",
+        "type": "object",
+        "properties": {
+          "certificate-file": {
+            "type": "string"
+          },
+          "p12-file": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "password-file": {
+            "type": "string"
+          },
+          "private-key-file": {
+            "type": "string"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "certificate-file",
+              "private-key-file"
+            ],
+            "not": {
+              "required": [
+                "p12-file"
+              ]
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "password"
+                ],
+                "not": {
+                  "required": [
+                    "password-file"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "password-file"
+                ],
+                "not": {
+                  "required": [
+                    "password"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "password"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "password-file"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "required": [
+              "p12-file"
+            ],
+            "not": {
+              "required": [
+                "certificate-file",
+                "private-key-file"
+              ]
+            },
+            "oneOf": [
+              {
+                "required": [
+                  "password"
+                ],
+                "not": {
+                  "required": [
+                    "password-file"
+                  ]
+                }
+              },
+              {
+                "required": [
+                  "password-file"
+                ],
+                "not": {
+                  "required": [
+                    "password"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "password"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "password-file"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "additionalProperties": false
+      },
+      "oidc-auth": {
+        "title": "OIDC client credentials flow authentication",
+        "type": "object",
+        "properties": {
+          "base-url": {
+            "type": "string"
+          },
+          "discovery-path": {
+            "type": "string"
+          },
+          "client-id": {
+            "type": "string"
+          },
+          "client-secret": {
+            "type": "string"
+          },
+          "client-secret-file": {
+            "type": "string"
+          },
+          "required-audience": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verify-authorized-party": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": ["y", "Y", "yes", "Yes", "YES", "n", "N", "no", "No", "NO", "on", "On", "ON", "off", "Off", "OFF"]
+              }
+            ]
+          },
+          "connect-timeout": {
+            "type": "string",
+            "format": "duration",
+            "pattern": "^P(([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.?[0-9]+)?S)?))?$"
+          },
+          "read-timeout": {
+            "type": "string",
+            "format": "duration",
+            "pattern": "^P(([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(\\.?[0-9]+)?S)?))?$"
+          },
+          "enable-debug-logging": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": ["y", "Y", "yes", "Yes", "YES", "n", "N", "no", "No", "NO", "on", "On", "ON", "off", "Off", "OFF"]
+              }
+            ]
+          },
+           "test-connection-on-startup": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string",
+                "enum": ["y", "Y", "yes", "Yes", "YES", "n", "N", "no", "No", "NO", "on", "On", "ON", "off", "Off", "OFF"]
+              }
+            ]
+          },
+          "trusted-root-certificates-file": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "base-url",
+          "client-id"
+        ],
+        "oneOf": [
+          {
+            "required": [
+              "client-secret"
+            ],
+            "not": {
+              "required": [
+                "client-secret-file"
+              ]
+            }
+          },
+          {
+            "required": [
+              "client-secret-file"
+            ],
+            "not": {
+              "required": [
+                "client-secret"
+              ]
+            }
+          }
+        ],
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false
+  }
+}

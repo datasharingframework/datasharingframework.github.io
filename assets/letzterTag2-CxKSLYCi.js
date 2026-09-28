@@ -1,0 +1,1 @@
+var e=`/photos/news/springschool.jpg`,t=`/photos/news/letzterTag1.png`,n=`/photos/news/letzterTag2.png`;export{t as n,e as r,n as t};
