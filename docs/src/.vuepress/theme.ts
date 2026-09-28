@@ -64,7 +64,7 @@ export default hopeTheme({
             text: `Current Version - ${latestVersion}`,
             link: "get-started",
             icon: "launch"
-          }, "old-versions"],
+          }, "old-versions", "troubleshooting/README.md"],
         },
       ],
     },
