@@ -1,6 +1,6 @@
 ---
 title: FHIR Reference Resolution
-icon: support
+icon: file
 ---
 
 Sending Task resources to another DSF FHIR Server causes that server to try to resolve any references inside the Task resource (usually on another DSF FHIR server).
