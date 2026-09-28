@@ -9,6 +9,7 @@
     "docs:clean-dev": "vuepress dev src --clean-cache",
     "docs:dev": "vuepress dev src",
     "docs:generate-llms": "npx tsx src/.vuepress/scripts/generate-llms.ts",
+    "docs:add-new-dsf-version": "npx tsx src/.vuepress/scripts/create-version.ts",
     "docs:update-package": "npx vp-update",
     "test": "vitest run",
     "test:watch": "vitest"
