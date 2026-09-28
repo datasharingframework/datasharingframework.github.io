@@ -8,7 +8,8 @@ This HTTP status code may be a result of an allow list mismatch. Either the requ
 
 # 403 Forbidden
 This HTTP status code may be encountered in different ways in the context of the DSF:
-- Process plugin is not installed at FHIR server where the Task resource was posted
+- Requesting instance is not in recipient's allow list
+- Process is not installed by the recipient of the Task resource
 - Client certificate of the FHIR server where the Task resource was posted is invalid e.g. because it is expired
 
 # 407 Proxy Authentication Required
