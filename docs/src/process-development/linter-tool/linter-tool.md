@@ -12,11 +12,12 @@ A comprehensive linting tool for DSF (Data Sharing Framework) process plugins. V
 2. [Quick Start](#quick-start)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [CLI Options](#cli-options)
-6. [Exclusion Rules](#exclusion-rules)
-7. [Report Generation](#report-generation)
-8. [Architecture](#architecture)
-9. [API Reference](#api-reference)
+5. [Maven Plugin Integration](#maven-plugin-integration)
+6. [CLI Options](#cli-options)
+7. [Exclusion Rules](#exclusion-rules)
+8. [Report Generation](#report-generation)
+9. [Architecture](#architecture)
+10. [API Reference](#api-reference)
 
 ## Overview
 
@@ -37,7 +38,8 @@ The DSF Linter is a static analysis tool designed to validate DSF process plugin
 - ✅ CI/CD integration ready
 - ✅ Comprehensive error reporting with severity levels
 - ✅ Extensible architecture for custom validation rules
-- ✅ Configurable exclusion rules to suppress known or accepted findings
+- ✅ Configurable exclusion rules (`dsf-linter-exclusions.json`) for CLI and Maven
+- ✅ Maven plugin integration (`dsf-maven-plugin:lint`) via `linter-core` dependency in DSF
 
 ### What is DSF?
 
@@ -49,66 +51,82 @@ The Data Sharing Framework (DSF) is a framework for implementing interoperable h
 
 ## Quick Start
 
-### Build the Project
+### Option A: Maven plugin (recommended for process plugin projects)
 
-```bash
-# Full build with tests
-mvn clean package
+DSF ships `dsf-maven-plugin` with a `lint` goal that depends on `dev.dsf.linter:linter-core` **0.1.3**. Bind the goal to validate the built plugin JAR during `verify` / `install`:
 
-# Skip tests for faster build
-mvn clean package -DskipTests
-
-# Verbose output
-mvn clean package -X
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals>
+        <goal>lint</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```
 
-### Basic Usage
+```bash
+mvn verify
+# or directly:
+mvn dsf-maven-plugin:lint
+```
+
+Details: [Maven Plugin Integration](#maven-plugin-integration).
+
+### Option B: Download pre-built CLI JAR
+
+Download the latest `linter-cli-0.1.3.jar` from the [GitHub Releases page](https://github.com/datasharingframework/dsf-linter/releases) and run:
 
 ```bash
 # Lint a local JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path your-plugin.jar --html
+java -jar linter-cli-0.1.3.jar --path your-plugin.jar --html
 
 # Lint a remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli-0.1.3.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 
-# View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/index.html
+# View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/report.html
+```
+
+### Option C: Build CLI from source
+
+```bash
+git clone https://github.com/datasharingframework/dsf-linter.git
+cd dsf-linter
+mvn clean package
+
+java -jar linter-cli/target/linter-cli-0.1.3.jar --path your-plugin.jar --html
 ```
 
 ## Installation
 
 ### Requirements
 
-- **Java**: 17 or higher (Java 25+ required for API Version 2 validation)
-- **Maven**: 3.6 or higher
+- **Java**: 25 or higher (required to build and run the linter)
+- **Maven**: 3.6 or higher (only when building from source or using the Maven plugin)
 - **Operating System**: Windows, Linux, or macOS
 
-### Building from Source
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd dsf-linter
-
-# Build the project
-mvn clean package
-
-# The executable JAR will be at:
-# linter-cli/target/linter-cli-0.1.2.jar
-```
+> **Note:** DSF API v1 and v2 refer to the **plugin target API**, not the JVM version. The linter itself requires Java 25.
 
 ### Distribution
 
-The linter is distributed as a single executable JAR file that includes all dependencies. After building, the JAR can be used standalone:
+| Artifact | Use case |
+|----------|----------|
+| `dev.dsf.linter:linter-core:0.1.3` (Maven Central) | Consumed by DSF `dsf-maven-plugin` for the `lint` goal |
+| `linter-cli-0.1.3.jar` ([GitHub Releases](https://github.com/datasharingframework/dsf-linter/releases)) | Standalone executable CLI (all dependencies shaded) |
 
 ```bash
-# Copy to a convenient location
-cp linter-cli/target/linter-cli-0.1.2.jar ~/bin/dsf-linter.jar
-
-# Use from anywhere
+# CLI: copy to a convenient location
+cp linter-cli-0.1.3.jar ~/bin/dsf-linter.jar
 java -jar ~/bin/dsf-linter.jar --path plugin.jar --html
 ```
+
+Process plugin projects should prefer the Maven goal; the CLI remains useful for ad-hoc linting of local or remote JARs.
 
 ## Usage
 
@@ -156,11 +174,11 @@ plugin.jar
 
 ```bash
 # Local JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path C:\path\to\plugin.jar --html
 
 # Remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 ```
 
@@ -168,11 +186,11 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ```bash
 # Multiple report formats with custom path
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --json --report-path ./reports
 
 # Verbose output (colors enabled by default, use --no-color to disable)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --verbose
 
 # Lint Maven project (two-step process)
@@ -180,7 +198,7 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 cd /path/to/project && mvn clean package
 
 # Step 2: Lint the resulting JAR
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
 
@@ -188,18 +206,99 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ```bash
 # GitHub Actions / GitLab CI
-FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.2.jar \
+FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --json --verbose
 
 # Jenkins (fail on errors)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html
 # Exit code: 0 = success, 1 = errors
 
 # Don't fail build (gradual adoption)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --no-fail
 ```
+
+## Maven Plugin Integration
+
+The DSF Maven plugin (`dsf-maven-plugin`) integrates the linter into the Maven build lifecycle. This is the **recommended approach** for DSF process plugin projects: it validates the **built plugin JAR** automatically, fails the build on ERROR findings by default, and supports **exclusion rules** out of the box.
+
+**How it is wired:** DSF declares `dev.dsf.linter:linter-core` (**0.1.3**) as a dependency of `dsf-maven-plugin`. The `lint` goal (`LintPluginMojo`, default phase `verify`) resolves `${project.build.directory}/${project.build.finalName}.jar`, runs `DsfLinter`, and writes reports under `target/dsf-linter-report` by default.
+
+### Enable in `pom.xml`
+
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals>
+        <goal>lint</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+### Run
+
+The `lint` goal runs automatically during:
+
+- `mvn verify`
+- `mvn install`
+- `mvn deploy`
+
+Or invoke it directly:
+
+```bash
+mvn dsf-maven-plugin:lint
+```
+
+### Maven Parameters
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `dsf.lint.skip` | `false` | Skip linting entirely |
+| `dsf.lint.failOnErrors` | `true` | Fail the build when ERROR-severity findings exist |
+| `dsf.lint.html` | `false` | Generate HTML report |
+| `dsf.lint.json` | `false` | Generate JSON report |
+| `dsf.lint.verbose` | `false` | Enable verbose logging |
+| `dsf.lint.reportPath` | `target/dsf-linter-report` | Report output directory |
+| `dsf.lint.exclusionsFile` | *(auto-discover)* | Path to exclusion JSON file |
+
+**Examples:**
+
+```bash
+# Lint with HTML report, do not fail build
+mvn verify -Ddsf.lint.html=true -Ddsf.lint.failOnErrors=false
+
+# Use explicit exclusion file
+mvn verify -Ddsf.lint.exclusionsFile=ci/dsf-linter-exclusions.json
+```
+
+### Permanent configuration in `pom.xml`
+
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <configuration>
+    <html>true</html>
+    <reportPath>${project.build.directory}/dsf-linter-report</reportPath>
+    <exclusionsFile>${project.basedir}/dsf-linter-exclusions.json</exclusionsFile>
+  </configuration>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals><goal>lint</goal></goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+Exclusion file format and rule semantics are described in [Exclusion Rules](#exclusion-rules).
 
 ## CLI Options
 
@@ -209,12 +308,14 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 | `--html` | | Generate HTML report | No |
 | `--json` | | Generate JSON report | No |
 | `--report-path <dir>` | `-r` | Custom report directory (default: `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`) | No |
+| `--exclusions <file>` | | Path to a JSON exclusion config (see [Exclusion Rules](#exclusion-rules)) | No |
 | `--verbose` | `-v` | Enable verbose logging output | No |
 | `--no-color` | | Disable colored console output (default: enabled) | No |
 | `--no-fail` | | Exit with code 0 even if linter errors are found | No |
-| `--exclusions <file>` | | Path to a JSON file containing exclusion rules. If omitted, `dsf-linter-exclusions.json` in the project root is used automatically. | No |
 | `--help` | `-h` | Display help message | No |
 | `--version` | | Display version information | No |
+
+When `--exclusions` is omitted, the CLI auto-discovers `dsf-linter-exclusions.json` in the project/extracted root if present.
 
 ### Environment Variables
 
@@ -235,18 +336,35 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ## Exclusion Rules
 
-The exclusion feature allows you to suppress specific lint findings from reports and optionally from the exit status. This is useful for accepting known issues, ignoring findings in legacy files, or gradually rolling out stricter linting rules.
+The exclusion feature allows you to suppress specific lint findings from reports and optionally from the build/CLI exit status. This is useful for accepting known issues, ignoring findings in legacy files, or gradually rolling out stricter linting rules.
+
+**Where exclusions are supported (v0.1.3):**
+
+| Integration | How to configure |
+|-------------|------------------|
+| `dsf-maven-plugin:lint` | `-Ddsf.lint.exclusionsFile=...` or auto-discovery of `dsf-linter-exclusions.json` |
+| Standalone CLI | `--exclusions <file>` or auto-discovery of `dsf-linter-exclusions.json` |
 
 ### Configuration File
 
-Exclusion rules are defined in a JSON file. By default the linter looks for `dsf-linter-exclusions.json` in the project root. A custom path can be passed with `--exclusions <file>`.
+Exclusion rules are defined in a JSON file named `dsf-linter-exclusions.json`. When no explicit path is set, the loader auto-discovers that file in the **resolved project root** (extracted JAR contents). Explicit configuration always wins and is the reliable choice for Maven module roots that are not packaged into the JAR:
+
+```bash
+# CLI
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html \
+  --exclusions path/to/dsf-linter-exclusions.json
+
+# Maven (recommended: point at the module basedir)
+mvn verify -Ddsf.lint.exclusionsFile=${project.basedir}/dsf-linter-exclusions.json
+```
+
 
 ```json
 {
   "affectsExitStatus": false,
   "rules": [
     { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
-    { "severity": "WARNING", "file": "update-allow-list.bpmn" },
+    { "severity": "WARN", "file": "update-allow-list.bpmn" },
     { "messageContains": "optional field" }
   ]
 }
@@ -266,7 +384,7 @@ All fields within a single rule are **AND-combined** — all specified criteria 
 | Field | Match Semantics | Example |
 |-------|-----------------|---------|
 | `type` | Exact, case-insensitive match against the lint item's `LintingType` name | `"BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING"` |
-| `severity` | Exact, case-insensitive match against `LinterSeverity` name | `"WARNING"` |
+| `severity` | Exact, case-insensitive match against `LinterSeverity` name | `"WARN"`, `"ERROR"`, `"INFO"` |
 | `file` | Case-insensitive **substring** match against the item's file name | `"update-allow-list.bpmn"` |
 | `messageContains` | Case-insensitive **substring** match against the item's message | `"optional field"` |
 
@@ -280,11 +398,11 @@ Each rule must have **at least one** non-blank field. An empty rule is rejected.
   "rules": [
     { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
 
-    { "severity": "WARNING", "file": "legacy-process.bpmn" },
+    { "severity": "WARN", "file": "legacy-process.bpmn" },
 
     { "messageContains": "optional field" },
 
-    { "type": "FHIR_ACTIVITY_DEFINITION_VERSION_MISSING", "file": "ActivityDefinition" }
+    { "type": "BPMN_END_EVENT_NOT_PART_OF_SUB_PROCESS", "file": "subprocess.bpmn" }
   ]
 }
 ```
@@ -292,10 +410,12 @@ Each rule must have **at least one** non-blank field. An empty rule is rejected.
 ### Using Exclusions in CI/CD
 
 ```bash
-# Pass an explicit exclusion file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path plugin.jar --html --exclusions ci-exclusions.json
+# Maven plugin with explicit exclusion file
+mvn verify -Ddsf.lint.exclusionsFile=ci-exclusions.json -Ddsf.lint.html=true
 
+# Standalone CLI with exclusions
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html --json \
+  --exclusions ci-exclusions.json
 ```
 
 ## Report Generation
@@ -306,18 +426,22 @@ Reports are generated in the following structure:
 
 ```
 <report-path>/
-├── index.html              # Summary report (all plugins)
-├── plugin-name.html        # Detailed report for each plugin
-└── plugin-name.json        # JSON report (if --json specified)
+├── report.html             # Master summary report (all plugins)
+├── report.json             # Master JSON report (if --json specified)
+└── <plugin-name>/
+    ├── lints.html          # Detailed HTML report for the plugin
+    └── lints.json          # Detailed JSON report (if --json specified)
 ```
 
 The default `<report-path>` resolves to `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`, for example:
 
 ```
 /tmp/dsf-linter-report-my-plugin/dsf-linter-report/
-├── index.html
-├── my-plugin.html
-└── my-plugin.json
+├── report.html
+├── report.json
+└── my-plugin/
+    ├── lints.html
+    └── lints.json
 ```
 
 Use `--report-path` to override this location.
@@ -326,9 +450,9 @@ Use `--report-path` to override this location.
 
 The HTML report provides a comprehensive, human-readable view of all linting results.
 
-#### Summary Page (`index.html`)
+#### Master Report (`report.html`)
 
-The summary page includes:
+The master report includes:
 
 - **Header**:
     - DSF Linter version
@@ -337,22 +461,25 @@ The summary page includes:
 
 - **Overall Statistics**:
     - Total number of plugins
-    - Total errors
-    - Total warnings
-    - Execution time
+    - Total errors, warnings, info, and success counts
+    - Resource discovery summary
 
 - **Plugin Summary Table**:
     - Plugin name
     - API version
-    - Error count
-    - Warning count
-    - Link to detailed report
+    - Error and warning counts
+    - Link to per-plugin report (`<plugin-name>/lints.html`)
 
 - **Leftover Resource Summary**:
     - Unreferenced BPMN files
     - Unreferenced FHIR resources
 
-#### Plugin Report (`plugin-name.html`)
+- **Source navigation** (v0.1.3+):
+    - Embedded BPMN and FHIR source files
+    - Source viewer modal with highlighting of the affected location
+    - Jump from a finding to the corresponding source context
+
+#### Plugin Report (`<plugin-name>/lints.html`)
 
 Each plugin has a detailed report page containing:
 
@@ -380,82 +507,99 @@ Each plugin has a detailed report page containing:
     - Unreferenced FHIR resources
 
 - **Severity Indicators**:
-    - Color-coded severity levels (ERROR, WARNING, INFO, SUCCESS)
+    - Color-coded severity levels (ERROR, WARN, INFO, SUCCESS)
     - Expandable/collapsible sections
+    - Back link to master report (`report.html`)
 
 ### JSON Report
 
 The JSON report provides machine-readable output for CI/CD integration and automated processing.
 
-#### Structure
+#### Master Report Structure (`report.json`)
 
 ```json
 {
-  "version": "0.1.1",
-  "timestamp": "2025-06-15T10:30:00Z",
-  "projectPath": "/path/to/plugin.jar",
-  "executionTimeMs": 2300,
-  "success": true,
+  "projectName": "my-plugin.jar",
+  "projectPath": "/path/to/my-plugin.jar",
+  "timestamp": "2026-06-15T10:30:00Z",
   "summary": {
     "totalPlugins": 1,
     "totalErrors": 0,
     "totalWarnings": 1,
-    "totalLeftoverBpmn": 0,
-    "totalLeftoverFhir": 0
+    "totalInfos": 0,
+    "totalSuccesses": 42
   },
-  "plugins": {
-    "plugin-name": {
-      "name": "plugin-name",
-      "class": "dev.dsf.bpe.plugin.ExamplePlugin",
-      "apiVersion": "V1",
-      "errors": 0,
-      "warnings": 1,
-      "bpmnFiles": [
-        {
-          "path": "bpe/process.bpmn",
-          "errors": 0,
-          "warnings": 1,
-          "items": [...]
-        }
-      ],
-      "fhirResources": {
-        "ActivityDefinition": [...],
-        "Task": [...],
-        "StructureDefinition": [...]
-      },
-      "pluginConfig": {
-        "serviceLoaderRegistered": true,
-        "items": [...]
-      }
-    }
+  "discovery": {
+    "bpmnFilesFound": 2,
+    "fhirFilesFound": 15,
+    "missingBpmn": 0,
+    "missingFhir": 0
   },
   "leftoverAnalysis": {
-    "unreferencedBpmn": [],
-    "unreferencedFhir": []
+    "totalLeftovers": 0,
+    "leftoverBpmn": [],
+    "leftoverFhir": []
+  },
+  "plugins": [
+    {
+      "pluginName": "my-plugin",
+      "pluginClass": "dev.dsf.bpe.plugin.ExamplePlugin",
+      "apiVersion": "V1",
+      "errorCount": 0,
+      "warningCount": 1,
+      "reportPath": "./my-plugin/lints.json"
+    }
+  ]
+}
+```
+
+#### Plugin Report Structure (`<plugin-name>/lints.json`)
+
+```json
+{
+  "pluginName": "my-plugin",
+  "pluginClass": "dev.dsf.bpe.plugin.ExamplePlugin",
+  "apiVersion": "V1",
+  "timestamp": "2026-06-15T10:30:00Z",
+  "summary": {
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "successCount": 42,
+    "totalItems": 43
+  },
+  "items": {
+    "ERROR": [],
+    "WARN": [ { "...": "..." } ],
+    "INFO": [],
+    "SUCCESS": [ { "...": "..." } ]
   }
 }
 ```
 
 #### Lint Item Structure
 
-Each lint item in the JSON report has the following structure:
+Each lint item in the JSON report has the following structure (fields vary by item type):
 
 ```json
 {
-  "severity": "ERROR",
-  "type": "BpmnServiceTaskNameEmptyLintItem",
-  "message": "Service task must have a non-empty name",
-  "file": "bpe/process.bpmn",
-  "element": "ServiceTask_1",
-  "line": 42,
-  "column": 10
+  "severity": "WARN",
+  "type": "BpmnElementLintItem",
+  "elementId": "ServiceTask_1",
+  "processId": "testorg_myprocess",
+  "description": "Service task name is empty.",
+  "bpmnFile": "bpe/process.bpmn",
+  "issueType": "BPMN_SERVICE_TASK_NAME_EMPTY",
+  "fullMessage": "..."
 }
 ```
+
+`BPMN_FLOW_ELEMENT` items additionally include `flowElementType` (the sequence-flow subtype, e.g. `SEQUENCE_FLOW_HAS_NO_SOURCE_NODE`).
 
 ### Example Console Output
 
 ```
-DSF Linter v0.1.1
+DSF Linter v0.1.3
 =================================================================
 Project: /path/to/plugin.jar
 Report:  /tmp/dsf-linter-report-plugin/dsf-linter-report
@@ -479,7 +623,7 @@ Phase 3: Linting
 Phase 4: Report Generation
 ✓ HTML report generated
 
-Summary
+Phase 5: Summary
 =================================================================
 ✓ SUCCESS - No errors found
   Plugins: 1
@@ -495,11 +639,16 @@ Summary
 
 ```
 dsf-linter/
-├── linter-core/                              # Core linting logic
+├── linter-core/                              # Core linting logic (Maven artifact: linter-core)
 │   ├── src/main/java/dev/dsf/linter/
 │   │   ├── DsfLinter.java                    # Main orchestrator
 │   │   ├── analysis/                         # Resource analysis
 │   │   │   └── LeftoverResourceDetector.java
+│   │   ├── exclusion/                        # Exclusion config & filter
+│   │   │   ├── ExclusionConfig.java
+│   │   │   ├── ExclusionConfigLoader.java
+│   │   │   ├── ExclusionFilter.java
+│   │   │   └── ExclusionRule.java
 │   │   ├── bpmn/                             # BPMN parsing & validation
 │   │   │   ├── BpmnLinter.java
 │   │   │   ├── BpmnModelLinter.java
@@ -520,11 +669,6 @@ dsf-linter/
 │   │   │   ├── ApiVersionUnknownException.java
 │   │   │   ├── MissingServiceRegistrationException.java
 │   │   │   └── ResourceLinterException.java
-│   │   ├── exclusion/                        # Exclusion rule engine
-│   │   │   ├── ExclusionConfig.java
-│   │   │   ├── ExclusionConfigLoader.java
-│   │   │   ├── ExclusionFilter.java
-│   │   │   └── ExclusionRule.java
 │   │   ├── fhir/                             # FHIR parsing & validation
 │   │   │   ├── FhirResourceLinter.java
 │   │   │   ├── FhirFileLinter.java
@@ -663,8 +807,8 @@ dsf-linter/
 | `InputResolver` | Resolves and downloads remote JAR files |
 | `BpmnModelLinter` | Validates BPMN model structure and elements |
 | `FhirResourceLinter` | Validates FHIR resources using pluggable linters |
-| `ExclusionConfigLoader` | Loads `dsf-linter-exclusions.json` (auto-discovery or explicit path) |
-| `ExclusionFilter` | Applies exclusion rules to suppress matching lint items |
+| `ExclusionConfigLoader` / `ExclusionFilter` | Loads `dsf-linter-exclusions.json` and filters matched findings (CLI + Maven) |
+| `SpringConfigurationLinter` | Validates Spring `@Bean` / `ActivityPrototypeBeanCreator` registration and bean scope |
 
 ### Design Patterns
 
@@ -709,7 +853,7 @@ DsfLinter.Config config = new DsfLinter.Config(
     generateHtmlReport,
     generateJsonReport,
     failOnErrors,
-    exclusionConfig,   // null = no exclusions
+    exclusionConfig, // nullable — null means no exclusions
     logger
 );
 
@@ -717,19 +861,19 @@ DsfLinter linter = new DsfLinter(config);
 DsfLinter.OverallLinterResult result = linter.lint();
 ```
 
-A backward-compatible constructor without `exclusionConfig` is also available (sets exclusions to `null`).
+A backward-compatible constructor without `exclusionConfig` still exists (passes `null`).
 
 #### `DsfLinter.Config`
 
 Configuration record for the linter.
 
 **Fields**:
-- `Path projectPath`: Path to the project root
+- `Path projectPath`: Path to the project root (extracted JAR directory)
 - `Path reportPath`: Path for report generation
 - `boolean generateHtmlReport`: Whether to generate HTML report
 - `boolean generateJsonReport`: Whether to generate JSON report
 - `boolean failOnErrors`: Whether to fail on errors
-- `ExclusionConfig exclusionConfig`: Optional exclusion configuration; `null` disables exclusions
+- `ExclusionConfig exclusionConfig`: Optional exclusion rules (`null` = none)
 - `Logger logger`: Logger instance
 
 #### `DsfLinter.OverallLinterResult`
@@ -741,7 +885,7 @@ Result record containing all linting results.
 - `LeftoverResourceDetector.AnalysisResult leftoverAnalysis`: Leftover resource analysis
 - `Path masterReportPath`: Path to master report
 - `long executionTimeMs`: Execution time in milliseconds
-- `boolean success`: Whether linting succeeded
+- `boolean success`: Whether linting succeeded (`false` only when `failOnErrors` is set and errors remain after exclusions)
 
 **Methods**:
 - `int getPluginErrors()`: Total error count from plugins
@@ -757,9 +901,13 @@ Linting result for a single plugin.
 - `String pluginName`: Name of the plugin
 - `String pluginClass`: Fully qualified class name
 - `ApiVersion apiVersion`: DSF API version (V1 or V2)
-- `LintingOutput output`: Detailed linting output
+- `LintingOutput output`: Detailed linting output **after** exclusions have been applied
+- `int excludedErrorCount`: Number of ERROR items suppressed by exclusion rules
 - `Path reportPath`: Path to generated report
 
+### No plugin found
+
+If no `ProcessPluginDefinition` is discovered (empty/broken JAR, missing or invalid `META-INF/services` registration), the linter does **not** abort. It emits ERROR `PLUGIN_DEFINITION_NO_PLUGIN_FOUND`, still writes the regular HTML/JSON reports, and sets `success = !failOnErrors` (CLI: exit 1 by default, exit 0 with `--no-fail`).
 ### Linting Services
 
 #### `BpmnLintingService`
@@ -820,8 +968,10 @@ LintingResult lintPlugin(
     PluginAdapter pluginAdapter,
     ApiVersion apiVersion,
     List<AbstractLintItem> collectedPluginItems
-) throws MissingServiceRegistrationException
+)
 ```
+
+Missing or invalid ServiceLoader registrations are reported as ERROR lint items (e.g. `PLUGIN_DEFINITION_MISSING_SERVICE_LOADER_REGISTRATION`, `PLUGIN_DEFINITION_NO_PLUGIN_FOUND`) rather than aborting the run.
 
 ### Lint Items
 
@@ -837,7 +987,7 @@ All lint items extend `AbstractLintItem` and implement specific interfaces.
 #### Severity Levels
 
 - `ERROR`: Critical issue that **must be fixed**. Will cause the plugin to fail at deployment or runtime.
-- `WARNING`: Violation of DSF best practices, or something that **could be an error depending on context**.
+- `WARN`: Violation of DSF best practices, or something that **could be an error depending on context**.
 - `INFO`: Technically valid, but something looks unusual or incomplete. Worth a second look — no immediate action required.
 - `SUCCESS`: Validation passed. Shown to confirm what was checked and give confidence in the covered areas.
 
@@ -885,78 +1035,9 @@ Discovers plugins and resources.
 DiscoveryResult discover(ProjectContext context)
 ```
 
-### Exclusion API
+### Exclusion Configuration
 
-#### `ExclusionConfigLoader`
+Exclusion rules are configured via `dsf-linter-exclusions.json` (or an explicit path). See [Exclusion Rules](#exclusion-rules) for the file format.
 
-Loads an `ExclusionConfig` from a JSON file.
-
-**Constructor**:
-```java
-ExclusionConfigLoader()
-```
-
-**Methods**:
-```java
-// Auto-discover dsf-linter-exclusions.json in the project root
-Optional<ExclusionConfig> loadFromProjectRoot(Path projectRoot) throws IOException
-
-// Load from an explicit file path
-ExclusionConfig load(Path configFile) throws IOException
-```
-
-**Constant**:
-```java
-String DEFAULT_FILENAME = "dsf-linter-exclusions.json"
-```
-
-#### `ExclusionFilter`
-
-Applies exclusion rules against lint items.
-
-**Constructor**:
-```java
-ExclusionFilter(ExclusionConfig config)
-```
-
-**Methods**:
-```java
-// Returns true if the item is suppressed by at least one rule
-boolean isExcluded(AbstractLintItem item)
-
-// Returns only items that are NOT excluded
-List<AbstractLintItem> filter(List<AbstractLintItem> items)
-
-// Returns only items that ARE excluded
-List<AbstractLintItem> getExcluded(List<AbstractLintItem> items)
-```
-
-#### `ExclusionConfig`
-
-Top-level configuration loaded from `dsf-linter-exclusions.json`.
-
-**Fields**:
-- `List<ExclusionRule> rules`: Ordered list of exclusion rules
-- `boolean affectsExitStatus`: When `true`, suppressed items still count toward exit status
-
-**Key Methods**:
-```java
-boolean hasRules()            // true if at least one valid rule exists
-boolean isAffectsExitStatus() // getter for affectsExitStatus
-List<ExclusionRule> getRules() // unmodifiable view of rules
-```
-
-#### `ExclusionRule`
-
-A single exclusion rule with AND-combined criteria.
-
-**Fields**:
-- `String type`: Exact match against `LintingType.name()` (case-insensitive)
-- `String severity`: Exact match against `LinterSeverity.name()` (case-insensitive)
-- `String file`: Substring match against the item's file name (case-insensitive)
-- `String messageContains`: Substring match against the item's message (case-insensitive)
-
-**Key Methods**:
-```java
-boolean isValid() // true if at least one field is non-blank
-```
+- Maven: `dsf.lint.exclusionsFile` / auto-discovery
+- CLI: `--exclusions` / auto-discovery

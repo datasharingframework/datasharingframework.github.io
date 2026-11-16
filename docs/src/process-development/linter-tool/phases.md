@@ -50,30 +50,37 @@ The linter executes in five phases:
    - For each discovered plugin:
      - Validates BPMN processes
      - Validates FHIR resources
-     - Validates plugin configuration
+     - Validates plugin configuration (ServiceLoader, Spring/`ActivityPrototypeBeanCreator`, scope)
      - Collects lint items
 
-2. **Project-Level Analysis**:
+2. **Exclusion Filtering** (optional):
+   - Applies rules from `dsf-linter-exclusions.json` / `--exclusions` / `dsf.lint.exclusionsFile`
+   - Removes matched items from report output
+   - Depending on `affectsExitStatus`, excluded ERRORs may still count toward failure
+
+3. **Project-Level Analysis**:
    - Performs leftover resource analysis
    - Aggregates referenced resources across all plugins
    - Identifies unreferenced resources
 
-3. **Result Aggregation**:
+4. **Result Aggregation**:
    - Combines results from all plugins
    - Calculates totals (errors, warnings)
-   - Determines overall success status
+   - Determines overall success status (`failOnErrors` / `--no-fail`)
+
+If no plugin definition is found, Phase 3 emits `PLUGIN_DEFINITION_NO_PLUGIN_FOUND` and continues to report generation instead of aborting.
 
 #### Phase 4: Report Generation
 
 1. **HTML Report Generation**:
-   - Generates summary page
-   - Generates detailed plugin pages
-   - Applies templates and styling
+   - Generates master report (`report.html`)
+   - Generates per-plugin reports (`<plugin-name>/lints.html`)
+   - Embeds source files with navigation and highlighting
 
 2. **JSON Report Generation** (if requested):
-   - Serializes all results to JSON
-   - Includes metadata and statistics
-   - Provides machine-readable format
+   - Writes master report (`report.json`) and per-plugin reports (`<plugin-name>/lints.json`)
+   - Serializes results grouped by severity
+   - Includes discovery and leftover analysis metadata
 
 #### Phase 5: Summary
 
