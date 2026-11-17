@@ -12,7 +12,7 @@ icon: code
 
 1. **Import Project**:
    - Import as Maven project
-   - Set JDK to 17 or higher
+   - Set JDK to **25**
    - Ensure Maven dependencies are resolved
 
 2. **Code Style** (optional):
@@ -75,12 +75,15 @@ vim linter-core/src/main/java/dev/dsf/linter/service/BpmnLintingService.java
 # 2. Build the project
 mvn clean package -DskipTests
 
-# 3. Test with a sample plugin
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path test-plugin.jar --html --verbose
+# 3. Test with a sample plugin (CLI)
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
+  --path test-plugin.jar --html --verbose --exclusions dsf-linter-exclusions.json
+
+# Or exercise the Maven glue in a process plugin project:
+# mvn -f path/to/process-plugin verify -Ddsf.lint.html=true -Ddsf.lint.verbose=true
 
 # 4. Check the generated report
-open /tmp/dsf-linter-report-test-plugin/dsf-linter-report/index.html
+open /tmp/dsf-linter-report-test-plugin/dsf-linter-report/report.html
 
 # 5. Run unit tests
 mvn test
@@ -97,7 +100,7 @@ git commit -m "Description of changes"
 ```bash
 # Start the linter with debugger enabled
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 \
-  -jar linter-cli/target/linter-cli-0.1.2.jar \
+  -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --verbose
 
 # Attach debugger from IDE to localhost:5005
