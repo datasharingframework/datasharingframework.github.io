@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- 
+
+    Copyright 2018-2025 Heilbronn University of Applied Sciences
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+ -->
+<Subscription xmlns="http://hl7.org/fhir">
+  <id value="dsf-bpmn-task-subscription"/>
+  <meta>
+    <profile value="http://dsf.dev/fhir/StructureDefinition/subscription"/>
+    <tag>
+      <system value="http://dsf.dev/fhir/CodeSystem/read-access-tag"/>
+      <code value="LOCAL"/>
+    </tag>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Subscription dsf-bpmn-task-subscription</b></p><a name="dsf-bpmn-task-subscription"> </a><a name="hcdsf-bpmn-task-subscription"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profile: <a href="StructureDefinition-subscription.html">Subscription</a></p><p style="margin-bottom: 0px">Tag: Local (Details: DSF Read Access Tag code LOCAL = 'Local')</p></div><p><b>status</b>: Active</p><p><b>reason</b>: Businness Process Engine</p><p><b>criteria</b>: Task?status=requested</p><h3>Channels</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Type</b></td><td><b>Payload</b></td></tr><tr><td style="display: none">*</td><td>Websocket</td><td>application/fhir+json</td></tr></table></div>
+  </text>
+  <status value="active"/>
+  <reason value="Businness Process Engine"/>
+  <criteria value="Task?status=requested"/>
+  <channel>
+    <type value="websocket"/>
+    <payload value="application/fhir+json"/>
+  </channel>
+</Subscription>

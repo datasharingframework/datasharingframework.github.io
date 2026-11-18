@@ -1,0 +1,98 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://dsf.dev/fhir/CodeSystem/organization-role> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "organization-role"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "http://dsf.dev/fhir/StructureDefinition/code-system"^^xsd:anyURI ;
+       fhir:l <http://dsf.dev/fhir/StructureDefinition/code-system>
+     ] ) ;
+     fhir:tag ( [
+       fhir:system [
+         fhir:v "http://dsf.dev/fhir/CodeSystem/read-access-tag"^^xsd:anyURI ;
+         fhir:l <http://dsf.dev/fhir/CodeSystem/read-access-tag>
+       ] ;
+       fhir:code [ fhir:v "ALL" ]
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: CodeSystem organization-role</b></p><a name=\"organization-role\"> </a><a name=\"hcorganization-role\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-code-system.html\">CodeSystem</a></p><p style=\"margin-bottom: 0px\">Tag: All (Details: DSF Read Access Tag code ALL = 'All')</p></div><p>This case-sensitive code system <code>http://dsf.dev/fhir/CodeSystem/organization-role</code> defines the following codes in a Grouped By hierarchy:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Code</b></td><td><b>Display</b></td></tr><tr><td style=\"white-space:nowrap\">UAC<a name=\"organization-role-UAC\"> </a></td><td>Use-and-Access Committee</td></tr><tr><td style=\"white-space:nowrap\">COS<a name=\"organization-role-COS\"> </a></td><td>Coordinating Site</td></tr><tr><td style=\"white-space:nowrap\">CRR<a name=\"organization-role-CRR\"> </a></td><td>Central Research Repository</td></tr><tr><td style=\"white-space:nowrap\">DIC<a name=\"organization-role-DIC\"> </a></td><td>Data Integration Center</td></tr><tr><td style=\"white-space:nowrap\">DMS<a name=\"organization-role-DMS\"> </a></td><td>Data Management Site</td></tr><tr><td style=\"white-space:nowrap\">DTS<a name=\"organization-role-DTS\"> </a></td><td>Data Transfer Site</td></tr><tr><td style=\"white-space:nowrap\">HRP<a name=\"organization-role-HRP\"> </a></td><td>Health Research Platform</td></tr><tr><td style=\"white-space:nowrap\">TTP<a name=\"organization-role-TTP\"> </a></td><td>Trusted Third Party</td></tr><tr><td style=\"white-space:nowrap\">AMS<a name=\"organization-role-AMS\"> </a></td><td>Allowlist Management Site</td></tr><tr><td style=\"white-space:nowrap\">ASP<a name=\"organization-role-ASP\"> </a></td><td>Analysis Service Provider</td></tr><tr><td style=\"white-space:nowrap\">SPR<a name=\"organization-role-SPR\"> </a></td><td>Service Provider Registry</td></tr><tr><td style=\"white-space:nowrap\">TSP<a name=\"organization-role-TSP\"> </a></td><td>Terminology Service Provider</td></tr><tr><td style=\"white-space:nowrap\">PPH<a name=\"organization-role-PPH\"> </a></td><td>Process Plugin Hub</td></tr><tr><td style=\"white-space:nowrap\">BIO<a name=\"organization-role-BIO\"> </a></td><td>Biobank</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [
+     fhir:v "http://dsf.dev/fhir/CodeSystem/organization-role"^^xsd:anyURI ;
+     fhir:l <http://dsf.dev/fhir/CodeSystem/organization-role>
+  ] ; # 
+  fhir:version [ fhir:v "2.0.0"] ; # 
+  fhir:name [ fhir:v "DSF_Organization_Role"] ; # 
+  fhir:title [ fhir:v "DSF Organization Role"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:experimental [ fhir:v false] ; # 
+  fhir:date [ fhir:v "2025-11-26"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "DSF Community"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "DSF Community" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://dsf.dev" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "CodeSystem with DSF organization roles used in OrganizationAffiliation resources"] ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:hierarchyMeaning [ fhir:v "grouped-by"] ; # 
+  fhir:versionNeeded [ fhir:v false] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "14"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "UAC" ] ;
+     fhir:display [ fhir:v "Use-and-Access Committee" ]
+  ] [
+     fhir:code [ fhir:v "COS" ] ;
+     fhir:display [ fhir:v "Coordinating Site" ]
+  ] [
+     fhir:code [ fhir:v "CRR" ] ;
+     fhir:display [ fhir:v "Central Research Repository" ]
+  ] [
+     fhir:code [ fhir:v "DIC" ] ;
+     fhir:display [ fhir:v "Data Integration Center" ]
+  ] [
+     fhir:code [ fhir:v "DMS" ] ;
+     fhir:display [ fhir:v "Data Management Site" ]
+  ] [
+     fhir:code [ fhir:v "DTS" ] ;
+     fhir:display [ fhir:v "Data Transfer Site" ]
+  ] [
+     fhir:code [ fhir:v "HRP" ] ;
+     fhir:display [ fhir:v "Health Research Platform" ]
+  ] [
+     fhir:code [ fhir:v "TTP" ] ;
+     fhir:display [ fhir:v "Trusted Third Party" ]
+  ] [
+     fhir:code [ fhir:v "AMS" ] ;
+     fhir:display [ fhir:v "Allowlist Management Site" ]
+  ] [
+     fhir:code [ fhir:v "ASP" ] ;
+     fhir:display [ fhir:v "Analysis Service Provider" ]
+  ] [
+     fhir:code [ fhir:v "SPR" ] ;
+     fhir:display [ fhir:v "Service Provider Registry" ]
+  ] [
+     fhir:code [ fhir:v "TSP" ] ;
+     fhir:display [ fhir:v "Terminology Service Provider" ]
+  ] [
+     fhir:code [ fhir:v "PPH" ] ;
+     fhir:display [ fhir:v "Process Plugin Hub" ]
+  ] [
+     fhir:code [ fhir:v "BIO" ] ;
+     fhir:display [ fhir:v "Biobank" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
