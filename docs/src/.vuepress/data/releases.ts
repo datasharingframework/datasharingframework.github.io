@@ -34,6 +34,16 @@ export const releases: Record<string, Release> = {
       bpe_proxy:  { digest: 'sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285' },
     },
   },
+  '2.1.2': {
+    tag: '2.1.2',
+    previousTag: '2.1.1',
+    images: {
+      fhir:       { digest: 'sha256:TODO' },
+      fhir_proxy: { digest: 'sha256:TODO' },
+      bpe:        { digest: 'sha256:TODO' },
+      bpe_proxy:  { digest: 'sha256:TODO' },
+    },
+  },
 };
 
 // --- Version registry (single source of truth) ---
@@ -47,6 +57,7 @@ export interface VersionEntry {
 }
 
 export const allVersions: VersionEntry[] = [
+  { tag: '2.1.2', sidebar: 'v2_latest' },
   { tag: '2.1.1', sidebar: 'v2_latest' },
   { tag: '2.1.0', sidebar: 'v2_1_0' },
   { tag: '2.0.2', sidebar: 'v2_0_0' },
@@ -69,7 +80,7 @@ export const allVersions: VersionEntry[] = [
   { tag: '1.0.0', sidebar: 'v1_gte_1_0' },
 ];
 
-export const latestVersion = '2.1.1';
+export const latestVersion = '2.1.2';
 
 export function getReleaseFromPath(path: string): Release | undefined {
   const versionMatch = path.match(/(?:^|\/)operations\/v(\d+\.\d+\.\d+)\//);
