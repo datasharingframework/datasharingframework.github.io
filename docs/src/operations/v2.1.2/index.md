@@ -1,5 +1,5 @@
 ---
-title: DSF 2.1.1
+title: DSF 2.1.2
 icon: guide
 ---
 
@@ -8,12 +8,12 @@ Data Sharing Framework 2.x is the new upcoming release of the Data Sharing Frame
 
 # System Administrators
 
-- [Install DSF 2.1.1](install)
-- [Upgrade from DSF 1.9.0](upgrade-from-1)
+- [Install DSF 2.1.2](install)
+- [Upgrade from DSF 2.1.1](upgrade-from-2)
 
 
 ## New features
-- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.1)
+- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.2)
 
 <!--
 This breaks the page with a 
