@@ -39,22 +39,22 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 
 ## [News](/news/)
+
+**Operaton powers DSF across Germany!**
+During the DSF 2.1.x rollout, Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This article highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure.
+**[Read more](posts/2026-11-16-operaton-powers-dsf.md)**
+
+---
+**43 Sites, One Shared Foundation: DSF 2.1.0 Successfully Rolled Out**
+In the second quarter of 2026, the coordinated rollout of [DSF 2.1.0](/operations/v2.1.0/release-notes.html) was successfully completed. All 43 participating sites — 38 German university hospitals and five additional research sites within the Medical Informatics Initiative (MII) — are now running DSF 2.x in production. This marks a major milestone for the DSF community: for the first time, all participating production sites share a common DSF 2.x technical foundation.
+**[Read more](posts/2026-11-16-dsfv2.1.0.md)**
+
+---
 ![ =350x](/photos/news/springschool2026.png#right)
 **DSF Spring School 2026 Recap**
 The third edition of the DSF Community Spring School 2026 took place from February 24–26 at Heilbronn University, offering an immersive, hands-on experience with the DSF Community. Discover highlights, talks, and project outcomes from this year’s Spring School!
 **[Read more](posts/2026-03-18-spring-school-2026-recap.md)**
 <br>
-
----
-**DSF Community Hackathon 2026 Recap**
-On **January 20**, 2026 we hosted the **DSF Community Hackathon**, bringing together **over 60 participants** to support locations migrating to the new **DSF 2.0.1 release**. Through presentations, hands-on online support, and direct assistance with updating their DSF instances and process plugins. The event proved to be an overall success, with 35 instances running DSF 2.0.1 now.
-[Read more](posts/2026-01-21-hackathon.md)
-
----
-
-**🚀 DSF 2 Released!**
-We are thrilled to announce that Version 2 of the Data Sharing Framework is finally available and ready for deployment! Additionally, new versions of several process plugins are released to be compatible with DSF 2. For more Details see the [v2.0.0](https://github.com/datasharingframework/dsf/releases/tag/v2.0.0) and [v2.0.1](https://github.com/datasharingframework/dsf/releases/tag/v2.0.1) release notes. 
-[Read more](posts/2025-11-28-dsfv2-release)
 
 ---
 
