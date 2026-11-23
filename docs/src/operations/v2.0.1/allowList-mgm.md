@@ -5,7 +5,7 @@ icon: share
 You can read all about the concept of Allow Lists [in our introduction](/explore/concepts/allow-list.md).
 
 ## Overview
-To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the GECKO Institute at Heilbronn University. You as an DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 
+To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the GECKO Institute at Heilbronn University. You as a DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 
 
 The DSF Allow List management tool uses client certificates for authentication. You can either use a personal client certificate or the client certificate from your DSF BPE, which needs to be added to your web-browsers certificate store.
 
