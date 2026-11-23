@@ -432,8 +432,8 @@ Here is a quick overview of the expected network setup.
     Download and unpack the prepared DSF FHIR server config files and folder structure:
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_fhir_2_1_1.tar.gz
-    sudo tar --same-owner -zxvf dsf_fhir_2_1_1.tar.gz
+    wget https://dsf.dev/download/dsf_fhir_2_1_3.tar.gz
+    sudo tar --same-owner -zxvf dsf_fhir_2_1_3.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/fhir` assuming you changed into the `/opt` directory._
 
@@ -507,8 +507,8 @@ Here is a quick overview of the expected network setup.
     Download and extract prepared DSF BPE server config files and folder structure:  
     ```
     cd /opt
-    wget https://dsf.dev/download/dsf_bpe_2_1_1.tar.gz
-    sudo tar --same-owner -zxvf dsf_bpe_2_1_1.tar.gz
+    wget https://dsf.dev/download/dsf_bpe_2_1_3.tar.gz
+    sudo tar --same-owner -zxvf dsf_bpe_2_1_3.tar.gz
     ```
     _The `tar` command will unpack the config files at `/opt/bpe` assuming you changed into the `/opt` directory._
 
@@ -579,47 +579,38 @@ Have you found an error or is something unclear to you? Then please feel free to
 ## Release Notes
 Source: https://dsf.dev/operations/latest/release-notes.html
 
-## [Release Notes for v2.1.1](https://github.com/datasharingframework/dsf/releases/tag/v2.1.1)
+## [Release Notes for v2.1.3](https://github.com/datasharingframework/dsf/releases/tag/v2.1.3)
 
 ::: tip Release Notes
 You can access all release notes on our [GitHub](https://github.com/datasharingframework/dsf/releases).
 :::
 
-### 2.1.1 - Security and Maintenance Release
+### 2.1.3 - Maintenance Release
 General remarks:
 
 - This is a maintenance update for DSF 2.x with security improvements.
-- To Update from an existing 2.x installation, please see the [2.x -> 2.1.1 Upgrade Guide](/operations/v2.1.1/upgrade-from-2.html).
-- For a fresh deployment, follow the [installation instructions](/operations/v2.1.1/install.html).
-
-Security Advisories:
-
-- Unbounded Memory Usage During Large File Decryption: [GHSA-xfv4-vhh2-m2j8](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xfv4-vhh2-m2j8)
-- Authorization Bypass Allows Authenticated Users to Access StructureDefinition Snapshots: [GHSA-xw2h-2xx5-j86q](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xw2h-2xx5-j86q)
-- Authorization Check Partially Rendered Ineffective for Conditional Updates: [GHSA-448w-h27c-w53m](https://github.com/datasharingframework/dsf/security/advisories/GHSA-448w-h27c-w53m)
+- To Update from an existing 2.x installation, please see the [2.x -> 2.1.3 Upgrade Guide](/operations/v2.1.3/upgrade-from-2.html).
+- For a fresh deployment, follow the [installation instructions](/operations/v2.1.3/install.html).
 
 Bug Fixes:
-- Error handling code in the BPE process plugin API v2 `MessageSendTaskDelegate` class was fixed, to allow for correct handling of Error Boundary Events on Send Tasks. [#509](https://github.com/datasharingframework/dsf/issues/509)
-- An encoding error in the BPE client connections OIDC provider client was corrected, the fixed implementation now follows [Section 2.3.1 of RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1) correctly and allows`client-id` values to include colon characters. [#529](https://github.com/datasharingframework/dsf/issues/529)
-- An incorrectly thrown `NullPointerException ` was fixed in the BPE process plugin API v2 `Variables#setJsonVariable` method, when called with a `null` value. [#535](https://github.com/datasharingframework/dsf/issues/535)
-- Input fields of the FHIR server UI for draft Task resources are now correctly repopulated with already entered values, in case session expiration is only detected during upload of the Task to the FHIR server. [#547](https://github.com/datasharingframework/dsf/issues/547)
+- A jetty dependency upgrade in the 2.1.2 release was missing corresponding code changes in the `dsf-common-jetty` module (fc22889), resulting in failed OIDC logins (HTTP status 500). [#615](https://github.com/datasharingframework/dsf/issues/615)
 
 Docker images for this release can be accessed via the GitHub Docker registry - ghcr.io:
-* **bpe**: [ghcr.io/datasharingframework/bpe:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/bpe/1096774441?tag=2.1.1)  
-  Digest: `sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513`
-* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy/1096766410?tag=2.1.1)  
-    Digest: `sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285`
-* **fhir**: [ghcr.io/datasharingframework/fhir:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/fhir/1096772162?tag=2.1.1)  
-  Digest: `sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3`
-* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.1.1](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy/1096765684?tag=2.1.1)  
-  Digest: `sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36`
+* **bpe**: [ghcr.io/datasharingframework/bpe:2.1.3](https://github.com/orgs/datasharingframework/packages/container/bpe/1619172005?tag=2.1.3)  
+  Digest: `sha256:faea3800b035b0565f139b2c85fff3bb98fdba961dc4ad1759269e26fe63e703`
+* **bpe_proxy**: [ghcr.io/datasharingframework/bpe_proxy:2.1.3](https://github.com/orgs/datasharingframework/packages/container/bpe_proxy/1619168829?tag=2.1.3)  
+    Digest: `sha256:aaf8d6caad0a60f13885ed08d8f43431a552aeb7049eb8f1a93ff0c535719d2b`
+* **fhir**: [ghcr.io/datasharingframework/fhir:2.1.3](https://github.com/orgs/datasharingframework/packages/container/fhir/1619171288?tag=2.1.3)  
+  Digest: `sha256:8c411d26561544787e5cbe68a159b6cdf0f046d01e2b12960317164e4da357b8`
+* **fhir_proxy**: [ghcr.io/datasharingframework/fhir_proxy:2.1.3](https://github.com/orgs/datasharingframework/packages/container/fhir_proxy/1619166219?tag=2.1.3)  
+  Digest: `sha256:266d4dd4f080d2069fd57ff6691fc0819bd9c1c9ede472fcd5b4fc0c8d324e70`
 
 Process Plugin API v1 on Maven Central:
 ```xml
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v1</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.3</version>
 </dependency>
 ```
 Process Plugin API v2 on Maven Central:
@@ -627,7 +618,7 @@ Process Plugin API v2 on Maven Central:
 <dependency>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-bpe-process-api-v2</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.3</version>
 </dependency>
 ```
 DSF Maven Plugin on Maven Central:
@@ -635,18 +626,14 @@ DSF Maven Plugin on Maven Central:
 <plugin>
     <groupId>dev.dsf</groupId>
     <artifactId>dsf-maven-plugin</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.3</version>
 </plugin>
 ```
 
 Issues closed:
-- Backport Bugfixes to 2.1.1 [#560](https://github.com/datasharingframework/dsf/issues/560)
-- Task Input Autofill After Session Timeout Not Working [#547](https://github.com/datasharingframework/dsf/issues/547)
-- NullPointerException when using setJsonVariable with null value [#535](https://github.com/datasharingframework/dsf/issues/535)
-- OIDC identity provider receives wrong client-id for client-id containing colon [#529](https://github.com/datasharingframework/dsf/issues/529)
-- MessageSendTaskDelegate does not throw BPMN Error if ExceptionToErrorBoundaryEventTranslationErrorHandler is used [#509](https://github.com/datasharingframework/dsf/issues/509)
+- OIDC Login Fails [#615](https://github.com/datasharingframework/dsf/issues/615)
 
-This release contains contributions from [@EmteZogaf](https://github.com/EmteZogaf), [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri), [@schwzr](https://github.com/schwzr) and [@wetret](https://github.com/wetret).
+This release contains contributions from [@hhund](https://github.com/hhund), [@jaboehri](https://github.com/jaboehri) and [@schwzr](https://github.com/schwzr).
 
 ---
 
@@ -2448,7 +2435,7 @@ Source: https://dsf.dev/operations/latest/allowList-mgm.html
 You can read all about the concept of Allow Lists [in our introduction](/explore/concepts/allow-list.md).
 
 ## Overview
-To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the GECKO Institute at Heilbronn University. You as an DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 
+To simplify the DSF Allow List Management we have built a portal for administration. The portal is managed by the GECKO Institute at Heilbronn University. You as a DSF administrator can create or update your Allow List information. The information you provide on this portal will be transferred to us and will be used to built Allow List bundles that get distributed to the communication partners of the distributed processes. 
 
 The DSF Allow List management tool uses client certificates for authentication. You can either use a personal client certificate or the client certificate from your DSF BPE, which needs to be added to your web-browsers certificate store.
 
@@ -2785,7 +2772,7 @@ Source: https://dsf.dev/operations/latest/image-verification.html
 
 # How to Verify Image Signatures
 
-Starting with DSF 2.1.1, all official Docker images published to [ghcr.io/datasharingframework](https://github.com/orgs/datasharingframework/packages) are signed using [Cosign](https://docs.sigstore.dev/cosign/overview/) with [keyless signing](https://docs.sigstore.dev/cosign/signing/overview/) backed by GitHub's OIDC identity provider. Each image additionally has a CycloneDX SBOM attached to the registry, which is signed the same way.
+Starting with DSF 2.1.3, all official Docker images published to [ghcr.io/datasharingframework](https://github.com/orgs/datasharingframework/packages) are signed using [Cosign](https://docs.sigstore.dev/cosign/overview/) with [keyless signing](https://docs.sigstore.dev/cosign/signing/overview/) backed by GitHub's OIDC identity provider. Each image additionally has a CycloneDX SBOM attached to the registry, which is signed the same way.
 
 Verifying signatures before pulling images into production is strongly recommended. It ensures that the image was built and published by the official DSF GitHub Actions release workflow and has not been tampered with.
 
@@ -2800,7 +2787,7 @@ Verifying signatures before pulling images into production is strongly recommend
   ```
 
 ::: warning Always pin the digest
-Verifying by tag alone (`:2.1.1`) is not sufficient — tags can be reassigned. Always include the immutable `@sha256:<digest>` in the verification command and in your production `docker-compose.yml`.
+Verifying by tag alone (`:2.1.3`) is not sufficient — tags can be reassigned. Always include the immutable `@sha256:<digest>` in the verification command and in your production `docker-compose.yml`.
 :::
 
 ## Verify the Image Signature
@@ -2815,7 +2802,7 @@ The commands below are pre-filled with the correct image tag for this release. R
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir:2.1.1@sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3 \
+  ghcr.io/datasharingframework/fhir:2.1.3@sha256:8c411d26561544787e5cbe68a159b6cdf0f046d01e2b12960317164e4da357b8 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2826,7 +2813,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir_proxy:2.1.1@sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36 \
+  ghcr.io/datasharingframework/fhir_proxy:2.1.3@sha256:266d4dd4f080d2069fd57ff6691fc0819bd9c1c9ede472fcd5b4fc0c8d324e70 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2837,7 +2824,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe:2.1.1@sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513 \
+  ghcr.io/datasharingframework/bpe:2.1.3@sha256:faea3800b035b0565f139b2c85fff3bb98fdba961dc4ad1759269e26fe63e703 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2848,7 +2835,7 @@ cosign verify \
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe_proxy:2.1.1@sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285 \
+  ghcr.io/datasharingframework/bpe_proxy:2.1.3@sha256:aaf8d6caad0a60f13885ed08d8f43431a552aeb7049eb8f1a93ff0c535719d2b \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2860,7 +2847,7 @@ Each image has a signed CycloneDX SBOM attached. Substitute `<image>` with one o
 ```bash
 cosign verify-attestation \
   --type cyclonedx \
-  ghcr.io/datasharingframework/<image>:2.1.1@sha256:<digest> \
+  ghcr.io/datasharingframework/<image>:2.1.3@sha256:<digest> \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -2870,7 +2857,7 @@ To extract the SBOM payload for further processing (e.g. dependency or vulnerabi
 ```bash
 cosign download attestation \
   --predicate-type https://cyclonedx.org/bom \
-  ghcr.io/datasharingframework/<image>:2.1.1@sha256:<digest> \
+  ghcr.io/datasharingframework/<image>:2.1.3@sha256:<digest> \
   | jq -r .payload | base64 -d | jq .predicate > sbom.cdx.json
 ```
 
@@ -2888,92 +2875,10 @@ cosign download attestation \
 
 ---
 
-## Security Advisories
-Source: https://dsf.dev/operations/latest/security-advisories.html
-
-# Security Advisories
-
-The following security advisories have been published as part of the 2.1.1 release.
-
-## Unbounded Memory Usage During Large File Decryption
-CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xfv4-vhh2-m2j8)
-CVSS Score: Moderate, 6.0 / 10
-CVSS: 4.0/AV:N/AC:L/AT:P/PR:L/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N
-
-### Affected Components
-- DSF BPE Server
-
-### Summary
-API v2 process plugins using the included encryption/decryption service can create large files for transfer between DSF instances. An attacker can trigger unbounded memory usage by supplying a sufficiently large encrypted file for decryption, potentially causing the JVM of the DSF BPE to exhaust the available heap memory and resulting in a denial of service.
-
-### Impact
-The API v2 process plugin encryption/decryption service uses a hybrid cryptosystem with AES-GCM as the symmetric encryption algorithm. Plaintext is encrypted as a single chunk, resulting in unbounded memory consumption during GCM tag verification while decrypting. The unbound memory consumption within the DSF BPE can exhaust the available heap memory, causing the process engine to stop. To our knowledge, no API v2 process plugins using this feature are currently in public circulation.
-
-### Fix (commit [a696810​](https://github.com/datasharingframework/dsf/commit/a696810))
-A limit of 250 MiB for the max allowed plain-text length in the dev.dsf.bpe.v2.service.CryptoService.Kem encrypt and decrypt methods was added.
-
-
-## Authorization Bypass Allows Authenticated Users to Access StructureDefinition Snapshots
-CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-xw2h-2xx5-j86q)
-CVSS Score: Moderate, 5.3 / 10
-CVSS: 4.0/AV:N/AC:L/AT:N/PR:L/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N
-
-### Affected Components
-- DSF FHIR Server
-
-### Summary
-Authenticated users can access [StructureDefinition](https://hl7.org/fhir/R4/structuredefinition.html) snapshots via the [$snapshot](https://hl7.org/fhir/R4/structuredefinition-operation-snapshot.html) operation regardless of read-access configuration.
-
-### Impact
-[StructureDefinition](https://hl7.org/fhir/R4/structuredefinition.html) resources and their snapshots are typically configured to be readable by all authenticated users. However, setting a read-access tag to a subset of organizations or the local organization only has no effect on access via the [$snapshot](https://hl7.org/fhir/R4/structuredefinition-operation-snapshot.html) operation. Thus, a DSF FHIR Server may leak metadata that is intended to remain private to the organization.
-
-### Fix (commit [d29e157​](https://github.com/datasharingframework/dsf/commit/d29e157))
-Added missing read authorization rule checks.
-
-
-## Authorization Check Partially Rendered Ineffective for Conditional Updates
-CVE ID: [not yet assigned](https://github.com/datasharingframework/dsf/security/advisories/GHSA-448w-h27c-w53m)
-CVSS Score: Moderate, 5.1 / 10
-CVSS: 4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:L/VI:L/VA:L/SC:N/SI:L/SA:N
-
-### Affected Components
-- DSF FHIR Server
-
-### Summary
-Authenticated local organization and practitioner users with [UPDATE](https://dsf.dev/operations/v2.1.1/fhir/access-control.html) role can bypass update authorization rules via conditional updates. The vulnerability can not be exploited by remote users.
-
-### Impact
-Authorization, integrity, and uniqueness rules can be bypassed via conditional updates of individual resources. This allows authenticated local organization and practitioner users with [UPDATE](https://dsf.dev/operations/v2.1.1/fhir/access-control.html) role to change the state of existing FHIR resources to some illegal values. Examples:
-
-The `requester` organization of a `Task` resource can be changed to a new value, if the status of the updated Task resource is `in-progress`.
-The `thumbprint` and `identifier` of an `Organization` resource could be changed to new values, a change that usually requires deleting an `Organization` resource and creating a new one.
-Updates to resources guarded by [read-access tags](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/readaccess.html) (e.g. `Organization`) still need to comply with the create rules for new resources, thereby mitigating the impact of this vulnerability.
-
-### Fix (commit [22743e1​​](https://github.com/datasharingframework/dsf/commit/22743e1))
-Fixed new resource being compared against itself when executing authorization rules for conditional updates.
-
-
-
-### Affected Components
-- DSF FHIR Server
-
-### Summary
-Authenticated local organization and practitioner users with UPDATE role can bypass update authorization rules via conditional updates. The vulnerability can not be exploited by remote users.
-
-### Impact
-Authorization, integrity and uniqueness rules can be bypassed via conditional updates of single resources. This allows authenticated local organization and practitioner users with UPDATE roles to change the state of existing FHIR resources to some illegal values. Examples:
-
- - The `requester` organization of a `Task` resource could be changed to a new value, if the status of the new version of the Task resource is `in-progress`.
- - The `thumbprint` and `identifier` of an `Organization` resource could be changed to new values, a change that usually requires deleting an `Organization` resource and creating a new one.
-
-Updates of resources guarded by [read access tags](https://dsf.dev/fhir/ImplementationGuide/dev.dsf/readaccess.html) (e.g. `Organization`) still need to comply with the create rules for new resources, thus mitigating the impact of this vulnerability.
-
----
-
 ## Upgrade from DSF v1
 Source: https://dsf.dev/operations/latest/upgrade-from-1.html
 
-Upgrading the DSF from 1.9.0 to 2.1.1 involves modifying the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 1.9.0 to 2.1.3 involves modifying the docker-compose.yml files and recreating the containers. 
 
 ::: warning Update to DSF 1.9.0 first
 When upgrading from DSF version < 1.9.0 it is important to migrate to [DSF 1.9.0 first](../v1.9.0/upgrade-from-1).
@@ -2998,20 +2903,20 @@ DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter val
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/fhir` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.1_upgrade`
+    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.3_upgrade`
 
-2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.1.
+2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.3.
 ```diff
  version: '3.8'
  services:
    proxy:
 -    image: ghcr.io/datasharingframework/fhir_proxy:1.9.0
-+    image: ghcr.io/datasharingframework/fhir_proxy:2.1.1
++    image: ghcr.io/datasharingframework/fhir_proxy:2.1.3
      restart: on-failure
 ...
    app:
 -    image: ghcr.io/datasharingframework/fhir:1.9.0
-+    image: ghcr.io/datasharingframework/fhir:2.1.1
++    image: ghcr.io/datasharingframework/fhir:2.1.3
      restart: on-failure
 ...
      environment:
@@ -3031,15 +2936,15 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
 ## Modify DSF BPE Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/bpe` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.1_upgrade`
+    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.3_upgrade`
 
-2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.1.
+2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.3.
 ```diff
  version: '3.8'
  services:
    app:
 -    image: ghcr.io/datasharingframework/bpe:1.9.0
-+    image: ghcr.io/datasharingframework/bpe:2.1.1
++    image: ghcr.io/datasharingframework/bpe:2.1.3
      restart: on-failure
 ...
      environment:
@@ -3056,12 +2961,12 @@ The environment variable `DEV_DSF_FHIR_SERVER_ORGANIZATION_THUMBPRINT` does not 
     ```
 
 5. Verify your upgrade:
-    * Verify the DSF FHIR server is running in version 2.1.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.1.1, [...]`
+    * Verify the DSF FHIR server is running in version 2.1.3. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-fhir-server-jetty, version: 2.1.3, [...]`
     * Verify the DSF FHIR server started without errors
     * Verify the DSF FHIR server is accessible via https, for example by browsing to https://your-dsf-endpoint.de/fhir/ (authentication with your client-certificate)
-    * Verify the DSF BPE server is running in version 2.1.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.1.1, [...]`
+    * Verify the DSF BPE server is running in version 2.1.3. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(137) | Artifact: dsf-bpe-server-jetty, version: 2.1.3, [...]`
     * Verify the DSF BPE server started without errors
     * Verify your install with a ping/pong test  
 
@@ -3188,7 +3093,7 @@ Once you have ensured that DSF is working successfully with the new database, yo
 ## Upgrade within DSF v2
 Source: https://dsf.dev/operations/latest/upgrade-from-2.html
 
-Upgrading the DSF from 2.1.0 to 2.1.1 involves modifying the image versions in the docker-compose.yml files and recreating the containers. 
+Upgrading the DSF from 2.1.2 to 2.1.3 involves modifying the image versions in the docker-compose.yml files and recreating the containers. 
 
 DSF 2 was designed to run DSF 1 (APIv1) process plugins, but due to stricter validation rules in DSF 2 we strongly recommend using the latest compatible plugin versions. Updates within the same major and minor version (e.g., from 1.2.3.4 to 1.2.9.9) are generally safe. An overview of the recommended MII/NUM versions can be found [here](./install-plugins.md).
 
@@ -3197,19 +3102,19 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
 ## Modify DSF FHIR Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/fhir` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.1_upgrade`
+    For example using: `sudo cp -rp /opt/fhir /opt/fhir_backup_pre_2.1.3_upgrade`
 
-2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.1.
+2. Modify the DSF FHIR docker-compose.yml file, replace the version number with 2.1.3.
 ```diff
  services:
    proxy:
--    image: ghcr.io/datasharingframework/fhir_proxy:2.1.0
-+    image: ghcr.io/datasharingframework/fhir_proxy:2.1.1
+-    image: ghcr.io/datasharingframework/fhir_proxy:2.1.2
++    image: ghcr.io/datasharingframework/fhir_proxy:2.1.3
      restart: on-failure
 ...
    app:
--    image: ghcr.io/datasharingframework/fhir:2.1.0
-+    image: ghcr.io/datasharingframework/fhir:2.1.1
+-    image: ghcr.io/datasharingframework/fhir:2.1.2
++    image: ghcr.io/datasharingframework/fhir:2.1.3
      restart: on-failure
 ...
 ```
@@ -3223,14 +3128,14 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
 ## Modify DSF BPE Server Setup
 1. Preparation / Backup
     * We recommend to create a backup of the `/opt/bpe` directory before proceeding with the upgrade.  
-    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.1_upgrade`
+    For example using: `sudo cp -rp /opt/bpe /opt/bpe_backup_pre_2.1.3_upgrade`
 
-2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.1.
+2. Modify the DSF BPE docker-compose.yml file, replace the version number with 2.1.3.
 ```diff
  services:
    app:
--    image: ghcr.io/datasharingframework/bpe:2.1.0
-+    image: ghcr.io/datasharingframework/bpe:2.1.1
+-    image: ghcr.io/datasharingframework/bpe:2.1.2
++    image: ghcr.io/datasharingframework/bpe:2.1.3
      restart: on-failure
 ...
 ```
@@ -3242,12 +3147,12 @@ If you have installed the NUM Dashboard Process Plugin, you can [remove the work
     ```
 
 5. Verify your upgrade:
-    * Verify the DSF FHIR server is running in version 2.1.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-fhir-server-jetty, version: 2.1.1, [...]`
+    * Verify the DSF FHIR server is running in version 2.1.3. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-fhir-server-jetty, version: 2.1.3, [...]`
     * Verify the DSF FHIR server started without errors
     * Verify the DSF FHIR server is accessible via https, for example by browsing to https://your-dsf-endpoint.de/fhir/ (authentication with your client-certificate)
-    * Verify the DSF BPE server is running in version 2.1.1. The log should contain a message:  
-        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-bpe-server-jetty, version: 2.1.1, [...]`
+    * Verify the DSF BPE server is running in version 2.1.3. The log should contain a message:  
+        `INFO main - BuildInfoReaderImpl.logBuildInfo(160) | Artifact: dsf-bpe-server-jetty, version: 2.1.3, [...]`
     * Verify the DSF BPE server started without errors
     * Verify your install with a ping/pong test
 
@@ -3634,8 +3539,12 @@ This HTTP status code may be a result of an allow list mismatch. Either the requ
 
 # 403 Forbidden
 This HTTP status code may be encountered in different ways in the context of the DSF:
-- Process plugin is not installed at FHIR server where the Task resource was posted
+- Requesting instance is not in recipient's allow list
+- Process is not installed by the recipient of the Task resource
 - Client certificate of the FHIR server where the Task resource was posted is invalid e.g. because it is expired
+
+# 407 Proxy Authentication Required
+A proxy server between the requester and receiver denied the request because of invalid authentication credentials for the proxy.
 
 # 413 Content Too Large
 This HTTP status code is a result of trying to upload a resource that is too large for the server to handle. This might be due to a misconfiguration of the DSF FHIR server's reverse proxy not allowing this much data to be uploaded.
@@ -3645,6 +3554,10 @@ This HTTP status may be a result of a connection timeout if a forward proxy is u
 
 # 502 Bad Gateway
 This HTTP status code is usually the response of a proxy because the upstream server sent an invalid response.
+
+# 503 Service Unavailable
+This HTTP status code might be the result of the target server being temporarily unavailable e.g. because of maintenance.
+Some (forward) proxies might also respond with this status when they cannot establish a connection to the target server.
 
 # 504 Gateway Timeout
 This HTTP status code is usually the response of a proxy because the upstream server did not send a response in time.
@@ -6074,10 +5987,12 @@ A comprehensive linting tool for DSF (Data Sharing Framework) process plugins. V
 2. [Quick Start](#quick-start)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [CLI Options](#cli-options)
-6. [Report Generation](#report-generation)
-7. [Architecture](#architecture)
-8. [API Reference](#api-reference)
+5. [Maven Plugin Integration](#maven-plugin-integration)
+6. [CLI Options](#cli-options)
+7. [Exclusion Rules](#exclusion-rules)
+8. [Report Generation](#report-generation)
+9. [Architecture](#architecture)
+10. [API Reference](#api-reference)
 
 ## Overview
 
@@ -6098,6 +6013,8 @@ The DSF Linter is a static analysis tool designed to validate DSF process plugin
 - ✅ CI/CD integration ready
 - ✅ Comprehensive error reporting with severity levels
 - ✅ Extensible architecture for custom validation rules
+- ✅ Configurable exclusion rules (`dsf-linter-exclusions.json`) for CLI and Maven
+- ✅ Maven plugin integration (`dsf-maven-plugin:lint`) via `linter-core` dependency in DSF
 
 ### What is DSF?
 
@@ -6109,66 +6026,82 @@ The Data Sharing Framework (DSF) is a framework for implementing interoperable h
 
 ## Quick Start
 
-### Build the Project
+### Option A: Maven plugin (recommended for process plugin projects)
 
-```bash
-# Full build with tests
-mvn clean package
+DSF ships `dsf-maven-plugin` with a `lint` goal that depends on `dev.dsf.linter:linter-core` **0.1.3**. Bind the goal to validate the built plugin JAR during `verify` / `install`:
 
-# Skip tests for faster build
-mvn clean package -DskipTests
-
-# Verbose output
-mvn clean package -X
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals>
+        <goal>lint</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
 ```
 
-### Basic Usage
+```bash
+mvn verify
+# or directly:
+mvn dsf-maven-plugin:lint
+```
+
+Details: [Maven Plugin Integration](#maven-plugin-integration).
+
+### Option B: Download pre-built CLI JAR
+
+Download the latest `linter-cli-0.1.3.jar` from the [GitHub Releases page](https://github.com/datasharingframework/dsf-linter/releases) and run:
 
 ```bash
 # Lint a local JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path your-plugin.jar --html
+java -jar linter-cli-0.1.3.jar --path your-plugin.jar --html
 
 # Lint a remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli-0.1.3.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 
-# View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/index.html
+# View report at: /tmp/dsf-linter-report-<name>/dsf-linter-report/report.html
+```
+
+### Option C: Build CLI from source
+
+```bash
+git clone https://github.com/datasharingframework/dsf-linter.git
+cd dsf-linter
+mvn clean package
+
+java -jar linter-cli/target/linter-cli-0.1.3.jar --path your-plugin.jar --html
 ```
 
 ## Installation
 
 ### Requirements
 
-- **Java**: 17 or higher (Java 25+ required for API Version 2 validation)
-- **Maven**: 3.6 or higher
+- **Java**: 25 or higher (required to build and run the linter)
+- **Maven**: 3.6 or higher (only when building from source or using the Maven plugin)
 - **Operating System**: Windows, Linux, or macOS
 
-### Building from Source
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd dsf-linter
-
-# Build the project
-mvn clean package
-
-# The executable JAR will be at:
-# linter-cli/target/linter-cli-0.1.2.jar
-```
+> **Note:** DSF API v1 and v2 refer to the **plugin target API**, not the JVM version. The linter itself requires Java 25.
 
 ### Distribution
 
-The linter is distributed as a single executable JAR file that includes all dependencies. After building, the JAR can be used standalone:
+| Artifact | Use case |
+|----------|----------|
+| `dev.dsf.linter:linter-core:0.1.3` (Maven Central) | Consumed by DSF `dsf-maven-plugin` for the `lint` goal |
+| `linter-cli-0.1.3.jar` ([GitHub Releases](https://github.com/datasharingframework/dsf-linter/releases)) | Standalone executable CLI (all dependencies shaded) |
 
 ```bash
-# Copy to a convenient location
-cp linter-cli/target/linter-cli-0.1.2.jar ~/bin/dsf-linter.jar
-
-# Use from anywhere
+# CLI: copy to a convenient location
+cp linter-cli-0.1.3.jar ~/bin/dsf-linter.jar
 java -jar ~/bin/dsf-linter.jar --path plugin.jar --html
 ```
+
+Process plugin projects should prefer the Maven goal; the CLI remains useful for ad-hoc linting of local or remote JARs.
 
 ## Usage
 
@@ -6216,11 +6149,11 @@ plugin.jar
 
 ```bash
 # Local JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path C:\path\to\plugin.jar --html
 
 # Remote JAR file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path https://github.com/datasharingframework/dsf-process-ping-pong/releases/download/v2.0.0.1/dsf-process-ping-pong-2.0.0.1.jar --html
 ```
 
@@ -6228,11 +6161,11 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ```bash
 # Multiple report formats with custom path
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --json --report-path ./reports
 
 # Verbose output (colors enabled by default, use --no-color to disable)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --verbose
 
 # Lint Maven project (two-step process)
@@ -6240,7 +6173,7 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 cd /path/to/project && mvn clean package
 
 # Step 2: Lint the resulting JAR
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
 
@@ -6248,18 +6181,99 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ```bash
 # GitHub Actions / GitLab CI
-FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.2.jar \
+FORCE_COLOR=1 java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --json --verbose
 
 # Jenkins (fail on errors)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html
 # Exit code: 0 = success, 1 = errors
 
 # Don't fail build (gradual adoption)
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli/target/linter-cli-0.1.3.jar \
   --path plugin.jar --html --no-fail
 ```
+
+## Maven Plugin Integration
+
+The DSF Maven plugin (`dsf-maven-plugin`) integrates the linter into the Maven build lifecycle. This is the **recommended approach** for DSF process plugin projects: it validates the **built plugin JAR** automatically, fails the build on ERROR findings by default, and supports **exclusion rules** out of the box.
+
+**How it is wired:** DSF declares `dev.dsf.linter:linter-core` (**0.1.3**) as a dependency of `dsf-maven-plugin`. The `lint` goal (`LintPluginMojo`, default phase `verify`) resolves `${project.build.directory}/${project.build.finalName}.jar`, runs `DsfLinter`, and writes reports under `target/dsf-linter-report` by default.
+
+### Enable in `pom.xml`
+
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals>
+        <goal>lint</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+### Run
+
+The `lint` goal runs automatically during:
+
+- `mvn verify`
+- `mvn install`
+- `mvn deploy`
+
+Or invoke it directly:
+
+```bash
+mvn dsf-maven-plugin:lint
+```
+
+### Maven Parameters
+
+| Property | Default | Description |
+|----------|---------|-------------|
+| `dsf.lint.skip` | `false` | Skip linting entirely |
+| `dsf.lint.failOnErrors` | `true` | Fail the build when ERROR-severity findings exist |
+| `dsf.lint.html` | `false` | Generate HTML report |
+| `dsf.lint.json` | `false` | Generate JSON report |
+| `dsf.lint.verbose` | `false` | Enable verbose logging |
+| `dsf.lint.reportPath` | `target/dsf-linter-report` | Report output directory |
+| `dsf.lint.exclusionsFile` | *(auto-discover)* | Path to exclusion JSON file |
+
+**Examples:**
+
+```bash
+# Lint with HTML report, do not fail build
+mvn verify -Ddsf.lint.html=true -Ddsf.lint.failOnErrors=false
+
+# Use explicit exclusion file
+mvn verify -Ddsf.lint.exclusionsFile=ci/dsf-linter-exclusions.json
+```
+
+### Permanent configuration in `pom.xml`
+
+```xml
+<plugin>
+  <groupId>dev.dsf</groupId>
+  <artifactId>dsf-maven-plugin</artifactId>
+  <configuration>
+    <html>true</html>
+    <reportPath>${project.build.directory}/dsf-linter-report</reportPath>
+    <exclusionsFile>${project.basedir}/dsf-linter-exclusions.json</exclusionsFile>
+  </configuration>
+  <executions>
+    <execution>
+      <id>lint-plugin</id>
+      <goals><goal>lint</goal></goals>
+    </execution>
+  </executions>
+</plugin>
+```
+
+Exclusion file format and rule semantics are described in [Exclusion Rules](#exclusion-rules).
 
 ## CLI Options
 
@@ -6269,11 +6283,14 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 | `--html` | | Generate HTML report | No |
 | `--json` | | Generate JSON report | No |
 | `--report-path <dir>` | `-r` | Custom report directory (default: `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`) | No |
+| `--exclusions <file>` | | Path to a JSON exclusion config (see [Exclusion Rules](#exclusion-rules)) | No |
 | `--verbose` | `-v` | Enable verbose logging output | No |
 | `--no-color` | | Disable colored console output (default: enabled) | No |
 | `--no-fail` | | Exit with code 0 even if linter errors are found | No |
 | `--help` | `-h` | Display help message | No |
 | `--version` | | Display version information | No |
+
+When `--exclusions` is omitted, the CLI auto-discovers `dsf-linter-exclusions.json` in the project/extracted root if present.
 
 ### Environment Variables
 
@@ -6292,6 +6309,90 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 | 1 | Failure (errors found, or fatal error occurred) |
 
 
+## Exclusion Rules
+
+The exclusion feature allows you to suppress specific lint findings from reports and optionally from the build/CLI exit status. This is useful for accepting known issues, ignoring findings in legacy files, or gradually rolling out stricter linting rules.
+
+**Where exclusions are supported (v0.1.3):**
+
+| Integration | How to configure |
+|-------------|------------------|
+| `dsf-maven-plugin:lint` | `-Ddsf.lint.exclusionsFile=...` or auto-discovery of `dsf-linter-exclusions.json` |
+| Standalone CLI | `--exclusions <file>` or auto-discovery of `dsf-linter-exclusions.json` |
+
+### Configuration File
+
+Exclusion rules are defined in a JSON file named `dsf-linter-exclusions.json`. When no explicit path is set, the loader auto-discovers that file in the **resolved project root** (extracted JAR contents). Explicit configuration always wins and is the reliable choice for Maven module roots that are not packaged into the JAR:
+
+```bash
+# CLI
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html \
+  --exclusions path/to/dsf-linter-exclusions.json
+
+# Maven (recommended: point at the module basedir)
+mvn verify -Ddsf.lint.exclusionsFile=${project.basedir}/dsf-linter-exclusions.json
+```
+
+
+```json
+{
+  "affectsExitStatus": false,
+  "rules": [
+    { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
+    { "severity": "WARN", "file": "update-allow-list.bpmn" },
+    { "messageContains": "optional field" }
+  ]
+}
+```
+
+### Top-Level Fields
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `affectsExitStatus` | `boolean` | `false` | When `false`, excluded items are fully suppressed — they do not contribute to error/warning counts or the exit code. When `true`, items are hidden from reports but still count toward the exit status. |
+| `rules` | `array` | `[]` | List of exclusion rules. An item is excluded if it matches **any** rule. |
+
+### Rule Fields
+
+All fields within a single rule are **AND-combined** — all specified criteria must match for the item to be suppressed. Multiple rules are **OR-combined**.
+
+| Field | Match Semantics | Example |
+|-------|-----------------|---------|
+| `type` | Exact, case-insensitive match against the lint item's `LintingType` name | `"BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING"` |
+| `severity` | Exact, case-insensitive match against `LinterSeverity` name | `"WARN"`, `"ERROR"`, `"INFO"` |
+| `file` | Case-insensitive **substring** match against the item's file name | `"update-allow-list.bpmn"` |
+| `messageContains` | Case-insensitive **substring** match against the item's message | `"optional field"` |
+
+Each rule must have **at least one** non-blank field. An empty rule is rejected.
+
+### Examples
+
+```json
+{
+  "affectsExitStatus": false,
+  "rules": [
+    { "type": "BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING" },
+
+    { "severity": "WARN", "file": "legacy-process.bpmn" },
+
+    { "messageContains": "optional field" },
+
+    { "type": "BPMN_END_EVENT_NOT_PART_OF_SUB_PROCESS", "file": "subprocess.bpmn" }
+  ]
+}
+```
+
+### Using Exclusions in CI/CD
+
+```bash
+# Maven plugin with explicit exclusion file
+mvn verify -Ddsf.lint.exclusionsFile=ci-exclusions.json -Ddsf.lint.html=true
+
+# Standalone CLI with exclusions
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html --json \
+  --exclusions ci-exclusions.json
+```
+
 ## Report Generation
 
 ### Report Structure
@@ -6300,18 +6401,22 @@ Reports are generated in the following structure:
 
 ```
 <report-path>/
-├── index.html              # Summary report (all plugins)
-├── plugin-name.html        # Detailed report for each plugin
-└── plugin-name.json        # JSON report (if --json specified)
+├── report.html             # Master summary report (all plugins)
+├── report.json             # Master JSON report (if --json specified)
+└── <plugin-name>/
+    ├── lints.html          # Detailed HTML report for the plugin
+    └── lints.json          # Detailed JSON report (if --json specified)
 ```
 
 The default `<report-path>` resolves to `<temp-dir>/dsf-linter-report-<name>/dsf-linter-report`, for example:
 
 ```
 /tmp/dsf-linter-report-my-plugin/dsf-linter-report/
-├── index.html
-├── my-plugin.html
-└── my-plugin.json
+├── report.html
+├── report.json
+└── my-plugin/
+    ├── lints.html
+    └── lints.json
 ```
 
 Use `--report-path` to override this location.
@@ -6320,136 +6425,156 @@ Use `--report-path` to override this location.
 
 The HTML report provides a comprehensive, human-readable view of all linting results.
 
-#### Summary Page (`index.html`)
+#### Master Report (`report.html`)
 
-The summary page includes:
+The master report includes:
 
 - **Header**:
-  - DSF Linter version
-  - Execution timestamp
-  - Project path
+    - DSF Linter version
+    - Execution timestamp
+    - Project path
 
 - **Overall Statistics**:
-  - Total number of plugins
-  - Total errors
-  - Total warnings
-  - Execution time
+    - Total number of plugins
+    - Total errors, warnings, info, and success counts
+    - Resource discovery summary
 
 - **Plugin Summary Table**:
-  - Plugin name
-  - API version
-  - Error count
-  - Warning count
-  - Link to detailed report
+    - Plugin name
+    - API version
+    - Error and warning counts
+    - Link to per-plugin report (`<plugin-name>/lints.html`)
 
 - **Leftover Resource Summary**:
-  - Unreferenced BPMN files
-  - Unreferenced FHIR resources
+    - Unreferenced BPMN files
+    - Unreferenced FHIR resources
 
-#### Plugin Report (`plugin-name.html`)
+- **Source navigation** (v0.1.3+):
+    - Embedded BPMN and FHIR source files
+    - Source viewer modal with highlighting of the affected location
+    - Jump from a finding to the corresponding source context
+
+#### Plugin Report (`<plugin-name>/lints.html`)
 
 Each plugin has a detailed report page containing:
 
 - **Plugin Metadata**:
-  - Plugin name
-  - Plugin class name
-  - API version (v1 or v2)
+    - Plugin name
+    - Plugin class name
+    - API version (v1 or v2)
 
 - **BPMN Validation Results**:
-  - List of all BPMN files
-  - Errors and warnings per file
-  - Detailed error messages with file and line references
+    - List of all BPMN files
+    - Errors and warnings per file
+    - Detailed error messages with file and line references
 
 - **FHIR Validation Results**:
-  - List of all FHIR resources by type
-  - Errors and warnings per resource
-  - Detailed error messages with element paths
+    - List of all FHIR resources by type
+    - Errors and warnings per resource
+    - Detailed error messages with element paths
 
 - **Plugin Configuration Results**:
-  - ServiceLoader registration status
-  - Resource reference validation results
+    - ServiceLoader registration status
+    - Resource reference validation results
 
 - **Leftover Resource Analysis**:
-  - Unreferenced BPMN files
-  - Unreferenced FHIR resources
+    - Unreferenced BPMN files
+    - Unreferenced FHIR resources
 
 - **Severity Indicators**:
-  - Color-coded severity levels (ERROR, WARNING, INFO, SUCCESS)
-  - Expandable/collapsible sections
+    - Color-coded severity levels (ERROR, WARN, INFO, SUCCESS)
+    - Expandable/collapsible sections
+    - Back link to master report (`report.html`)
 
 ### JSON Report
 
 The JSON report provides machine-readable output for CI/CD integration and automated processing.
 
-#### Structure
+#### Master Report Structure (`report.json`)
 
 ```json
 {
-  "version": "0.1.1",
-  "timestamp": "2025-06-15T10:30:00Z",
-  "projectPath": "/path/to/plugin.jar",
-  "executionTimeMs": 2300,
-  "success": true,
+  "projectName": "my-plugin.jar",
+  "projectPath": "/path/to/my-plugin.jar",
+  "timestamp": "2026-06-15T10:30:00Z",
   "summary": {
     "totalPlugins": 1,
     "totalErrors": 0,
     "totalWarnings": 1,
-    "totalLeftoverBpmn": 0,
-    "totalLeftoverFhir": 0
+    "totalInfos": 0,
+    "totalSuccesses": 42
   },
-  "plugins": {
-    "plugin-name": {
-      "name": "plugin-name",
-      "class": "dev.dsf.bpe.plugin.ExamplePlugin",
-      "apiVersion": "V1",
-      "errors": 0,
-      "warnings": 1,
-      "bpmnFiles": [
-        {
-          "path": "bpe/process.bpmn",
-          "errors": 0,
-          "warnings": 1,
-          "items": [...]
-        }
-      ],
-      "fhirResources": {
-        "ActivityDefinition": [...],
-        "Task": [...],
-        "StructureDefinition": [...]
-      },
-      "pluginConfig": {
-        "serviceLoaderRegistered": true,
-        "items": [...]
-      }
-    }
+  "discovery": {
+    "bpmnFilesFound": 2,
+    "fhirFilesFound": 15,
+    "missingBpmn": 0,
+    "missingFhir": 0
   },
   "leftoverAnalysis": {
-    "unreferencedBpmn": [],
-    "unreferencedFhir": []
+    "totalLeftovers": 0,
+    "leftoverBpmn": [],
+    "leftoverFhir": []
+  },
+  "plugins": [
+    {
+      "pluginName": "my-plugin",
+      "pluginClass": "dev.dsf.bpe.plugin.ExamplePlugin",
+      "apiVersion": "V1",
+      "errorCount": 0,
+      "warningCount": 1,
+      "reportPath": "./my-plugin/lints.json"
+    }
+  ]
+}
+```
+
+#### Plugin Report Structure (`<plugin-name>/lints.json`)
+
+```json
+{
+  "pluginName": "my-plugin",
+  "pluginClass": "dev.dsf.bpe.plugin.ExamplePlugin",
+  "apiVersion": "V1",
+  "timestamp": "2026-06-15T10:30:00Z",
+  "summary": {
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "successCount": 42,
+    "totalItems": 43
+  },
+  "items": {
+    "ERROR": [],
+    "WARN": [ { "...": "..." } ],
+    "INFO": [],
+    "SUCCESS": [ { "...": "..." } ]
   }
 }
 ```
 
 #### Lint Item Structure
 
-Each lint item in the JSON report has the following structure:
+Each lint item in the JSON report has the following structure (fields vary by item type):
 
 ```json
 {
-  "severity": "ERROR",
-  "type": "BpmnServiceTaskNameEmptyLintItem",
-  "message": "Service task must have a non-empty name",
-  "file": "bpe/process.bpmn",
-  "element": "ServiceTask_1",
-  "line": 42,
-  "column": 10
+  "severity": "WARN",
+  "type": "BpmnElementLintItem",
+  "elementId": "ServiceTask_1",
+  "processId": "testorg_myprocess",
+  "description": "Service task name is empty.",
+  "bpmnFile": "bpe/process.bpmn",
+  "issueType": "BPMN_SERVICE_TASK_NAME_EMPTY",
+  "fullMessage": "..."
 }
 ```
+
+`BPMN_FLOW_ELEMENT` items additionally include `flowElementType` (the sequence-flow subtype, e.g. `SEQUENCE_FLOW_HAS_NO_SOURCE_NODE`).
 
 ### Example Console Output
 
 ```
-DSF Linter v0.1.1
+DSF Linter v0.1.3
 =================================================================
 Project: /path/to/plugin.jar
 Report:  /tmp/dsf-linter-report-plugin/dsf-linter-report
@@ -6473,7 +6598,7 @@ Phase 3: Linting
 Phase 4: Report Generation
 ✓ HTML report generated
 
-Summary
+Phase 5: Summary
 =================================================================
 ✓ SUCCESS - No errors found
   Plugins: 1
@@ -6489,11 +6614,16 @@ Summary
 
 ```
 dsf-linter/
-├── linter-core/                              # Core linting logic
+├── linter-core/                              # Core linting logic (Maven artifact: linter-core)
 │   ├── src/main/java/dev/dsf/linter/
 │   │   ├── DsfLinter.java                    # Main orchestrator
 │   │   ├── analysis/                         # Resource analysis
 │   │   │   └── LeftoverResourceDetector.java
+│   │   ├── exclusion/                        # Exclusion config & filter
+│   │   │   ├── ExclusionConfig.java
+│   │   │   ├── ExclusionConfigLoader.java
+│   │   │   ├── ExclusionFilter.java
+│   │   │   └── ExclusionRule.java
 │   │   ├── bpmn/                             # BPMN parsing & validation
 │   │   │   ├── BpmnLinter.java
 │   │   │   ├── BpmnModelLinter.java
@@ -6652,6 +6782,8 @@ dsf-linter/
 | `InputResolver` | Resolves and downloads remote JAR files |
 | `BpmnModelLinter` | Validates BPMN model structure and elements |
 | `FhirResourceLinter` | Validates FHIR resources using pluggable linters |
+| `ExclusionConfigLoader` / `ExclusionFilter` | Loads `dsf-linter-exclusions.json` and filters matched findings (CLI + Maven) |
+| `SpringConfigurationLinter` | Validates Spring `@Bean` / `ActivityPrototypeBeanCreator` registration and bean scope |
 
 ### Design Patterns
 
@@ -6696,6 +6828,7 @@ DsfLinter.Config config = new DsfLinter.Config(
     generateHtmlReport,
     generateJsonReport,
     failOnErrors,
+    exclusionConfig, // nullable — null means no exclusions
     logger
 );
 
@@ -6703,16 +6836,19 @@ DsfLinter linter = new DsfLinter(config);
 DsfLinter.OverallLinterResult result = linter.lint();
 ```
 
+A backward-compatible constructor without `exclusionConfig` still exists (passes `null`).
+
 #### `DsfLinter.Config`
 
 Configuration record for the linter.
 
 **Fields**:
-- `Path projectPath`: Path to the project root
+- `Path projectPath`: Path to the project root (extracted JAR directory)
 - `Path reportPath`: Path for report generation
 - `boolean generateHtmlReport`: Whether to generate HTML report
 - `boolean generateJsonReport`: Whether to generate JSON report
 - `boolean failOnErrors`: Whether to fail on errors
+- `ExclusionConfig exclusionConfig`: Optional exclusion rules (`null` = none)
 - `Logger logger`: Logger instance
 
 #### `DsfLinter.OverallLinterResult`
@@ -6724,7 +6860,7 @@ Result record containing all linting results.
 - `LeftoverResourceDetector.AnalysisResult leftoverAnalysis`: Leftover resource analysis
 - `Path masterReportPath`: Path to master report
 - `long executionTimeMs`: Execution time in milliseconds
-- `boolean success`: Whether linting succeeded
+- `boolean success`: Whether linting succeeded (`false` only when `failOnErrors` is set and errors remain after exclusions)
 
 **Methods**:
 - `int getPluginErrors()`: Total error count from plugins
@@ -6740,9 +6876,13 @@ Linting result for a single plugin.
 - `String pluginName`: Name of the plugin
 - `String pluginClass`: Fully qualified class name
 - `ApiVersion apiVersion`: DSF API version (V1 or V2)
-- `LintingOutput output`: Detailed linting output
+- `LintingOutput output`: Detailed linting output **after** exclusions have been applied
+- `int excludedErrorCount`: Number of ERROR items suppressed by exclusion rules
 - `Path reportPath`: Path to generated report
 
+### No plugin found
+
+If no `ProcessPluginDefinition` is discovered (empty/broken JAR, missing or invalid `META-INF/services` registration), the linter does **not** abort. It emits ERROR `PLUGIN_DEFINITION_NO_PLUGIN_FOUND`, still writes the regular HTML/JSON reports, and sets `success = !failOnErrors` (CLI: exit 1 by default, exit 0 with `--no-fail`).
 ### Linting Services
 
 #### `BpmnLintingService`
@@ -6803,8 +6943,10 @@ LintingResult lintPlugin(
     PluginAdapter pluginAdapter,
     ApiVersion apiVersion,
     List<AbstractLintItem> collectedPluginItems
-) throws MissingServiceRegistrationException
+)
 ```
+
+Missing or invalid ServiceLoader registrations are reported as ERROR lint items (e.g. `PLUGIN_DEFINITION_MISSING_SERVICE_LOADER_REGISTRATION`, `PLUGIN_DEFINITION_NO_PLUGIN_FOUND`) rather than aborting the run.
 
 ### Lint Items
 
@@ -6820,7 +6962,7 @@ All lint items extend `AbstractLintItem` and implement specific interfaces.
 #### Severity Levels
 
 - `ERROR`: Critical issue that **must be fixed**. Will cause the plugin to fail at deployment or runtime.
-- `WARNING`: Violation of DSF best practices, or something that **could be an error depending on context**.
+- `WARN`: Violation of DSF best practices, or something that **could be an error depending on context**.
 - `INFO`: Technically valid, but something looks unusual or incomplete. Worth a second look — no immediate action required.
 - `SUCCESS`: Validation passed. Shown to confirm what was checked and give confidence in the covered areas.
 
@@ -6868,6 +7010,13 @@ Discovers plugins and resources.
 DiscoveryResult discover(ProjectContext context)
 ```
 
+### Exclusion Configuration
+
+Exclusion rules are configured via `dsf-linter-exclusions.json` (or an explicit path). See [Exclusion Rules](#exclusion-rules) for the file format.
+
+- Maven: `dsf.lint.exclusionsFile` / auto-discovery
+- CLI: `--exclusions` / auto-discovery
+
 ---
 
 ## Validation Rules
@@ -6897,23 +7046,23 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 ##### Process ID Pattern Validation
 
 - **Pattern Requirement**:
-  - Process ID must follow the pattern: `domain_processname`
-  - Domain and process name must consist only of alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-)
-  - Exactly one underscore must separate domain and process name
-  - Error: `BPMN_PROCESS_ID_PATTERN_MISMATCH`
-  - Error: `BPMN_PROCESS_ID_EMPTY`
-  - Success: `SUCCESS` when the pattern is matched
+    - Process ID must follow the pattern: `domain_processname`
+    - Domain and process name must consist only of alphanumeric characters (a-z, A-Z, 0-9) and hyphens (-)
+    - Exactly one underscore must separate domain and process name
+    - Error: `BPMN_PROCESS_ID_PATTERN_MISMATCH`
+    - Error: `BPMN_PROCESS_ID_EMPTY`
+    - Success: `SUCCESS` when the pattern is matched
 
 - **Valid Examples**:
-  - ✅ `testorg_myprocess`
-  - ✅ `dsf-dev_download-allowlist`
-  - ✅ `example123_process456`
+    - ✅ `testorg_myprocess`
+    - ✅ `dsf-dev_download-allowlist`
+    - ✅ `example123_process456`
 
 - **Invalid Examples**:
-  - ❌ `myProcess` (missing underscore)
-  - ❌ `test.org_myprocess` (dots not allowed)
-  - ❌ `test_my_process` (multiple underscores not allowed)
-  - ❌ `test_process_name` (only one underscore allowed)
+    - ❌ `myProcess` (missing underscore)
+    - ❌ `test.org_myprocess` (dots not allowed)
+    - ❌ `test_my_process` (multiple underscores not allowed)
+    - ❌ `test_process_name` (only one underscore allowed)
 
 - **Pattern Definition**:
   ```regex
@@ -6921,88 +7070,107 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
   ```
 
 - **DSF Framework Reference**:
-  - This validation is based on the DSF Framework requirement defined in:
-  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+    - This validation is based on the DSF Framework requirement defined in:
+    - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
 
 ##### Process Count Validation
 
 - **Requirement**:
-  - Each BPMN file must contain **exactly one** process definition
-  - Error: `BPMN_FILE_NO_PROCESS` (when no process is found)
-  - Error: `BPMN_FILE_MULTIPLE_PROCESSES` (when more than one process is found)
-  - Success: `SUCCESS` when exactly one process is found
+    - Each BPMN file must contain **exactly one** process definition
+    - Error: `BPMN_FILE_NO_PROCESS` (when no process is found)
+    - Error: `BPMN_FILE_MULTIPLE_PROCESSES` (when more than one process is found)
+    - Success: `SUCCESS` when exactly one process is found
 
 - **Valid Examples**:
-  - ✅ BPMN file with 1 process definition
+    - ✅ BPMN file with 1 process definition
 
 - **Invalid Examples**:
-  - ❌ BPMN file with 0 process definitions
-  - ❌ BPMN file with 2 or more process definitions
+    - ❌ BPMN file with 0 process definitions
+    - ❌ BPMN file with 2 or more process definitions
 
 - **DSF Framework Reference**:
-  - This validation is based on the DSF Framework requirement defined in:
-  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
-  - DSF validates: `if (processes.size() != 1) { return false; }`
+    - This validation is based on the DSF Framework requirement defined in:
+    - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+    - DSF validates: `if (processes.size() != 1) { return false; }`
 
 ##### Process History Time To Live Validation
 
 - **Requirement**:
-  - Process should have `camunda:historyTimeToLive` attribute set
-  - If not set (null or empty), DSF automatically uses default value `P30D` (30 days)
-  - Warning: `BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING`
-  - Success: `SUCCESS` when historyTimeToLive is explicitly set
+    - Process should have `camunda:historyTimeToLive` attribute set
+    - If not set (null or empty), DSF automatically uses default value `P30D` (30 days)
+    - Warning: `BPMN_PROCESS_HISTORY_TIME_TO_LIVE_MISSING`
+    - Success: `SUCCESS` when historyTimeToLive is explicitly set
 
 - **Valid Examples**:
-  - ✅ `<process id="myprocess" camunda:historyTimeToLive="P30D">`
-  - ✅ `<process id="myprocess" camunda:historyTimeToLive="P7D">`
+    - ✅ `<process id="myprocess" camunda:historyTimeToLive="P30D">`
+    - ✅ `<process id="myprocess" camunda:historyTimeToLive="P7D">`
 
 - **Warning Example**:
-  - ⚠️ `<process id="myprocess">` (no historyTimeToLive attribute)
+    - ⚠️ `<process id="myprocess">` (no historyTimeToLive attribute)
 
 - **DSF Framework Reference**:
-  - DSF Framework sets default at runtime if not specified:
-  - `process.setOperatonHistoryTimeToLiveString("P30D")`
-  - Best practice: Set explicitly in BPMN file
+    - DSF Framework sets default at runtime if not specified:
+    - `process.setOperatonHistoryTimeToLiveString("P30D")`
+    - Best practice: Set explicitly in BPMN file
 
 ##### Process Executable Validation
 
 - **Requirement**:
-  - Process must have `isExecutable="true"` attribute set
-  - Processes without this attribute cannot be deployed and executed by the process engine
-  - Error: `BPMN_PROCESS_NOT_EXECUTABLE`
-  - Success: `SUCCESS` when isExecutable is true
+    - Process must have `isExecutable="true"` attribute set
+    - Processes without this attribute cannot be deployed and executed by the process engine
+    - Error: `BPMN_PROCESS_NOT_EXECUTABLE`
+    - Success: `SUCCESS` when isExecutable is true
 
 - **Valid Examples**:
-  - ✅ `<process id="myprocess" isExecutable="true">`
+    - ✅ `<process id="myprocess" isExecutable="true">`
 
 - **Invalid Examples**:
-  - ❌ `<process id="myprocess">` (no isExecutable attribute, defaults to false)
-  - ❌ `<process id="myprocess" isExecutable="false">`
+    - ❌ `<process id="myprocess">` (no isExecutable attribute, defaults to false)
+    - ❌ `<process id="myprocess" isExecutable="false">`
 
 - **Reason**:
-  - The process engine only deploys and executes processes marked as executable
-  - Non-executable processes are typically used for documentation or as templates
+    - The process engine only deploys and executes processes marked as executable
+    - Non-executable processes are typically used for documentation or as templates
+
+##### Message Start Event Validation (Process Level)
+
+- **Requirement**:
+    - The process must have at least one **message** start event as a **direct child** of the `<process>` element
+    - Start events inside `<subProcess>` elements are **not** counted
+    - Error: `BPMN_MESSAGE_START_EVENT_NOT_FOUND` (reported on the process ID when none is found)
+    - Success: `SUCCESS` when at least one message start event exists on process level
+
+- **Valid Examples**:
+    - ✅ Process with `<startEvent>` and `<messageEventDefinition>` as direct child of `<process>`
+    - ✅ Subprocess with only a generic or message start event (does not satisfy the process-level requirement by itself)
+
+- **Invalid Examples**:
+    - ❌ Process with only a generic start event (no `messageEventDefinition`)
+    - ❌ Process with a message start event only inside a subprocess
+
+- **DSF Framework Reference**:
+    - DSF processes are started via incoming messages; see [DSF BPMN Messaging](https://dsf.dev/process-development/api-v2/bpmn/messaging.html)
 
 ##### Process Version Tag Validation
 
 - **Requirement**:
-  - Process must define `camunda:versionTag`
-  - Expected placeholder value in DSF process plugins: `#{version}`
-  - Error: `BPMN_PROCESS_VERSION_TAG_MISSING_OR_EMPTY` (missing, empty/blank, or literal `"null"`)
-  - Warning: `BPMN_PROCESS_VERSION_TAG_NO_PLACEHOLDER` (present but without `#{version}`)
-  - Success: `SUCCESS` when `camunda:versionTag` contains `#{version}`
+    - Process must define `camunda:versionTag`
+    - Expected placeholder value in DSF process plugins: `#{version}`
+    - Error: `BPMN_PROCESS_VERSION_TAG_MISSING_OR_EMPTY` (missing, empty/blank, or literal `"null"`)
+    - Warning: `BPMN_PROCESS_VERSION_TAG_NO_PLACEHOLDER` (present but without `#{version}`)
+    - Success: `SUCCESS` when `camunda:versionTag` contains `#{version}`
 
 - **Valid Example**:
-  - ✅ `<process id="example_process" isExecutable="true" camunda:versionTag="#{version}">`
+    - ✅ `<process id="example_process" isExecutable="true" camunda:versionTag="#{version}">`
 
 - **Error Examples**:
-  - ❌ `<process id="example_process" isExecutable="true">` (missing `camunda:versionTag`)
-  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="">` (empty value)
-  - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="null">` (literal `null`)
+    - ❌ `<process id="example_process" isExecutable="true">` (missing `camunda:versionTag`)
+    - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="">` (empty value)
+    - ❌ `<process id="example_process" isExecutable="true" camunda:versionTag="null">` (literal `null`)
 
 - **Warning Examples**:
-  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="1.0.0">`
-  - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="some-fixed-version">`
+    - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="1.0.0">`
+    - ⚠️ `<process id="example_process" isExecutable="true" camunda:versionTag="some-fixed-version">`
 
 
 #### Task Validation
@@ -7010,375 +7178,321 @@ The linter performs comprehensive validation on BPMN 2.0 process definitions usi
 ##### Service Tasks
 
 - **Name Validation**:
-  - Task must have a non-empty name
-  - Error: `BPMN_SERVICE_TASK_NAME_EMPTY`
+    - Task must have a non-empty name
+    - Error: `BPMN_SERVICE_TASK_NAME_EMPTY`
 
 - **Implementation Class Validation**:
-  - `camunda:class` or `camunda:delegateExpression` must be specified
-  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_NOT_EXIST`
-  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_EMPTY`
-  - Implementation class must exist in the classpath
-  - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
+    - `camunda:class` or `camunda:delegateExpression` must be specified
+    - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_NOT_EXIST`
+    - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_EMPTY`
+    - Implementation class must exist in the classpath
+    - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
 
 - **API Version-Specific Requirements**:
-  - **V1 API**:
-    - Both checks are performed separately:
-      - Class must extend `dev.dsf.bpe.v1.activity.AbstractServiceDelegate`
-        - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_SERVICE_DELEGATE` (if not extending)
-      - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-        - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
-    - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
-  - **V2 API**:
-    - Class must implement `dev.dsf.bpe.v2.activity.ServiceTask`
-    - Error: `BPMN_SERVICE_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
+    - **V1 API** (both checks are independent):
+        - Class should extend `dev.dsf.bpe.v1.activity.AbstractServiceDelegate`
+            - Warning: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_SERVICE_DELEGATE` (if not extending)
+        - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+            - Error: `BPMN_SERVICE_TASK_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
+    - **V2 API**:
+        - Class must implement `dev.dsf.bpe.v2.activity.ServiceTask`
+        - Error: `BPMN_SERVICE_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
 
 ##### User Tasks
 
 - **Name Validation**:
-  - Task must have a non-empty name
-  - Error: `BPMN_USER_TASK_NAME_EMPTY`
+    - Task should have a non-empty name
+    - Warning: `BPMN_USER_TASK_NAME_EMPTY`
 
 - **Form Key Validation**:
-  - `camunda:formKey` must be present and non-empty
-  - Error: `BPMN_USER_TASK_FORM_KEY_EMPTY`
-  - Must reference an external form (starting with "external:", "http://", or "https://")
-  - Error: `BPMN_USER_TASK_FORM_KEY_IS_NOT_AN_EXTERNAL_FORM`
-  - Must reference a valid Questionnaire resource
-  - Referenced Questionnaire must exist in the plugin
-  - Error: `BPMN_USER_TASK_QUESTIONNAIRE_NOT_FOUND`
+    - `camunda:formKey` must be present and non-empty
+    - Error: `BPMN_USER_TASK_FORM_KEY_EMPTY`
+    - Must reference an external form (starting with "external:", "http://", or "https://")
+    - Error: `BPMN_USER_TASK_FORM_KEY_IS_NOT_AN_EXTERNAL_FORM`
+    - Must reference a valid Questionnaire resource
+    - Referenced Questionnaire must exist in the plugin
+    - Error: `BPMN_USER_TASK_QUESTIONNAIRE_NOT_FOUND`
 
 - **Listener Validation**:
-  - Listener classes must exist
-  - Error: `BPMN_USER_TASK_LISTENER_JAVA_CLASS_NOT_FOUND`
-  - Listener must have class attribute
-  - Error: `BPMN_USER_TASK_LISTENER_MISSING_CLASS_ATTRIBUTE`
+    - Listener classes must exist
+    - Error: `BPMN_USER_TASK_LISTENER_JAVA_CLASS_NOT_FOUND`
+    - Listener must have class attribute
+    - Error: `BPMN_USER_TASK_LISTENER_MISSING_CLASS_ATTRIBUTE`
 
 - **API Version-Specific Requirements**:
-  - **V1 API**:
-    - Listener must extend `dev.dsf.bpe.v1.activity.DefaultUserTaskListener` OR implement `org.camunda.bpm.engine.delegate.TaskListener`
-    - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
-  - **V2 API**:
-    - Listener must extend `dev.dsf.bpe.v2.activity.DefaultUserTaskListener` OR implement `dev.dsf.bpe.v2.activity.UserTaskListener`
-    - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
+    - **V1 API**:
+        - Listener must extend `dev.dsf.bpe.v1.activity.DefaultUserTaskListener` OR implement `org.camunda.bpm.engine.delegate.TaskListener`
+        - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
+    - **V2 API**:
+        - Listener must extend `dev.dsf.bpe.v2.activity.DefaultUserTaskListener` OR implement `dev.dsf.bpe.v2.activity.UserTaskListener`
+        - Error: `BPMN_USER_TASK_LISTENER_NOT_EXTENDING_OR_IMPLEMENTING_REQUIRED_CLASS`
 
 - **Task Listener Input Parameter Validation (V2 API only)**:
-  - Validates input parameters (`camunda:inputParameter`) within task listeners for API v2
-  - Applies to all task listeners in API v2, with severity based on whether the listener extends `DefaultUserTaskListener`
-  
-  - **`practitionerRole` Parameter**:
-    - If a `practitionerRole` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
-    - **Severity**:
-      - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
-      - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
-    - Error/Warning: `BPMN_PRACTITIONER_ROLE_HAS_NO_VALUE_OR_NULL`
-    - Success: `SUCCESS` (when value is present and non-empty)
-  
-  - **`practitioners` Parameter**:
-    - If a `practitioners` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
-    - **Severity**:
-      - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
-      - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
-    - Error/Warning: `BPMN_PRACTITIONERS_HAS_NO_VALUE_OR_NULL`
-    - Success: `SUCCESS` (when value is present and non-empty)
-  
-  - **Validation Behavior**:
-    - Only validates input parameters if they are explicitly defined in the BPMN file
-    - Supports various value formats: direct text content, `<camunda:string>`, or `<camunda:list>` with `<camunda:value>` elements
-    - Validation is skipped if the input parameter is not present (no lint items generated)
-    - Validation only applies to API v2 task listeners
+    - Validates input parameters (`camunda:inputParameter`) within task listeners for API v2
+    - Applies to all task listeners in API v2, with severity based on whether the listener extends `DefaultUserTaskListener`
+
+    - **`practitionerRole` Parameter**:
+        - If a `practitionerRole` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
+        - **Severity**:
+            - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
+            - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
+        - Error/Warning: `BPMN_PRACTITIONER_ROLE_HAS_NO_VALUE_OR_NULL`
+        - Success: `SUCCESS` (when value is present and non-empty)
+
+    - **`practitioners` Parameter**:
+        - If a `practitioners` input parameter is defined in the task listener's `extensionElements`, its value must not be null or empty
+        - **Severity**:
+            - **ERROR**: When the task listener extends `dev.dsf.bpe.v2.activity.DefaultUserTaskListener`
+            - **WARN**: When the task listener does not extend `DefaultUserTaskListener`
+        - Error/Warning: `BPMN_PRACTITIONERS_HAS_NO_VALUE_OR_NULL`
+        - Success: `SUCCESS` (when value is present and non-empty)
+
+    - **Validation Behavior**:
+        - Only validates input parameters if they are explicitly defined in the BPMN file
+        - Supports various value formats: direct text content, `<camunda:string>`, or `<camunda:list>` with `<camunda:value>` elements
+        - Validation is skipped if the input parameter is not present (no lint items generated)
+        - Validation only applies to API v2 task listeners
 
 - **Task Listener TaskOutput Field Injections Validation (V2 API only)**:
-  - Validates the taskOutput field injections (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) used to configure output parameters for UserTask listeners
-  - Applies to all task listeners in API v2
-  
-  - **Completeness Check**:
-    - If any of the three fields (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) is set, all three must be set
-    - Error: `BPMN_USER_TASK_LISTENER_INCOMPLETE_TASK_OUTPUT_FIELDS`
-    - Message: "If taskOutputSystem, taskOutputCode, or taskOutputVersion is set, all three must be set"
-    - Validation is skipped if none of the fields are set
-  
-  - **FHIR Resource Validation**:
-    - **`taskOutputSystem`**: Should reference a valid CodeSystem URL
-      - Uses `FhirAuthorizationCache.containsSystem()` to check if the CodeSystem exists
-      - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_SYSTEM_INVALID_FHIR_RESOURCE` if CodeSystem is unknown
-      - Success: `SUCCESS` when CodeSystem is valid
-    
-    - **`taskOutputCode`**: Should be a valid code in the referenced CodeSystem
-      - Uses `FhirAuthorizationCache.isUnknown()` to check if the code exists in the CodeSystem
-      - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_CODE_INVALID_FHIR_RESOURCE` if code is unknown
-      - Success: `SUCCESS` when code is valid
-    
-    - **`taskOutputVersion`**: Must contain a placeholder (e.g., `#{version}`)
-      - Uses `LintingUtils.containsPlaceholder()` to check for placeholders
-      - Warning: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_VERSION_NO_PLACEHOLDER` if no placeholder found
-      - Success: `SUCCESS` when placeholder is present
-  
-  - **Validation Behavior**:
-    - Only validates field injections if they are explicitly defined in the task listener's `extensionElements`
-    - Field values are read from `camunda:field` elements with `camunda:stringValue` or nested `<camunda:string>` elements
-    - Validation is skipped if none of the fields are set (no lint items generated)
-    - Validation only applies to API v2 task listeners
-    - FHIR resource validation is only performed if all three fields are set (completeness check passes)
+    - Validates the taskOutput field injections (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) used to configure output parameters for UserTask listeners
+    - Applies to all task listeners in API v2
+
+    - **Completeness Check**:
+        - If any of the three fields (`taskOutputSystem`, `taskOutputCode`, `taskOutputVersion`) is set, all three must be set
+        - Error: `BPMN_USER_TASK_LISTENER_INCOMPLETE_TASK_OUTPUT_FIELDS`
+        - Message: "If taskOutputSystem, taskOutputCode, or taskOutputVersion is set, all three must be set"
+        - Validation is skipped if none of the fields are set
+
+    - **FHIR Resource Validation**:
+        - **`taskOutputSystem`**: Should reference a valid CodeSystem URL
+            - Uses `FhirAuthorizationCache.containsSystem()` to check if the CodeSystem exists
+            - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_SYSTEM_INVALID_FHIR_RESOURCE` if CodeSystem is unknown
+            - Success: `SUCCESS` when CodeSystem is valid
+
+        - **`taskOutputCode`**: Should be a valid code in the referenced CodeSystem
+            - Uses `FhirAuthorizationCache.isUnknown()` to check if the code exists in the CodeSystem
+            - Error: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_CODE_INVALID_FHIR_RESOURCE` if code is unknown
+            - Success: `SUCCESS` when code is valid
+
+        - **`taskOutputVersion`**: Must contain a placeholder (e.g., `#{version}`)
+            - Uses `LintingUtils.containsPlaceholder()` to check for placeholders
+            - Warning: `BPMN_USER_TASK_LISTENER_TASK_OUTPUT_VERSION_NO_PLACEHOLDER` if no placeholder found
+            - Success: `SUCCESS` when placeholder is present
+
+    - **Validation Behavior**:
+        - Only validates field injections if they are explicitly defined in the task listener's `extensionElements`
+        - Field values are read from `camunda:field` elements with `camunda:stringValue` or nested `<camunda:string>` elements
+        - Validation is skipped if none of the fields are set (no lint items generated)
+        - Validation only applies to API v2 task listeners
+        - FHIR resource validation is only performed if all three fields are set (completeness check passes)
 
 ##### Send Tasks
 
 - **Name Validation**:
-  - Task must have a non-empty name
+    - Task should have a non-empty name
+    - Warning: `BPMN_EVENT_NAME_EMPTY` (when empty; same type as other unnamed events)
 
 - **Implementation Class Validation**:
-  - Implementation class must exist
-  - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_EMPTY`
-  - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
-  
-- **API Version-Specific Requirements**:
-  - **V1 API**:
-    - Both checks are performed separately:
-      - Class must extend `dev.dsf.bpe.v1.activity.AbstractTaskMessageSend`
-        - Error: `BPMN_SEND_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_TASK_MESSAGE_SEND` (if not extending)
-      - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-        - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
-    - Note: Both conditions are checked independently. A class should ideally satisfy both, but the linter reports separate errors for each missing requirement.
-  - **V2 API**:
-    - Class must implement `dev.dsf.bpe.v2.activity.MessageSendTask`
-    - Error: `BPMN_SEND_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
+    - Implementation class must exist
+    - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_EMPTY`
+    - Error: `BPMN_MESSAGE_SEND_TASK_IMPLEMENTATION_CLASS_NOT_FOUND`
 
-- **Field Injection Validation**:
-  - Same field injections as Message Send Events are validated: `profile`, `messageName`, and `instantiatesCanonical`
-  - `profile` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_PROFILE_EMPTY`
-    - Must contain version placeholder `#{version}`
-    - Error: `BPMN_FIELD_INJECTION_PROFILE_NO_VERSION_PLACEHOLDER`
-    - Must reference existing StructureDefinition
-    - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
-  - `messageName` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_MESSAGE_VALUE_EMPTY`
-    - Must be a string literal
-    - Error: `BPMN_FIELD_INJECTION_NOT_STRING_LITERAL`
-  - `instantiatesCanonical` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_EMPTY`
-    - Must end with version placeholder `|#{version}`
-    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_NO_VERSION_PLACEHOLDER`
-    - Must reference existing ActivityDefinition
-    - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
-  - Unknown field injections are reported
-    - Error: `BPMN_UNKNOWN_FIELD_INJECTION`
+- **API Version-Specific Requirements**:
+    - **V1 API** (both checks are independent):
+        - Class should extend `dev.dsf.bpe.v1.activity.AbstractTaskMessageSend`
+            - Warning: `BPMN_SEND_TASK_IMPLEMENTATION_CLASS_NOT_EXTENDING_ABSTRACT_TASK_MESSAGE_SEND` (if not extending)
+        - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
+            - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE` (if not implementing)
+    - **V2 API**:
+        - Class must implement `dev.dsf.bpe.v2.activity.MessageSendTask`
+        - Error: `BPMN_SEND_TASK_NO_INTERFACE_CLASS_IMPLEMENTING`
+
+- **Field Injection Validation**: see [Field Injection Validation](#field-injection-validation-message-send--start--throw--end--send-task)
 
 ##### Receive Tasks
 
 - **Name Validation**:
-  - Task must have a non-empty name
-  - Warning: `BPMN_EVENT_NAME_EMPTY`
+    - Task should have a non-empty name
+    - Warning: `BPMN_EVENT_NAME_EMPTY` (when empty)
 
 - **Message Definition Validation**:
-  - Message definition must be present and have a non-empty message name
-  - Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY`
+    - `messageRef` / message name must be set and non-empty
+    - Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY` (same type is also used for receive tasks)
 
-- **FHIR Resource Validation**:
-  - Message name must reference an existing ActivityDefinition
-  - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
-  - Message name must reference an existing StructureDefinition
-  - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
+- **FHIR Resource Validation** (via `checkMessageName` when message name is set):
+    - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
+    - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
+
+- **Execution Listeners**: same as other tasks (see [Execution Listeners](#execution-listeners))
 
 #### Event Validation
 
-##### Message Events (Start/Intermediate/End)
+##### Message Start Events
 
-- **Event Name Validation**:
-  - Event must have a non-empty name
-  - Error: `BPMN_EVENT_NAME_EMPTY`
-  - Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY`
-  - Error: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_NAME_EMPTY`
-  - Error: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_MESSAGE_NAME_EMPTY`
-  - Error: `BPMN_MESSAGE_BOUNDARY_EVENT_NAME_EMPTY`
+- **Event Name**: should be set — Warning: `BPMN_EVENT_NAME_EMPTY`
+- **Message Name**: must be set — Error: `BPMN_MESSAGE_START_EVENT_MESSAGE_NAME_EMPTY`
+- **FHIR**: ActivityDefinition / StructureDefinition via message name — Errors: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`, `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
+- **Field Injections**: same as send task (`profile`, `messageName`, `instantiatesCanonical`)
+- **Implementation Class**: not required (no `camunda:class` on start events)
 
-- **Implementation Class Validation**:
-  - For send events, implementation class must exist
-  - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_EMPTY`
-  - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_FOUND`
-  - Intermediate throw events should not have message definitions
-  - Error: `BPMN_MESSAGE_INTERMEDIATE_THROW_EVENT_HAS_MESSAGE`
-  
-- **API Version-Specific Requirements**:
-  - **V1 API**:
-    - Class must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-    - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE`
-    - Throw events must implement `org.camunda.bpm.engine.delegate.JavaDelegate`
-    - Error: `BPMN_END_EVENT_NO_INTERFACE_CLASS_IMPLEMENTING`
-  - **V2 API**:
-    - Message Intermediate Throw Events must implement `dev.dsf.bpe.v2.activity.MessageIntermediateThrowEvent`
-    - Message End Events must implement `dev.dsf.bpe.v2.activity.MessageEndEvent`
-    - Error: `BPMN_END_EVENT_NO_INTERFACE_CLASS_IMPLEMENTING`
+##### Message Intermediate Catch Events
 
-- **Field Injection Validation**:
-  - `profile` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_PROFILE_EMPTY`
-    - Must contain version placeholder `#{version}`
-    - Error: `BPMN_FIELD_INJECTION_PROFILE_NO_VERSION_PLACEHOLDER`
-    - Must reference existing StructureDefinition
-    - Error: `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
-  
-  - `messageName` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_MESSAGE_VALUE_EMPTY`
-    - Must be a string literal
-    - Error: `BPMN_FIELD_INJECTION_NOT_STRING_LITERAL`
-  
-  - `instantiatesCanonical` field injection:
-    - Must be non-empty
-    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_EMPTY`
-    - Must end with version placeholder `|#{version}`
-    - Error: `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_NO_VERSION_PLACEHOLDER`
-    - Must reference existing ActivityDefinition
-    - Error: `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE`
+- **Event Name**: Warning: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_NAME_EMPTY`
+- **Message Name**: Error: `BPMN_MESSAGE_INTERMEDIATE_CATCH_EVENT_MESSAGE_NAME_EMPTY`
+- **FHIR**: same as message start (ActivityDefinition / StructureDefinition)
 
-##### Timer Events
+##### Message Intermediate Throw Events
 
-- **Timer Type Validation**:
-  - At least one of `timeDate`, `timeCycle`, or `timeDuration` must be set
-  - Error: `BPMN_FLOATING_ELEMENT` (`TIMER_TYPE_IS_EMPTY`)
+- **Event Name**: Warning: `BPMN_EVENT_NAME_EMPTY`
+- **Implementation Class** (required):
+    - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_EMPTY` (missing)
+    - Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_FOUND` (not on classpath)
+    - **V1**: Error: `BPMN_MESSAGE_SEND_EVENT_IMPLEMENTATION_CLASS_NOT_IMPLEMENTING_JAVA_DELEGATE`
+    - **V2**: Error: `BPMN_END_EVENT_NO_INTERFACE_CLASS_IMPLEMENTING` (expects `MessageIntermediateThrowEvent`)
+- **Message Reference**: message intermediate throw events should **not** have a message definition in the BPMN
+    - Info: `BPMN_MESSAGE_INTERMEDIATE_THROW_EVENT_HAS_MESSAGE_REFERENCE` (with or without message ref)
+- **Field Injections**: same as send task
 
-- **Fixed Date Warning**:
-  - `timeDate` expressions are flagged with an informational message to verify if a fixed date is intended
-  - Info: `BPMN_FLOATING_ELEMENT` (`TIMER_TYPE_IS_A_FIXED_DATE_TIME`)
+##### Message End Events
 
-- **Placeholder Validation**:
-  - `timeCycle` and `timeDuration` values should contain a placeholder (e.g., `#{interval}`)
-  - Warning: `BPMN_FLOATING_ELEMENT` (`TIMER_VALUE_APPEARS_FIXED_NO_PLACEHOLDER_FOUND`)
+- **Event Name**: Warning: `BPMN_EVENT_NAME_EMPTY`
+- **Implementation Class**: same as message intermediate throw (element-specific; V2: `MessageEndEvent`)
+- **Field Injections**: same as send task
+
+##### Message Boundary Events
+
+- **Event Name**: Warning: `BPMN_MESSAGE_BOUNDARY_EVENT_NAME_EMPTY`
+- **Message Name**: Error: `BPMN_MESSAGE_BOUNDARY_EVENT_MESSAGE_NAME_EMPTY`
+- **FHIR**: via `BpmnMessageLinter.lintMessageEventDefinition` (ActivityDefinition / StructureDefinition)
+
+##### Field Injection Validation (Message Send / Start / Throw / End / Send Task)
+
+Applies to all elements with message-send field injections (`BpmnFieldInjectionLinter`):
+
+- `profile`: empty → Error `BPMN_FIELD_INJECTION_PROFILE_EMPTY`; missing `#{version}` placeholder → Warning `BPMN_FIELD_INJECTION_PROFILE_NO_VERSION_PLACEHOLDER`; StructureDefinition not found → Warning `BPMN_NO_STRUCTURE_DEFINITION_FOUND_FOR_MESSAGE`
+- `messageName`: empty → Error `BPMN_FIELD_INJECTION_MESSAGE_VALUE_EMPTY`; not a string literal → Error `BPMN_FIELD_INJECTION_NOT_STRING_LITERAL`
+- `instantiatesCanonical`: empty → Error `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_EMPTY`; missing version placeholder → Warning `BPMN_FIELD_INJECTION_INSTANTIATES_CANONICAL_NO_VERSION_PLACEHOLDER`; ActivityDefinition not found → Warning `BPMN_NO_ACTIVITY_DEFINITION_FOUND_FOR_MESSAGE` (cross-check; `messageName` mismatch on ActivityDefinition → Error)
+- Unknown fields → Warning `BPMN_UNKNOWN_FIELD_INJECTION`
+
+##### Timer Events (Intermediate Catch)
+
+All timer findings use `BPMN_FLOATING_ELEMENT` with a **context-specific message** (not the enum default text).
+
+- **Event Name** (timer intermediate catch): empty name — Warning, message: *"Timer Intermediate Catch Event name is empty"*
+- **Timer Type**: at least one of `timeDate`, `timeCycle`, `timeDuration` — Error, message: *"Timer type is empty (no timeDate, timeCycle, or timeDuration)"*
+- **Fixed `timeDate`**: Info, message: *"Timer type is a fixed date/time (timeDate) – please verify if this is intended"*
+- **Placeholder** (`timeCycle` / `timeDuration`): no placeholder — Warning, message: *"Timer value appears fixed (no placeholder found)"*
 
 ##### Error Boundary Events
 
-- **Error Configuration Validation**:
-  - Error reference must be present
-  - Error code must not be empty
-  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_EMPTY`
-  - Error name must not be empty (warning)
-  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_NAME_EMPTY`
-  - Error: `BPMN_ERROR_BOUNDARY_EVENT_NAME_EMPTY`
-  - Error code variable must not be empty
-  - Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_VARIABLE_EMPTY`
+- **Boundary Event Name**: empty — Warning: `BPMN_ERROR_BOUNDARY_EVENT_NAME_EMPTY`
+- **Error Name** (on the error element): empty — Warning: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_NAME_EMPTY`
+- **Error Code**: empty — Error: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_EMPTY`
+- **Error Code Variable** (`camunda:errorCodeVariable`): empty — Warning: `BPMN_ERROR_BOUNDARY_EVENT_ERROR_CODE_VARIABLE_EMPTY`
 
 ##### Signal Events
 
-- **Signal Definition Validation**:
-  - Signal end events must have a non-empty name
-  - Error: `BPMN_SIGNAL_END_EVENT_NAME_EMPTY`
-  - Signal end events must have a signal definition
-  - Error: `BPMN_SIGNAL_END_EVENT_SIGNAL_EMPTY`
-  - Signal intermediate throw events must have a non-empty name
-  - Error: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_NAME_EMPTY`
-  - Signal intermediate throw events must have a signal definition
-  - Error: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_SIGNAL_EMPTY`
-  - Signal definitions must be valid
-  - Signal references must be correct
+**Signal End Event**
 
-##### Conditional Events
+- Empty name — Warning: `BPMN_SIGNAL_END_EVENT_NAME_EMPTY`
+- Missing/empty signal definition — Error: `BPMN_SIGNAL_END_EVENT_SIGNAL_EMPTY`
 
-- **Event Name Validation**:
-  - Conditional Intermediate Catch Event should have a non-empty name
-  - Warning: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_NAME_IS_EMPTY`)
+**Signal Intermediate Throw Event**
 
-- **Variable Name Validation**:
-  - `camunda:variableName` attribute must not be empty
-  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_VARIABLE_NAME_IS_EMPTY`)
+- Empty name — Warning: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_NAME_EMPTY`
+- Missing/empty signal definition — Error: `BPMN_SIGNAL_INTERMEDIATE_THROW_EVENT_SIGNAL_EMPTY`
 
-- **Variable Events Validation**:
-  - `camunda:variableEvents` attribute must not be empty
-  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_VARIABLE_EVENTS_IS_EMPTY`)
+**Signal Intermediate Catch Event**
 
-- **Condition Type Validation**:
-  - `camunda:conditionType` must be set, or a condition expression must be provided (in which case `"expression"` is assumed)
-  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_CONDITION_TYPE_IS_EMPTY`)
+- Empty name — Warning: `BPMN_FLOATING_ELEMENT` (*"Signal Intermediate Catch Event name is empty"*)
+- Missing/empty signal — Error: `BPMN_FLOATING_ELEMENT` (*"Signal is empty in Signal Intermediate Catch Event"*)
 
-- **Condition Expression Validation**:
-  - When condition type is `"expression"`, the condition expression must not be empty
-  - Error: `BPMN_FLOATING_ELEMENT` (`CONDITIONAL_INTERMEDIATE_CATCH_EVENT_CONDITION_TYPE_IS_NOT_EXPRESSION`)
+##### Conditional Events (Intermediate Catch)
+
+All findings use `BPMN_FLOATING_ELEMENT` with a context-specific message.
+
+| Check | Severity | Message (excerpt) |
+|-------|----------|-------------------|
+| Empty event name | WARN | *"Conditional Intermediate Catch Event name is empty"* |
+| Empty `camunda:variableName` | ERROR | *"... variable name is empty"* |
+| Empty `camunda:variableEvents` | ERROR | *"... variableEvents is empty"* |
+| Empty `conditionType` (no condition expression) | ERROR | *"... condition type is empty"* |
+| `conditionType` set but not `expression` | INFO | *"... condition type is not 'expression': …"* |
+| `conditionType` = `expression`, empty expression | ERROR | *"... expression is empty"* |
+
+If a condition expression is present but `conditionType` is missing, `expression` is assumed internally (success item).
 
 #### Gateway and Flow Validation
 
-##### Flow Structure
-
-- **Message Start Event**:
-    - Message-triggered processes must have a message start event
-    - Error: `BPMN_MESSAGE_START_EVENT_NOT_FOUND`
-
 ##### Exclusive Gateways
 
-- **Sequence Flow Validation**:
-  - Outgoing sequence flows must have appropriate names
-  - When multiple outgoing flows exist, gateway must have a name
-  - Error: `BPMN_EXCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
-  - Conditional expressions required when multiple paths exist
-  - Default flow validation
+- When there are **multiple** outgoing sequence flows: gateway name should be set
+    - Warning: `BPMN_EXCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
+- Execution listeners: see [Execution Listeners](#execution-listeners)
 
 ##### Inclusive Gateways
 
-- **Sequence Flow Validation**:
-  - Similar requirements as exclusive gateways
-  - When multiple outgoing flows exist, gateway must have a name
-  - Error: `BPMN_INCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
-  - Multiple path handling
+- When there are **multiple** outgoing sequence flows: gateway name should be set
+    - Warning: `BPMN_INCLUSIVE_GATEWAY_HAS_MULTIPLE_OUTGOING_FLOWS_BUT_NAME_IS_EMPTY`
+- Execution listeners: see [Execution Listeners](#execution-listeners)
 
 ##### Event-Based Gateways
 
-- **Configuration Validation**:
-  - Proper configuration required
-  - Outgoing flow setup validation
+- Only **execution listeners** are validated (classpath / API version); no additional gateway naming or flow rules.
 
 ##### Sequence Flows
 
-- **Naming and Conditions**:
-  - Naming conventions
-  - Conditional expressions for non-default flows from splitting gateways
-  - Error: `BPMN_FLOW_ELEMENT`
+Type `BPMN_FLOW_ELEMENT` with `FlowElementType` in the message:
+
+| Situation | Severity | FlowElementType (internal) |
+|-----------|----------|----------------------------|
+| No source node | ERROR | `SEQUENCE_FLOW_HAS_NO_SOURCE_NODE` |
+| Source with multiple outgoing flows, flow without name | WARN | `SEQUENCE_FLOW_ORIGINATES_FROM_A_SOURCE_WITH_MULTIPLE_OUTGOING_FLOWS_AND_NAME_IS_EMPTY` |
+| Default flow from exclusive/inclusive gateway **with** condition | WARN | `DEFAULT_SEQUENCE_FLOW_HAS_CONDITION_EXPRESSION` |
+| Non-default flow from exclusive/inclusive gateway **without** condition | WARN | `NON_DEFAULT_SEQUENCE_FLOW_IS_MISSING_A_CONDITION_EXPRESSION` |
+
+JSON reports include `flowElementType` for these items. Process-level message start events are validated separately — see [Message Start Event Validation (Process Level)](#message-start-event-validation-process-level) (`BPMN_MESSAGE_START_EVENT_NOT_FOUND`).
 
 #### SubProcess Validation
 
 ##### Multi-Instance SubProcesses
 
 - **Asynchronous Execution**:
-  - `asyncBefore` must be set to `true` for proper asynchronous execution
-  - Required for multi-instance subprocesses
-  - Error: `BPMN_SUB_PROCESS_HAS_MULTI_INSTANCE_BUT_IS_NOT_ASYNC_BEFORE_TRUE`
+    - Multi-instance subprocesses should have `asyncBefore="true"`
+    - Warning: `BPMN_SUB_PROCESS_HAS_MULTI_INSTANCE_BUT_IS_NOT_ASYNC_BEFORE_TRUE`
 
-##### Start/End Events in SubProcesses
+##### Start/End Events (outside / inside subprocesses)
 
-- **Structural Validation**:
-  - Start events must be part of subprocess
-  - Error: `BPMN_START_EVENT_NOT_PART_OF_SUB_PROCESS`
-  - End events must be part of subprocess
-  - Error: `BPMN_END_EVENT_NOT_PART_OF_SUB_PROCESS`
-  - End events inside subprocesses should have `asyncAfter` set to `true`
-  - Error: `BPMN_END_EVENT_INSIDE_SUB_PROCESS_SHOULD_HAVE_ASYNC_AFTER_TRUE`
+- **Generic Start Event** (not in a subprocess): name should be set
+    - Warning: `BPMN_START_EVENT_NOT_PART_OF_SUB_PROCESS` (empty name; the type name refers to start events **outside** a subprocess)
+- **Generic End Event** (not in a subprocess): name should be set
+    - Warning: `BPMN_END_EVENT_NOT_PART_OF_SUB_PROCESS`
+- **End Event in subprocess**: should have `asyncAfter="true"`
+    - Warning: `BPMN_END_EVENT_INSIDE_SUB_PROCESS_SHOULD_HAVE_ASYNC_AFTER_TRUE`
 
-#### Floating Elements
+#### `BPMN_FLOATING_ELEMENT` (note)
 
-- **Element Placement**:
-  - Elements must be properly connected
-  - Error: `BPMN_FLOATING_ELEMENT`
+The type `BPMN_FLOATING_ELEMENT` has the default text *"BPMN element is outside of message start event triggered flow."*, but the code **reuses** it for timer, conditional, and signal catch configuration (see above). There is **no** separate graph/reachability analysis for “floating” elements.
 
 #### Execution Listeners
 
 - **Execution Listener Validation**:
-  - Execution listener classes must exist in the classpath
-  - Error: `BPMN_EXECUTION_LISTENER_CLASS_NOT_FOUND`
+    - Execution listener classes must exist in the classpath
+    - Error: `BPMN_EXECUTION_LISTENER_CLASS_NOT_FOUND`
 
 - **API Version-Specific Requirements**:
-  - **V1 API**:
-    - Execution listener classes must implement `org.camunda.bpm.engine.delegate.ExecutionListener`
-    - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
-  - **V2 API**:
-    - Execution listener classes must implement `dev.dsf.bpe.v2.activity.ExecutionListener`
-    - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
+    - **V1 API**:
+        - Execution listener classes must implement `org.camunda.bpm.engine.delegate.ExecutionListener`
+        - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
+    - **V2 API**:
+        - Execution listener classes must implement `dev.dsf.bpe.v2.activity.ExecutionListener`
+        - Error: `BPMN_EXECUTION_LISTENER_NOT_IMPLEMENTING_REQUIRED_INTERFACE`
 
 #### Unknown Field Injections
 
 - **Field Injection Validation**:
-  - Only known field injections are allowed
-  - Error: `BPMN_UNKNOWN_FIELD_INJECTION`
+    - Only known field injections (`profile`, `messageName`, `instantiatesCanonical`, …) are allowed
+    - Warning: `BPMN_UNKNOWN_FIELD_INJECTION`
 
 ### FHIR Resource Validation
 
@@ -7389,8 +7503,8 @@ The linter validates FHIR resources against DSF-specific profiles and HL7 FHIR s
 #### Unparsable FHIR Resources
 
 - **Resource Parsing**:
-  - FHIR resources must be valid XML or JSON
-  - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
+    - FHIR resources must be valid XML or JSON
+    - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
 
 #### Task Resources
 
@@ -7399,74 +7513,74 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
 ##### Metadata and Profile Validation
 
 - **Profile Validation**:
-  - `meta.profile` must be present and point to a DSF Task profile
-  - Error: `FHIR_TASK_MISSING_PROFILE`
-  - Profile must be loadable
-  - Error: `FHIR_TASK_COULD_NOT_LOAD_PROFILE`
+    - `meta.profile` must be present and point to a DSF Task profile
+    - Error: `FHIR_TASK_MISSING_PROFILE`
+    - Profile must be loadable
+    - Error: `FHIR_TASK_COULD_NOT_LOAD_PROFILE`
 
 - **InstantiatesCanonical Validation**:
-  - `instantiatesCanonical` must be present
-  - Error: `FHIR_TASK_MISSING_INSTANTIATES_CANONICAL`
-  - Must end with version placeholder `|#{version}`
-  - Error: `FHIR_TASK_INSTANTIATES_CANONICAL_PLACEHOLDER`
-  - Must reference existing ActivityDefinition
-  - Error: `FHIR_TASK_UNKNOWN_INSTANTIATES_CANONICAL`
+    - `instantiatesCanonical` must be present
+    - Error: `FHIR_TASK_MISSING_INSTANTIATES_CANONICAL`
+    - Must end with version placeholder `|#{version}`
+    - Error: `FHIR_TASK_INSTANTIATES_CANONICAL_PLACEHOLDER`
+    - Must reference existing ActivityDefinition
+    - Error: `FHIR_TASK_UNKNOWN_INSTANTIATES_CANONICAL`
 
 ##### Fixed Elements
 
 - **Status Validation**:
-  - `status` must be present
-  - Error: `FHIR_TASK_MISSING_STATUS`
-  - Must be `"draft"` for template Task instances
-  - Error: `FHIR_TASK_STATUS_NOT_DRAFT`
-  - Must be a valid TaskStatus value
-  - Error: `FHIR_TASK_UNKNOWN_STATUS`
+    - `status` must be present
+    - Error: `FHIR_TASK_MISSING_STATUS`
+    - Must be `"draft"` for template Task instances
+    - Error: `FHIR_TASK_STATUS_NOT_DRAFT`
+    - Must be a valid TaskStatus value
+    - Error: `FHIR_TASK_UNKNOWN_STATUS`
 
 - **Intent Validation**:
-  - `intent` must be `"order"`
-  - Error: `FHIR_TASK_VALUE_IS_NOT_SET_AS_ORDER`
+    - `intent` must be `"order"`
+    - Error: `FHIR_TASK_VALUE_IS_NOT_SET_AS_ORDER`
 
 - **Requester Validation**:
-  - Requester must be present
-  - Error: `FHIR_TASK_MISSING_REQUESTER`
-  - `requester.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
-  - Error: `FHIR_TASK_INVALID_REQUESTER`
-  - `requester.identifier.value` must be `#{organization}` (development)
-  - Error: `FHIR_TASK_REQUESTER_ORGANIZATION_NO_PLACEHOLDER`
-  - Error: `FHIR_TASK_REQUESTER_ID_NO_PLACEHOLDER`
-  - Error: `FHIR_TASK_REQUESTER_ID_NOT_EXIST`
+    - Requester must be present
+    - Error: `FHIR_TASK_MISSING_REQUESTER`
+    - `requester.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
+    - Error: `FHIR_TASK_INVALID_REQUESTER`
+    - `requester.identifier.value` must be `#{organization}` (development)
+    - Error: `FHIR_TASK_REQUESTER_ORGANIZATION_NO_PLACEHOLDER`
+    - Error: `FHIR_TASK_REQUESTER_ID_NO_PLACEHOLDER`
+    - Error: `FHIR_TASK_REQUESTER_ID_NOT_EXIST`
 
 - **Recipient Validation**:
-  - Recipient must be present
-  - Error: `FHIR_TASK_MISSING_RECIPIENT`
-  - `restriction.recipient.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
-  - Error: `FHIR_TASK_INVALID_RECIPIENT`
-  - `restriction.recipient.identifier.value` must be `#{organization}` (development)
-  - Error: `FHIR_TASK_RECIPIENT_ORGANIZATION_NO_PLACEHOLDER`
-  - Error: `FHIR_TASK_RECIPIENT_ID_NO_PLACEHOLDER`
-  - Error: `FHIR_TASK_RECIPIENT_ID_NOT_EXIST`
+    - Recipient must be present
+    - Error: `FHIR_TASK_MISSING_RECIPIENT`
+    - `restriction.recipient.identifier.system` must be `http://dsf.dev/sid/organization-identifier`
+    - Error: `FHIR_TASK_INVALID_RECIPIENT`
+    - `restriction.recipient.identifier.value` must be `#{organization}` (development)
+    - Error: `FHIR_TASK_RECIPIENT_ORGANIZATION_NO_PLACEHOLDER`
+    - Error: `FHIR_TASK_RECIPIENT_ID_NO_PLACEHOLDER`
+    - Error: `FHIR_TASK_RECIPIENT_ID_NOT_EXIST`
 
 ##### Development Placeholders
 
 - **Date Placeholder**:
-  - `authoredOn` must contain `#{date}`
-  - Error: `FHIR_TASK_DATE_NO_PLACEHOLDER`
+    - `authoredOn` must contain `#{date}`
+    - Error: `FHIR_TASK_DATE_NO_PLACEHOLDER`
 
 ##### Task Identifier Validation
 
 - **System Validation**:
-  - Task identifiers must have a valid system element
-  - Expected system: `http://dsf.dev/sid/task-identifier`
-  - Error: `FHIR_TASK_IDENTIFIER_MISSING_SYSTEM` (when system is missing or empty)
-  - Error: `FHIR_TASK_IDENTIFIER_INVALID_SYSTEM` (when system is set but incorrect)
-  - Success: When the system is correctly set to `http://dsf.dev/sid/task-identifier`
+    - Task identifiers must have a valid system element
+    - Expected system: `http://dsf.dev/sid/task-identifier`
+    - Error: `FHIR_TASK_IDENTIFIER_MISSING_SYSTEM` (when system is missing or empty)
+    - Error: `FHIR_TASK_IDENTIFIER_INVALID_SYSTEM` (when system is set but incorrect)
+    - Success: When the system is correctly set to `http://dsf.dev/sid/task-identifier`
 
 - **Value Format Validation**:
-  - Task identifiers with system `http://dsf.dev/sid/task-identifier` must follow a specific format
-  - Format: `{process-url}/{process-version}/{task-example-name}`
-  - Example: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName`
-  - Error: `FHIR_TASK_IDENTIFIER_INVALID_FORMAT`
-  - Success: When the identifier format is valid
+    - Task identifiers with system `http://dsf.dev/sid/task-identifier` must follow a specific format
+    - Format: `{process-url}/{process-version}/{task-example-name}`
+    - Example: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName`
+    - Error: `FHIR_TASK_IDENTIFIER_INVALID_FORMAT`
+    - Success: When the identifier format is valid
 
 - **Pattern Definition**:
   ```regex
@@ -7475,65 +7589,65 @@ Task resources are validated against the DSF Task base profile (`http://dsf.dev/
   The pattern accepts both actual version numbers (e.g., `1.0`) and placeholders (e.g., `#{version}`) for development-time validation.
 
 - **Valid Examples**:
-  - ✅ System: `http://dsf.dev/sid/task-identifier`
-  - ✅ Value: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName` (with actual version)
-  - ✅ Value: `http://test.org/bpe/Process/someProcessName/#{version}/someExampleName` (with placeholder)
-  - ✅ Value: `https://dsf.dev/bpe/Process/myProcess/2.5/startTask`
-  - ✅ Value: `http://medizininformatik-initiative.de/bpe/Process/coordinateDataSharing/#{version}/coordinateDataSharing`
+    - ✅ System: `http://dsf.dev/sid/task-identifier`
+    - ✅ Value: `http://test.org/bpe/Process/someProcessName/1.0/someExampleName` (with actual version)
+    - ✅ Value: `http://test.org/bpe/Process/someProcessName/#{version}/someExampleName` (with placeholder)
+    - ✅ Value: `https://dsf.dev/bpe/Process/myProcess/2.5/startTask`
+    - ✅ Value: `http://medizininformatik-initiative.de/bpe/Process/coordinateDataSharing/#{version}/coordinateDataSharing`
 
 - **Invalid Examples**:
-  - ❌ System missing or empty
-  - ❌ System: `http://wrong.system/identifier` (wrong system URL)
-  - ❌ Value: `http://test.org/someProcessName/1.0/taskName` (missing `/bpe/Process/` segment)
-  - ❌ Value: `http://test.org/bpe/Process/myProcess/1/taskName` (version must be in `X.Y` format, e.g. `1.0`)
-  - ❌ Empty or blank identifier value
+    - ❌ System missing or empty
+    - ❌ System: `http://wrong.system/identifier` (wrong system URL)
+    - ❌ Value: `http://test.org/someProcessName/1.0/taskName` (missing `/bpe/Process/` segment)
+    - ❌ Value: `http://test.org/bpe/Process/myProcess/1/taskName` (version must be in `X.Y` format, e.g. `1.0`)
+    - ❌ Empty or blank identifier value
 
 - **DSF Framework Reference**:
-  - Based on the DSF NamingSystem definition: `http://dsf.dev/sid/task-identifier`
-  - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
+    - Based on the DSF NamingSystem definition: `http://dsf.dev/sid/task-identifier`
+    - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
 
 ##### Task.input Validation
 
 - **Input Presence**:
-  - `Task.input` must not be empty
-  - Error: `FHIR_TASK_MISSING_INPUT`
+    - `Task.input` must not be empty
+    - Error: `FHIR_TASK_MISSING_INPUT`
 
 - **Structural Validation**:
-  - Each input must have `type.coding.system` and `type.coding.code`
-  - Error: `FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`
-  - Each input must have a `value[x]` element
-  - Error: `FHIR_TASK_INPUT_MISSING_VALUE`
+    - Each input must have `type.coding.system` and `type.coding.code`
+    - Error: `FHIR_TASK_INPUT_REQUIRED_CODING_SYSTEM_AND_CODING_CODE`
+    - Each input must have a `value[x]` element
+    - Error: `FHIR_TASK_INPUT_MISSING_VALUE`
 
 - **Duplicate Detection**:
-  - No two inputs may share the same `system#code` combination
-  - Error: `FHIR_TASK_INPUT_DUPLICATE_SLICE`
+    - No two inputs may share the same `system#code` combination
+    - Error: `FHIR_TASK_INPUT_DUPLICATE_SLICE`
 
 - **BPMN Slice Validation**:
-  - `message-name` slice: Required (min=1, max=1)
-    - Error: `FHIR_TASK_REQUIRED_INPUT_WITH_CODE_MESSAGE_NAME`
-  - `business-key` slice:
-    - Required when status is "in-progress", "completed", or "failed"
-    - Error: `FHIR_TASK_STATUS_REQUIRED_INPUT_BUSINESS_KEY`
-    - Must be absent when status is "draft"
-    - Error: `FHIR_TASK_BUSINESS_KEY_EXISTS`
-    - Business key validation may be skipped in certain conditions
-    - Warning: `FHIR_TASK_BUSINESS_KEY_CHECK_IS_SKIPPED`
-  - `correlation-key` slice:
-    - Validated against StructureDefinition cardinality
-    - Error: `FHIR_TASK_CORRELATION_EXISTS`
-    - Error: `FHIR_TASK_CORRELATION_MISSING_BUT_REQUIRED`
+    - `message-name` slice: Required (min=1, max=1)
+        - Error: `FHIR_TASK_REQUIRED_INPUT_WITH_CODE_MESSAGE_NAME`
+    - `business-key` slice:
+        - Required when status is "in-progress", "completed", or "failed"
+        - Error: `FHIR_TASK_STATUS_REQUIRED_INPUT_BUSINESS_KEY`
+        - Must be absent when status is "draft"
+        - Error: `FHIR_TASK_BUSINESS_KEY_EXISTS`
+        - Business key validation may be skipped in certain conditions
+        - Warning: `FHIR_TASK_BUSINESS_KEY_CHECK_IS_SKIPPED`
+    - `correlation-key` slice:
+        - Validated against StructureDefinition cardinality
+        - Error: `FHIR_TASK_CORRELATION_EXISTS`
+        - Error: `FHIR_TASK_CORRELATION_MISSING_BUT_REQUIRED`
 
 - **Cardinality Validation**:
-  - Total input count validated against base cardinality
-  - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_BELOW_MIN`
-  - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_EXCEEDS_MAX`
-  - Slice occurrence counts validated against slice-specific cardinality
-  - Error: `FHIR_TASK_INPUT_SLICE_COUNT_BELOW_SLICE_MIN`
-  - Error: `FHIR_TASK_INPUT_SLICE_COUNT_EXCEEDS_SLICE_MAX`
+    - Total input count validated against base cardinality
+    - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_BELOW_MIN`
+    - Error: `FHIR_TASK_INPUT_INSTANCE_COUNT_EXCEEDS_MAX`
+    - Slice occurrence counts validated against slice-specific cardinality
+    - Error: `FHIR_TASK_INPUT_SLICE_COUNT_BELOW_SLICE_MIN`
+    - Error: `FHIR_TASK_INPUT_SLICE_COUNT_EXCEEDS_SLICE_MAX`
 
-  - **Terminology Validation**:
-    - Generic coding validation (outside `Task.input.type.coding`) checks code/system pairs against known DSF CodeSystems
-    - Error: `FHIR_TASK_UNKNOWN_CODE`
+    - **Terminology Validation**:
+        - Generic coding validation (outside `Task.input.type.coding`) checks code/system pairs against known DSF CodeSystems
+        - Error: `FHIR_TASK_UNKNOWN_CODE`
 
 - **Task.input.type.coding Terminology Validation (binding-driven)**:
     - Validation for `Task.input.type.coding` is performed in three strict, ordered checks:
@@ -7584,58 +7698,58 @@ StructureDefinition resources are validated against DSF-specific constraints.
 ##### Metadata Validation
 
 - **Read Access Tag**:
-  - Must contain valid read-access tag
-  - Error: `STRUCTURE_DEFINITION_READ_ACCESS_TAG_MISSING`
+    - Must contain valid read-access tag
+    - Error: `STRUCTURE_DEFINITION_READ_ACCESS_TAG_MISSING`
 
 - **URL Validation**:
-  - `url` must be present and non-empty
-  - Error: `STRUCTURE_DEFINITION_URL_MISSING`
+    - `url` must be present and non-empty
+    - Error: `STRUCTURE_DEFINITION_URL_MISSING`
 
 - **Status Validation**:
-  - `status` must be `"unknown"` (DSF convention)
-  - Error: `STRUCTURE_DEFINITION_INVALID_STATUS`
+    - `status` must be `"unknown"` (DSF convention)
+    - Error: `STRUCTURE_DEFINITION_INVALID_STATUS`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
-  - `version` must contain exactly `#{version}`
-  - Error: `STRUCTURE_DEFINITION_VERSION_NO_PLACEHOLDER`
+    - `version` must contain exactly `#{version}`
+    - Error: `STRUCTURE_DEFINITION_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
-  - `date` must contain exactly `#{date}`
-  - Error: `STRUCTURE_DEFINITION_DATE_NO_PLACEHOLDER`
+    - `date` must contain exactly `#{date}`
+    - Error: `STRUCTURE_DEFINITION_DATE_NO_PLACEHOLDER`
 
 ##### Structure Validation
 
 - **Differential**:
-  - `differential` element must exist
-  - Error: `STRUCTURE_DEFINITION_DIFFERENTIAL_MISSING`
+    - `differential` element must exist
+    - Error: `STRUCTURE_DEFINITION_DIFFERENTIAL_MISSING`
 
 - **Snapshot**:
-  - `snapshot` element should not be present (warning)
-  - Error: `STRUCTURE_DEFINITION_SNAPSHOT_PRESENT`
+    - `snapshot` element should not be present
+    - Warning: `STRUCTURE_DEFINITION_SNAPSHOT_PRESENT`
 
 - **Element IDs**:
-  - Every `element` must have an `@id` attribute
-  - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_MISSING`
-  - Element IDs must be unique
-  - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_DUPLICATE`
+    - Every `element` must have an `@id` attribute
+    - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_MISSING`
+    - Element IDs must be unique
+    - Error: `STRUCTURE_DEFINITION_ELEMENT_ID_DUPLICATE`
 
 ##### Slice Cardinality Validation
 
 According to FHIR profiling specification §5.1.0.14:
 
-- **SHOULD Rule**:
-  - Sum of all slice minimum cardinalities should be ≤ base element's minimum
-  - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_ABOVE_BASE_MIN`
+- **SHOULD Rule** (FHIR Profiling §5.1.0.14; reported as Error by the linter):
+    - Sum of all slice minimum cardinalities should be ≤ base element's minimum
+    - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_ABOVE_BASE_MIN`
 
 - **MUST Rule (Min Sum)**:
-  - Sum of all slice minimum cardinalities must not exceed base element's maximum
-  - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_EXCEEDS_MAX`
+    - Sum of all slice minimum cardinalities must not exceed base element's maximum
+    - Error: `STRUCTURE_DEFINITION_SLICE_MIN_SUM_EXCEEDS_MAX`
 
 - **MUST Rule (Slice Max)**:
-  - No individual slice's maximum cardinality may exceed base element's maximum
-  - Error: `STRUCTURE_DEFINITION_SLICE_MAX_TOO_HIGH`
+    - No individual slice's maximum cardinality may exceed base element's maximum
+    - Error: `STRUCTURE_DEFINITION_SLICE_MAX_TOO_HIGH`
 
 ##### Binding and Fixed Coding Validation
 - **`binding.valueSet` Reference Validation**:
@@ -7662,81 +7776,81 @@ ValueSet resources are validated against the DSF ValueSet base profile.
 ##### Metadata Validation
 
 - **Read Access Tags**:
-  - Must contain at least one read-access tag (ALL or LOCAL)
-  - Error: `FHIR_VALUE_SET_MISSING_READ_ACCESS_TAG_ALL_OR_LOCAL`
-  - Organization role codes must be valid
-  - Error: `FHIR_VALUE_SET_ORGANIZATION_ROLE_MISSING_VALID_CODE_VALUE`
+    - Must contain at least one read-access tag (ALL or LOCAL)
+    - Error: `FHIR_VALUE_SET_MISSING_READ_ACCESS_TAG_ALL_OR_LOCAL`
+    - Organization role codes must be valid
+    - Error: `FHIR_VALUE_SET_ORGANIZATION_ROLE_MISSING_VALID_CODE_VALUE`
 
 - **Required Elements**:
-  - `url` must be present
-  - Error: `FHIR_VALUE_SET_MISSING_URL`
-  - `name` must be present
-  - Error: `FHIR_VALUE_SET_MISSING_NAME`
-  - `title` must be present
-  - Error: `FHIR_VALUE_SET_MISSING_TITLE`
-  - `publisher` must be present
-  - Error: `FHIR_VALUE_SET_MISSING_PUBLISHER`
-  - `description` must be present
-  - Error: `FHIR_VALUE_SET_MISSING_DESCRIPTION`
+    - `url` must be present
+    - Error: `FHIR_VALUE_SET_MISSING_URL`
+    - `name` must be present
+    - Error: `FHIR_VALUE_SET_MISSING_NAME`
+    - `title` must be present
+    - Error: `FHIR_VALUE_SET_MISSING_TITLE`
+    - `publisher` must be present
+    - Error: `FHIR_VALUE_SET_MISSING_PUBLISHER`
+    - `description` must be present
+    - Error: `FHIR_VALUE_SET_MISSING_DESCRIPTION`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
-  - `version` must be `#{version}`
-  - Error: `FHIR_VALUE_SET_VERSION_NO_PLACEHOLDER`
+    - `version` must be `#{version}`
+    - Error: `FHIR_VALUE_SET_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
-  - `date` must be `#{date}`
-  - Error: `FHIR_VALUE_SET_DATE_NO_PLACEHOLDER`
+    - `date` must be `#{date}`
+    - Error: `FHIR_VALUE_SET_DATE_NO_PLACEHOLDER`
 
 - **Include Version Placeholder**:
-  - `compose.include.version` must be `#{version}`
-  - Error: `FHIR_VALUE_SET_INCLUDE_VERSION_NO_PLACEHOLDER`
+    - `compose.include.version` must be `#{version}`
+    - Error: `FHIR_VALUE_SET_INCLUDE_VERSION_NO_PLACEHOLDER`
 
 ##### Compose Structure Validation
 
 - **Include Elements**:
-  - At least one `compose.include` required
-  - Error: `FHIR_VALUE_SET_MISSING_COMPOSE_INCLUDE`
-  - Each include must have a `system` attribute
-  - Error: `FHIR_VALUE_SET_INCLUDE_MISSING_SYSTEM`
+    - At least one `compose.include` required
+    - Error: `FHIR_VALUE_SET_MISSING_COMPOSE_INCLUDE`
+    - Each include must have a `system` attribute
+    - Error: `FHIR_VALUE_SET_INCLUDE_MISSING_SYSTEM`
 
 - **Concept Validation**:
-  - Concept codes must be non-blank
-  - Error: `FHIR_VALUE_SET_CONCEPT_MISSING_CODE`
-  - Duplicate codes detected
-  - Error: `FHIR_VALUE_SET_DUPLICATE_CONCEPT_CODE`
+    - Concept codes must be non-blank
+    - Error: `FHIR_VALUE_SET_CONCEPT_MISSING_CODE`
+    - Duplicate codes detected
+    - Error: `FHIR_VALUE_SET_DUPLICATE_CONCEPT_CODE`
 
 ##### Terminology Compliance
 
 - **CodeSystem Validation**:
-  - CodeSystem URLs validated against DSF terminology cache
-  - Warn: `FHIR_VALUE_SET_UNKNOWN_CODE`
-  - Code exists but in different CodeSystem
-  - Error: `FHIR_VALUE_SET_FALSE_URL_REFERENCED`
+    - CodeSystem URLs validated against DSF terminology cache
+    - Warning: `FHIR_VALUE_SET_UNKNOWN_CODE` (unknown code or missing system/code on include)
+    - Code exists but in different CodeSystem
+    - Error: `FHIR_VALUE_SET_FALSE_URL_REFERENCED`
 
 #### ActivityDefinition Resources
 
 ##### Profile Validation
 
 - **Profile**:
-  - Must have valid profile
-  - Error: `ACTIVITY_DEFINITION_MISSING_PROFILE`
-  - Profile must not have version number
-  - Error: `ACTIVITY_DEFINITION_PROFILE_NO_PLACEHOLDER`
+    - Must have valid profile
+    - Error: `ACTIVITY_DEFINITION_MISSING_PROFILE`
+    - Profile must not have version number
+    - Error: `ACTIVITY_DEFINITION_PROFILE_NO_PLACEHOLDER`
 
 ##### URL Validation
 
 - **URL Presence**:
-  - URL must be present and non-empty
-  - Error: `INVALID_FHIR_URL`
+    - URL must be present and non-empty
+    - Error: `INVALID_FHIR_URL`
 
 - **URL Pattern Validation**:
-  - ActivityDefinition URL must follow a specific pattern
-  - Format: `http[s]://domain/bpe/Process/processName`
-  - Example: `http://dsf.dev/bpe/Process/test`
-  - Error: `ACTIVITY_DEFINITION_INVALID_URL_PATTERN`
-  - Success: When the URL pattern is valid
+    - ActivityDefinition URL must follow a specific pattern
+    - Format: `http[s]://domain/bpe/Process/processName`
+    - Example: `http://dsf.dev/bpe/Process/test`
+    - Error: `ACTIVITY_DEFINITION_INVALID_URL_PATTERN`
+    - Success: When the URL pattern is valid
 
 - **Pattern Definition**:
   ```regex
@@ -7744,227 +7858,227 @@ ValueSet resources are validated against the DSF ValueSet base profile.
   ```
 
 - **Valid Examples**:
-  - ✅ `http://dsf.dev/bpe/Process/test`
-  - ✅ `https://example.org/bpe/Process/my-process`
-  - ✅ `http://test.example.com/bpe/Process/process123`
+    - ✅ `http://dsf.dev/bpe/Process/test`
+    - ✅ `https://example.org/bpe/Process/my-process`
+    - ✅ `http://test.example.com/bpe/Process/process123`
 
 - **Invalid Examples**:
-  - ❌ `http://dsf.dev/Process/test` (missing `/bpe/`)
-  - ❌ `http://dsf.dev/bpe/Process/test_invalid` (underscore not allowed in processName)
-  - ❌ `http://dsf.dev/bpe/Process/` (missing processName)
-  - ❌ `ftp://dsf.dev/bpe/Process/test` (only http/https allowed)
+    - ❌ `http://dsf.dev/Process/test` (missing `/bpe/`)
+    - ❌ `http://dsf.dev/bpe/Process/test_invalid` (underscore not allowed in processName)
+    - ❌ `http://dsf.dev/bpe/Process/` (missing processName)
+    - ❌ `ftp://dsf.dev/bpe/Process/test` (only http/https allowed)
 
 - **DSF Framework Reference**:
-  - Based on the DSF Framework requirement defined in:
-  - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
-  - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
+    - Based on the DSF Framework requirement defined in:
+    - `dsf-bpe/dsf-bpe-process-api/src/main/java/dev/dsf/bpe/api/plugin/AbstractProcessPlugin.java`
+    - See: [DSF Framework Repository](https://github.com/datasharingframework/dsf)
 
 ##### Status Validation
 
 - **Status**:
-  - Status must be valid
-  - Error: `INVALID_FHIR_STATUS`
+    - Status must be valid
+    - Error: `INVALID_FHIR_STATUS`
 
 ##### Authorization Validation
 
 - **Requester**:
-  - Requester entry must be present
-  - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_REQUESTER`
-  - Requester entry must be valid
-  - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_REQUESTER`
+    - Requester entry must be present
+    - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_REQUESTER`
+    - Requester entry must be valid
+    - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_REQUESTER`
 
 - **Recipient**:
-  - Recipient entry must be present
-  - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_RECIPIENT`
-  - Recipient entry must be valid
-  - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_RECIPIENT`
+    - Recipient entry must be present
+    - Error: `ACTIVITY_DEFINITION_ENTRY_MISSING_RECIPIENT`
+    - Recipient entry must be valid
+    - Error: `ACTIVITY_DEFINITION_ENTRY_INVALID_RECIPIENT`
 
 #### CodeSystem Resources
 
 ##### Metadata Validation
 
 - **Read Access Tag**:
-  - Must have read access tag
-  - Error: `MISSING_READ_ACCESS_TAG`
+    - Must have read access tag
+    - Error: `MISSING_READ_ACCESS_TAG`
 
 - **Required Elements**:
-  - Required elements must be present
-  - Error: `CODE_SYSTEM_MISSING_ELEMENT`
+    - Required elements must be present
+    - Error: `CODE_SYSTEM_MISSING_ELEMENT`
 
 ##### URL Validation
 
 - **URL Format**:
-  - URL must be valid
-  - Error: `INVALID_FHIR_URL`
+    - URL must be valid
+    - Error: `INVALID_FHIR_URL`
 
 ##### Status Validation
 
 - **Status**:
-  - Status must be valid
-  - Error: `CODE_SYSTEM_INVALID_STATUS`
+    - Status must be valid
+    - Error: `CODE_SYSTEM_INVALID_STATUS`
 
 ##### Concept Validation
 
 - **Concepts**:
-  - Must have at least one concept
-  - Error: `CODE_SYSTEM_MISSING_CONCEPT`
-  - Concepts must have code
-  - Error: `CODE_SYSTEM_CONCEPT_MISSING_CODE`
-  - Concepts must have display
-  - Error: `CODE_SYSTEM_CONCEPT_MISSING_DISPLAY`
-  - Duplicate codes detected
-  - Error: `CODE_SYSTEM_DUPLICATE_CODE`
+    - Must have at least one concept
+    - Error: `CODE_SYSTEM_MISSING_CONCEPT`
+    - Concepts must have code
+    - Error: `CODE_SYSTEM_CONCEPT_MISSING_CODE`
+    - Concepts must have display
+    - Error: `CODE_SYSTEM_CONCEPT_MISSING_DISPLAY`
+    - Duplicate codes detected
+    - Error: `CODE_SYSTEM_DUPLICATE_CODE`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
-  - Version must be `#{version}`
-  - Error: `CODE_SYSTEM_VERSION_NO_PLACEHOLDER`
+    - Version must be `#{version}`
+    - Error: `CODE_SYSTEM_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
-  - Date must be `#{date}`
-  - Error: `CODE_SYSTEM_DATE_NO_PLACEHOLDER`
+    - Date must be `#{date}`
+    - Error: `CODE_SYSTEM_DATE_NO_PLACEHOLDER`
 
 #### Questionnaire Resources
 
 ##### Metadata Validation
 
 - **Meta Profile**:
-  - Must have meta profile
-  - Error: `QUESTIONNAIRE_MISSING_META_PROFILE`
-  - Meta profile must be valid
-  - Error: `QUESTIONNAIRE_INVALID_META_PROFILE`
+    - Should have meta profile
+    - Warning: `QUESTIONNAIRE_MISSING_META_PROFILE`
+    - Meta profile must be valid
+    - Warning: `QUESTIONNAIRE_INVALID_META_PROFILE`
 
 - **Read Access Tag**:
-  - Must have read access tag
-  - Error: `QUESTIONNAIRE_MISSING_READ_ACCESS_TAG`
+    - Must have read access tag
+    - Error: `QUESTIONNAIRE_MISSING_READ_ACCESS_TAG`
 
 ##### Status Validation
 
 - **Status**:
-  - Status must be valid
-  - Error: `QUESTIONNAIRE_INVALID_STATUS`
+    - Status must be valid
+    - Error: `QUESTIONNAIRE_INVALID_STATUS`
 
 ##### Item Validation
 
 - **Items**:
-  - Must have at least one item
-  - Error: `QUESTIONNAIRE_MISSING_ITEM`
-  - Items must have linkId
-  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_LINK_ID`
-  - Items must have text
-  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TEXT`
-  - Items must have type
-  - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TYPE`
-  - Link IDs must be unique
-  - Error: `QUESTIONNAIRE_DUPLICATE_LINK_ID`
-  - Unusual link IDs detected
-  - Error: `QUESTIONNAIRE_UNUSUAL_LINK_ID`
+    - Must have at least one item
+    - Error: `QUESTIONNAIRE_MISSING_ITEM`
+    - Items must have linkId
+    - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_LINK_ID`
+    - Items should have text
+    - Info: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TEXT`
+    - Items must have type
+    - Error: `QUESTIONNAIRE_ITEM_MISSING_ATTRIBUTES_TYPE`
+    - Link IDs must be unique
+    - Error: `QUESTIONNAIRE_DUPLICATE_LINK_ID`
+    - Unusual link IDs detected
+    - Warning: `QUESTIONNAIRE_UNUSUAL_LINK_ID`
 
 ##### Mandatory Item Validation
 
 - **Required Items**:
-  - Mandatory items must be required
-  - Error: `QUESTIONNAIRE_MANDATORY_ITEM_NOT_REQUIRED`
-  - Mandatory items must have valid type
-  - Error: `QUESTIONNAIRE_MANDATORY_ITEM_INVALID_TYPE`
+    - Mandatory items must be required
+    - Error: `QUESTIONNAIRE_MANDATORY_ITEM_NOT_REQUIRED`
+    - Mandatory items must have valid type
+    - Error: `QUESTIONNAIRE_MANDATORY_ITEM_INVALID_TYPE`
 
 ##### Placeholder Validation
 
 - **Version Placeholder**:
-  - Version must be `#{version}`
-  - Error: `QUESTIONNAIRE_VERSION_NO_PLACEHOLDER`
+    - Version must be `#{version}`
+    - Error: `QUESTIONNAIRE_VERSION_NO_PLACEHOLDER`
 
 - **Date Placeholder**:
-  - Date must be `#{date}`
-  - Error: `QUESTIONNAIRE_DATE_NO_PLACEHOLDER`
+    - Date must be `#{date}`
+    - Error: `QUESTIONNAIRE_DATE_NO_PLACEHOLDER`
 
 #### Common FHIR Validations
 
 ##### Access Tag Validation
 
 - **Read Access Tag**:
-  - Must have read access tag
-  - Error: `MISSING_FHIR_ACCESS_TAG`
-  - Access tag must be valid
-  - Error: `INVALID_FHIR_ACCESS_TAG`
+    - Must have read access tag
+    - Error: `MISSING_FHIR_ACCESS_TAG`
+    - Access tag must be valid
+    - Error: `INVALID_FHIR_ACCESS_TAG`
 
 ##### Kind Validation
 
 - **Kind**:
-  - Kind must be present
-  - Error: `INVALID_FHIR_KIND`
-  - Kind must be "Task" for Task resources
-  - Error: `FHIR_KIND_NOT_SET_AS_TASK`
+    - Kind must be present
+    - Error: `INVALID_FHIR_KIND`
+    - Kind must be "Task" for Task resources
+    - Error: `FHIR_KIND_NOT_SET_AS_TASK`
 
 ##### Status Validation
 
 - **Status**:
-  - Status must be "unknown" (DSF convention)
-  - Error: `FHIR_STATUS_IS_NOT_SET_AS_UNKNOWN`
+    - Status must be "unknown" (DSF convention)
+    - Error: `FHIR_STATUS_IS_NOT_SET_AS_UNKNOWN`
 
 ##### Extension Validation
 
 - **Process Authorization Extension**:
-  - Must have process authorization extension
-  - Error: `NO_EXTENSION_PROCESS_AUTHORIZATION_FOUND`
+    - Must have process authorization extension
+    - Error: `NO_EXTENSION_PROCESS_AUTHORIZATION_FOUND`
 
 ### Plugin Configuration Validation
 
 #### ServiceLoader Registration
 
 - **Registration File**:
-  - **V1 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v1.ProcessPluginDefinition`
-  - **V2 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v2.ProcessPluginDefinition`
-  - Error: `PLUGIN_DEFINITION_MISSING_SERVICE_LOADER_REGISTRATION`
-  - Plugin class must be loadable
-  - Error: `PLUGIN_DEFINITION_PROCESS_PLUGIN_RESOURCE_NOT_LOADED`
+    - **V1 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v1.ProcessPluginDefinition`
+    - **V2 API**: Must be registered in `META-INF/services/dev.dsf.bpe.v2.ProcessPluginDefinition`
+    - Error: `PLUGIN_DEFINITION_MISSING_SERVICE_LOADER_REGISTRATION`
+    - Plugin class must be loadable
+    - Error: `PLUGIN_DEFINITION_PROCESS_PLUGIN_RESOURCE_NOT_LOADED`
 
 #### Resource References
 
 - **BPMN File References**:
-  - BPMN files referenced in plugin must exist
-  - Error: `PLUGIN_DEFINITION_BPMN_FILE_NOT_FOUND`
-  - BPMN files must be in expected root
-  - Error: `PLUGIN_DEFINITION_BPMN_FILE_OUTSIDE_ROOT`
-  - BPMN files must be parsable
-  - Error: `PLUGIN_DEFINITION_UNPARSABLE_BPMN_RESOURCE`
+    - BPMN files referenced in plugin must exist
+    - Error: `PLUGIN_DEFINITION_BPMN_FILE_NOT_FOUND`
+    - BPMN files must be in expected root
+    - Error: `PLUGIN_DEFINITION_BPMN_FILE_OUTSIDE_ROOT`
+    - BPMN files must be parsable
+    - Error: `PLUGIN_DEFINITION_UNPARSABLE_BPMN_RESOURCE`
 
 - **FHIR File References**:
-  - FHIR resources referenced in BPMN must exist
-  - Error: `PLUGIN_DEFINITION_FHIR_RESOURCE_NOT_FOUND`
-  - FHIR resources must be in expected root
-  - Error: `PLUGIN_DEFINITION_FHIR_FILE_OUTSIDE_ROOT`
-  - FHIR resources must be parsable
-  - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
+    - FHIR resources referenced in BPMN must exist
+    - Error: `PLUGIN_DEFINITION_FHIR_RESOURCE_NOT_FOUND`
+    - FHIR resources must be in expected root
+    - Error: `PLUGIN_DEFINITION_FHIR_FILE_OUTSIDE_ROOT`
+    - FHIR resources must be parsable
+    - Error: `PLUGIN_DEFINITION_UNPARSABLE_FHIR_RESOURCE`
 
 #### Resource Presence
 
 - **BPMN Processes**:
-  - At least one BPMN process must be defined
-  - Error: `PLUGIN_DEFINITION_NO_PROCESS_MODEL_DEFINED`
+    - At least one BPMN process must be defined
+    - Error: `PLUGIN_DEFINITION_NO_PROCESS_MODEL_DEFINED`
 
 - **FHIR Resources**:
-  - At least one FHIR resource must be defined
-  - Error: `PLUGIN_DEFINITION_NO_FHIR_RESOURCES_DEFINED`
+    - At least one FHIR resource must be defined
+    - Error: `PLUGIN_DEFINITION_NO_FHIR_RESOURCES_DEFINED`
 
 #### Version Validation
 
 ##### Resource Version Validation
 
 - **Version Pattern Requirement**:
-  - Plugin version must follow the pattern: `d.d.d.d` (e.g., `1.0.0.1`, `2.5.3.10`)
-  - Resource version is derived from the first two numbers (e.g., `1.0` from `1.0.0.1`)
-  - Error: `PLUGIN_DEFINITION_RESOURCE_VERSION_NULL`
+    - Plugin version must follow the pattern: `d.d.d.d` (e.g., `1.0.0.1`, `2.5.3.10`)
+    - Resource version is derived from the first two numbers (e.g., `1.0` from `1.0.0.1`)
+    - Error: `PLUGIN_DEFINITION_RESOURCE_VERSION_NULL`
 
 - **Valid Examples**:
-  - ✅ Version `1.0.0.1` → Resource Version `1.0`
-  - ✅ Version `2.5.3.10` → Resource Version `2.5`
+    - ✅ Version `1.0.0.1` → Resource Version `1.0`
+    - ✅ Version `2.5.3.10` → Resource Version `2.5`
 
 - **Invalid Examples**:
-  - ❌ Version `1.0.0` (missing fourth number)
-  - ❌ Version `1.0` (only two numbers)
-  - ❌ Version `invalid` (non-numeric)
+    - ❌ Version `1.0.0` (missing fourth number)
+    - ❌ Version `1.0` (only two numbers)
+    - ❌ Version `invalid` (non-numeric)
 
 - **Pattern Definition**:
   ```regex
@@ -7972,116 +8086,105 @@ ValueSet resources are validated against the DSF ValueSet base profile.
   ```
 
 - **DSF Framework Reference**:
-  - This validation is based on the DSF Framework requirement defined in:
-  - `dsf-bpe/dsf-bpe-process-api-v2/src/main/java/dev/dsf/bpe/v2/ProcessPluginDefinition.java`
-  - The `getResourceVersion()` method extracts the resource version from the plugin version
+    - This validation is based on the DSF Framework requirement defined in:
+    - `dsf-bpe/dsf-bpe-process-api-v2/src/main/java/dev/dsf/bpe/v2/ProcessPluginDefinition.java`
+    - The `getResourceVersion()` method extracts the resource version from the plugin version
 
 #### Spring Configuration Registration
 
 In the DSF runtime, the Camunda engine does not instantiate Java delegate or
 listener classes directly. Spring creates those instances via `@Bean` methods
-declared in `@Configuration` classes. For those beans to be available to the
-BPE at runtime, the corresponding `@Configuration` classes must be explicitly
-returned by `ProcessPluginDefinition#getSpringConfigurations()`. Forgetting
-to add a `@Bean` for a BPMN-referenced class typically surfaces as a
-`BeanCreationException` or `ClassNotFoundException` only at deployment time.
+declared in `@Configuration` classes returned by
+`ProcessPluginDefinition#getSpringConfigurations()`. A missing registration
+typically surfaces only at deployment as `BeanCreationException` /
+`ClassNotFoundException`.
 
-- **Every BPMN-referenced class must be provided as a `@Bean`**:
-    - The linter collects every `camunda:class` reference used by
-      `serviceTask`, `sendTask`, `messageEventDefinition`,
-      `camunda:executionListener` and `camunda:taskListener` elements in the
-      plugin's BPMN files (List 1).
-    - The linter calls `getSpringConfigurations()` to get the registered
-      `@Configuration` classes and inspects the return types of their
-      `@Bean` methods (List 2).
-    - For every class in List 1, the linter checks whether it is provided
-      as a `@Bean` (exact type or supertype) in any `@Configuration` from
-      List 2.
-    - If a BPMN-referenced class has **no matching `@Bean`** in any
-      registered configuration, this is reported as an error.
-    - Error: `PLUGIN_DEFINITION_SPRING_CONFIGURATION_MISSING`
-    - Success: `SUCCESS` when all BPMN delegate/listener references are
-      covered by a `@Bean` in a registered `@Configuration`, or when no
-      BPMN delegate/listener references exist.
+The linter (`SpringConfigurationLinter`) collects every `camunda:class`
+reference from `serviceTask`, `sendTask`, message throw/end events,
+`camunda:executionListener` and `camunda:taskListener` elements, then checks
+coverage against the registered configurations.
 
-- **Code Example**:
-  ```java
-  @Override
-  public List<Class<?>> getSpringConfigurations() {
-      return List.of(DataSharingConfig.class, DataSharingVariablesConfig.class);
-  }
-  ```
-  ```java
-  @Configuration
-  public class DataSharingConfig {
+##### API V1 — `@Bean` per activity
 
-      // Every class referenced via camunda:class in the BPMN must have
-      // a corresponding @Bean here (or in another registered @Configuration).
-      @Bean
-      public SelectDicTargets selectDicTargets() {
-          return new SelectDicTargets(api);
-      }
+- Each BPMN-referenced class must be provided as a `@Bean` (exact type or
+  assignable supertype) in a registered `@Configuration`.
+- Error: `PLUGIN_DEFINITION_SPRING_CONFIGURATION_MISSING`
+- Success: `SUCCESS` when all references are covered (or none exist)
 
-      @Bean
-      public SelectDmsTarget selectDmsTarget() {
-          return new SelectDmsTarget(api);
-      }
-  }
-  ```
+```java
+@Configuration
+public class DataSharingConfig {
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public SelectDicTargets selectDicTargets() {
+        return new SelectDicTargets(api);
+    }
+}
+```
+
+##### API V2 — `ActivityPrototypeBeanCreator` (preferred)
+
+API V2 may register activities via
+`dev.dsf.bpe.v2.spring.ActivityPrototypeBeanCreator`, which creates prototype
+beans from the `Class` literals passed to its constructor. That is the preferred
+registration path for V2 activities.
+
+| Situation | Severity | Type |
+|-----------|----------|------|
+| Not in APBC and not a prototype `@Bean` | ERROR | `PLUGIN_DEFINITION_ACTIVITY_PROTOTYPE_BEAN_MISSING` |
+| Registered only via APBC | SUCCESS | `SPRING_ACTIVITY_PROTOTYPE_BEAN_CREATOR` |
+| Registered via APBC **and** as a dedicated `@Bean` | WARN | `SPRING_ACTIVITY_REGISTERED_TWICE` |
+| Declared as `@Bean` but **not** passed to APBC | WARN | `SPRING_ACTIVITY_REGISTERED_AS_BEAN` |
+
+```java
+@Configuration
+public class PingPongConfig {
+    @Bean
+    public static ActivityPrototypeBeanCreator activityPrototypeBeanCreator() {
+        return new ActivityPrototypeBeanCreator(
+                SelectDicTargets.class,
+                SelectDmsTarget.class
+        );
+    }
+}
+```
+
 #### Spring Bean Scope (`SpringConfigurationLinter`)
 
-In Camunda and the Data Sharing Framework (DSF), Spring beans that act as delegates, execution listeners, or task listeners should usually be configured with **prototype** scope (`SCOPE_PROTOTYPE`). If the `@Scope` annotation is omitted, Spring defaults to **singleton**. That can be acceptable for strictly stateless classes; as soon as someone adds mutable instance state, the risk of race conditions and hard-to-debug concurrency bugs rises sharply—often only visible under load.
+Delegates, execution listeners, and task listeners should usually use
+**prototype** scope (`SCOPE_PROTOTYPE`). Omitting `@Scope` defaults Spring to
+**singleton**, which is risky once mutable instance state is introduced.
 
-After a BPMN-referenced class is **covered** by a `@Bean` in a registered `@Configuration` (see [Spring Configuration Registration](#spring-configuration-registration)), the linter inspects the covering `@Bean` method for `@Scope` and the referenced implementation class for **mutable** instance fields (not `static`, not `final`). Emitted rules:
+After a BPMN-referenced class is **covered**, the linter inspects scope (APBC
+registrations are always treated as prototype) and mutable instance fields
+(not `static`, not `final`):
 
-   - **Success** – `SPRING_BEAN_SCOPE_PROTOTYPE`: `@Scope` is **prototype** (e.g. `ConfigurableBeanFactory.SCOPE_PROTOTYPE` or `@Scope("prototype")`). No further scope items for that reference in this pass.
-   - **Error** – `SPRING_BEAN_SCOPE_MUTABLE_SINGLETON`: The bean is **effectively singleton** (missing `@Scope` *or* explicit non-prototype scope such as `singleton`) **and** the referenced class has **mutable** instance fields. Emitted **once** per reference before the following warnings.
-   - **Warning** – `SPRING_BEAN_SCOPE_MISSING`: The covering `@Bean` has **no** `@Scope` (Spring’s default is singleton, which is risky for Camunda hooks unless the implementation is provably stateless).
-   - **Warning** – `SPRING_BEAN_SCOPE_SINGLETON_EXPLICIT`: `@Scope` is **explicitly** set to a **non-prototype** value (typically `singleton`); the developer should verify that the delegate or listener is safe to share across process instances.
+| Situation | Severity | Type |
+|-----------|----------|------|
+| `@Scope` is prototype | SUCCESS | `SPRING_BEAN_SCOPE_PROTOTYPE` |
+| Effectively singleton **and** mutable fields | ERROR | `SPRING_BEAN_SCOPE_MUTABLE_SINGLETON` |
+| No `@Scope` (Spring default singleton) | WARN | `SPRING_BEAN_SCOPE_MISSING` |
+| Explicit non-prototype `@Scope` | WARN | `SPRING_BEAN_SCOPE_SINGLETON_EXPLICIT` |
 
-  **Why this matters:** The rule stays aligned with DSF wiring (only configurations from `getSpringConfigurations()`) and surfaces dangerous combinations—singleton or default-singleton scope plus mutable instance state—before they appear in production.
-
-  **Example scenarios**
-
-   *Missing `@Scope` → warning (and error if the delegate/listener class has mutable instance fields)*
-
-  ```java
-  @Bean
-  // Missing @Scope annotation
-  public SetCorrelationKeyListener setCorrelationKeyListener() {
-      return new SetCorrelationKeyListener(api);
-  }
-  ```
-
-  *Explicit singleton → warning (and error if mutable instance fields exist)*
-  ```java
-  @Bean
-  @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // or @Scope("singleton")
-  public SetCorrelationKeyListener setCorrelationKeyListener() {
-  return new SetCorrelationKeyListener(api);
-  }
-  ```
-  *Prototype (recommended) → success*
-  ```java 
-  @Bean
-  @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // or @Scope("prototype")
-  public SetCorrelationKeyListener setCorrelationKeyListener() {
-  return new SetCorrelationKeyListener(api);
-  }
-  ```
+```java
+@Bean
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // recommended
+public SetCorrelationKeyListener setCorrelationKeyListener() {
+    return new SetCorrelationKeyListener(api);
+}
+```
 #### Leftover Resource Detection
 
-The linter performs project-level analysis to identify unreferenced resources:
+Project-wide analysis: files under the resources root that are not referenced in any `ProcessPluginDefinition`.
 
-- **Unreferenced BPMN Files**:
-  - BPMN files that are not referenced by any plugin
-  - Reported as warnings
+| Resource | LintingType | Severity | Message (excerpt) |
+|----------|-------------|----------|-------------------|
+| BPMN | `PLUGIN_DEFINITION_PROCESS_PLUGIN_RESOURCE_NOT_LOADED` | WARN | *"BPMN file exists but is not referenced in ProcessPluginDefinition"* |
+| FHIR | `PLUGIN_DEFINITION_PROCESS_PLUGIN_RESOURCE_NOT_LOADED` | WARN | *"FHIR file exists but is not referenced in ProcessPluginDefinition"* |
 
-- **Unreferenced FHIR Resources**:
-  - FHIR resources that are not referenced by any BPMN process
-  - Reported as warnings
+When all files are referenced: project-level `SUCCESS`. In multi-plugin projects, leftover findings are assigned to plugins (see `LeftoverResourceDetector`).
 
-This analysis works uniformly for single-plugin and multi-plugin projects.
+Note: Unreferenced resources **within** a plugin (e.g. FHIR used only from BPMN) are covered by other rules (`PLUGIN_DEFINITION_FHIR_RESOURCE_NOT_FOUND`, FHIR references in BPMN) — not by leftover detection.
 
 ---
 
@@ -8136,30 +8239,37 @@ The linter executes in five phases:
    - For each discovered plugin:
      - Validates BPMN processes
      - Validates FHIR resources
-     - Validates plugin configuration
+     - Validates plugin configuration (ServiceLoader, Spring/`ActivityPrototypeBeanCreator`, scope)
      - Collects lint items
 
-2. **Project-Level Analysis**:
+2. **Exclusion Filtering** (optional):
+   - Applies rules from `dsf-linter-exclusions.json` / `--exclusions` / `dsf.lint.exclusionsFile`
+   - Removes matched items from report output
+   - Depending on `affectsExitStatus`, excluded ERRORs may still count toward failure
+
+3. **Project-Level Analysis**:
    - Performs leftover resource analysis
    - Aggregates referenced resources across all plugins
    - Identifies unreferenced resources
 
-3. **Result Aggregation**:
+4. **Result Aggregation**:
    - Combines results from all plugins
    - Calculates totals (errors, warnings)
-   - Determines overall success status
+   - Determines overall success status (`failOnErrors` / `--no-fail`)
+
+If no plugin definition is found, Phase 3 emits `PLUGIN_DEFINITION_NO_PLUGIN_FOUND` and continues to report generation instead of aborting.
 
 #### Phase 4: Report Generation
 
 1. **HTML Report Generation**:
-   - Generates summary page
-   - Generates detailed plugin pages
-   - Applies templates and styling
+   - Generates master report (`report.html`)
+   - Generates per-plugin reports (`<plugin-name>/lints.html`)
+   - Embeds source files with navigation and highlighting
 
 2. **JSON Report Generation** (if requested):
-   - Serializes all results to JSON
-   - Includes metadata and statistics
-   - Provides machine-readable format
+   - Writes master report (`report.json`) and per-plugin reports (`<plugin-name>/lints.json`)
+   - Serializes results grouped by severity
+   - Includes discovery and leftover analysis metadata
 
 #### Phase 5: Summary
 
@@ -8180,21 +8290,49 @@ Source: https://dsf.dev/process-development/linter-tool/troubleshooting.html
 
 ## Troubleshooting
 
-### "Input must be a JAR file" Error
+### Maven: JAR not found / lint skipped
 
-**Problem**: The linter only accepts JAR files as input.
+**Problem**: `DSF Linter: JAR not found at …, skipping` or the `lint` goal does nothing useful.
+
+**Solution**:
+- Ensure the plugin JAR exists: `${project.build.directory}/${project.build.finalName}.jar`
+- Run a phase that builds the JAR first, e.g. `mvn verify` or `mvn package` then `mvn dsf-maven-plugin:lint`
+- Confirm the `lint` execution is bound in the process plugin `pom.xml`
+
+### Maven: build fails on lint errors
+
+**Problem**: `MojoFailureException` with error counts after `verify`.
 
 **Solution**:
 ```bash
-# Wrong - Maven project directly
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path /path/to/project --html
+# Inspect HTML/JSON reports
+mvn verify -Ddsf.lint.html=true -Ddsf.lint.json=true
 
-# Correct - Build first, then lint JAR
+# Temporary: do not fail the build (gradual adoption)
+mvn verify -Ddsf.lint.failOnErrors=false
+
+# Skip lint entirely
+mvn verify -Ddsf.lint.skip=true
+```
+
+Use [exclusion rules](./linter-tool.md#exclusion-rules) for known accepted findings.
+
+### "Input must be a JAR file" Error (CLI)
+
+**Problem**: The CLI only accepts JAR files as input.
+
+**Solution**:
+```bash
+# Wrong - Maven project directory
+java -jar linter-cli-0.1.3.jar --path /path/to/project --html
+
+# Correct - build first, then lint the JAR
 cd /path/to/project && mvn clean package
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli-0.1.3.jar \
   --path /path/to/project/target/my-plugin-1.0.0.jar --html
 ```
+
+Prefer `dsf-maven-plugin:lint` in process plugin builds so packaging and linting stay in one lifecycle.
 
 ### JAR File Not Found
 
@@ -8204,30 +8342,31 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 ```bash
 # Windows
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli-0.1.3.jar \
   --path "C:\Users\Username\project\target\plugin.jar" --html
 
 # Linux/Mac
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+java -jar linter-cli-0.1.3.jar \
   --path /home/username/project/target/plugin.jar --html
 ```
 
-### Missing Dependencies
+### Missing Dependencies / Class Hierarchy False Positives
 
-**Problem**: ClassNotFoundException or similar errors during linting.
+**Problem**: ClassNotFoundException or false “does not implement …” findings during linting.
 
 **Solution**:
 ```bash
-# Check Maven settings
-ls ~/.m2/settings.xml
+# Use verbose mode
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html --verbose
 
-# Use verbose mode to see detailed error messages
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path plugin.jar --html --verbose
+# Or with Maven
+mvn verify -Ddsf.lint.verbose=true -Ddsf.lint.html=true
 
-# Check if dependencies are in the JAR
+# Ensure the plugin JAR contains the expected classes
 jar -tf plugin.jar | grep -i "class"
 ```
+
+Use **linter-cli / linter-core 0.1.3+** (0.1.2 already fixed several V1 hierarchy false positives caused by missing Spring classes in the shaded CLI).
 
 ### Report Not Generated
 
@@ -8235,16 +8374,16 @@ jar -tf plugin.jar | grep -i "class"
 
 **Solution**:
 ```bash
-# --html or --json flag must be set
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path plugin.jar --html  # ← Required
+# CLI: --html and/or --json must be set
+java -jar linter-cli-0.1.3.jar --path plugin.jar --html
 
-# Use absolute path for report directory
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
+# Maven: enable report flags
+mvn verify -Ddsf.lint.html=true -Ddsf.lint.json=true
+
+# Custom report directory
+java -jar linter-cli-0.1.3.jar \
   --path plugin.jar --html --report-path $(pwd)/reports
-
-# Check write permissions
-ls -ld /tmp/dsf-linter-report-*
+mvn verify -Ddsf.lint.reportPath=target/custom-linter-report -Ddsf.lint.html=true
 ```
 
 ### Remote JAR Download Error
@@ -8253,30 +8392,36 @@ ls -ld /tmp/dsf-linter-report-*
 
 **Solution**:
 ```bash
-# Test download separately
 curl -L -o test.jar https://example.com/plugin.jar
-
-# Verify the download
 ls -lh test.jar
-
-# Check network connectivity
-ping example.com
-
-# Then use the local file
-java -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path test.jar --html
+java -jar linter-cli-0.1.3.jar --path test.jar --html
 ```
 
-### Plugin Not Found
+### Plugin Not Found / `PLUGIN_DEFINITION_NO_PLUGIN_FOUND`
 
-**Problem**: "No plugins found" message.
+**Problem**: ERROR that no `ProcessPluginDefinition` was found.
+
+**Behaviour in 0.1.3+**: The run does **not** abort mid-flight. Regular HTML/JSON reports are still written. Exit/build failure follows `failOnErrors` / `--no-fail`.
 
 **Solution**:
-- Verify ServiceLoader registration exists in `META-INF/services/`
-- Check that plugin class is in the JAR file
-- Ensure plugin class implements the correct interface
-- Use `--verbose` to see detailed discovery logs
-- Check API version compatibility
+- Verify ServiceLoader registration under `META-INF/services/`:
+  - `dev.dsf.bpe.v1.ProcessPluginDefinition` and/or
+  - `dev.dsf.bpe.v2.ProcessPluginDefinition`
+- Ensure the registered class is present in the JAR and implements the correct interface
+- Check for `ServiceConfigurationError` details in verbose logs (e.g. “not a subtype”)
+- Confirm API version compatibility of the plugin JAR
+
+### Exclusion File Not Applied
+
+**Problem**: Findings that should be excluded still appear.
+
+**Solution**:
+- Prefer an **explicit** path (especially for Maven module roots):
+  - CLI: `--exclusions path/to/file.json`
+  - Maven: `-Ddsf.lint.exclusionsFile=${project.basedir}/dsf-linter-exclusions.json`
+- Auto-discovery only finds `dsf-linter-exclusions.json` in the **extracted JAR root** (not automatically the Maven basedir unless the file is packaged there)
+- Rule fields are AND-combined within a rule; check `type` / `severity` / `file` / `messageContains` spelling
+- Invalid/empty rules cause load failure — check the log for exclusion load errors
 
 ### Out of Memory Errors
 
@@ -8284,35 +8429,32 @@ java -jar linter-cli/target/linter-cli-0.1.2.jar \
 
 **Solution**:
 ```bash
-# Increase heap size
-java -Xmx2g -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path plugin.jar --html
+java -Xmx2g -jar linter-cli-0.1.3.jar --path plugin.jar --html
 
 # For very large projects
-java -Xmx4g -Xms1g -jar linter-cli/target/linter-cli-0.1.2.jar \
-  --path plugin.jar --html
+java -Xmx4g -Xms1g -jar linter-cli-0.1.3.jar --path plugin.jar --html
 ```
+
+For Maven, set `MAVEN_OPTS` accordingly.
 
 ### Slow Performance
 
 **Problem**: Linting takes too long.
 
 **Solution**:
-- Use `-DskipTests` during build
-- Disable verbose logging in production
-- Check network latency for remote JARs
+- Use `-DskipTests` during local builds when iterating
+- Disable verbose logging in production CI unless needed
+- Prefer local JARs over remote URLs when possible
 - Consider increasing heap size
-- Profile with JVM tools if needed
 
 ### Class Loading Issues
 
 **Problem**: Classes cannot be loaded from plugin JAR.
 
 **Solution**:
-- Verify JAR structure
-- Check classpath configuration
-- Ensure dependencies are included
-- Use verbose mode to see classloader logs
+- Verify JAR structure (`META-INF/services`, `bpe/`, `fhir/`)
+- Ensure dependencies needed for hierarchy checks are available (shaded CLI includes Spring artifacts since 0.1.2)
+- Use verbose mode to inspect classloader / discovery logs
 - Check API version compatibility
 
 ---
@@ -8813,12 +8955,12 @@ Data Sharing Framework 2.x is the new upcoming release of the Data Sharing Frame
 
 # System Administrators
 
-- [Install DSF 2.1.1](install)
-- [Upgrade from DSF 1.9.0](upgrade-from-1)
+- [Install DSF 2.1.3](install)
+- [Upgrade from DSF 2.1.2](upgrade-from-2)
 
 
 ## New features
-- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.1)
+- See [Release Notes](https://github.com/datasharingframework/dsf/releases/tag/v2.1.3)
 
 <!--
 This breaks the page with a 
@@ -8839,7 +8981,7 @@ The **DSF BPE Reverse Proxy** is an Apache HTTP Server based front for the [BPE 
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/bpe_proxy`](https://github.com/datasharingframework/dsf/pkgs/container/bpe_proxy)
-- Tag for this release: `2.1.1`
+- Tag for this release: `2.1.3`
 
 ## Verify Image Signature
 
@@ -8847,7 +8989,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe_proxy:2.1.1@sha256:cabedb0ed04191ae82d9d64ad141ee9ef2a3420daba777ca223700a61cad9285 \
+  ghcr.io/datasharingframework/bpe_proxy:2.1.3@sha256:aaf8d6caad0a60f13885ed08d8f43431a552aeb7049eb8f1a93ff0c535719d2b \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -8869,7 +9011,7 @@ The **DSF Business Process Engine (BPE)** executes the BPMN 2.0 workflows that d
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/bpe`](https://github.com/datasharingframework/dsf/pkgs/container/bpe)
-- Tag for this release: `2.1.1`
+- Tag for this release: `2.1.3`
 
 ## Verify Image Signature
 
@@ -8877,7 +9019,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/bpe:2.1.1@sha256:cc88a676806e835b1b35ab7f1e5e231b537a10668b24bd8999180f6dc22b5513 \
+  ghcr.io/datasharingframework/bpe:2.1.3@sha256:faea3800b035b0565f139b2c85fff3bb98fdba961dc4ad1759269e26fe63e703 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -9780,7 +9922,7 @@ The **DSF FHIR Reverse Proxy** is the externally reachable Apache HTTP Server ba
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/fhir_proxy`](https://github.com/datasharingframework/dsf/pkgs/container/fhir_proxy)
-- Tag for this release: `2.1.1`
+- Tag for this release: `2.1.3`
 
 ## Verify Image Signature
 
@@ -9788,7 +9930,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir_proxy:2.1.1@sha256:70792c0783b53a94a706ad671dae726e3a9b18bad1711042d700860edc544b36 \
+  ghcr.io/datasharingframework/fhir_proxy:2.1.3@sha256:266d4dd4f080d2069fd57ff6691fc0819bd9c1c9ede472fcd5b4fc0c8d324e70 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -9810,7 +9952,7 @@ The **DSF FHIR Server** exposes the HL7 FHIR R4 REST API that other DSF instance
 ## Docker Image
 
 - Registry: [`ghcr.io/datasharingframework/fhir`](https://github.com/datasharingframework/dsf/pkgs/container/fhir)
-- Tag for this release: `2.1.1`
+- Tag for this release: `2.1.3`
 
 ## Verify Image Signature
 
@@ -9818,7 +9960,7 @@ Verify the signed image before deploying. See [How to Verify Image Signatures](.
 
 ```bash
 cosign verify \
-  ghcr.io/datasharingframework/fhir:2.1.1@sha256:708188c5f03224f4a5adf84ae2297c7161c86590d5b392eb7338a91e4fe7b5f3 \
+  ghcr.io/datasharingframework/fhir:2.1.3@sha256:8c411d26561544787e5cbe68a159b6cdf0f046d01e2b12960317164e4da357b8 \
   --certificate-identity-regexp "https://github.com/datasharingframework/dsf/.*" \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
