@@ -48,10 +48,10 @@ export const releases: Record<string, Release> = {
     tag: '2.1.3',
     previousTag: '2.1.2',
     images: {
-      fhir:       { digest: 'sha256:TODO' },
-      fhir_proxy: { digest: 'sha256:TODO' },
-      bpe:        { digest: 'sha256:TODO' },
-      bpe_proxy:  { digest: 'sha256:TODO' },
+      fhir:       { digest: 'sha256:8c411d26561544787e5cbe68a159b6cdf0f046d01e2b12960317164e4da357b8' },
+      fhir_proxy: { digest: 'sha256:266d4dd4f080d2069fd57ff6691fc0819bd9c1c9ede472fcd5b4fc0c8d324e70' },
+      bpe:        { digest: 'sha256:faea3800b035b0565f139b2c85fff3bb98fdba961dc4ad1759269e26fe63e703' },
+      bpe_proxy:  { digest: 'sha256:aaf8d6caad0a60f13885ed08d8f43431a552aeb7049eb8f1a93ff0c535719d2b' },
     },
   },
 };
