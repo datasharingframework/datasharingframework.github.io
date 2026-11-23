@@ -2,7 +2,7 @@
 title: "Operaton powers DSF across Germany"
 date: 2026-11-16
 type: "news"
-excerpt: ""
+excerpt: "Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This article highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure."
 article: true
 category: 
   - News
@@ -13,9 +13,7 @@ tags:
   - DSF v2
 
 ---
-In the second quarter 2026, the DSF community reached an important milestone with the successful migration of all participating sites to [DSF v2.1.0](2026-11-16-dsfv2.1.0.md). All 38 participating German university hospitals, along with five additional research sites within the Medical Informatics Initiative, are now running the latest DSF version.
-
-During this rollout, Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This successful production rollout highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure.
+In the second quarter 2026, the DSF community reached an important milestone with the successful migration of all participating sites to [DSF v2.1.0](2026-11-16-dsfv2.1.0.md). Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This successful production rollout highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure.
 
 Our transition to Operaton began with the [DSF 2.0 architecture roadmap](2025-10-02-operaton-DSF-2.0.md), which introduced Operaton as the new process engine for the next generation of the platform. Following extensive testing and a coordinated rollout, Operaton is now running in production across the entire network.
 

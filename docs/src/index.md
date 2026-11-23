@@ -40,14 +40,14 @@ The **Data Sharing Framework (DSF)** is a concept for a secure middleware to dis
 
 ## [News](/news/)
 
-**Operaton powers DSF across Germany!**
-During the DSF 2.1.x rollout, Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This article highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure.
-**[Read more](posts/2026-11-16-operaton-powers-dsf.md)**
+**43 Sites, One Shared Foundation: DSF 2.1.0 Successfully Rolled Out**
+In the second quarter of 2026, the coordinated rollout of [DSF 2.1.0](/operations/v2.1.0/release-notes.html) was successfully completed. All 43 participating sites, 38 German university hospitals and five additional research sites within the Medical Informatics Initiative (MII) and the Network University Medicine (NUM) are now running DSF 2.x in production. This marks a major milestone for the DSF community: for the first time, all participating production sites share a common DSF 2.x technical foundation.
+**[Read more](posts/2026-11-16-dsfv2.1.0.md)**
 
 ---
-**43 Sites, One Shared Foundation: DSF 2.1.0 Successfully Rolled Out**
-In the second quarter of 2026, the coordinated rollout of [DSF 2.1.0](/operations/v2.1.0/release-notes.html) was successfully completed. All 43 participating sites — 38 German university hospitals and five additional research sites within the Medical Informatics Initiative (MII) — are now running DSF 2.x in production. This marks a major milestone for the DSF community: for the first time, all participating production sites share a common DSF 2.x technical foundation.
-**[Read more](posts/2026-11-16-dsfv2.1.0.md)**
+**Operaton powers DSF across Germany!**
+Operaton plays an integral role in powering the business process engine across the network, supporting its reliable operation across the medical research data infrastructure. This article highlights Operaton's contribution to advancing Germany's sustainable, federated research data infrastructure.
+**[Read more](posts/2026-11-16-operaton-powers-dsf.md)**
 
 ---
 ![ =350x](/photos/news/springschool2026.png#right)
