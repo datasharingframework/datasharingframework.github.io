@@ -29,7 +29,8 @@ icon: blog
 - [Migration experiences from Camunda 7 to Operaton for DSF 2.0 ](https://www.youtube.com/watch?v=sdjm1wqGMMM)
 
 #### Miracum Difuture Kolloquium 2024
-- [MII Modul 2 Verbundprojekt „Data Sharing Framework Community“](https://sites.google.com/master-bids.de/miracum-difuture-kolloquium/archiv/2024/2024-02-20_data-sharing-framework-community)
+- [MII Modul 2 Verbundprojekt „Data Sharing Framework Community“](https://www.youtube.com/watch?v=skLCte4KQuo)
+- [Folien](https://www.miracum.org/files/2026/02/2024-02-20_Das-MII-Modul-2-Verbundprojekt-Data-Sharing-Framework-Community.pdf)
 
 #### GMDS Conference 2022
 - [Hands On! - Introduction to the Data Sharing Framework from a User Perspective ](https://www.youtube.com/playlist?list=PLsHs7HOt6jDMe3PNevpo-uGsDTWVSMsYZ)
