@@ -1,0 +1,58 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/bpmn-message",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DsfBpmnMessage",
+      "title" : "DSF BPMN message values",
+      "description" : "ValueSet with standard BPMN message values for Task resources",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/bpmn-message"]
+    },
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/organization-role",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DSF_Organization_Role",
+      "title" : "DSF Organization Role",
+      "description" : "ValueSet with DSF organization roles used in OrganizationAffiliation resources",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/organization-role"]
+    },
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/practitioner-role",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DSF_Practitioner_Role",
+      "title" : "DSF Practitioner Role",
+      "description" : "ValueSet with DSF practitioner roles used in OrganizationAffiliation resources",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/practitioner-role"]
+    },
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-recipient",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DSF_Process_Authorization_Recipient",
+      "title" : "DSF Process Authorization Recipient",
+      "description" : "ValueSet with proces authorization codes for recipients",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/process-authorization"]
+    },
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/process-authorization-requester",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DSF_Process_Authorization_Requester",
+      "title" : "DSF Process Authorization Requester",
+      "description" : "ValueSet with proces authorization codes for requesters",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/process-authorization"]
+    },
+    {
+      "url" : "http://dsf.dev/fhir/ValueSet/read-access-tag",
+      "version" : "2.0.0",
+      "status" : "active",
+      "name" : "DSF_Read_Access_Tag",
+      "title" : "DSF Read Access Tag",
+      "description" : "ValueSet with read access tags",
+      "systems" : ["http://dsf.dev/fhir/CodeSystem/read-access-tag"]
+    }
+  ]
+}
